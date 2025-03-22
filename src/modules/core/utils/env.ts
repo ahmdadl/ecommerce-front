@@ -3,4 +3,7 @@ export const env = {
     isDev: import.meta.env.VITE_ENVIRONMENT === 'development',
     apiUrl: import.meta.env.VITE_API_URL,
     apiKey: import.meta.env.VITE_API_KEY,
+    appName: import.meta.env.VITE_APP_NAME,
+    appCode: import.meta.env.VITE_APP_CODE,
+    encryptionKey: import.meta.env.VITE_ENCRYPTION_KEY,
 };

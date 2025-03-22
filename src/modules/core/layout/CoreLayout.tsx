@@ -3,7 +3,7 @@ import { default as useLocaleStore } from '../stores/localeStore';
 
 export default function CoreLayout() {
     const { locale } = useParams();
-    const setLocale = useLocaleStore((store) => store.setLocale);
+    const setLocale = useLocaleStore.use.setLocale();
 
     setLocale(locale || 'en');
 

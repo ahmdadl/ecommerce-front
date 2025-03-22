@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import createZustandSelectors from '../utils/zustand/create-zustand-selectors';
 
 interface LocaleStoreState {
     locale: string;
@@ -7,7 +8,7 @@ interface LocaleStoreState {
     setLocale: (newLocale: string) => void;
 }
 
-const useLocaleStore = create<LocaleStoreState>((set, get) => ({
+const localeStore = create<LocaleStoreState>((set, get) => ({
     locale: 'en',
 
     // computed values
@@ -17,5 +18,7 @@ const useLocaleStore = create<LocaleStoreState>((set, get) => ({
     // Actions to update state (optional, added for completeness)
     setLocale: (newLocale) => set({ locale: newLocale }),
 }));
+
+const useLocaleStore = createZustandSelectors(localeStore);
 
 export default useLocaleStore;
