@@ -9,7 +9,14 @@ interface UserStoreState {
     email: string;
     phone: string;
     role: string;
-    token: string;
+    access_token: string;
+    totals: {
+        cartItems: number;
+        comparedItems: number;
+        orders: number;
+        totalPurchased: number;
+        wishlistItems: number;
+    };
     isGuest: () => boolean;
     isCustomer: () => boolean;
     login: (user: any) => void;
@@ -25,8 +32,14 @@ const userStore = create<UserStoreState>()(
                 email: '',
                 phone: '',
                 role: '',
-                token: '',
-
+                access_token: '',
+                totals: {
+                    cartItems: 0,
+                    comparedItems: 0,
+                    orders: 0,
+                    totalPurchased: 0,
+                    wishlistItems: 0,
+                },
                 isGuest: () => get().role === 'guest',
                 isCustomer: () => get().role === 'customer',
 
@@ -36,7 +49,7 @@ const userStore = create<UserStoreState>()(
                         name: user.name,
                         email: user.email,
                         role: user.role,
-                        token: user.token,
+                        access_token: user.access_token,
                     }),
                 logout: () =>
                     set({
@@ -44,7 +57,7 @@ const userStore = create<UserStoreState>()(
                         name: '',
                         email: '',
                         role: '',
-                        token: '',
+                        access_token: '',
                     }),
             }),
             {

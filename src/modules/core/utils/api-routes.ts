@@ -19,15 +19,34 @@ interface RegisterData {
 
 // API endpoints
 export const api = {
-    login: (credentials: LoginCredentials) =>
-        http.post<{ user: User; token: string }>('/auth/login', credentials),
+    auth: {
+        getUser: () => http.get<User>('/auth/user'),
 
-    register: (userData: RegisterData) =>
-        http.post<{ user: User; token: string }>('/auth/register', userData),
+        guest: {
+            login: () =>
+                http.post<{ user: User; token: string }>('/login/guests'),
 
-    logout: () => http.post<void>('/auth/logout'),
+            register: (userData: RegisterData) =>
+                http.post<{ user: User; token: string }>('/register', userData),
 
-    getUserProfile: () => http.get<User>('/users/profile'),
+            forgetPassword: (email: string) =>
+                http.post<{ success: boolean }>('/forget-password', { email }),
 
-    updateUser: (data: Partial<User>) => http.put<User>('/users/profile', data),
+            resetPassword: (
+                password: string,
+                password_confirmation: string,
+                otp: string
+            ) =>
+                http.post<{ user: User; token: string }>('/reset-password', {
+                    password,
+                    password_confirmation,
+                    otp,
+                }),
+        },
+
+        login: (credentials: LoginCredentials) =>
+            http.post<{ user: User; token: string }>('/login', credentials),
+
+        logout: () => http.post<void>('/logout'),
+    },
 };
