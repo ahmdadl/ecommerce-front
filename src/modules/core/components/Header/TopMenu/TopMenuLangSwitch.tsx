@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import useLocaleStore from '@/modules/core/stores/localeStore';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 import { LanguagesIcon } from 'lucide-react';
 import { Link } from 'react-router';
 

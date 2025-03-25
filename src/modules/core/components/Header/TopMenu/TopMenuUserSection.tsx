@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 import { BarChart2, Heart, LogOut, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router';
 

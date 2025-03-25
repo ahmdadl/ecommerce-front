@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 import { Home, LayoutGrid, Search, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router';
+import useNavbarStore from '../../stores/navbar-store';
 
 export function BottomMenu() {
     const isLoggedIn = true;
@@ -52,6 +53,9 @@ export function BottomMenu() {
                     variant='ghost'
                     className='flex flex-col items-center justify-center h-full'
                     asChild
+                    onClick={() =>
+                        useNavbarStore.setState({ isCartOpened: true })
+                    }
                 >
                     <Link to='/Cart' className='px-6'>
                         <ShoppingCart className='h-5 w-5' />

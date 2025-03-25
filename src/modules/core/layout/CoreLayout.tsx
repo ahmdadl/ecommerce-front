@@ -1,8 +1,8 @@
 import { Outlet, useParams } from 'react-router';
 import { BottomMenu } from '../components/BottomMenu/BottomMenu';
 import Header from '../components/Header';
-import Shared from '../components/Shared';
-import { default as useLocaleStore } from '../stores/localeStore';
+import LayoutShared from '../components/LayoutShared/LayoutShared';
+import useLocaleStore from '../stores/localeStore';
 
 export default function CoreLayout() {
     const { locale } = useParams();
@@ -17,7 +17,8 @@ export default function CoreLayout() {
             <Outlet />
 
             <BottomMenu />
-            <Shared />
+
+            <LayoutShared />
         </main>
     );
 }

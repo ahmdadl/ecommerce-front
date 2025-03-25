@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import useNavbarStore from '@/modules/core/stores/navbar-store';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 import { BarChart2, Heart, Search, ShoppingCart } from 'lucide-react';
 
 export default function TopMenuActions() {
@@ -26,6 +26,7 @@ export default function TopMenuActions() {
             <Button
                 variant={'outline'}
                 className='flex items-center hover:text-primary'
+                onClick={() => useNavbarStore.setState({ isCartOpened: true })}
             >
                 <div className='relative'>
                     <ShoppingCart className='h-5 w-5' />
@@ -44,6 +45,9 @@ export default function TopMenuActions() {
             <Button
                 variant={'outline'}
                 className='flex items-center hover:text-primary'
+                onClick={() =>
+                    useNavbarStore.setState({ isWishlistOpened: true })
+                }
             >
                 <div className='relative'>
                     <Heart className='h-5 w-5' />
