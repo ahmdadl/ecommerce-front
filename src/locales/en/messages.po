@@ -24,3 +24,9 @@ msgstr "Home"
 #: src/modules/home/components/HomeBanner.tsx:6
 msgid "HomeBanner"
 msgstr "HomeBanner"
+
+msgid "enLocale"
+msgstr "English"
+
+msgid "arLocale"
+msgstr "العربية"

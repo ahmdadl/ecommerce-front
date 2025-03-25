@@ -23,7 +23,7 @@ interface UserStoreState {
     logout: () => void;
 }
 
-const userStore = create<UserStoreState>()(
+export const userStore = create<UserStoreState>()(
     devtools(
         persist(
             (set, get) => ({

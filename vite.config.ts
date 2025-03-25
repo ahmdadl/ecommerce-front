@@ -13,7 +13,6 @@ export default defineConfig({
             },
         }),
         lingui(),
-        ,
         tailwindcss(),
     ],
     resolve: {
