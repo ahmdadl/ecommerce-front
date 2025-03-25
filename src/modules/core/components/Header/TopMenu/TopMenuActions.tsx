@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import useNavbarStore from '@/modules/core/stores/navbar-store';
 import { Trans } from '@lingui/macro';
 import { BarChart2, Heart, Search, ShoppingCart } from 'lucide-react';
 
@@ -13,7 +14,9 @@ export default function TopMenuActions() {
             <Button
                 variant='outline'
                 className='xl:hidden flex p-2 hover:text-primary'
-                // onClick={() => setSearchOpen(!searchOpen)}
+                onClick={() =>
+                    useNavbarStore.setState({ isSearchOpened: true })
+                }
                 aria-label='Search'
             >
                 <Search className='h-5 w-5' />

@@ -1,6 +1,7 @@
 import { Outlet, useParams } from 'react-router';
 import { BottomMenu } from '../components/BottomMenu/BottomMenu';
 import Header from '../components/Header';
+import Shared from '../components/Shared';
 import { default as useLocaleStore } from '../stores/localeStore';
 
 export default function CoreLayout() {
@@ -16,6 +17,7 @@ export default function CoreLayout() {
             <Outlet />
 
             <BottomMenu />
+            <Shared />
         </main>
     );
 }
