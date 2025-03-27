@@ -12,7 +12,7 @@ export default function CoreLayout() {
     setLocale(locale || 'en');
 
     return (
-        <main className='min-h-screen max-w-[1440px] mx-auto'>
+        <main className='min-h-screen  mx-auto'>
             <Header />
 
             <Outlet />
