@@ -1,6 +1,4 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { ShoppingCart, Star } from 'lucide-react';
+import ProductCard from '@/modules/shop/components/ProductCard';
 import { Link } from 'react-router';
 
 // Fake data for best sellers
@@ -62,7 +60,8 @@ const bestSellers = [
         price: 69.99,
         rating: 4.7,
         reviewCount: 154,
-        imageUrl: '/placeholder.svg?height=300&width=300',
+        imageUrl:
+            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80',
         category: 'Audio',
     },
     {
@@ -72,7 +71,8 @@ const bestSellers = [
         price: 299.99,
         rating: 4.6,
         reviewCount: 203,
-        imageUrl: '/placeholder.svg?height=300&width=300',
+        imageUrl:
+            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80',
         category: 'Home',
     },
     {
@@ -82,7 +82,8 @@ const bestSellers = [
         price: 59.99,
         rating: 4.8,
         reviewCount: 321,
-        imageUrl: '/placeholder.svg?height=300&width=300',
+        imageUrl:
+            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80',
         category: 'Gaming',
     },
 ];
@@ -101,55 +102,7 @@ export default function HomeBestSellers() {
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
                     {bestSellers.map((product) => (
-                        <Card
-                            key={product.id}
-                            className='overflow-hidden group'
-                        >
-                            <div className='aspect-square overflow-hidden bg-muted'>
-                                <img
-                                    src={product.imageUrl || '/placeholder.svg'}
-                                    alt={product.name}
-                                    width={300}
-                                    height={300}
-                                    className='object-cover transition-transform group-hover:scale-105'
-                                />
-                            </div>
-                            <CardContent className='p-4'>
-                                <div className='text-sm text-muted-foreground mb-1'>
-                                    {product.category}
-                                </div>
-                                <h3 className='font-semibold text-lg mb-2 line-clamp-1'>
-                                    {product.name}
-                                </h3>
-                                <p className='text-sm text-muted-foreground line-clamp-2 mb-2'>
-                                    {product.description}
-                                </p>
-                                <div className='flex items-center gap-1 mb-2'>
-                                    {[...Array(5)].map((_, i) => (
-                                        <Star
-                                            key={i}
-                                            className={`h-4 w-4 ${
-                                                i < Math.floor(product.rating)
-                                                    ? 'text-yellow-400 fill-yellow-400'
-                                                    : 'text-muted-foreground'
-                                            }`}
-                                        />
-                                    ))}
-                                    <span className='text-sm text-muted-foreground ml-1'>
-                                        ({product.reviewCount})
-                                    </span>
-                                </div>
-                                <div className='text-lg font-bold'>
-                                    ${product.price.toFixed(2)}
-                                </div>
-                            </CardContent>
-                            <CardFooter className='p-4 pt-0'>
-                                <Button className='w-full'>
-                                    <ShoppingCart className='mr-2 h-4 w-4' />{' '}
-                                    Add to Cart
-                                </Button>
-                            </CardFooter>
-                        </Card>
+                        <ProductCard product={product} key={product.id} />
                     ))}
                 </div>
             </div>
