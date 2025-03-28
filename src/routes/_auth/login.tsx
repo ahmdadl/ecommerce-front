@@ -1,6 +1,9 @@
 import LoginPage from '@/modules/auth/pages/LoginPage';
-import { createFileRoute } from '@tanstack/react-router';
+import { urls } from '@/modules/core/utils/urls';
+import { createFileRoute, FileRoutesByPath } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/_auth/login')({
-    component: LoginPage,
-});
+export const Route = createFileRoute(urls.auth.login as keyof FileRoutesByPath)(
+    {
+        component: LoginPage,
+    }
+);
