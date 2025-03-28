@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/card';
 import { Trans } from '@lingui/react/macro';
 import { Link } from '@tanstack/react-router';
-import LoginForm from '../../components/LoginForm';
+import LoginForm from '../components/LoginForm';
 
 export default function LoginPage() {
     return (

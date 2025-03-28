@@ -13,17 +13,23 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { userStore } from '@/modules/core/stores/userStore';
+import { parseError } from '@/modules/core/utils/parseError';
 import { Trans, useLingui } from '@lingui/react/macro';
-import { Link } from '@tanstack/react-router';
+import { Link, useRouter } from '@tanstack/react-router';
+import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
+import { toast } from 'sonner';
+import { authApi } from '../utils/auth-api';
 import PasswordInput from './PasswordInput';
 
 export default function LoginForm() {
     const { t } = useLingui();
+    const { history } = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
 
     const formSchema = z.object({
-        email: z
-            .string()
-            .email({ message: t`Please enter a valid email address` }),
+        email: z.string().email({ message: t`Please enter a valid email` }),
         password: z
             .string()
             .min(8, { message: t`Password must be at least 8 characters` }),
@@ -39,9 +45,25 @@ export default function LoginForm() {
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
-        // Here you would typically handle authentication
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        if (isLoading) return;
+        setIsLoading(true);
+
+        const response = await authApi
+            .login(values)
+            .catch((err) => parseError(err, form));
+
+        setIsLoading(false);
+
+        if (typeof response === 'string') return;
+
+        userStore.setState({ ...response.data.record, role: 'customer' });
+
+        history.go(-1);
+
+        toast.success(t`Logged in successfully`, {
+            className: '!bg-green-500 !text-white',
+        });
     }
 
     return (
@@ -109,6 +131,7 @@ export default function LoginForm() {
                     </Link>
                 </div>
                 <Button type='submit' className='w-full'>
+                    {isLoading && <Loader2 className='animate-spin' />}
                     <Trans>Sign in</Trans>
                 </Button>
             </form>

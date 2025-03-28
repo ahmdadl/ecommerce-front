@@ -19,7 +19,6 @@ interface UserStoreState {
     };
     isGuest: () => boolean;
     isCustomer: () => boolean;
-    login: (user: any) => void;
     logout: () => void;
 }
 
@@ -43,14 +42,6 @@ export const userStore = create<UserStoreState>()(
                 isGuest: () => get().role === 'guest',
                 isCustomer: () => get().role === 'customer',
 
-                login: (user: any) =>
-                    set({
-                        id: user.id,
-                        name: user.name,
-                        email: user.email,
-                        role: user.role,
-                        access_token: user.access_token,
-                    }),
                 logout: () =>
                     set({
                         id: '',

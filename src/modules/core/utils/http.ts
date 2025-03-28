@@ -3,6 +3,7 @@ import axios, {
     AxiosResponse,
     InternalAxiosRequestConfig,
 } from 'axios';
+import { userStore } from '../stores/userStore';
 import { env } from './env';
 
 // Interface for error response from API
@@ -27,7 +28,7 @@ const http = axios.create({
 // Request interceptor
 http.interceptors.request.use(
     (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-        const token = localStorage.getItem('authToken');
+        const token = userStore.getState().access_token;
         if (token) {
             config.headers = config.headers || {};
             config.headers['Authorization'] = `Bearer ${token}`;
@@ -43,15 +44,11 @@ http.interceptors.response.use(
     (error: AxiosError<ApiErrorResponse>) => {
         if (error.response?.status === 401) {
             // If unauthorized, clear token and redirect to login
-            localStorage.removeItem('authToken');
-            window.location.href = '/login';
+            // localStorage.removeItem('authToken');
+            // window.location.href = '/login';
         }
 
-        const errorMessage =
-            error.response?.data?.message ||
-            error.message ||
-            'An error occurred';
-        return Promise.reject(new Error(errorMessage));
+        return Promise.reject(error);
     }
 );
 
