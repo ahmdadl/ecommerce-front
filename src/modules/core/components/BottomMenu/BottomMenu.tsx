@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Trans } from '@lingui/react/macro';
+import { Link } from '@tanstack/react-router';
 import { Home, LayoutGrid, Search, ShoppingCart, User } from 'lucide-react';
-import { Link } from 'react-router';
 import useNavbarStore from '../../stores/navbar-store';
 
 export function BottomMenu() {

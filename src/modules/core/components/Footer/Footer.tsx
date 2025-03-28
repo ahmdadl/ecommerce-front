@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Link } from '@tanstack/react-router';
 import {
     Facebook,
     Instagram,
@@ -9,7 +10,6 @@ import {
     Twitter,
     Youtube,
 } from 'lucide-react';
-import { Link } from 'react-router';
 
 export function Footer() {
     return (

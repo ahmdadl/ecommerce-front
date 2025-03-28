@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/react/macro';
-import { Link } from 'react-router';
+import { Link } from '@tanstack/react-router';
 
 export default function TopMenuLinks() {
     return (

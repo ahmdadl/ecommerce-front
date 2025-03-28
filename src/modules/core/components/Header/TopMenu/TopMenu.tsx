@@ -1,6 +1,6 @@
 import { Trans } from '@lingui/react/macro';
-import { Link } from 'react-router';
 
+import { Link } from '@tanstack/react-router';
 import TopMenuActions from './TopMenuActions';
 import TopMenuLangSwitch from './TopMenuLangSwitch';
 import TopMenuLinks from './TopMenuLinks';

@@ -13,7 +13,7 @@ import {
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import useNavbarStore from '@/modules/core/stores/navbar-store';
 import { Trans } from '@lingui/react/macro';
-import { Link } from 'react-router';
+import { Link } from '@tanstack/react-router';
 import CartItemQuantity from './CartItemQuantity';
 
 // Fake product data

@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Link } from 'react-router';
+import { Link } from '@tanstack/react-router';
 
 // Fake data for categories
 const categories = [

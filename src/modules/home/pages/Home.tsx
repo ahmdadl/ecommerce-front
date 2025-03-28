@@ -1,9 +1,5 @@
 import useUserStore from '../../core/stores/userStore';
 import http from '../../core/utils/http';
-import HomeBanner from '../components/HomeBanner';
-import HomeBestSellers from '../components/HomeBestSellers';
-import HomeBrands from '../components/Homebrands';
-import HomeCategories from '../components/HomeCategories';
 
 export default function Home() {
     const accessToken = useUserStore.use.access_token();
@@ -25,6 +21,7 @@ export default function Home() {
 
     return (
         <div className='flex flex-col gap-6'>
+            <h1>Home page</h1>
             {/* <h1 className='text-3xl font-bold underline'>
                 <Trans>Home</Trans>
             </h1>
@@ -39,13 +36,13 @@ export default function Home() {
                 <Trans>log user data</Trans>
             </Button> */}
 
-            <HomeBanner />
-
+            {/* <HomeBanner /> */}
+            {/* 
             <HomeCategories />
 
             <HomeBrands />
 
-            <HomeBestSellers />
+            <HomeBestSellers /> */}
         </div>
     );
 }

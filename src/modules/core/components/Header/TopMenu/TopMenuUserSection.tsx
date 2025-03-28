@@ -1,6 +1,6 @@
 import { Trans } from '@lingui/react/macro';
+import { Link } from '@tanstack/react-router';
 import { BarChart2, Heart, LogOut, ShoppingCart, User } from 'lucide-react';
-import { Link } from 'react-router';
 
 import { Button } from '@/components/ui/button';
 import {

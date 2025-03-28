@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import { Trans } from '@lingui/react/macro';
+import { Link } from '@tanstack/react-router';
 import { LanguagesIcon } from 'lucide-react';
-import { Link } from 'react-router';
 
 export default function TopMenuLangSwitch() {
     const otherLocale = useLocaleStore.use.otherLocale();
