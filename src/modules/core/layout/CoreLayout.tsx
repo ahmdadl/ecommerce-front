@@ -7,9 +7,11 @@ import useLocaleStore from '../stores/localeStore';
 
 export default function CoreLayout() {
     const { locale } = useParams();
+    // const { i18n } = useLingui();
     const setLocale = useLocaleStore.use.setLocale();
 
     setLocale(locale || 'en');
+    // i18n.activate(locale || 'en');
 
     return (
         <main className='min-h-screen  mx-auto'>

@@ -13,20 +13,125 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/modules/core/components/LayoutShared/CartSideMenu/CartSideMenu.tsx:109
+msgid " Add items to your cart to see them here."
+msgstr ""
+
+#. placeholder {0}: otherLocale()
+#: src/modules/core/components/Header/TopMenu/TopMenuLangSwitch.tsx:21
+msgid "{0}Locale"
+msgstr ""
+
 #: src/modules/home/pages/Home.tsx:5
 #~ msgid "{key}"
 #~ msgstr ""
 
-#: src/modules/home/pages/Home.tsx:8
-msgid "Home"
-msgstr "الرئيسية"
-
-#: src/modules/home/components/HomeBanner.tsx:6
-msgid "HomeBanner"
+#: src/modules/core/components/LayoutShared/WishlistSideMenu/WishlistSideMenu.tsx:125
+msgid "Add items to your wishlist to see them here."
 msgstr ""
 
-msgid "enLocale"
-msgstr "English"
+#: src/modules/core/components/LayoutShared/WishlistSideMenu/WishlistItemActions.tsx:53
+msgid "Add to cart"
+msgstr ""
 
-msgid "arLocale"
-msgstr "العربية"
+#~ msgid "arLocale"
+#~ msgstr "العربية"
+
+#: src/modules/core/components/Header/TopMenu/TopMenu.tsx:33
+msgid "Brand"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:66
+#: src/modules/core/components/Header/TopMenu/TopMenuActions.tsx:40
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:63
+msgid "Cart"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:11
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:34
+msgid "Categories"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:75
+#: src/modules/core/components/Header/TopMenu/TopMenuActions.tsx:79
+msgid "Compare"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:14
+msgid "Contact"
+msgstr ""
+
+#~ msgid "enLocale"
+#~ msgstr "English"
+
+#: src/modules/auth/pages/LoginPage/LoginPage.tsx:61
+msgid "Enter your email and password to access your account"
+msgstr ""
+
+#: src/modules/auth/pages/LoginPage/LoginPage.tsx:123
+msgid "Hide password"
+msgstr ""
+
+#: src/modules/home/pages/Home.tsx:8
+#~ msgid "Home"
+#~ msgstr "الرئيسية"
+
+#: src/modules/home/components/HomeBanner.tsx:6
+#~ msgid "HomeBanner"
+#~ msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:94
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:79
+msgid "Login"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:85
+msgid "Logout"
+msgstr ""
+
+#: src/modules/auth/pages/LoginPage/LoginPage.tsx:80
+msgid "name@example.com"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:48
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:77
+msgid "Profile"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:99
+msgid "Register"
+msgstr ""
+
+#: src/modules/core/components/LayoutShared/WishlistSideMenu/WishlistItemActions.tsx:76
+msgid "remove from wishlist"
+msgstr ""
+
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:47
+msgid "search"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:8
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:21
+msgid "Shop"
+msgstr ""
+
+#: src/modules/auth/pages/LoginPage/LoginPage.tsx:124
+msgid "Show password"
+msgstr ""
+
+#: src/modules/auth/pages/LoginPage/LoginPage.tsx:173
+msgid "Sign up"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:57
+#: src/modules/core/components/Header/TopMenu/TopMenuActions.tsx:61
+msgid "Wishlist"
+msgstr ""
+
+#: src/modules/core/components/LayoutShared/CartSideMenu/CartSideMenu.tsx:106
+msgid "Your cart is empty"
+msgstr ""
+
+#: src/modules/core/components/LayoutShared/WishlistSideMenu/WishlistSideMenu.tsx:122
+msgid "Your wishlist is empty"
+msgstr ""

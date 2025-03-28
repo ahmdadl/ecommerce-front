@@ -1,7 +1,7 @@
-export default function Resetpasswordpage() {
-    return (
-        <>
-            <h1 className='text-3xl font-bold'>Resetpasswordpage</h1>
-        </>
-    );
+export default function ResetPasswordPage() {
+  return (
+    <>
+      <h1>ResetPasswordPage</h1>
+    </>
+  );
 }
