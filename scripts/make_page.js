@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { promises as fs } from 'fs';
-import { join, resolve } from 'path';
+import { join, resolve, sep } from 'path'; // Added sep to the import
 import { createInterface } from 'readline/promises';
 
 // Create readline interface
@@ -18,7 +18,7 @@ async function addPage() {
     const cwd = resolve(process.cwd());
 
     // Check if we're inside a module directory (e.g., src/modules/about)
-    const pathSegments = cwd.split(path.sep);
+    const pathSegments = cwd.split(sep); // Changed path.sep to sep
     const modulesIndex = pathSegments.indexOf('modules');
     if (modulesIndex !== -1 && modulesIndex < pathSegments.length - 1) {
         // Running inside a module directory
