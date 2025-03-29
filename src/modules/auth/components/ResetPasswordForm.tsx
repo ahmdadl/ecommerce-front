@@ -8,6 +8,11 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import {
+    InputOTP,
+    InputOTPGroup,
+    InputOTPSlot,
+} from '@/components/ui/input-otp';
 import useUserStore from '@/modules/core/stores/userStore';
 import { parseError } from '@/modules/core/utils/parseError';
 import { urls } from '@/modules/core/utils/urls';
@@ -15,6 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { i18n } from '@lingui/core';
 import { Trans, useLingui } from '@lingui/react/macro';
 import { useNavigate } from '@tanstack/react-router';
+import { REGEXP_ONLY_DIGITS } from 'input-otp';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -114,14 +120,22 @@ export default function ResetPasswordForm() {
                                 <Trans>OTP Code</Trans>
                             </FormLabel>
                             <FormControl>
-                                <Input
-                                    {...field}
-                                    disabled={isLoading}
+                                <InputOTP
                                     maxLength={6}
                                     minLength={6}
-                                    placeholder='123456'
-                                    type='tel'
-                                />
+                                    {...field}
+                                    disabled={isLoading}
+                                    pattern={REGEXP_ONLY_DIGITS}
+                                >
+                                    <InputOTPGroup>
+                                        <InputOTPSlot index={0} />
+                                        <InputOTPSlot index={1} />
+                                        <InputOTPSlot index={2} />
+                                        <InputOTPSlot index={3} />
+                                        <InputOTPSlot index={4} />
+                                        <InputOTPSlot index={5} />
+                                    </InputOTPGroup>
+                                </InputOTP>
                             </FormControl>
                             <FormMessage />
                         </FormItem>
