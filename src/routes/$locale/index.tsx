@@ -9,9 +9,7 @@ import HomeCategories from '@/modules/home/components/HomeCategories';
 import { Trans } from '@lingui/react/macro';
 import { createFileRoute, FileRoutesByPath } from '@tanstack/react-router';
 
-export const Route = createFileRoute(
-    ('/$locale' + urls.home) as keyof FileRoutesByPath
-)({
+export const Route = createFileRoute(urls.home as keyof FileRoutesByPath)({
     head: () => ({
         meta: [
             {
