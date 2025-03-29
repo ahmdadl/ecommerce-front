@@ -40,7 +40,7 @@ http.interceptors.request.use(
 
 // Response interceptor (simplified without refresh token)
 http.interceptors.response.use(
-    (response: AxiosResponse) => response.data,
+    (response: AxiosResponse) => response,
     (error: AxiosError<ApiErrorResponse>) => {
         if (error.response?.status === 401) {
             // If unauthorized, clear token and redirect to login

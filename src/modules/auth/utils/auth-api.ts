@@ -30,7 +30,7 @@ export const authApi = {
             http.post<{ record: any }>('/register', userData),
 
         forgetPassword: (email: string) =>
-            http.post<{ success: boolean }>('/forget-password', { email }),
+            http.post('/forget-password', { email }),
 
         resetPassword: (
             password: string,
