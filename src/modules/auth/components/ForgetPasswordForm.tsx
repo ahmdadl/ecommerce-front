@@ -9,15 +9,17 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { parseError } from '@/modules/core/utils/parseError';
+import { urls } from '@/modules/core/utils/urls';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { i18n } from '@lingui/core';
 import { Trans, useLingui } from '@lingui/react/macro';
-import { useRouter } from '@tanstack/react-router';
+import { useNavigate } from '@tanstack/react-router';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import * as z from 'zod';
+import { useForgetPasswordStore } from '../stores/forget-password-store';
 import { authApi } from '../utils/auth-api';
 
 const formSchema = z.object({
@@ -28,7 +30,7 @@ const formSchema = z.object({
 
 export default function ForgetPasswordForm() {
     const { t } = useLingui();
-    const { history } = useRouter();
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -39,6 +41,7 @@ export default function ForgetPasswordForm() {
     });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
+        useForgetPasswordStore.setState({ email: '' });
         setIsLoading(true);
 
         const response = await authApi.guest
@@ -53,6 +56,12 @@ export default function ForgetPasswordForm() {
             toast.success(t`OTP sent successfully`, {
                 className: '!bg-green-500 !text-white',
             });
+
+            useForgetPasswordStore.setState({ email: values.email });
+
+            console.log(useForgetPasswordStore.getState());
+
+            navigate({ to: urls.auth.resetPassword });
         }
     }
 

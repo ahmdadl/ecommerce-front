@@ -17,7 +17,7 @@ export default function ForgetPasswordPage() {
             <Card className='w-full max-w-md'>
                 <CardHeader className='space-y-1'>
                     <CardTitle className='text-2xl font-bold'>
-                        <Trans>ForgetPassword</Trans>
+                        <Trans>Forget Password</Trans>
                     </CardTitle>
                     <CardDescription>
                         <Trans>

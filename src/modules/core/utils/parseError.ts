@@ -18,7 +18,7 @@ interface ErrorResponse {
  * @param form Form instance to set errors on
  * @returns Error message string
  */
-export function parseError(error: unknown, form: UseFormReturn<any>): string {
+export function parseError(error: unknown, form?: UseFormReturn<any>): string {
     if (!axios.isAxiosError(error)) {
         const message = i18n._('An unexpected error occurred');
         toast.error(message, {
@@ -43,12 +43,14 @@ export function parseError(error: unknown, form: UseFormReturn<any>): string {
     // Handle Laravel validation errors (422)
     if (status === 422 && data?.errors) {
         // Set form errors if they exist
-        Object.entries(data.errors).forEach(([field, messages]) => {
-            form.setError(field, {
-                type: 'manual',
-                message: messages[0],
+        if (form) {
+            Object.entries(data.errors).forEach(([field, messages]) => {
+                form.setError(field, {
+                    type: 'manual',
+                    message: messages[0],
+                });
             });
-        });
+        }
         return data.message || i18n._('Validation failed');
     }
 

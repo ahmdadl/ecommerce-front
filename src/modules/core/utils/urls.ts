@@ -1,10 +1,10 @@
 export const urls = {
     home: '/',
     auth: {
-        login: '/_auth/login',
-        register: '/_auth/register',
-        forgetPassword: '/_auth/forget-password',
-        resetPassword: '/_auth/reset-password',
+        login: '/login',
+        register: '/register',
+        forgetPassword: '/forget-password',
+        resetPassword: '/reset-password',
     },
     shop: '/shop',
     categories: {

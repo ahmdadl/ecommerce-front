@@ -8,7 +8,7 @@ import {
 } from '@tanstack/react-router';
 
 export const Route = createFileRoute(
-    urls.auth.register as keyof FileRoutesByPath
+    ('/_auth' + urls.auth.register) as keyof FileRoutesByPath
 )({
     component: RegisterPage,
     beforeLoad: async ({ search }) => {

@@ -8,7 +8,7 @@ import {
 } from '@tanstack/react-router';
 
 export const Route = createFileRoute(
-    urls.auth.forgetPassword as keyof FileRoutesByPath
+    ('/_auth' + urls.auth.forgetPassword) as keyof FileRoutesByPath
 )({
     component: ForgetPasswordPage,
     beforeLoad: async ({ search }) => {

@@ -7,17 +7,15 @@ import {
     redirect,
 } from '@tanstack/react-router';
 
-export const Route = createFileRoute(urls.auth.login as keyof FileRoutesByPath)(
-    {
-        component: LoginPage,
-        beforeLoad: async ({ search }) => {
-            if (userStore.getState().isCustomer()) {
-                throw redirect({
-                    to:
-                        (search as { redirect?: string })?.redirect ??
-                        urls.home,
-                });
-            }
-        },
-    }
-);
+export const Route = createFileRoute(
+    ('/_auth' + urls.auth.login) as keyof FileRoutesByPath
+)({
+    component: LoginPage,
+    beforeLoad: async ({ search }) => {
+        if (userStore.getState().isCustomer()) {
+            throw redirect({
+                to: (search as { redirect?: string })?.redirect ?? urls.home,
+            });
+        }
+    },
+});
