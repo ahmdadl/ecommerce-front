@@ -11,20 +11,15 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
-import { Route as AuthResetPasswordImport } from './routes/_auth/reset-password'
-import { Route as AuthRegisterImport } from './routes/_auth/register'
-import { Route as AuthLoginImport } from './routes/_auth/login'
-import { Route as AuthForgetPasswordImport } from './routes/_auth/forget-password'
+import { Route as LocaleIndexImport } from './routes/$locale/index'
+import { Route as LocaleAboutImport } from './routes/$locale/about'
+import { Route as LocaleAuthResetPasswordImport } from './routes/$locale/_auth/reset-password'
+import { Route as LocaleAuthRegisterImport } from './routes/$locale/_auth/register'
+import { Route as LocaleAuthLoginImport } from './routes/$locale/_auth/login'
+import { Route as LocaleAuthForgetPasswordImport } from './routes/$locale/_auth/forget-password'
 
 // Create/Update Routes
-
-const AboutRoute = AboutImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -32,27 +27,39 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthResetPasswordRoute = AuthResetPasswordImport.update({
-  id: '/_auth/reset-password',
-  path: '/reset-password',
+const LocaleIndexRoute = LocaleIndexImport.update({
+  id: '/$locale/',
+  path: '/$locale/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthRegisterRoute = AuthRegisterImport.update({
-  id: '/_auth/register',
-  path: '/register',
+const LocaleAboutRoute = LocaleAboutImport.update({
+  id: '/$locale/about',
+  path: '/$locale/about',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthLoginRoute = AuthLoginImport.update({
-  id: '/_auth/login',
-  path: '/login',
+const LocaleAuthResetPasswordRoute = LocaleAuthResetPasswordImport.update({
+  id: '/$locale/_auth/reset-password',
+  path: '/$locale/reset-password',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthForgetPasswordRoute = AuthForgetPasswordImport.update({
-  id: '/_auth/forget-password',
-  path: '/forget-password',
+const LocaleAuthRegisterRoute = LocaleAuthRegisterImport.update({
+  id: '/$locale/_auth/register',
+  path: '/$locale/register',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LocaleAuthLoginRoute = LocaleAuthLoginImport.update({
+  id: '/$locale/_auth/login',
+  path: '/$locale/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LocaleAuthForgetPasswordRoute = LocaleAuthForgetPasswordImport.update({
+  id: '/$locale/_auth/forget-password',
+  path: '/$locale/forget-password',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,39 +74,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutImport
+    '/$locale/about': {
+      id: '/$locale/about'
+      path: '/$locale/about'
+      fullPath: '/$locale/about'
+      preLoaderRoute: typeof LocaleAboutImport
       parentRoute: typeof rootRoute
     }
-    '/_auth/forget-password': {
-      id: '/_auth/forget-password'
-      path: '/forget-password'
-      fullPath: '/forget-password'
-      preLoaderRoute: typeof AuthForgetPasswordImport
+    '/$locale/': {
+      id: '/$locale/'
+      path: '/$locale'
+      fullPath: '/$locale'
+      preLoaderRoute: typeof LocaleIndexImport
       parentRoute: typeof rootRoute
     }
-    '/_auth/login': {
-      id: '/_auth/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof AuthLoginImport
+    '/$locale/_auth/forget-password': {
+      id: '/$locale/_auth/forget-password'
+      path: '/$locale/forget-password'
+      fullPath: '/$locale/forget-password'
+      preLoaderRoute: typeof LocaleAuthForgetPasswordImport
       parentRoute: typeof rootRoute
     }
-    '/_auth/register': {
-      id: '/_auth/register'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof AuthRegisterImport
+    '/$locale/_auth/login': {
+      id: '/$locale/_auth/login'
+      path: '/$locale/login'
+      fullPath: '/$locale/login'
+      preLoaderRoute: typeof LocaleAuthLoginImport
       parentRoute: typeof rootRoute
     }
-    '/_auth/reset-password': {
-      id: '/_auth/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof AuthResetPasswordImport
+    '/$locale/_auth/register': {
+      id: '/$locale/_auth/register'
+      path: '/$locale/register'
+      fullPath: '/$locale/register'
+      preLoaderRoute: typeof LocaleAuthRegisterImport
+      parentRoute: typeof rootRoute
+    }
+    '/$locale/_auth/reset-password': {
+      id: '/$locale/_auth/reset-password'
+      path: '/$locale/reset-password'
+      fullPath: '/$locale/reset-password'
+      preLoaderRoute: typeof LocaleAuthResetPasswordImport
       parentRoute: typeof rootRoute
     }
   }
@@ -109,76 +123,84 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/forget-password': typeof AuthForgetPasswordRoute
-  '/login': typeof AuthLoginRoute
-  '/register': typeof AuthRegisterRoute
-  '/reset-password': typeof AuthResetPasswordRoute
+  '/$locale/about': typeof LocaleAboutRoute
+  '/$locale': typeof LocaleIndexRoute
+  '/$locale/forget-password': typeof LocaleAuthForgetPasswordRoute
+  '/$locale/login': typeof LocaleAuthLoginRoute
+  '/$locale/register': typeof LocaleAuthRegisterRoute
+  '/$locale/reset-password': typeof LocaleAuthResetPasswordRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/forget-password': typeof AuthForgetPasswordRoute
-  '/login': typeof AuthLoginRoute
-  '/register': typeof AuthRegisterRoute
-  '/reset-password': typeof AuthResetPasswordRoute
+  '/$locale/about': typeof LocaleAboutRoute
+  '/$locale': typeof LocaleIndexRoute
+  '/$locale/forget-password': typeof LocaleAuthForgetPasswordRoute
+  '/$locale/login': typeof LocaleAuthLoginRoute
+  '/$locale/register': typeof LocaleAuthRegisterRoute
+  '/$locale/reset-password': typeof LocaleAuthResetPasswordRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/_auth/forget-password': typeof AuthForgetPasswordRoute
-  '/_auth/login': typeof AuthLoginRoute
-  '/_auth/register': typeof AuthRegisterRoute
-  '/_auth/reset-password': typeof AuthResetPasswordRoute
+  '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/': typeof LocaleIndexRoute
+  '/$locale/_auth/forget-password': typeof LocaleAuthForgetPasswordRoute
+  '/$locale/_auth/login': typeof LocaleAuthLoginRoute
+  '/$locale/_auth/register': typeof LocaleAuthRegisterRoute
+  '/$locale/_auth/reset-password': typeof LocaleAuthResetPasswordRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
-    | '/forget-password'
-    | '/login'
-    | '/register'
-    | '/reset-password'
+    | '/$locale/about'
+    | '/$locale'
+    | '/$locale/forget-password'
+    | '/$locale/login'
+    | '/$locale/register'
+    | '/$locale/reset-password'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
-    | '/forget-password'
-    | '/login'
-    | '/register'
-    | '/reset-password'
+    | '/$locale/about'
+    | '/$locale'
+    | '/$locale/forget-password'
+    | '/$locale/login'
+    | '/$locale/register'
+    | '/$locale/reset-password'
   id:
     | '__root__'
     | '/'
-    | '/about'
-    | '/_auth/forget-password'
-    | '/_auth/login'
-    | '/_auth/register'
-    | '/_auth/reset-password'
+    | '/$locale/about'
+    | '/$locale/'
+    | '/$locale/_auth/forget-password'
+    | '/$locale/_auth/login'
+    | '/$locale/_auth/register'
+    | '/$locale/_auth/reset-password'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  AuthForgetPasswordRoute: typeof AuthForgetPasswordRoute
-  AuthLoginRoute: typeof AuthLoginRoute
-  AuthRegisterRoute: typeof AuthRegisterRoute
-  AuthResetPasswordRoute: typeof AuthResetPasswordRoute
+  LocaleAboutRoute: typeof LocaleAboutRoute
+  LocaleIndexRoute: typeof LocaleIndexRoute
+  LocaleAuthForgetPasswordRoute: typeof LocaleAuthForgetPasswordRoute
+  LocaleAuthLoginRoute: typeof LocaleAuthLoginRoute
+  LocaleAuthRegisterRoute: typeof LocaleAuthRegisterRoute
+  LocaleAuthResetPasswordRoute: typeof LocaleAuthResetPasswordRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  AuthForgetPasswordRoute: AuthForgetPasswordRoute,
-  AuthLoginRoute: AuthLoginRoute,
-  AuthRegisterRoute: AuthRegisterRoute,
-  AuthResetPasswordRoute: AuthResetPasswordRoute,
+  LocaleAboutRoute: LocaleAboutRoute,
+  LocaleIndexRoute: LocaleIndexRoute,
+  LocaleAuthForgetPasswordRoute: LocaleAuthForgetPasswordRoute,
+  LocaleAuthLoginRoute: LocaleAuthLoginRoute,
+  LocaleAuthRegisterRoute: LocaleAuthRegisterRoute,
+  LocaleAuthResetPasswordRoute: LocaleAuthResetPasswordRoute,
 }
 
 export const routeTree = rootRoute
@@ -192,30 +214,34 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about",
-        "/_auth/forget-password",
-        "/_auth/login",
-        "/_auth/register",
-        "/_auth/reset-password"
+        "/$locale/about",
+        "/$locale/",
+        "/$locale/_auth/forget-password",
+        "/$locale/_auth/login",
+        "/$locale/_auth/register",
+        "/$locale/_auth/reset-password"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/about": {
-      "filePath": "about.tsx"
+    "/$locale/about": {
+      "filePath": "$locale/about.tsx"
     },
-    "/_auth/forget-password": {
-      "filePath": "_auth/forget-password.tsx"
+    "/$locale/": {
+      "filePath": "$locale/index.tsx"
     },
-    "/_auth/login": {
-      "filePath": "_auth/login.tsx"
+    "/$locale/_auth/forget-password": {
+      "filePath": "$locale/_auth/forget-password.tsx"
     },
-    "/_auth/register": {
-      "filePath": "_auth/register.tsx"
+    "/$locale/_auth/login": {
+      "filePath": "$locale/_auth/login.tsx"
     },
-    "/_auth/reset-password": {
-      "filePath": "_auth/reset-password.tsx"
+    "/$locale/_auth/register": {
+      "filePath": "$locale/_auth/register.tsx"
+    },
+    "/$locale/_auth/reset-password": {
+      "filePath": "$locale/_auth/reset-password.tsx"
     }
   }
 }
