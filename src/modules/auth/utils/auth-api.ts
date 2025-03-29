@@ -13,8 +13,12 @@ interface LoginCredentials {
 
 interface RegisterData {
     email: string;
+    phone: string;
     password: string;
-    name: string;
+    password_confirmation: string;
+    terms: boolean;
+    firstName: string;
+    lastName: string;
 }
 
 // API endpoints
@@ -23,7 +27,7 @@ export const authApi = {
         login: () => http.post<{ record: any }>('/login/guests'),
 
         register: (userData: RegisterData) =>
-            http.post<{ user: User; token: string }>('/register', userData),
+            http.post<{ record: any }>('/register', userData),
 
         forgetPassword: (email: string) =>
             http.post<{ success: boolean }>('/forget-password', { email }),
