@@ -1,6 +1,7 @@
 import { Trans } from '@lingui/react/macro';
 
-import { Link } from '@tanstack/react-router';
+import { urls } from '@/modules/core/utils/urls';
+import Link from '@core/components/LocalizedLink';
 import TopMenuActions from './TopMenuActions';
 import TopMenuLangSwitch from './TopMenuLangSwitch';
 import TopMenuLinks from './TopMenuLinks';
@@ -14,7 +15,7 @@ export default function TopMenu() {
                 <div className='flex items-center justify-between gap-3 h-16'>
                     {/* Logo */}
                     <div className='flex-shrink-0'>
-                        <Link to='/' className='flex items-center'>
+                        <Link to={urls.home} className='flex items-center'>
                             <svg
                                 className='h-8 w-8 text-primary'
                                 viewBox='0 0 24 24'

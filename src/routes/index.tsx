@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({
@@ -15,5 +16,9 @@ export const Route = createFileRoute('/')({
 });
 
 function RouteComponent() {
-    return <div>Hello "/"!</div>;
+    return (
+        <div>
+            <Trans>Please wait a few seconds</Trans>
+        </div>
+    );
 }

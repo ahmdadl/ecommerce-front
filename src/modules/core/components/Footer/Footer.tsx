@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Link } from '@tanstack/react-router';
+import Link from '@core/components/LocalizedLink';
 import {
     Facebook,
     Instagram,

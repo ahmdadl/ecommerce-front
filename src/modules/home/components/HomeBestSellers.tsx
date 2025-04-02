@@ -1,5 +1,5 @@
 import ProductCard from '@/modules/shop/components/ProductCard';
-import { Link } from '@tanstack/react-router';
+import Link from '@core/components/LocalizedLink';
 
 // Fake data for best sellers
 const bestSellers = [

@@ -1,15 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { authApi } from '@/modules/auth/utils/auth-api';
 import useUserStore from '@/modules/core/stores/userStore';
-import { urls } from '@/modules/core/utils/urls';
 import HomeBanners from '@/modules/home/components/HomeBanner';
 import HomeBestSellers from '@/modules/home/components/HomeBestSellers';
 import HomeBrands from '@/modules/home/components/Homebrands';
 import HomeCategories from '@/modules/home/components/HomeCategories';
 import { Trans } from '@lingui/react/macro';
-import { createFileRoute, FileRoutesByPath } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute(urls.home as keyof FileRoutesByPath)({
+export const Route = createFileRoute('/$locale/')({
     head: () => ({
         meta: [
             {
@@ -26,6 +25,8 @@ export const Route = createFileRoute(urls.home as keyof FileRoutesByPath)({
     }),
     component: Index,
 });
+
+export const homeRoute = Route;
 
 function Index() {
     const accessToken = useUserStore.use.access_token;

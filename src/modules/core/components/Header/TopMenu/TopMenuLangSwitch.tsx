@@ -13,6 +13,7 @@ export default function TopMenuLangSwitch() {
             className='flex items-center hover:text-primary'
             asChild
         >
+            {/* @ts-ignore */}
             <Link to={`/${otherLocale()}`}>
                 <div className='relative'>
                     <LanguagesIcon className='h-5 w-5' />

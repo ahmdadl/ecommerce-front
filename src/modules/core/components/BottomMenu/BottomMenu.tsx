@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
+import Link from '@core/components/LocalizedLink';
 import { Trans } from '@lingui/react/macro';
-import { Link } from '@tanstack/react-router';
 import { Home, LayoutGrid, Search, ShoppingCart, User } from 'lucide-react';
 import useNavbarStore from '../../stores/navbar-store';
 

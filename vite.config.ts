@@ -20,6 +20,9 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
+            '@mod': path.resolve(__dirname, './src/modules'),
+            '@core': path.resolve(__dirname, './src/modules/core'),
+            '@ui': path.resolve(__dirname, './src/components/ui'),
         },
     },
     server: {

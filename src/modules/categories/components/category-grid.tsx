@@ -1,7 +1,7 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { urls } from '@/modules/core/utils/urls';
+import Link from '@core/components/LocalizedLink';
 import { Trans } from '@lingui/react/macro';
-import { Link } from '@tanstack/react-router';
 
 // Sample category data - in a real app, this would come from an API or database
 const categories = [

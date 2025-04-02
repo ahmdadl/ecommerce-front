@@ -7,11 +7,22 @@ export const urls = {
         resetPassword: '/reset-password',
     },
     shop: '/shop',
+    products: {
+        view: (product: any) => '/products/' + product.slug,
+    },
     categories: {
         index: '/categories',
-        viewRoute: '/categories/:slug',
         view: (category: any) => '/categories/' + category.slug,
     },
-
-    // add more routes here
+    brands: {
+        index: '/brands',
+        view: (brand: any) => '/brands/' + brand.slug,
+    },
+    profile: {
+        index: '/profile',
+        changePassword: '/change-password',
+        orders: '/orders',
+        wishlist: '/wishlist',
+        addresses: '/addresses',
+    },
 };

@@ -6,8 +6,8 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
+import Link from '@core/components/LocalizedLink';
 import { Trans } from '@lingui/react/macro';
-import { Link } from '@tanstack/react-router';
 import LoginForm from '../components/LoginForm';
 
 export default function LoginPage() {

@@ -12,8 +12,8 @@ import {
 } from '@/components/ui/sheet';
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import useNavbarStore from '@/modules/core/stores/navbar-store';
+import Link from '@core/components/LocalizedLink';
 import { Trans } from '@lingui/react/macro';
-import { Link } from '@tanstack/react-router';
 import CartItemQuantity from './CartItemQuantity';
 
 // Fake product data

@@ -1,15 +1,9 @@
 import LoginPage from '@/modules/auth/pages/LoginPage';
 import { userStore } from '@/modules/core/stores/userStore';
 import { urls } from '@/modules/core/utils/urls';
-import {
-    createFileRoute,
-    FileRoutesByPath,
-    redirect,
-} from '@tanstack/react-router';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 
-export const Route = createFileRoute(
-    ('/_auth' + urls.auth.login) as keyof FileRoutesByPath
-)({
+export const Route = createFileRoute('/$locale/_auth/login')({
     component: LoginPage,
     beforeLoad: async ({ search }) => {
         if (userStore.getState().isCustomer()) {
@@ -19,3 +13,5 @@ export const Route = createFileRoute(
         }
     },
 });
+
+export const loginRoute = Route;

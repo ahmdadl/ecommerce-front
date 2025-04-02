@@ -7,8 +7,8 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { urls } from '@/modules/core/utils/urls';
+import Link from '@core/components/LocalizedLink';
 import { Trans } from '@lingui/react/macro';
-import { Link } from '@tanstack/react-router';
 import ForgetPasswordForm from '../components/ForgetPasswordForm';
 
 export default function ForgetPasswordPage() {
