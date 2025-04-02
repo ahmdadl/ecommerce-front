@@ -32,7 +32,7 @@ const sampleProduct: Product = {
 };
 
 interface ProductCardProps {
-    product?: Product;
+    product?: any;
 }
 
 export default function ProductCard({
@@ -45,19 +45,16 @@ export default function ProductCard({
         product.discountedPrice && product.discountedPrice < product.price;
 
     return (
-        <Card className='overflow-hidden h-full flex flex-col pb-6 pt-0'>
+        <Card className='overflow-hidden h-full flex flex-col gap-2 pb-6 pt-0'>
             <div className='relative'>
                 {/* Product image */}
-                <div className='aspect-square overflow-hidden'>
+                <div className='h-48 overflow-hidden'>
                     <img
-                        src={
-                            product.image ||
-                            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80'
-                        }
+                        src={`https://picsum.photos/seed/${product.id}/250/150`}
                         alt={product.name}
-                        width={300}
-                        height={300}
-                        className='object-cover w-full h-full transition-transform hover:scale-105'
+                        width={250}
+                        height={150}
+                        className='object-cover w-full h-full transition-transform hover:scale-120 duration-500'
                     />
                 </div>
 
@@ -92,7 +89,7 @@ export default function ProductCard({
                 </Button>
             </div>
 
-            <CardContent className='flex-grow pt-4'>
+            <CardContent className='flex-grow'>
                 {/* Product category */}
                 <p className='text-sm text-muted-foreground'>
                     {product.category}

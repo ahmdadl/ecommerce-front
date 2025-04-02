@@ -14,10 +14,13 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as LocaleIndexImport } from './routes/$locale/index'
 import { Route as LocaleAboutImport } from './routes/$locale/about'
+import { Route as LocaleCatalogShopImport } from './routes/$locale/_catalog/shop'
 import { Route as LocaleAuthResetPasswordImport } from './routes/$locale/_auth/reset-password'
 import { Route as LocaleAuthRegisterImport } from './routes/$locale/_auth/register'
 import { Route as LocaleAuthLoginImport } from './routes/$locale/_auth/login'
 import { Route as LocaleAuthForgetPasswordImport } from './routes/$locale/_auth/forget-password'
+import { Route as LocaleCatalogCategoriesIndexImport } from './routes/$locale/_catalog/categories/index'
+import { Route as LocaleCatalogCategoriesSlugImport } from './routes/$locale/_catalog/categories/$slug'
 
 // Create/Update Routes
 
@@ -36,6 +39,12 @@ const LocaleIndexRoute = LocaleIndexImport.update({
 const LocaleAboutRoute = LocaleAboutImport.update({
   id: '/$locale/about',
   path: '/$locale/about',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LocaleCatalogShopRoute = LocaleCatalogShopImport.update({
+  id: '/$locale/_catalog/shop',
+  path: '/$locale/shop',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -62,6 +71,20 @@ const LocaleAuthForgetPasswordRoute = LocaleAuthForgetPasswordImport.update({
   path: '/$locale/forget-password',
   getParentRoute: () => rootRoute,
 } as any)
+
+const LocaleCatalogCategoriesIndexRoute =
+  LocaleCatalogCategoriesIndexImport.update({
+    id: '/$locale/_catalog/categories/',
+    path: '/$locale/categories/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const LocaleCatalogCategoriesSlugRoute =
+  LocaleCatalogCategoriesSlugImport.update({
+    id: '/$locale/_catalog/categories/$slug',
+    path: '/$locale/categories/$slug',
+    getParentRoute: () => rootRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -116,6 +139,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleAuthResetPasswordImport
       parentRoute: typeof rootRoute
     }
+    '/$locale/_catalog/shop': {
+      id: '/$locale/_catalog/shop'
+      path: '/$locale/shop'
+      fullPath: '/$locale/shop'
+      preLoaderRoute: typeof LocaleCatalogShopImport
+      parentRoute: typeof rootRoute
+    }
+    '/$locale/_catalog/categories/$slug': {
+      id: '/$locale/_catalog/categories/$slug'
+      path: '/$locale/categories/$slug'
+      fullPath: '/$locale/categories/$slug'
+      preLoaderRoute: typeof LocaleCatalogCategoriesSlugImport
+      parentRoute: typeof rootRoute
+    }
+    '/$locale/_catalog/categories/': {
+      id: '/$locale/_catalog/categories/'
+      path: '/$locale/categories'
+      fullPath: '/$locale/categories'
+      preLoaderRoute: typeof LocaleCatalogCategoriesIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -129,6 +173,9 @@ export interface FileRoutesByFullPath {
   '/$locale/login': typeof LocaleAuthLoginRoute
   '/$locale/register': typeof LocaleAuthRegisterRoute
   '/$locale/reset-password': typeof LocaleAuthResetPasswordRoute
+  '/$locale/shop': typeof LocaleCatalogShopRoute
+  '/$locale/categories/$slug': typeof LocaleCatalogCategoriesSlugRoute
+  '/$locale/categories': typeof LocaleCatalogCategoriesIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -139,6 +186,9 @@ export interface FileRoutesByTo {
   '/$locale/login': typeof LocaleAuthLoginRoute
   '/$locale/register': typeof LocaleAuthRegisterRoute
   '/$locale/reset-password': typeof LocaleAuthResetPasswordRoute
+  '/$locale/shop': typeof LocaleCatalogShopRoute
+  '/$locale/categories/$slug': typeof LocaleCatalogCategoriesSlugRoute
+  '/$locale/categories': typeof LocaleCatalogCategoriesIndexRoute
 }
 
 export interface FileRoutesById {
@@ -150,6 +200,9 @@ export interface FileRoutesById {
   '/$locale/_auth/login': typeof LocaleAuthLoginRoute
   '/$locale/_auth/register': typeof LocaleAuthRegisterRoute
   '/$locale/_auth/reset-password': typeof LocaleAuthResetPasswordRoute
+  '/$locale/_catalog/shop': typeof LocaleCatalogShopRoute
+  '/$locale/_catalog/categories/$slug': typeof LocaleCatalogCategoriesSlugRoute
+  '/$locale/_catalog/categories/': typeof LocaleCatalogCategoriesIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -162,6 +215,9 @@ export interface FileRouteTypes {
     | '/$locale/login'
     | '/$locale/register'
     | '/$locale/reset-password'
+    | '/$locale/shop'
+    | '/$locale/categories/$slug'
+    | '/$locale/categories'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -171,6 +227,9 @@ export interface FileRouteTypes {
     | '/$locale/login'
     | '/$locale/register'
     | '/$locale/reset-password'
+    | '/$locale/shop'
+    | '/$locale/categories/$slug'
+    | '/$locale/categories'
   id:
     | '__root__'
     | '/'
@@ -180,6 +239,9 @@ export interface FileRouteTypes {
     | '/$locale/_auth/login'
     | '/$locale/_auth/register'
     | '/$locale/_auth/reset-password'
+    | '/$locale/_catalog/shop'
+    | '/$locale/_catalog/categories/$slug'
+    | '/$locale/_catalog/categories/'
   fileRoutesById: FileRoutesById
 }
 
@@ -191,6 +253,9 @@ export interface RootRouteChildren {
   LocaleAuthLoginRoute: typeof LocaleAuthLoginRoute
   LocaleAuthRegisterRoute: typeof LocaleAuthRegisterRoute
   LocaleAuthResetPasswordRoute: typeof LocaleAuthResetPasswordRoute
+  LocaleCatalogShopRoute: typeof LocaleCatalogShopRoute
+  LocaleCatalogCategoriesSlugRoute: typeof LocaleCatalogCategoriesSlugRoute
+  LocaleCatalogCategoriesIndexRoute: typeof LocaleCatalogCategoriesIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -201,6 +266,9 @@ const rootRouteChildren: RootRouteChildren = {
   LocaleAuthLoginRoute: LocaleAuthLoginRoute,
   LocaleAuthRegisterRoute: LocaleAuthRegisterRoute,
   LocaleAuthResetPasswordRoute: LocaleAuthResetPasswordRoute,
+  LocaleCatalogShopRoute: LocaleCatalogShopRoute,
+  LocaleCatalogCategoriesSlugRoute: LocaleCatalogCategoriesSlugRoute,
+  LocaleCatalogCategoriesIndexRoute: LocaleCatalogCategoriesIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -219,7 +287,10 @@ export const routeTree = rootRoute
         "/$locale/_auth/forget-password",
         "/$locale/_auth/login",
         "/$locale/_auth/register",
-        "/$locale/_auth/reset-password"
+        "/$locale/_auth/reset-password",
+        "/$locale/_catalog/shop",
+        "/$locale/_catalog/categories/$slug",
+        "/$locale/_catalog/categories/"
       ]
     },
     "/": {
@@ -242,6 +313,15 @@ export const routeTree = rootRoute
     },
     "/$locale/_auth/reset-password": {
       "filePath": "$locale/_auth/reset-password.tsx"
+    },
+    "/$locale/_catalog/shop": {
+      "filePath": "$locale/_catalog/shop.tsx"
+    },
+    "/$locale/_catalog/categories/$slug": {
+      "filePath": "$locale/_catalog/categories/$slug.tsx"
+    },
+    "/$locale/_catalog/categories/": {
+      "filePath": "$locale/_catalog/categories/index.tsx"
     }
   }
 }
