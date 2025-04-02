@@ -20,9 +20,9 @@ export const urls = {
     },
     profile: {
         index: '/profile',
-        changePassword: '/change-password',
-        orders: '/orders',
-        wishlist: '/wishlist',
-        addresses: '/addresses',
+        changePassword: '/profile/change-password',
+        orders: '/profile/orders',
+        wishlist: '/profile/wishlist',
+        addresses: '/profile/addresses',
     },
 };

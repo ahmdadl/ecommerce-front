@@ -144,7 +144,8 @@
     }
 }
 
-.shop-page {
+.shop-page,
+.profile-page {
     .relative-sidebar {
         position: relative !important;
     }

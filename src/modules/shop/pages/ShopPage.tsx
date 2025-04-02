@@ -22,7 +22,6 @@ import { ShopHero } from '../components/ShopHero';
 export default function ShopPage() {
     const searchParams = shopRoute.useSearch();
 
-    console.log(shopRoute.fullPath);
     return (
         <>
             <ShopHero />

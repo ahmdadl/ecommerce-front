@@ -15,7 +15,7 @@ import { BrandFilters } from './Filters/BrandFilters';
 import { CategoryFilters } from './Filters/CategoryFilters';
 import { PriceRangeFilter } from './Filters/PriceRangeFilter';
 
-export function Filters() {
+export function ShopFilters() {
     return (
         <SidebarGroup>
             <SidebarGroupContent>

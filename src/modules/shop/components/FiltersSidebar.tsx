@@ -10,7 +10,7 @@ import {
     SidebarMenuItem,
     SidebarRail,
 } from '@/components/ui/sidebar';
-import { Filters } from './ShopFilters';
+import { ShopFilters } from './ShopFilters';
 
 // This is sample data.
 const data = {
@@ -177,7 +177,7 @@ export function FiltersSidebar({
                 </SidebarMenu>
             </SidebarHeader>
             <SidebarContent>
-                <Filters />
+                <ShopFilters />
             </SidebarContent>
             <SidebarRail />
         </Sidebar>

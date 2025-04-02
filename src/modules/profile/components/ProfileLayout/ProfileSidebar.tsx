@@ -1,0 +1,84 @@
+import { LogOut, User } from 'lucide-react';
+import * as React from 'react';
+
+import { Button } from '@/components/ui/button';
+import {
+    Sidebar,
+    SidebarContent,
+    SidebarFooter,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
+    SidebarRail,
+} from '@/components/ui/sidebar';
+import { cn } from '@/lib/utils';
+import Link from '@/modules/core/components/LocalizedLink';
+import { useMatches } from '@tanstack/react-router';
+import { profileNavLinks } from '../../utils/flags';
+
+export function ProfileSidebar({
+    ...props
+}: React.ComponentProps<typeof Sidebar>) {
+    const matches = useMatches();
+    const activeRoute = matches[matches.length - 1];
+
+    return (
+        <Sidebar {...props} collapsible='icon'>
+            <SidebarHeader>
+                <SidebarMenu>
+                    <SidebarMenuItem>
+                        <SidebarMenuButton size='lg' asChild>
+                            <div>
+                                <div className='flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground'>
+                                    <User className='size-4' />
+                                </div>
+                                <div className='flex flex-col gap-0.5 leading-none'>
+                                    <span className='font-semibold'>
+                                        Ahmed Adel
+                                    </span>
+                                    <p className='text-sm text-muted-foreground'>
+                                        user@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                        </SidebarMenuButton>
+                    </SidebarMenuItem>
+                </SidebarMenu>
+            </SidebarHeader>
+            <SidebarContent>
+                <nav className='flex flex-col gap-1 p-2'>
+                    {profileNavLinks.map((link) => (
+                        <SidebarMenuButton
+                            asChild
+                            className={cn(
+                                'data-[slot=sidebar-menu-button]:!p-1.5',
+                                activeRoute.routeId === link.route &&
+                                    'bg-primary hover:bg-primary text-white hover:text-white'
+                            )}
+                            key={link.route}
+                        >
+                            <Link to={link.path}>
+                                {link.icon}
+                                {link.name}
+                            </Link>
+                        </SidebarMenuButton>
+                    ))}
+                </nav>
+            </SidebarContent>
+            <SidebarFooter>
+                <Button
+                    variant='ghost'
+                    className='w-full justify-start gap-2'
+                    asChild
+                >
+                    <Link to='/logout'>
+                        <LogOut className='h-4 w-4' />
+                        Logout
+                    </Link>
+                </Button>
+            </SidebarFooter>
+            <SidebarRail />
+        </Sidebar>
+    );
+}
