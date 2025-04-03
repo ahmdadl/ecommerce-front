@@ -1,3 +1,4 @@
+import { UserGender } from '@/modules/profile/utils/types';
 import { create } from 'zustand';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
 import createZustandSelectors from '../utils/zustand/create-zustand-selectors';
@@ -10,6 +11,7 @@ interface UserStoreState {
     phone: string;
     role: string;
     access_token: string;
+    gender?: UserGender;
     totals: {
         cartItems: number;
         comparedItems: number;
@@ -31,6 +33,7 @@ export const userStore = create<UserStoreState>()(
                 email: '',
                 phone: '',
                 role: '',
+                gender: undefined,
                 access_token: '',
                 totals: {
                     cartItems: 0,

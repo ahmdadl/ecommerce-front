@@ -1,6 +1,7 @@
 import { urls } from '@/modules/core/utils/urls';
 import { Trans } from '@lingui/react/macro';
 import { Heart, Lock, MapPin, ShoppingBag, User } from 'lucide-react';
+import { UserGender } from './types';
 
 export const profileNavLinks = [
     {
@@ -34,3 +35,5 @@ export const profileNavLinks = [
         route: '/$locale/profile/orders/',
     },
 ];
+
+export const userGenders = Object.values(UserGender);
