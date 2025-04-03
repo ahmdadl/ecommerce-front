@@ -1,9 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
+import OrderDetailsPage from '@/modules/profile/pages/OrdersPage/OrderDetailsPage';
+import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/$locale/profile/orders/$id')({
-  component: RouteComponent,
-})
-
-function RouteComponent() {
-  return <div>Hello "/$locale/profile/orders/$id"!</div>
-}
+    component: OrderDetailsPage,
+});

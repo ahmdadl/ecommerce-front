@@ -4,7 +4,3 @@ import { createFileRoute } from '@tanstack/react-router';
 export const Route = createFileRoute('/$locale/profile/change-password')({
     component: ChangePasswordPage,
 });
-
-function RouteComponent() {
-    return <div>Hello "/$locale/profile/changePassword"!</div>;
-}
