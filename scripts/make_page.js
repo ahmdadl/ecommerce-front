@@ -41,7 +41,6 @@ async function addPage() {
 
     // Define paths
     const pagesDir = join(moduleDir, 'pages');
-    const routesFile = join(moduleDir, 'routes.tsx');
     const pageFile = join(pagesDir, `${studlyCasePageName}.tsx`);
 
     try {
@@ -64,34 +63,15 @@ async function addPage() {
 
         // Write page file
         const pageContent = `
-export default function ${studlyCasePageName}() {
+export default function ${studlyCasePageName}Page() {
     return (
         <>
-            <h1 className='text-3xl font-bold'>${studlyCasePageName}</h1>
+            <h1 className='text-3xl font-bold'>${studlyCasePageName}Page</h1>
         </>
     );
 }
         `;
         await fs.writeFile(pageFile, pageContent.trim());
-
-        // Update routes.tsx
-        let routesContent = await fs.readFile(routesFile, 'utf8');
-        const newRoute = `        <Route path='/${studlyCasePageName.toLowerCase()}' element={<${studlyCasePageName} />} />\n`;
-        routesContent = routesContent.replace(
-            '        // add more routes',
-            `${newRoute}        // add more routes`
-        );
-
-        // Add import statement if not already present
-        const importStatement = `import ${studlyCasePageName} from './pages/${studlyCasePageName}';\n`;
-        if (!routesContent.includes(`import ${studlyCasePageName} from`)) {
-            routesContent = routesContent.replace(
-                "import { Route } from 'react-router';\n",
-                `import { Route } from 'react-router';\n${importStatement}`
-            );
-        }
-
-        await fs.writeFile(routesFile, routesContent);
 
         console.log(
             `Page '${studlyCasePageName}' added successfully to '${moduleDir}/pages/' with route!`

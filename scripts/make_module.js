@@ -21,7 +21,6 @@ async function createModule() {
     const moduleDir = join('src', 'modules', camelCaseName);
     const pagesDir = join(moduleDir, 'pages');
     const componentsDir = join(moduleDir, 'components');
-    const routesFile = join(moduleDir, 'routes.tsx');
     const pageFile = join(pagesDir, `${studlyCaseName}.tsx`);
 
     try {
@@ -32,29 +31,15 @@ async function createModule() {
 
         // Write page file
         const pageContent = `
-export default function ${studlyCaseName}() {
+export default function ${studlyCaseName}Page() {
     return (
         <>
-            <h1 className='text-3xl font-bold'>${studlyCaseName}</h1>
+            <h1 className='text-3xl font-bold'>${studlyCaseName}Page</h1>
         </>
     );
 }
         `;
         await fs.writeFile(pageFile, pageContent.trim());
-
-        // Write routes file
-        const routesContent = `
-import { Route } from 'react-router';
-import ${studlyCaseName} from './pages/${studlyCaseName}';
-
-export const ${camelCaseName}Routes = (
-    <>
-        <Route path='/' index element={<${studlyCaseName} />} />
-        // add more routes
-    </>
-);
-        `;
-        await fs.writeFile(routesFile, routesContent.trim());
 
         console.log(
             `Module '${camelCaseName}' created successfully at ${moduleDir}!`
