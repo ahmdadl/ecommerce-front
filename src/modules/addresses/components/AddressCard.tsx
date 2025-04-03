@@ -8,10 +8,11 @@ import {
 } from '@/components/ui/card';
 import { Trans } from '@lingui/react/macro';
 import { Edit, Trash2 } from 'lucide-react';
+import { useAddressesStore } from '../stores/addresses-store';
 import { AddressEntity } from '../utils/types';
 
 export default function AddressCard({ address }: { address: AddressEntity }) {
-    function onEdit() {}
+    const openEditModal = useAddressesStore.use.openEditModal();
 
     function onDelete() {}
 
@@ -37,7 +38,11 @@ export default function AddressCard({ address }: { address: AddressEntity }) {
                 </div>
             </CardContent>
             <CardFooter className='flex justify-end gap-2 border-t pt-4'>
-                <Button variant='outline' size='sm' onClick={onEdit}>
+                <Button
+                    variant='outline'
+                    size='sm'
+                    onClick={() => openEditModal(address)}
+                >
                     <Edit className='h-4 w-4 mr-2' />
                     <Trans>Edit</Trans>
                 </Button>

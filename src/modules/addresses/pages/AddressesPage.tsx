@@ -3,6 +3,7 @@ import { Trans } from '@lingui/react/macro';
 import { PlusCircle } from 'lucide-react';
 import AddressCard from '../components/AddressCard';
 import CreateAddressModal from '../components/CreateAddressModal';
+import EditAddressModal from '../components/EditAddressModal';
 import { useAddressesStore } from '../stores/addresses-store';
 
 export default function AddressesPage() {
@@ -41,6 +42,7 @@ export default function AddressesPage() {
             </div>
 
             <CreateAddressModal />
+            <EditAddressModal />
         </>
     );
 }

@@ -21,8 +21,8 @@ import { Trans, useLingui } from '@lingui/react/macro';
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { useAddressesStore } from '../stores/addresses-store';
-import { AddressEntity, CityEntity } from '../utils/types';
+import { addressesStore, useAddressesStore } from '../stores/addresses-store';
+import { CityEntity } from '../utils/types';
 
 const addressSchema = z.object({
     title: z.string().min(1, i18n._('Address title is required')),
@@ -39,16 +39,15 @@ const addressSchema = z.object({
 export type AddressFormData = z.infer<typeof addressSchema>;
 
 export default function AddressForm({
-    address,
     onSave,
     isLoading,
 }: {
-    address?: AddressEntity;
     onSave: SubmitHandler<AddressFormData>;
     isLoading?: boolean;
 }) {
     const governments = useAddressesStore.use.governments();
     const cities = useAddressesStore.use.cities();
+    const address = addressesStore((state) => state.currentAddress);
 
     const { t } = useLingui();
     const user = userStore.getState();
