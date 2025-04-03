@@ -23,8 +23,30 @@ export default function AddressesPage() {
                     </Button>
                 </div>
 
-                {addresses.length === 0 ? (
-                    <div className='text-center py-12'>
+                {!addresses?.length ? (
+                    <div className='text-center py-12 flex flex-col items-center justify-center'>
+                        <svg
+                            className='mx-auto h-24 w-24 text-muted-foreground mb-4'
+                            fill='none'
+                            stroke='currentColor'
+                            viewBox='0 0 24 24'
+                            xmlns='http://www.w3.org/2000/svg'
+                            aria-hidden='true'
+                        >
+                            <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={1.5}
+                                d='M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2' // Box-like base
+                            />
+                            <circle cx='12' cy='7' r='4' />{' '}
+                            <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={1.5}
+                                d='M9 10h6'
+                            />
+                        </svg>
                         <h3 className='text-lg font-medium'>
                             <Trans>No addresses found</Trans>
                         </h3>
