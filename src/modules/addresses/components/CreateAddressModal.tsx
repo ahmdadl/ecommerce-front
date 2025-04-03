@@ -41,8 +41,8 @@ export default function CreateAddressModal() {
 
         useAddressesStore.setState({
             list: [
-                ...useAddressesStore.getState().list,
                 response.data.data.record,
+                ...useAddressesStore.getState().list,
             ],
             createModalIsOpen: false,
         });
