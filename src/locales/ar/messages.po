@@ -13,12 +13,80 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: src/modules/profile/pages/ProfilePage.tsx:33
+msgid "Name must be at least 2 characters."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/profile/pages/ProfilePage.tsx:36
+#: src/modules/auth/components/ResetPasswordForm.tsx:36
+#: src/modules/auth/components/RegisterForm.tsx:35
+#: src/modules/auth/components/ForgetPasswordForm.tsx:27
+msgid "Please enter a valid email address."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/profile/pages/ChangePasswordPage.tsx:25
+#: src/modules/profile/pages/ChangePasswordPage.tsx:28
+#: src/modules/auth/components/ResetPasswordForm.tsx:42
+#: src/modules/auth/components/RegisterForm.tsx:41
+msgid "Password must be at least 8 characters."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/profile/pages/ChangePasswordPage.tsx:33
+#: src/modules/auth/components/ResetPasswordForm.tsx:47
+#: src/modules/auth/components/RegisterForm.tsx:49
+msgid "Passwords do not match."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/core/utils/parseError.ts:23
+msgid "An unexpected error occurred"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/core/utils/parseError.ts:34
+msgid "Network error occurred"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/core/utils/parseError.ts:54
+msgid "Validation failed"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/core/utils/parseError.ts:58
+msgid "Request failed"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/auth/components/ResetPasswordForm.tsx:39
+msgid "Please enter a valid otp code."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/auth/components/RegisterForm.tsx:29
+msgid "First name must be at least 2 characters."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/auth/components/RegisterForm.tsx:32
+msgid "Last name must be at least 2 characters."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/modules/auth/components/RegisterForm.tsx:45
+msgid "You must agree to the terms and conditions."
+msgstr ""
+
 #: src/modules/core/components/LayoutShared/CartSideMenu/CartSideMenu.tsx:109
 msgid " Add items to your cart to see them here."
 msgstr ""
 
 #. placeholder {0}: otherLocale()
-#: src/modules/core/components/Header/TopMenu/TopMenuLangSwitch.tsx:21
+#: src/modules/core/components/Header/TopMenu/TopMenuLangSwitch.tsx:22
 msgid "{0}Locale"
 msgstr ""
 
@@ -34,96 +102,352 @@ msgstr ""
 msgid "Add to cart"
 msgstr ""
 
+#: src/modules/profile/utils/flags.tsx:20
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:76
+msgid "Addresses"
+msgstr ""
+
+#: src/modules/profile/components/AddressPage/AddessModal.tsx:154
+msgid "Ahmed Adel"
+msgstr ""
+
+#: src/modules/auth/pages/RegisterPage.tsx:33
+msgid "Already have an account?"
+msgstr ""
+
 #~ msgid "arLocale"
 #~ msgstr "العربية"
 
-#: src/modules/core/components/Header/TopMenu/TopMenu.tsx:33
+#: src/modules/auth/pages/ForgetPasswordPage.tsx:34
+msgid "Back to"
+msgstr ""
+
+#: src/modules/shop/components/ShopFilters.tsx:42
+#: src/modules/core/components/Header/TopMenu/TopMenu.tsx:34
 msgid "Brand"
 msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:66
+#: src/modules/shop/components/Filters/ActiveFilters.tsx:105
+msgid "Brand:"
+msgstr ""
+
+#: src/modules/categories/pages/CategoriesPage.tsx:33
+msgid "Browse all product categories in our store"
+msgstr ""
+
 #: src/modules/core/components/Header/TopMenu/TopMenuActions.tsx:40
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:63
 msgid "Cart"
 msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:11
+#: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:15
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:34
+#: src/modules/categories/pages/CategoriesPage.tsx:30
 msgid "Categories"
 msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:75
+#: src/modules/shop/components/ShopFilters.tsx:30
+msgid "Category"
+msgstr ""
+
+#: src/modules/shop/components/Filters/ActiveFilters.tsx:84
+msgid "Category:"
+msgstr ""
+
+#: src/modules/profile/utils/flags.tsx:14
+#: src/modules/profile/pages/ChangePasswordPage.tsx:137
+msgid "Change Password"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:58
+msgid "changePassword"
+msgstr ""
+
+#: src/modules/shop/components/Filters/ActiveFilters.tsx:134
+msgid "Clear All"
+msgstr ""
+
 #: src/modules/core/components/Header/TopMenu/TopMenuActions.tsx:79
 msgid "Compare"
 msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:14
+#: src/modules/profile/pages/ChangePasswordPage.tsx:120
+#: src/modules/auth/components/ResetPasswordForm.tsx:169
+#: src/modules/auth/components/RegisterForm.tsx:196
+msgid "Confirm Password"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:18
 msgid "Contact"
+msgstr ""
+
+#: src/modules/auth/components/RegisterForm.tsx:235
+msgid "Create account"
+msgstr ""
+
+#: src/modules/profile/pages/ChangePasswordPage.tsx:83
+msgid "Current Password"
+msgstr ""
+
+#: src/modules/auth/components/ResendPasswordButtonProps.tsx:63
+msgid "Didn't receive an email? Check your spam folder or try again."
+msgstr ""
+
+#: src/modules/auth/pages/LoginPage.tsx:32
+msgid "Don't have an account?"
+msgstr ""
+
+#: src/modules/profile/pages/ProfilePage.tsx:111
+#: src/modules/auth/components/ResetPasswordForm.tsx:100
+#: src/modules/auth/components/RegisterForm.tsx:140
+#: src/modules/auth/components/LoginForm.tsx:78
+#: src/modules/auth/components/ForgetPasswordForm.tsx:77
+msgid "Email"
 msgstr ""
 
 #~ msgid "enLocale"
 #~ msgstr "English"
 
-#: src/modules/auth/pages/LoginPage/LoginPage.tsx:61
+#: src/modules/auth/pages/ResetPasswordPage.tsx:22
+msgid "Enter the otp you received and your new password"
+msgstr ""
+
+#: src/modules/auth/pages/RegisterPage.tsx:23
+msgid "Enter your details below to create your account"
+msgstr ""
+
+#: src/modules/auth/pages/ForgetPasswordPage.tsx:23
+msgid "Enter your email address and we'll send an otp to reset your password"
+msgstr ""
+
+#: src/modules/auth/pages/LoginPage.tsx:22
 msgid "Enter your email and password to access your account"
 msgstr ""
 
-#: src/modules/auth/pages/LoginPage/LoginPage.tsx:123
+#: src/modules/auth/components/LoginForm.tsx:100
+msgid "Enter your password"
+msgstr ""
+
+#: src/modules/profile/components/AddressPage/AddessModal.tsx:130
+msgid "Failed to fetch governments and cities"
+msgstr ""
+
+#: src/modules/profile/pages/ProfilePage.tsx:171
+msgid "Female"
+msgstr ""
+
+#: src/modules/auth/components/RegisterForm.tsx:101
+#: src/modules/auth/components/RegisterForm.tsx:105
+msgid "First name"
+msgstr ""
+
+#: src/modules/auth/pages/ForgetPasswordPage.tsx:20
+msgid "Forget Password"
+msgstr ""
+
+#: src/modules/auth/components/LoginForm.tsx:130
+msgid "Forgot password?"
+msgstr ""
+
+#: src/modules/profile/pages/ProfilePage.tsx:153
+msgid "Gender"
+msgstr ""
+
+#: src/modules/auth/components/PasswordInput.tsx:27
 msgid "Hide password"
 msgstr ""
 
-#: src/modules/home/pages/Home.tsx:8
-#~ msgid "Home"
-#~ msgstr "الرئيسية"
+#: src/modules/shop/components/ShopHero.tsx:10
+#: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:16
+msgid "Home"
+msgstr "الرئيسية"
 
 #: src/modules/home/components/HomeBanner.tsx:6
 #~ msgid "HomeBanner"
 #~ msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:94
+#: src/modules/auth/components/RegisterForm.tsx:222
+msgid "I agree to the terms and conditions"
+msgstr ""
+
+#: src/modules/auth/components/RegisterForm.tsx:120
+#: src/modules/auth/components/RegisterForm.tsx:124
+msgid "Last name"
+msgstr ""
+
+#: src/modules/auth/pages/RegisterPage.tsx:38
+#: src/modules/auth/pages/ForgetPasswordPage.tsx:39
+msgid "log in"
+msgstr ""
+
+#: src/modules/auth/components/LoginForm.tsx:64
+msgid "Logged in successfully"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:105
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:79
+#: src/modules/auth/pages/LoginPage.tsx:19
 msgid "Login"
 msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:85
+#: src/routes/$locale/index.tsx:51
+msgid "login as guest"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:96
 msgid "Logout"
 msgstr ""
 
-#: src/modules/auth/pages/LoginPage/LoginPage.tsx:80
+#: src/modules/profile/pages/ProfilePage.tsx:168
+msgid "Male"
+msgstr ""
+
+#: src/modules/profile/pages/ProfilePage.tsx:92
+#: src/modules/profile/pages/ProfilePage.tsx:96
+msgid "Name"
+msgstr ""
+
+#: src/modules/auth/components/LoginForm.tsx:82
 msgid "name@example.com"
 msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:48
+#: src/modules/profile/utils/flags.tsx:32
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:67
+msgid "Orders"
+msgstr ""
+
+#: src/modules/auth/components/ResetPasswordForm.tsx:120
+msgid "OTP Code"
+msgstr ""
+
+#: src/modules/auth/components/ForgetPasswordForm.tsx:56
+msgid "OTP sent successfully"
+msgstr ""
+
+#: src/modules/profile/pages/ChangePasswordPage.tsx:102
+#: src/modules/auth/components/ResetPasswordForm.tsx:151
+#: src/modules/auth/components/RegisterForm.tsx:178
+#: src/modules/auth/components/LoginForm.tsx:96
+msgid "Password"
+msgstr ""
+
+#: src/modules/profile/pages/ChangePasswordPage.tsx:63
+msgid "Password changed successfully"
+msgstr ""
+
+#: src/modules/auth/components/LoginForm.tsx:35
+msgid "Password must be at least 8 characters"
+msgstr ""
+
+#: src/modules/auth/components/ResetPasswordForm.tsx:79
+msgid "Password reset successfully"
+msgstr ""
+
+#: src/modules/profile/pages/ProfilePage.tsx:132
+#: src/modules/auth/components/RegisterForm.tsx:159
+msgid "Phone Number"
+msgstr ""
+
+#: src/modules/auth/components/LoginForm.tsx:32
+msgid "Please enter a valid email"
+msgstr ""
+
+#: src/routes/index.tsx:21
+msgid "Please wait a few seconds"
+msgstr ""
+
+#: src/modules/shop/components/ShopFilters.tsx:54
+msgid "Price"
+msgstr ""
+
+#: src/modules/categories/components/category-grid.tsx:101
+msgid "products"
+msgstr ""
+
+#: src/modules/profile/utils/flags.tsx:8
+#: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:17
+#: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:22
+#: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:29
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:49
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:77
 msgid "Profile"
 msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:99
+#: src/modules/profile/pages/ProfilePage.tsx:73
+msgid "Profile updated successfully"
+msgstr ""
+
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:110
+#: src/modules/auth/pages/RegisterPage.tsx:20
 msgid "Register"
+msgstr ""
+
+#: src/modules/auth/components/RegisterForm.tsx:86
+msgid "Registered successfully"
+msgstr ""
+
+#: src/modules/auth/components/LoginForm.tsx:121
+msgid "Remember me"
 msgstr ""
 
 #: src/modules/core/components/LayoutShared/WishlistSideMenu/WishlistItemActions.tsx:76
 msgid "remove from wishlist"
 msgstr ""
 
+#: src/modules/auth/components/ResendPasswordButtonProps.tsx:56
+msgid "Resend in"
+msgstr ""
+
+#: src/modules/auth/components/ResendPasswordButtonProps.tsx:58
+msgid "Resend password reset otp"
+msgstr ""
+
+#: src/modules/auth/pages/ResetPasswordPage.tsx:19
+#: src/modules/auth/components/ResetPasswordForm.tsx:186
+msgid "Reset Password"
+msgstr ""
+
+#: src/modules/profile/pages/ProfilePage.tsx:189
+msgid "Save"
+msgstr ""
+
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:47
 msgid "search"
 msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:8
+#: src/modules/profile/pages/ProfilePage.tsx:162
+msgid "select"
+msgstr ""
+
+#: src/modules/auth/components/ForgetPasswordForm.tsx:95
+msgid "Send OTP Code"
+msgstr ""
+
+#: src/modules/auth/components/ResendPasswordButtonProps.tsx:53
+msgid "Sending..."
+msgstr ""
+
+#: src/modules/shop/components/ShopHero.tsx:7
+#: src/modules/shop/components/ShopHero.tsx:10
+#: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:9
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:21
 msgid "Shop"
 msgstr ""
 
-#: src/modules/auth/pages/LoginPage/LoginPage.tsx:124
+#: src/modules/auth/components/PasswordInput.tsx:27
 msgid "Show password"
 msgstr ""
 
-#: src/modules/auth/pages/LoginPage/LoginPage.tsx:173
+#: src/modules/auth/components/LoginForm.tsx:135
+msgid "Sign in"
+msgstr ""
+
+#: src/modules/auth/pages/LoginPage.tsx:37
 msgid "Sign up"
 msgstr ""
 
-#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:57
+#: src/modules/profile/utils/flags.tsx:26
+#: src/modules/core/components/Header/TopMenu/TopMenuUserSection.tsx:85
 #: src/modules/core/components/Header/TopMenu/TopMenuActions.tsx:61
 msgid "Wishlist"
 msgstr ""

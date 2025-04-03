@@ -6,4 +6,5 @@ export const env = {
     appName: import.meta.env.VITE_APP_NAME,
     appCode: import.meta.env.VITE_APP_CODE,
     encryptionKey: import.meta.env.VITE_ENCRYPTION_KEY,
+    apiPublicToken: import.meta.env.VITE_API_PUBLIC_TOKEN,
 };

@@ -1,6 +1,6 @@
-import AddressPage from '@/modules/profile/pages/AddressPage';
+import AddressesPage from '@/modules/addresses/pages/AddressesPage';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/$locale/profile/addresses')({
-    component: AddressPage,
+    component: AddressesPage,
 });

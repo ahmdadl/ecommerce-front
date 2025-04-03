@@ -4,6 +4,9 @@ export const profileApi = {
     update: (data: any) => http.patch('/profile/update', data),
     changePassword: (data: any) => http.patch('/profile/change-password', data),
 
+    cities: () => http.get('/cities'),
+    governments: () => http.get('/governments'),
+
     address: {
         index: () => http.get('/profile/addresses'),
     },
