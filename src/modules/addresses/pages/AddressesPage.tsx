@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Trans } from '@lingui/react/macro';
 import { PlusCircle } from 'lucide-react';
 import AddressCard from '../components/AddressCard';
+import AddressDeleteAlert from '../components/AddressDeleteAlert';
 import CreateAddressModal from '../components/CreateAddressModal';
 import EditAddressModal from '../components/EditAddressModal';
 import { useAddressesStore } from '../stores/addresses-store';
@@ -65,6 +66,7 @@ export default function AddressesPage() {
 
             <CreateAddressModal />
             <EditAddressModal />
+            <AddressDeleteAlert />
         </>
     );
 }

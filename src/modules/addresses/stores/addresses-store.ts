@@ -807,6 +807,7 @@ type AddressesState = {
     currentAddress?: AddressEntity;
     createModalIsOpen: boolean;
     editModalIsOpen: boolean;
+    deleteModalIsOpen: boolean;
 
     governments: GovernmentEntity[];
     cities: CityEntity[];
@@ -815,6 +816,8 @@ type AddressesState = {
     closeCreateModal: () => void;
     openEditModal: (address: AddressEntity) => void;
     closeEditModal: () => void;
+    openDeleteModal: (address: AddressEntity) => void;
+    closeDeleteModal: () => void;
 };
 
 export const addressesStore = create<AddressesState>((set, get) => ({
@@ -822,6 +825,7 @@ export const addressesStore = create<AddressesState>((set, get) => ({
     currentAddress: undefined,
     createModalIsOpen: false,
     editModalIsOpen: false,
+    deleteModalIsOpen: false,
 
     governments: mockGovernments,
     cities: mockCities,
@@ -833,6 +837,11 @@ export const addressesStore = create<AddressesState>((set, get) => ({
         set({ currentAddress: address, editModalIsOpen: true }),
     closeEditModal: () =>
         set({ currentAddress: undefined, editModalIsOpen: false }),
+
+    openDeleteModal: (address: AddressEntity) =>
+        set({ currentAddress: address, deleteModalIsOpen: true }),
+    closeDeleteModal: () =>
+        set({ currentAddress: undefined, deleteModalIsOpen: false }),
 }));
 
 export const useAddressesStore = createZustandSelectors(addressesStore);

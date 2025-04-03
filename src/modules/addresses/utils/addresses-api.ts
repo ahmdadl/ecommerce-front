@@ -8,5 +8,5 @@ export const addressApi = {
     create: (data: any) => http.post('/addresses', data),
     update: (addressId: string, data: any) =>
         http.patch('/addresses/' + addressId, data),
-    delete: (id: number) => http.delete(`/addresses/${id}`),
+    delete: (id: string) => http.delete(`/addresses/${id}`),
 };
