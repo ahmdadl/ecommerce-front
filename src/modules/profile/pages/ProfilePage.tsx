@@ -70,7 +70,7 @@ export default function ProfilePage() {
 
         userStore.setState({ ...response.data.record, role: 'customer' });
 
-        toast.success(t`Registered successfully`, {
+        toast.success(t`Profile updated successfully`, {
             className: '!bg-green-500 !text-white',
         });
     }
