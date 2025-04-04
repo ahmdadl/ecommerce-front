@@ -61,9 +61,7 @@ export default function LoginForm() {
 
         history.go(-1);
 
-        toast.success(t`Logged in successfully`, {
-            className: '!bg-green-500 !text-white',
-        });
+        toast.success(t`Logged in successfully`);
     }
 
     return (

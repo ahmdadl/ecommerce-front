@@ -43,7 +43,9 @@ http.interceptors.request.use(
 http.interceptors.response.use(
     (response: AxiosResponse) => ({
         ...response,
-        data: response.data,
+        success: response.data.success,
+        message: response.data.message,
+        data: response.data.data,
     }),
     (error: AxiosError<ApiErrorResponse>) => {
         if (error.response?.status === 401) {

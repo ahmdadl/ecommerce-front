@@ -37,9 +37,7 @@ function Index() {
     async function fetchUserData() {
         const response = await authApi.guest.login();
 
-        console.log(response);
-
-        useUserStore.setState({
+        useUserStore.getState().login({
             ...response.data.record,
             role: 'guest',
         });
