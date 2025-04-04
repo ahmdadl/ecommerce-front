@@ -1,3 +1,5 @@
+import { CategoryEntity } from '@/modules/categories/utils/types';
+
 export type CategoryFilterEntity = {
     id: string;
     title: string;
@@ -54,10 +56,16 @@ export type ProductEntity = {
     sale_price: number;
     is_discounted: boolean;
     discounted_price: number;
+    discounted_percentage: number;
     stock: number;
     has_stock: boolean;
+    is_wished: boolean;
+    is_carted: boolean;
+    is_compared: boolean;
     sku: string;
     meta_title: string;
     meta_description: string;
     meta_keywords: string[];
+    is_new: boolean;
+    category: CategoryEntity;
 };

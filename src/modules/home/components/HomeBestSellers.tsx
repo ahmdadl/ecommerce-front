@@ -1,4 +1,4 @@
-import ProductCard from '@/modules/shop/components/ProductCard';
+import ProductCard from '@/modules/shop/components/Products/ProductCard';
 import Link from '@core/components/LocalizedLink';
 
 // Fake data for best sellers

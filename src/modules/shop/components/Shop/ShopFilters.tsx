@@ -11,9 +11,9 @@ import {
 } from '@/components/ui/sidebar';
 import { Trans } from '@lingui/react/macro';
 import { DollarSign, List } from 'lucide-react';
-import { BrandFilters } from './Filters/BrandFilters';
-import { CategoryFilters } from './Filters/CategoryFilters';
-import { PriceRangeFilter } from './Filters/PriceRangeFilter';
+import { BrandFilters } from '../Filters/BrandFilters';
+import { CategoryFilters } from '../Filters/CategoryFilters';
+import { PriceRangeFilter } from '../Filters/PriceRangeFilter';
 
 export function ShopFilters() {
     return (

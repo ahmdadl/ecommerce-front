@@ -144,7 +144,14 @@
     }
 }
 
-.shop-page,
+.shop-page {
+    .relative-sidebar {
+        position: relative !important;
+        height: 100%;
+    }
+}
+
+,
 .profile-page {
     .relative-sidebar {
         position: relative !important;
