@@ -35,10 +35,10 @@ export const ordersApi = {
             .show(id)
             .catch(parseError)) as AxiosResponse;
 
-        if (!response?.data?.data?.record) return;
+        if (!response?.data?.record) return;
 
         ordersStore.setState({
-            currentOrder: response.data.data.record,
+            currentOrder: response.data.record,
         });
 
         return;

@@ -32,12 +32,12 @@ function Index() {
     const accessToken = useUserStore.use.access_token;
     const isCustomer = useUserStore.use.isCustomer();
 
-    console.log({ accessToken: accessToken(), isCustomer: isCustomer() });
+    // console.log({ accessToken: accessToken(), isCustomer: isCustomer() });
 
     async function fetchUserData() {
         const response = await authApi.guest.login();
 
-        console.log(response, response.data.record);
+        console.log(response);
 
         useUserStore.setState({
             ...response.data.record,

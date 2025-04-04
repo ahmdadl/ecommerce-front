@@ -37,13 +37,10 @@ export default function CreateAddressModal() {
 
         setIsLoading(false);
 
-        if (!response?.data?.data?.record) return;
+        if (!response?.data?.record) return;
 
         useAddressesStore.setState({
-            list: [
-                response.data.data.record,
-                ...useAddressesStore.getState().list,
-            ],
+            list: [response.data.record, ...useAddressesStore.getState().list],
             createModalIsOpen: false,
         });
 

@@ -7,7 +7,7 @@ export default function Home() {
     async function fetchUserData() {
         const response = await http.post('login/guests');
 
-        console.log(response, response.data.record);
+        console.log(response.data);
 
         useUserStore.setState({
             ...response.data.record,
@@ -16,7 +16,7 @@ export default function Home() {
     }
 
     function logUser() {
-        console.log(useUserStore.getState());
+        // console.log(useUserStore.getState());
     }
 
     return (

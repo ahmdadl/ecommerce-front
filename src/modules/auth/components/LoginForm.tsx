@@ -17,6 +17,7 @@ import { userStore } from '@/modules/core/stores/userStore';
 import { parseError } from '@/modules/core/utils/parseError';
 import { Trans, useLingui } from '@lingui/react/macro';
 import { Link, useRouter } from '@tanstack/react-router';
+import { AxiosResponse } from 'axios';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
@@ -49,13 +50,12 @@ export default function LoginForm() {
         if (isLoading) return;
         setIsLoading(true);
 
-        const response = await authApi
+        const response = (await authApi
             .login(values)
-            .catch((err) => parseError(err, form));
-
+            .catch((err) => parseError(err, form))) as AxiosResponse;
         setIsLoading(false);
 
-        if (typeof response === 'string') return;
+        if (!response?.data) return;
 
         userStore.setState({ ...response.data.record, role: 'customer' });
 

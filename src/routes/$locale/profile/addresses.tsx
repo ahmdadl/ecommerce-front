@@ -13,9 +13,9 @@ export const Route = createFileRoute('/$locale/profile/addresses')({
             .getAll(true, true)
             .catch(parseError)) as AxiosResponse;
 
-        if (!response?.data?.data?.addresses) return;
+        if (!response?.data?.addresses) return;
 
-        const data = response.data.data;
+        const data = response.data;
 
         addressesStore.setState({
             list: data.addresses,

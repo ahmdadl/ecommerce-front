@@ -41,11 +41,11 @@ export default function EditAddressModal() {
 
         setIsLoading(false);
 
-        if (!response?.data?.data?.record) return;
+        if (!response?.data?.record) return;
 
         const updatedList = useAddressesStore.getState().list.map((address) => {
-            if (address.id === response.data.data.record.id) {
-                return response.data.data.record;
+            if (address.id === response.data.record.id) {
+                return response.data.record;
             }
             return address;
         });

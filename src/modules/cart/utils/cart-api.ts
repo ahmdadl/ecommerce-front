@@ -9,10 +9,10 @@ export const cartApi = {
             .get('/cart')
             .catch(parseError)) as AxiosResponse;
 
-        if (!response?.data?.data) return;
+        if (!response?.data) return;
 
         cartStore.setState({
-            ...response.data.data,
+            ...response.data,
         });
 
         return;

@@ -24,10 +24,9 @@ interface RegisterData {
 // API endpoints
 export const authApi = {
     guest: {
-        login: () => http.post<{ record: any }>('/login/guests'),
+        login: () => http.post('/login/guests'),
 
-        register: (userData: RegisterData) =>
-            http.post<{ record: any }>('/register', userData),
+        register: (userData: RegisterData) => http.post('/register', userData),
 
         forgetPassword: (email: string) =>
             http.post('/forget-password', { email }),
@@ -38,8 +37,7 @@ export const authApi = {
             }),
     },
 
-    login: (credentials: LoginCredentials) =>
-        http.post<{ record: User }>('/login', credentials),
+    login: (credentials: LoginCredentials) => http.post('/login', credentials),
 
     logout: () => http.post<void>('/logout'),
 };
