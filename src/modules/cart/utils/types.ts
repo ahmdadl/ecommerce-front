@@ -60,3 +60,9 @@ export type PaymentMethodEntity = {
     code: string;
     name: string;
 };
+
+export type CartResponse = {
+    cart: CartEntity;
+    addresses?: AddressEntity[];
+    payment_methods?: PaymentMethodEntity[];
+};

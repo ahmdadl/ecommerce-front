@@ -5,6 +5,7 @@ import {
     createRouteMask,
     createRouter,
 } from '@tanstack/react-router';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { messages as arMessages } from './locales/ar/messages.po';
 import { messages as enMessages } from './locales/en/messages.po';
@@ -39,7 +40,9 @@ i18n.activate('en');
 
 const root = document.getElementById('root')!;
 ReactDOM.createRoot(root).render(
-    <I18nProvider i18n={i18n}>
-        <RouterProvider router={router} />
-    </I18nProvider>
+    <StrictMode>
+        <I18nProvider i18n={i18n}>
+            <RouterProvider router={router} />
+        </I18nProvider>
+    </StrictMode>
 );

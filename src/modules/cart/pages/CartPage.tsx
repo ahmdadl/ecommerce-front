@@ -1,4 +1,4 @@
-import { ShoppingBag, Trash2 } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -9,6 +9,7 @@ import { urls } from '@/modules/core/utils/urls';
 import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import { CartItemCard } from '../components/CartItemCard';
+import ClearCartButton from '../components/ClearCartButton';
 import { useCartStore } from '../stores/cart-store';
 import { CartEntity } from '../utils/types';
 
@@ -190,16 +191,6 @@ const mockedCart: CartEntity = {
 export default function CartPage() {
     const cart = useCartStore.use.cart();
 
-    console.log(cart);
-
-    const removeItem = (itemId: string) => {
-        //
-    };
-
-    const clearCart = () => {
-        //
-    };
-
     return (
         <div className='flex flex-col gap-4'>
             <HeroSection
@@ -235,14 +226,7 @@ export default function CartPage() {
                     <div className='lg:col-span-2'>
                         <div className='flex items-center justify-end'>
                             <div className='mb-4'>
-                                <Button
-                                    variant='outline'
-                                    onClick={clearCart}
-                                    className='w-full sm:w-auto text-destructive'
-                                >
-                                    <Trash2 className='h-4 w-4 mr-2' />
-                                    <Trans>Clear Cart</Trans>
-                                </Button>
+                                <ClearCartButton />
                             </div>
                         </div>
 

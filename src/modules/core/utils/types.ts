@@ -1,3 +1,5 @@
+import { AxiosResponse } from 'axios';
+
 export type PaginationInfoEntity = {
     current_page: number;
     per_page: number;
@@ -11,18 +13,17 @@ export type PaginationInfoEntity = {
 // Define generic types for flexibility
 export type ApiResponseData<T = any> = T;
 
-// Base response structure
-export interface ApiResponse<T = any> {
+// Base response structure (now directly includes success, message, data)
+export interface ApiResponse<T = any> extends AxiosResponse {
     success: boolean;
     message: string | null;
-    data?: ApiResponseData<T>;
-    status: number;
+    data: ApiResponseData<T>;
 }
 
 // Success response with data
 export interface SuccessResponse<T = any> extends ApiResponse<T> {
     success: true;
-    data?: T;
+    data: T;
 }
 
 // Error response
@@ -31,28 +32,17 @@ export interface ErrorResponse extends ApiResponse<never> {
     errors?: Record<string, string[] | string>;
 }
 
-// Pagination info
-export interface PaginationInfo {
-    current_page: number;
-    per_page: number;
-    total: number;
-    last_page: number;
-    from: number | null;
-    to: number | null;
-    has_more_pages: boolean;
-}
-
 // Paginated response
 export interface PaginatedResponse<T> extends ApiResponse<T> {
     success: true;
     records: T[];
-    paginationInfo: PaginationInfo;
+    paginationInfo: PaginationInfoEntity;
 }
 
 // No content response
 export interface NoContentResponse extends ApiResponse<never> {
     success: true;
-    data?: never;
+    data: never;
 }
 
 // Validation error response
@@ -67,16 +57,10 @@ export interface ForbiddenResponse extends ErrorResponse {}
 export interface ServerErrorResponse extends ErrorResponse {}
 
 // Record response
-export interface RecordResponse<T>
-    extends SuccessResponse<{
-        record: T;
-    }> {}
+export interface RecordResponse<T> extends SuccessResponse<{ record: T }> {}
 
 // Records response
-export interface RecordsResponse<T>
-    extends SuccessResponse<{
-        records: T[];
-    }> {}
+export interface RecordsResponse<T> extends SuccessResponse<{ records: T[] }> {}
 
 // Union type for all possible responses
 export type ApiResponseType<T = any> =
@@ -92,11 +76,10 @@ export type ApiResponseType<T = any> =
     | RecordResponse<T>
     | RecordsResponse<T>;
 
-// Type guard functions
+// Type guard functions (updated to work with flattened structure)
 export const isSuccessResponse = <T>(
     response: ApiResponseType<T>
-): response is SuccessResponse<T> =>
-    response.success === true && 'data' in response;
+): response is SuccessResponse<T> => response.success === true;
 
 export const isErrorResponse = <T>(
     response: ApiResponseType<T>

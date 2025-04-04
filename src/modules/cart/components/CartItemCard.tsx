@@ -1,5 +1,4 @@
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import Image from '@/modules/core/components/Image';
 import CartItemQuantity from '@/modules/core/components/LayoutShared/CartSideMenu/CartItemQuantity';
 import Link from '@/modules/core/components/LocalizedLink';
@@ -8,6 +7,7 @@ import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import { Trash2 } from 'lucide-react';
 import { CartItemEntity } from '../utils/types';
+import RemoveFromCartButton from './RemoveFromCartButton';
 
 export function CartItemCard({ item }: { item: CartItemEntity }) {
     return (
@@ -51,13 +51,13 @@ export function CartItemCard({ item }: { item: CartItemEntity }) {
                 </div>
             </div>
             <div>
-                <CartItemQuantity />
+                <CartItemQuantity item={item} />
             </div>
 
             <div>
-                <Button variant={'destructive'}>
+                <RemoveFromCartButton itemId={item.id}>
                     <Trash2 className='h-5 w-5' />
-                </Button>
+                </RemoveFromCartButton>
             </div>
         </div>
     );
