@@ -34,6 +34,13 @@ export const profileNavLinks = [
         icon: <ShoppingBag className='h-4 w-4' />,
         route: '/$locale/profile/orders/',
     },
+    {
+        name: <Trans>Orders</Trans>,
+        path: urls.profile.orders.index,
+        icon: <ShoppingBag className='h-4 w-4' />,
+        route: '/$locale/profile/orders/$id',
+        hidden: true,
+    },
 ];
 
 export const userGenders = Object.values(UserGender);

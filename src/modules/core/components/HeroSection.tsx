@@ -41,7 +41,7 @@ export default function HeroSection({ title, breadcrumbs }: HeroSectionProps) {
                         <nav className='mt-2 flex items-center gap-1 text-sm text-muted-foreground'>
                             {breadcrumbs.map((crumb, index) => (
                                 <div
-                                    key={crumb.path}
+                                    key={crumb.path ?? '' + crumb.label}
                                     className='flex items-center'
                                 >
                                     {crumb.path ? (

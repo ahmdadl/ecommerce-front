@@ -48,22 +48,24 @@ export function ProfileSidebar({
             </SidebarHeader>
             <SidebarContent>
                 <nav className='flex flex-col gap-1 p-2'>
-                    {profileNavLinks.map((link) => (
-                        <SidebarMenuButton
-                            asChild
-                            className={cn(
-                                'data-[slot=sidebar-menu-button]:!p-1.5',
-                                activeRoute.routeId === link.route &&
-                                    'bg-primary hover:bg-primary text-white hover:text-white'
-                            )}
-                            key={link.route}
-                        >
-                            <Link to={link.path}>
-                                {link.icon}
-                                {link.name}
-                            </Link>
-                        </SidebarMenuButton>
-                    ))}
+                    {profileNavLinks
+                        .filter((link) => !link.hidden)
+                        .map((link) => (
+                            <SidebarMenuButton
+                                asChild
+                                className={cn(
+                                    'data-[slot=sidebar-menu-button]:!p-1.5',
+                                    activeRoute.routeId === link.route &&
+                                        'bg-primary hover:bg-primary text-white hover:text-white'
+                                )}
+                                key={link.route}
+                            >
+                                <Link to={link.path}>
+                                    {link.icon}
+                                    {link.name}
+                                </Link>
+                            </SidebarMenuButton>
+                        ))}
                 </nav>
             </SidebarContent>
             <SidebarFooter>
