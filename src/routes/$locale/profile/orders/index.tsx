@@ -9,6 +9,4 @@ export const Route = createFileRoute('/$locale/profile/orders/')({
     loader: () => ordersApi.loadOrders().catch(parseError),
 
     pendingComponent: OrdersSkeletonPage,
-
-    pendingMinMs: 200,
 });
