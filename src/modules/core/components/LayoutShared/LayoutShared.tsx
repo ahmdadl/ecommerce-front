@@ -17,7 +17,7 @@ export default function LayoutShared() {
 
             {!isMobile && <WishlistSideMenu />}
 
-            <Toaster position={isRtl() ? 'top-left' : 'top-right'} />
+            <Toaster position={isRtl() ? 'top-left' : 'top-right'} richColors />
         </>
     );
 }
