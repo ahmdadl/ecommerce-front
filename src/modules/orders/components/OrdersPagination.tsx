@@ -17,8 +17,6 @@ export default function OrdersPagination() {
     const { paginationInfo } = useOrdersStore.getState();
     const [isLoading, setIsLoading] = useState(0);
 
-    console.log(isLoading);
-
     async function handlePageChange(page: number) {
         if (isLoading) return;
 

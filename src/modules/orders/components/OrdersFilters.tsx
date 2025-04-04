@@ -2,10 +2,8 @@ import { Search } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import loadingToast from '@/modules/core/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import { useEffect, useState } from 'react';
-import { ordersApi } from '../utils/orders-api';
 
 export default function OrdersFilters() {
     const [idFilter, setIdFilter] = useState('');
@@ -20,11 +18,11 @@ export default function OrdersFilters() {
 
     async function clearFilters() {
         setIdFilter('');
-        loadingToast(ordersApi.loadOrders(1));
+        // loadingToast(ordersApi.loadOrders(1));
     }
 
     async function applyFilters() {
-        loadingToast(ordersApi.loadOrders(1, idFilter));
+        // loadingToast(ordersApi.loadOrders(1, idFilter));
     }
 
     return (

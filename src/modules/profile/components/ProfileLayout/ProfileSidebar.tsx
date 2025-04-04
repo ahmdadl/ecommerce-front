@@ -14,12 +14,14 @@ import {
 } from '@/components/ui/sidebar';
 import { cn } from '@/lib/utils';
 import Link from '@/modules/core/components/LocalizedLink';
+import useUserStore from '@/modules/core/stores/userStore';
 import { useMatches } from '@tanstack/react-router';
 import { profileNavLinks } from '../../utils/flags';
 
 export function ProfileSidebar({
     ...props
 }: React.ComponentProps<typeof Sidebar>) {
+    const user = useUserStore.getState();
     const matches = useMatches();
     const activeRoute = matches[matches.length - 1];
 
@@ -35,10 +37,10 @@ export function ProfileSidebar({
                                 </div>
                                 <div className='flex flex-col gap-0.5 leading-none'>
                                     <span className='font-semibold'>
-                                        Ahmed Adel
+                                        {user.name}
                                     </span>
                                     <p className='text-sm text-muted-foreground'>
-                                        user@gmail.com
+                                        {user.email}
                                     </p>
                                 </div>
                             </div>

@@ -27,7 +27,7 @@ export const ordersApi = {
             paginationInfo: data.paginationInfo,
         });
 
-        return response.data;
+        return;
     },
 
     loadOne: async (id: string) => {
