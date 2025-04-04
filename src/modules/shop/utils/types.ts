@@ -39,3 +39,25 @@ export type FilterState = {
     resetFilters: () => void;
     syncWithUrl: (search: Record<string, string | string[]>) => void;
 };
+
+// Product details
+export type ProductEntity = {
+    id: string;
+    category_id: string;
+    brand_id: string;
+    title: string;
+    description: string;
+    slug: string;
+    is_main: boolean;
+    images: string[];
+    price: number;
+    sale_price: number;
+    is_discounted: boolean;
+    discounted_price: number;
+    stock: number;
+    has_stock: boolean;
+    sku: string;
+    meta_title: string;
+    meta_description: string;
+    meta_keywords: string[];
+};

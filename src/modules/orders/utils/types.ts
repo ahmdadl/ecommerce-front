@@ -1,37 +1,5 @@
-export type CartTotalsEntity = {
-    original: number;
-    discount: number;
-    taxes: number;
-    products: number;
-    items: number;
-    subtotal: number;
-    coupon: number;
-    shipping: number;
-    total: number;
-};
-
-// Product details
-export type ProductEntity = {
-    id: string;
-    category_id: string;
-    brand_id: string;
-    title: string;
-    description: string;
-    slug: string;
-    is_main: boolean;
-    images: string[];
-    price: number;
-    salePrice: number;
-    stock: number;
-    sku: string;
-    is_active: boolean;
-    meta_title: string;
-    meta_description: string;
-    meta_keywords: string[];
-    created_at: string; // ISO 8601 date string
-    updated_at: string;
-    deleted_at: string | null;
-};
+import { CartTotalsEntity } from '@/modules/cart/utils/types';
+import { ProductEntity } from '@/modules/shop/utils/types';
 
 // Order item
 export type OrderItemEntity = {
@@ -41,7 +9,7 @@ export type OrderItemEntity = {
     quantity: number;
     totals: CartTotalsEntity;
     created_at: string;
-    product: Product;
+    product: ProductEntity;
 };
 
 // Address details
@@ -51,7 +19,7 @@ export type AddressEntity = {
     user_id: string;
     government_id: string;
     city_id: string;
-    city_title: MultilingualString;
+    city_title: string;
     shipping_fees: number;
     name: string;
     title: string;

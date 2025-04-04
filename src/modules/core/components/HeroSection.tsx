@@ -16,7 +16,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ title, breadcrumbs }: HeroSectionProps) {
     // Default background image from picsum.photos (or use a local asset)
-    const defaultBackgroundImage = 'https://picsum.photos/1200/300?blur=2';
+    const defaultBackgroundImage = 'https://picsum.photos/seed/1200/300?blur=2';
 
     return (
         <section

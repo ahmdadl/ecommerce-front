@@ -1,0 +1,62 @@
+import { AddressEntity } from '../../addresses/utils/types';
+import { ProductEntity } from '../../shop/utils/types';
+
+export type CartTotalsEntity = {
+    original: number;
+    discount: number;
+    taxes: number;
+    products: number;
+    items: number;
+    subtotal: number;
+    coupon: number;
+    shipping: number;
+    total: number;
+};
+
+export type UserTotalsEntity = {
+    cartItems: number;
+    wishlistItems: number;
+    compareItems: number;
+    orders: number;
+    purchased: number;
+};
+
+export type UserEntity = {
+    id: string;
+    totals: UserTotalsEntity;
+};
+
+export type CouponEntity = {
+    id: string;
+    code: string;
+    name: string;
+    starts_at: string;
+    ends_at: string;
+    discount_type: 'percentage' | 'fixed';
+    value: number;
+    max_discount: number | null;
+    used_count: number;
+    is_active: boolean;
+};
+
+export type CartItemEntity = {
+    id: string;
+    product: ProductEntity;
+    quantity: number;
+    totals: CartTotalsEntity;
+};
+
+export type CartEntity = {
+    id: string;
+    address_id: string | null;
+    coupon_id: string | null;
+    totals: CartTotalsEntity;
+    address?: AddressEntity;
+    coupon?: CouponEntity;
+    items: CartItemEntity[];
+};
+
+export type PaymentMethodEntity = {
+    code: string;
+    name: string;
+};

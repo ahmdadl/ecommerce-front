@@ -28,4 +28,6 @@ export const urls = {
         wishlist: '/profile/wishlist',
         addresses: '/profile/addresses',
     },
+    cart: '/cart',
+    checkout: '/checkout',
 };

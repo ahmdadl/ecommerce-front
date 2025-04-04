@@ -20,6 +20,8 @@ import { Route as LocaleProfileWishlistImport } from './routes/$locale/profile/w
 import { Route as LocaleProfileChangePasswordImport } from './routes/$locale/profile/change-password'
 import { Route as LocaleProfileAddressesImport } from './routes/$locale/profile/addresses'
 import { Route as LocaleCatalogShopImport } from './routes/$locale/_catalog/shop'
+import { Route as LocaleCartCheckoutImport } from './routes/$locale/_cart/checkout'
+import { Route as LocaleCartCartImport } from './routes/$locale/_cart/cart'
 import { Route as LocaleAuthResetPasswordImport } from './routes/$locale/_auth/reset-password'
 import { Route as LocaleAuthRegisterImport } from './routes/$locale/_auth/register'
 import { Route as LocaleAuthLoginImport } from './routes/$locale/_auth/login'
@@ -83,6 +85,18 @@ const LocaleProfileAddressesRoute = LocaleProfileAddressesImport.update({
 const LocaleCatalogShopRoute = LocaleCatalogShopImport.update({
   id: '/$locale/_catalog/shop',
   path: '/$locale/shop',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LocaleCartCheckoutRoute = LocaleCartCheckoutImport.update({
+  id: '/$locale/_cart/checkout',
+  path: '/$locale/checkout',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LocaleCartCartRoute = LocaleCartCartImport.update({
+  id: '/$locale/_cart/cart',
+  path: '/$locale/cart',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -196,6 +210,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleAuthResetPasswordImport
       parentRoute: typeof rootRoute
     }
+    '/$locale/_cart/cart': {
+      id: '/$locale/_cart/cart'
+      path: '/$locale/cart'
+      fullPath: '/$locale/cart'
+      preLoaderRoute: typeof LocaleCartCartImport
+      parentRoute: typeof rootRoute
+    }
+    '/$locale/_cart/checkout': {
+      id: '/$locale/_cart/checkout'
+      path: '/$locale/checkout'
+      fullPath: '/$locale/checkout'
+      preLoaderRoute: typeof LocaleCartCheckoutImport
+      parentRoute: typeof rootRoute
+    }
     '/$locale/_catalog/shop': {
       id: '/$locale/_catalog/shop'
       path: '/$locale/shop'
@@ -294,6 +322,8 @@ export interface FileRoutesByFullPath {
   '/$locale/login': typeof LocaleAuthLoginRoute
   '/$locale/register': typeof LocaleAuthRegisterRoute
   '/$locale/reset-password': typeof LocaleAuthResetPasswordRoute
+  '/$locale/cart': typeof LocaleCartCartRoute
+  '/$locale/checkout': typeof LocaleCartCheckoutRoute
   '/$locale/shop': typeof LocaleCatalogShopRoute
   '/$locale/profile/addresses': typeof LocaleProfileAddressesRoute
   '/$locale/profile/change-password': typeof LocaleProfileChangePasswordRoute
@@ -313,6 +343,8 @@ export interface FileRoutesByTo {
   '/$locale/login': typeof LocaleAuthLoginRoute
   '/$locale/register': typeof LocaleAuthRegisterRoute
   '/$locale/reset-password': typeof LocaleAuthResetPasswordRoute
+  '/$locale/cart': typeof LocaleCartCartRoute
+  '/$locale/checkout': typeof LocaleCartCheckoutRoute
   '/$locale/shop': typeof LocaleCatalogShopRoute
   '/$locale/profile/addresses': typeof LocaleProfileAddressesRoute
   '/$locale/profile/change-password': typeof LocaleProfileChangePasswordRoute
@@ -334,6 +366,8 @@ export interface FileRoutesById {
   '/$locale/_auth/login': typeof LocaleAuthLoginRoute
   '/$locale/_auth/register': typeof LocaleAuthRegisterRoute
   '/$locale/_auth/reset-password': typeof LocaleAuthResetPasswordRoute
+  '/$locale/_cart/cart': typeof LocaleCartCartRoute
+  '/$locale/_cart/checkout': typeof LocaleCartCheckoutRoute
   '/$locale/_catalog/shop': typeof LocaleCatalogShopRoute
   '/$locale/profile/addresses': typeof LocaleProfileAddressesRoute
   '/$locale/profile/change-password': typeof LocaleProfileChangePasswordRoute
@@ -356,6 +390,8 @@ export interface FileRouteTypes {
     | '/$locale/login'
     | '/$locale/register'
     | '/$locale/reset-password'
+    | '/$locale/cart'
+    | '/$locale/checkout'
     | '/$locale/shop'
     | '/$locale/profile/addresses'
     | '/$locale/profile/change-password'
@@ -374,6 +410,8 @@ export interface FileRouteTypes {
     | '/$locale/login'
     | '/$locale/register'
     | '/$locale/reset-password'
+    | '/$locale/cart'
+    | '/$locale/checkout'
     | '/$locale/shop'
     | '/$locale/profile/addresses'
     | '/$locale/profile/change-password'
@@ -393,6 +431,8 @@ export interface FileRouteTypes {
     | '/$locale/_auth/login'
     | '/$locale/_auth/register'
     | '/$locale/_auth/reset-password'
+    | '/$locale/_cart/cart'
+    | '/$locale/_cart/checkout'
     | '/$locale/_catalog/shop'
     | '/$locale/profile/addresses'
     | '/$locale/profile/change-password'
@@ -414,6 +454,8 @@ export interface RootRouteChildren {
   LocaleAuthLoginRoute: typeof LocaleAuthLoginRoute
   LocaleAuthRegisterRoute: typeof LocaleAuthRegisterRoute
   LocaleAuthResetPasswordRoute: typeof LocaleAuthResetPasswordRoute
+  LocaleCartCartRoute: typeof LocaleCartCartRoute
+  LocaleCartCheckoutRoute: typeof LocaleCartCheckoutRoute
   LocaleCatalogShopRoute: typeof LocaleCatalogShopRoute
   LocaleCatalogCategoriesSlugRoute: typeof LocaleCatalogCategoriesSlugRoute
   LocaleCatalogCategoriesIndexRoute: typeof LocaleCatalogCategoriesIndexRoute
@@ -428,6 +470,8 @@ const rootRouteChildren: RootRouteChildren = {
   LocaleAuthLoginRoute: LocaleAuthLoginRoute,
   LocaleAuthRegisterRoute: LocaleAuthRegisterRoute,
   LocaleAuthResetPasswordRoute: LocaleAuthResetPasswordRoute,
+  LocaleCartCartRoute: LocaleCartCartRoute,
+  LocaleCartCheckoutRoute: LocaleCartCheckoutRoute,
   LocaleCatalogShopRoute: LocaleCatalogShopRoute,
   LocaleCatalogCategoriesSlugRoute: LocaleCatalogCategoriesSlugRoute,
   LocaleCatalogCategoriesIndexRoute: LocaleCatalogCategoriesIndexRoute,
@@ -451,6 +495,8 @@ export const routeTree = rootRoute
         "/$locale/_auth/login",
         "/$locale/_auth/register",
         "/$locale/_auth/reset-password",
+        "/$locale/_cart/cart",
+        "/$locale/_cart/checkout",
         "/$locale/_catalog/shop",
         "/$locale/_catalog/categories/$slug",
         "/$locale/_catalog/categories/"
@@ -487,6 +533,12 @@ export const routeTree = rootRoute
     },
     "/$locale/_auth/reset-password": {
       "filePath": "$locale/_auth/reset-password.tsx"
+    },
+    "/$locale/_cart/cart": {
+      "filePath": "$locale/_cart/cart.tsx"
+    },
+    "/$locale/_cart/checkout": {
+      "filePath": "$locale/_cart/checkout.tsx"
     },
     "/$locale/_catalog/shop": {
       "filePath": "$locale/_catalog/shop.tsx"
