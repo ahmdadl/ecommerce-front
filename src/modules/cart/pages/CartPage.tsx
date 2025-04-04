@@ -2,13 +2,12 @@ import { ShoppingBag } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import HeroSection from '@/modules/core/components/HeroSection';
 import Link from '@/modules/core/components/LocalizedLink';
 import { urls } from '@/modules/core/utils/urls';
-import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import { CartItemCard } from '../components/CartItemCard';
+import CartTotals from '../components/CartTotals';
 import ClearCartButton from '../components/ClearCartButton';
 import { useCartStore } from '../stores/cart-store';
 import { CartEntity } from '../utils/types';
@@ -238,94 +237,7 @@ export default function CartPage() {
                     </div>
 
                     <div className='lg:col-span-1'>
-                        <Card>
-                            <CardContent className='p-6'>
-                                <h2 className='text-xl font-semibold mb-4'>
-                                    <Trans>Order Summary</Trans>
-                                </h2>
-
-                                <div className='space-y-3'>
-                                    <div className='flex justify-between'>
-                                        <span className='text-muted-foreground'>
-                                            <Trans>Subtotal</Trans>
-                                        </span>
-                                        <span>
-                                            {parsePrice(cart.totals.subtotal)}
-                                        </span>
-                                    </div>
-
-                                    {cart.totals.discount > 0 && (
-                                        <div className='flex justify-between text-green-600'>
-                                            <span>
-                                                <Trans>Discount</Trans>
-                                            </span>
-                                            <span>
-                                                -
-                                                {parsePrice(
-                                                    cart.totals.discount
-                                                )}
-                                            </span>
-                                        </div>
-                                    )}
-
-                                    {cart.totals.coupon > 0 && (
-                                        <div className='flex justify-between text-green-600'>
-                                            <span>
-                                                <Trans>Coupon</Trans>
-                                            </span>
-                                            <span>
-                                                -
-                                                {parsePrice(cart.totals.coupon)}
-                                            </span>
-                                        </div>
-                                    )}
-
-                                    <div className='flex justify-between'>
-                                        <span className='text-muted-foreground'>
-                                            <Trans>Taxes</Trans>
-                                        </span>
-                                        <span>
-                                            {parsePrice(cart.totals.taxes)}
-                                        </span>
-                                    </div>
-
-                                    {cart.totals.shipping > 0 && (
-                                        <div className='flex justify-between'>
-                                            <span className='text-muted-foreground'>
-                                                <Trans>Shipping</Trans>
-                                            </span>
-                                            <span>
-                                                {parsePrice(
-                                                    cart.totals.shipping
-                                                )}
-                                            </span>
-                                        </div>
-                                    )}
-
-                                    <Separator className='my-3' />
-
-                                    <div className='flex justify-between font-semibold text-lg'>
-                                        <span>
-                                            <Trans>Total</Trans>
-                                        </span>
-                                        <span>
-                                            {parsePrice(cart.totals.total)}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <Button className='w-full mt-6' size='lg'>
-                                    <Trans>Proceed to Checkout</Trans>
-                                </Button>
-
-                                <div className='mt-4 text-center text-sm text-muted-foreground'>
-                                    <Trans>
-                                        By proceeding to checkout, you agree to
-                                        our terms and conditions.
-                                    </Trans>
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <CartTotals totals={cart.totals} />
 
                         <div className='mt-4'>
                             <Card>
