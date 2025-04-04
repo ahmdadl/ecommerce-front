@@ -21,7 +21,10 @@ export const urls = {
     profile: {
         index: '/profile',
         changePassword: '/profile/change-password',
-        orders: '/profile/orders',
+        orders: {
+            index: '/profile/orders',
+            view: (order: any) => '/profile/orders/' + order.id,
+        },
         wishlist: '/profile/wishlist',
         addresses: '/profile/addresses',
     },

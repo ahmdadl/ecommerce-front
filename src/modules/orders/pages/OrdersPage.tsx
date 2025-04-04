@@ -17,6 +17,8 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip';
 import CopyToClipboard from '@/modules/core/components/CopyToClipboard';
+import Link from '@/modules/core/components/LocalizedLink';
+import { urls } from '@/modules/core/utils/urls';
 import { Trans } from '@lingui/react/macro';
 import { format } from 'date-fns';
 import OrdersFilters from '../components/OrdersFilters';
@@ -131,8 +133,15 @@ export default function OrdersPage() {
                                                                     variant='ghost'
                                                                     size='icon'
                                                                     aria-label='View Details'
+                                                                    asChild
                                                                 >
-                                                                    <Eye className='h-4 w-4' />
+                                                                    <Link
+                                                                        to={urls.profile.orders.view(
+                                                                            order
+                                                                        )}
+                                                                    >
+                                                                        <Eye className='h-4 w-4' />
+                                                                    </Link>
                                                                 </Button>
                                                             </TooltipTrigger>
                                                             <TooltipContent>

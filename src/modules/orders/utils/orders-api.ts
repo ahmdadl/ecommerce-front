@@ -29,4 +29,18 @@ export const ordersApi = {
 
         return response.data;
     },
+
+    loadOne: async (id: string) => {
+        const response = (await ordersApi
+            .show(id)
+            .catch(parseError)) as AxiosResponse;
+
+        if (!response?.data?.data?.record) return;
+
+        ordersStore.setState({
+            currentOrder: response.data.data.record,
+        });
+
+        return;
+    },
 };

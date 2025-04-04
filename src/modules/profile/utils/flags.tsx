@@ -30,7 +30,7 @@ export const profileNavLinks = [
     },
     {
         name: <Trans>Orders</Trans>,
-        path: urls.profile.orders,
+        path: urls.profile.orders.index,
         icon: <ShoppingBag className='h-4 w-4' />,
         route: '/$locale/profile/orders/',
     },
