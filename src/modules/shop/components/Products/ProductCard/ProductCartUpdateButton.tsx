@@ -59,7 +59,7 @@ export default function ProductCartUpdateButton({
     if (!product.is_carted) return null;
 
     return (
-        <div className='flex items-center justify-between w-full h-10 bg-primary/40 p-1 rounded-2xl'>
+        <div className='flex items-center justify-between w-full h-10 bg-primary/40 p-1 rounded-2xl w-full lg:w-2/3 mx-auto'>
             <Button
                 variant='outline'
                 size='icon'
