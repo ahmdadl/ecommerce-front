@@ -74,7 +74,10 @@ export default function ShopSortMenu() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align='end'>
                     {sortOptions.map((o) => (
-                        <DropdownMenuItem onClick={() => handleSort(o.value)}>
+                        <DropdownMenuItem
+                            key={o.value}
+                            onClick={() => handleSort(o.value)}
+                        >
                             {o.value === sortBy && <Check className='me-2' />}
                             {o.label}
                         </DropdownMenuItem>

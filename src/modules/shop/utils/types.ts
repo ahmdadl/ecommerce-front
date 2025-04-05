@@ -29,11 +29,13 @@ export type FilterState = {
     filters: Filters | null;
     selectedCategories: string[];
     selectedBrands: string[];
-    currentPriceRange: [number, number];
+    currentPriceRange: number[];
     isLoading: boolean;
     error: string | null;
     currentPage: number;
     sortBy: string;
+    categorySlug?: string;
+    brandSlug?: string;
 
     // Actions
     setFilters: (filters: Filters) => void;
@@ -73,4 +75,5 @@ export type ProductEntity = {
     meta_keywords: string[];
     is_new: boolean;
     category: CategoryEntity;
+    brand: BrandFilterEntity;
 };

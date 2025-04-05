@@ -40,7 +40,9 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
 
             <CardContent className='flex-grow'>
                 <p className='text-sm text-muted-foreground'>
-                    {product.category?.title}
+                    {product.brand
+                        ? product.brand.title
+                        : product.category?.title}
                 </p>
 
                 <h3 className='font-medium mt-1 line-clamp-2 min-h-[2.5rem]'>

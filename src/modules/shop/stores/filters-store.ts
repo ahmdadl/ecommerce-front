@@ -11,6 +11,8 @@ export const filtersStore = create<FilterState>((set) => ({
     error: null,
     currentPage: 1,
     sortBy: '',
+    categorySlug: '',
+    brandSlug: '',
 
     setFilters: (filters) =>
         // @ts-ignore
@@ -65,6 +67,8 @@ export const filtersStore = create<FilterState>((set) => ({
                 : [0, 1000],
             currentPage: state.currentPage || 1,
             sortBy: '',
+            categorySlug: state.categorySlug ?? '',
+            brandSlug: state.brandSlug ?? '',
         })),
 
     syncWithUrl: (search) =>

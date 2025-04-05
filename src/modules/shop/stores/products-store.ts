@@ -1,11 +1,14 @@
+import { CategoryEntity } from '@/modules/categories/utils/types';
 import { PaginationInfoEntity } from '@/modules/core/utils/types';
 import createZustandSelectors from '@/modules/core/utils/zustand/create-zustand-selectors';
 import { create } from 'zustand';
-import { ProductEntity } from '../utils/types';
+import { BrandFilterEntity, ProductEntity } from '../utils/types';
 
 type ProductsState = {
     records: ProductEntity[];
     paginationInfo: PaginationInfoEntity;
+    category: CategoryEntity | null;
+    brand: BrandFilterEntity | null;
 
     toggleWishlist: (productId: string) => void;
     cartIncrement: (productId: string) => void;
@@ -15,6 +18,8 @@ type ProductsState = {
 export const productsStore = create<ProductsState>((set, get) => ({
     records: [],
     paginationInfo: {} as PaginationInfoEntity,
+    category: null,
+    brand: null,
 
     toggleWishlist: (productId: string) => {
         set((state) => ({

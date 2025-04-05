@@ -14,7 +14,7 @@ export function CategoryGrid() {
                 categories.map((category) => (
                     <Link
                         key={category.id}
-                        to={'/en/' + urls.categories.view(category)}
+                        to={urls.categories.view(category)}
                         className='group transition-transform hover:scale-[1.02]'
                     >
                         <Card className='h-full overflow-hidden py-0'>
