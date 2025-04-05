@@ -1,9 +1,9 @@
 import { Slider } from '@/components/ui/slider';
 import { useEffect, useState } from 'react';
-import { useFilterStore } from '../../stores/filters-store';
+import { filtersStore } from '../../stores/filters-store';
 
 export function PriceRangeFilter() {
-    const { filters, currentPriceRange, setPriceRange } = useFilterStore();
+    const { filters, currentPriceRange, setPriceRange } = filtersStore();
     const [localRange, setLocalRange] =
         useState<[number, number]>(currentPriceRange);
 

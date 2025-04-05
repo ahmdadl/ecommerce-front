@@ -1,9 +1,9 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import { useFilterStore } from '../../stores/filters-store';
+import { filtersStore } from '../../stores/filters-store';
 
 export function BrandFilters() {
-    const { filters, selectedBrands, toggleBrand } = useFilterStore();
+    const { filters, selectedBrands, toggleBrand } = filtersStore();
 
     if (!filters) return null;
 

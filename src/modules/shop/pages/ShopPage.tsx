@@ -14,7 +14,6 @@ import {
 import { shopRoute } from '@/routes/$locale/_catalog/shop';
 import { ArrowUpDown } from 'lucide-react';
 import { ActiveFilters } from '../components/Filters/ActiveFilters';
-import { FiltersSidebarEWE } from '../components/Filters/FiltersSidebar';
 import { ProductGrid } from '../components/Products/ProductGrid';
 import { FiltersSidebar } from '../components/Shop/FiltersSidebar';
 import ShopHero from '../components/Shop/ShopHero';
@@ -29,7 +28,6 @@ export default function ShopPage() {
             <div className='shop-page'>
                 <SidebarProvider>
                     <FiltersSidebar />
-                    <FiltersSidebarEWE />
                     <SidebarInset>
                         <header className='flex h-16 shrink-0 items-center gap-2 border-b'>
                             <div className='flex items-center gap-2 px-3 w-full'>

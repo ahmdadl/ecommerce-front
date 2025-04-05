@@ -1,4 +1,4 @@
-import { useFilterStore } from '../stores/filters-store';
+import { filtersStore } from '../stores/filters-store';
 import { FilterState } from './types';
 
 const getSearchParams = (state: FilterState): Record<string, string> => {
@@ -23,4 +23,4 @@ const getSearchParams = (state: FilterState): Record<string, string> => {
 };
 
 export const getFilterSearchParams = () =>
-    getSearchParams(useFilterStore.getState());
+    getSearchParams(filtersStore.getState());

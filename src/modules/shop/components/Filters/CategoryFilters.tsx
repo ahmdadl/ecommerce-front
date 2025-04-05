@@ -1,9 +1,9 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import { useFilterStore } from '../../stores/filters-store';
+import { filtersStore } from '../../stores/filters-store';
 
 export function CategoryFilters() {
-    const { filters, selectedCategories, toggleCategory } = useFilterStore();
+    const { filters, selectedCategories, toggleCategory } = filtersStore();
 
     if (!filters) return null;
 

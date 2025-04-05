@@ -4,7 +4,7 @@ import { Trans } from '@lingui/react/macro';
 import { useNavigate } from '@tanstack/react-router';
 import { X } from 'lucide-react';
 import { useEffect } from 'react';
-import { useFilterStore } from '../../stores/filters-store';
+import { filtersStore } from '../../stores/filters-store';
 import { getFilterSearchParams } from '../../utils/methods';
 
 export function ActiveFilters({ searchParams }: any) {
@@ -17,7 +17,7 @@ export function ActiveFilters({ searchParams }: any) {
         toggleBrand,
         resetFilters,
         syncWithUrl,
-    } = useFilterStore();
+    } = filtersStore();
 
     const navigate = useNavigate(); // For updating the URL
 

@@ -1,7 +1,8 @@
+import createZustandSelectors from '@/modules/core/utils/zustand/create-zustand-selectors';
 import { create } from 'zustand';
 import { FilterState } from '../utils/types';
 
-export const useFilterStore = create<FilterState>((set) => ({
+export const filtersStore = create<FilterState>((set) => ({
     filters: null,
     selectedCategories: [],
     selectedBrands: [],
@@ -85,3 +86,5 @@ export const useFilterStore = create<FilterState>((set) => ({
             };
         }),
 }));
+
+export const useFiltersStore = createZustandSelectors(filtersStore);
