@@ -14,9 +14,15 @@ export default function TopMenuLinks() {
             >
                 <Trans>Categories</Trans>
             </Link>
-            <Link to={urls.home} className='px-3 py-2 hover:text-primary'>
-                <Trans>Contact</Trans>
+            <Link
+                to={urls.brands.index}
+                className='px-3 py-2 hover:text-primary'
+            >
+                <Trans>Brands</Trans>
             </Link>
+            {/* <Link to={urls.home} className='px-3 py-2 hover:text-primary'>
+                <Trans>Contact</Trans>
+            </Link> */}
         </nav>
     );
 }

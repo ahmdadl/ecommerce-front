@@ -1,0 +1,16 @@
+import { ProductEntity } from '@/modules/shop/utils/types';
+
+export type BrandEntity = {
+    id: number;
+    title: string;
+    description: string | null;
+    slug: string;
+    image: string | null;
+    is_main: boolean;
+    sort_order: number;
+    meta_title: string | null;
+    meta_description: string | null;
+    meta_keywords: string[] | null;
+    products_count: number;
+    products: ProductEntity[];
+};
