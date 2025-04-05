@@ -1,16 +1,15 @@
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import { ProductEntity } from '../../../utils/types';
+import ProductAddToCartButton from './ProductAddToCartButton';
 import ProductWishlistToggleButton from './ProductWishlistToggleButton';
 
 export default function ProductCard({ product }: { product: ProductEntity }) {
     return (
         <Card className='overflow-hidden h-full flex flex-col gap-2 pb-6 pt-0'>
             <div className='relative'>
-                {/* Product image */}
                 <div className='h-48 overflow-hidden'>
                     <img
                         src={`https://picsum.photos/seed/${product.id}/250/150`}
@@ -23,14 +22,12 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
 
                 {/* Badges container */}
                 <div className='absolute top-2 left-2 flex flex-col gap-1'>
-                    {/* New product badge */}
                     {product.is_new && (
                         <Badge className='bg-primary text-primary-foreground'>
                             <Trans>New</Trans>
                         </Badge>
                     )}
 
-                    {/* Discount badge */}
                     {product.is_discounted && (
                         <Badge variant='destructive'>
                             -{product.discounted_percentage}%
@@ -42,17 +39,14 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
             </div>
 
             <CardContent className='flex-grow'>
-                {/* Product category */}
                 <p className='text-sm text-muted-foreground'>
                     {product.category?.title}
                 </p>
 
-                {/* Product name */}
                 <h3 className='font-medium mt-1 line-clamp-2 min-h-[2.5rem]'>
                     {product.title}
                 </h3>
 
-                {/* Product price */}
                 <div className='mt-2 flex items-center gap-2'>
                     {product.is_discounted ? (
                         <>
@@ -72,14 +66,7 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
             </CardContent>
 
             <CardFooter className='pt-0'>
-                {/* Add to cart button */}
-                <Button className='w-full' disabled={!product.has_stock}>
-                    {product.has_stock ? (
-                        <Trans>Add to Cart</Trans>
-                    ) : (
-                        <Trans>Out of Stock</Trans>
-                    )}
-                </Button>
+                <ProductAddToCartButton product={product} />
             </CardFooter>
         </Card>
     );

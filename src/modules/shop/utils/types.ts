@@ -62,6 +62,7 @@ export type ProductEntity = {
     is_wished: boolean;
     is_carted: boolean;
     is_compared: boolean;
+    carted_quantity: number;
     sku: string;
     meta_title: string;
     meta_description: string;

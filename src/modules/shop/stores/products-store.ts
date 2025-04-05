@@ -8,6 +8,8 @@ type ProductsState = {
     paginationInfo: PaginationInfoEntity;
 
     toggleWishlist: (productId: string) => void;
+    cartIncrement: (productId: string) => void;
+    cartDecrement: (productId: string) => void;
 };
 
 export const productsStore = create<ProductsState>((set, get) => ({
@@ -19,6 +21,36 @@ export const productsStore = create<ProductsState>((set, get) => ({
             records: state.records.map((product) => {
                 if (product.id === productId) {
                     return { ...product, is_wished: !product.is_wished };
+                }
+                return product;
+            }),
+        }));
+    },
+
+    cartIncrement: (productId: string) => {
+        set((state) => ({
+            records: state.records.map((product) => {
+                if (product.id === productId) {
+                    return {
+                        ...product,
+                        carted_quantity: product.carted_quantity + 1,
+                        is_carted: true,
+                    };
+                }
+                return product;
+            }),
+        }));
+    },
+
+    cartDecrement: (productId: string) => {
+        set((state) => ({
+            records: state.records.map((product) => {
+                if (product.id === productId) {
+                    return {
+                        ...product,
+                        carted_quantity: product.carted_quantity - 1,
+                        is_carted: product.carted_quantity - 1 > 0,
+                    };
                 }
                 return product;
             }),
