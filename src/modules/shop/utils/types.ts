@@ -32,12 +32,14 @@ export type FilterState = {
     currentPriceRange: [number, number];
     isLoading: boolean;
     error: string | null;
+    currentPage: number;
 
     // Actions
     setFilters: (filters: Filters) => void;
     toggleCategory: (categoryId: string) => void;
     toggleBrand: (brandId: string) => void;
     setPriceRange: (range: [number, number]) => void;
+    setPage: (page: number) => void;
     resetFilters: () => void;
     syncWithUrl: (search: Record<string, string | string[]>) => void;
 };

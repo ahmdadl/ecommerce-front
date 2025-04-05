@@ -9,6 +9,7 @@ export const filtersStore = create<FilterState>((set) => ({
     currentPriceRange: [0, 1000],
     isLoading: false,
     error: null,
+    currentPage: 1,
 
     setFilters: (filters) =>
         // @ts-ignore
@@ -24,6 +25,7 @@ export const filtersStore = create<FilterState>((set) => ({
                           Number.parseFloat(filters.price_range.max),
                       ]
                     : state.currentPriceRange,
+                currentPage: state.currentPage || 1,
             };
             return newState;
         }),
@@ -33,6 +35,7 @@ export const filtersStore = create<FilterState>((set) => ({
             selectedCategories: state.selectedCategories.includes(categoryId)
                 ? state.selectedCategories.filter((id) => id !== categoryId)
                 : [...state.selectedCategories, categoryId],
+            currentPage: 1,
         })),
 
     toggleBrand: (brandId) =>
@@ -40,9 +43,12 @@ export const filtersStore = create<FilterState>((set) => ({
             selectedBrands: state.selectedBrands.includes(brandId)
                 ? state.selectedBrands.filter((id) => id !== brandId)
                 : [...state.selectedBrands, brandId],
+            currentPage: 1,
         })),
 
-    setPriceRange: (range) => set({ currentPriceRange: range }),
+    setPriceRange: (range) => set({ currentPriceRange: range, currentPage: 1 }),
+
+    setPage: (page: number) => set({ currentPage: page }),
 
     resetFilters: () =>
         set((state) => ({
@@ -54,6 +60,7 @@ export const filtersStore = create<FilterState>((set) => ({
                       Number.parseFloat(state.filters.price_range.max),
                   ]
                 : [0, 1000],
+            currentPage: state.currentPage || 1,
         })),
 
     syncWithUrl: (search) =>
@@ -83,6 +90,7 @@ export const filtersStore = create<FilterState>((set) => ({
                             Number.parseFloat(state.filters.price_range.max),
                         ]
                       : [0, 1000],
+                currentPage: Number(search.page) ?? 1,
             };
         }),
 }));

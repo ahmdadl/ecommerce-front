@@ -17,6 +17,7 @@ import { ActiveFilters } from '../components/Filters/ActiveFilters';
 import { ProductGrid } from '../components/Products/ProductGrid';
 import { FiltersSidebar } from '../components/Shop/FiltersSidebar';
 import ShopHero from '../components/Shop/ShopHero';
+import { ProductPagination } from '../components/Shop/ShopPagination';
 
 export default function ShopPage() {
     const searchParams = shopRoute.useSearch();
@@ -73,7 +74,11 @@ export default function ShopPage() {
                                 </div>
                             </div>
                         </header>
-                        <ProductGrid />
+                        <div className='flex flex-col gap-4'>
+                            <ProductGrid />
+
+                            <ProductPagination />
+                        </div>
                     </SidebarInset>
                 </SidebarProvider>
             </div>

@@ -3,12 +3,16 @@ import { filtersStore } from '../stores/filters-store';
 import { productsStore } from '../stores/products-store';
 
 export const shopApi = {
-    loadProducts: async (params: any, allowFilters: boolean = true) => {
+    loadProducts: async (params: any = {}, allowFilters: boolean = true) => {
         const filtered: any = {};
 
         if (allowFilters) {
-            const { selectedCategories, selectedBrands, currentPriceRange } =
-                filtersStore.getState();
+            const {
+                selectedCategories,
+                selectedBrands,
+                currentPriceRange,
+                currentPage,
+            } = filtersStore.getState();
 
             if (selectedCategories.length > 0)
                 filtered.categories = selectedCategories.join(',');
@@ -16,6 +20,8 @@ export const shopApi = {
                 filtered.brands = selectedBrands.join(',');
             if (currentPriceRange[0] > 0 || currentPriceRange[1] < 1000)
                 filtered.price = `${currentPriceRange[0]}-${currentPriceRange[1]}`;
+
+            filtered.page = currentPage;
         }
 
         const response = await http.get('/products', {

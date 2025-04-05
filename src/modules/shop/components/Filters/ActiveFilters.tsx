@@ -13,6 +13,7 @@ export function ActiveFilters({ searchParams }: any) {
         selectedCategories,
         selectedBrands,
         currentPriceRange,
+        currentPage,
         toggleCategory,
         toggleBrand,
         resetFilters,
@@ -21,11 +22,6 @@ export function ActiveFilters({ searchParams }: any) {
 
     const navigate = useNavigate(); // For updating the URL
 
-    useEffect(() => {
-        syncWithUrl(searchParams);
-    }, [searchParams, syncWithUrl]);
-
-    // Sync store with URL search params on mount or when search changes
     useEffect(() => {
         syncWithUrl(searchParams);
     }, [searchParams, syncWithUrl]);
@@ -40,13 +36,15 @@ export function ActiveFilters({ searchParams }: any) {
                 categories: params.categories,
                 brands: params.brands,
                 price: params.price,
+                page: Number(params.page ?? 1),
             }),
-            replace: false,
+            replace: true,
         });
     }, [
         selectedCategories,
         selectedBrands,
         currentPriceRange,
+        currentPage,
         filters,
         navigate,
     ]);
