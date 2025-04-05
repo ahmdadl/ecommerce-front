@@ -1,10 +1,3 @@
-import { Button } from '@/components/ui/button';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { Separator } from '@/components/ui/separator';
 import {
     SidebarInset,
@@ -12,12 +5,12 @@ import {
     SidebarTrigger,
 } from '@/components/ui/sidebar';
 import { shopRoute } from '@/routes/$locale/_catalog/shop';
-import { ArrowUpDown } from 'lucide-react';
 import { ActiveFilters } from '../components/Filters/ActiveFilters';
 import { ProductGrid } from '../components/Products/ProductGrid';
 import { FiltersSidebar } from '../components/Shop/FiltersSidebar';
 import ShopHero from '../components/Shop/ShopHero';
 import { ProductPagination } from '../components/Shop/ShopPagination';
+import ShopSortMenu from '../components/Shop/ShopSortMenu';
 
 export default function ShopPage() {
     const searchParams = shopRoute.useSearch();
@@ -44,32 +37,7 @@ export default function ShopPage() {
                                         />
                                     </div>
                                     <div className='w-fit'>
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button
-                                                    variant='outline'
-                                                    size='sm'
-                                                    className='ml-auto flex'
-                                                >
-                                                    <ArrowUpDown className='mr-2 h-4 w-4' />
-                                                    Sort
-                                                </Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align='end'>
-                                                <DropdownMenuItem>
-                                                    Price: Low to High
-                                                </DropdownMenuItem>
-                                                <DropdownMenuItem>
-                                                    Price: High to Low
-                                                </DropdownMenuItem>
-                                                <DropdownMenuItem>
-                                                    Newest First
-                                                </DropdownMenuItem>
-                                                <DropdownMenuItem>
-                                                    Popularity
-                                                </DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
+                                        <ShopSortMenu />
                                     </div>
                                 </div>
                             </div>

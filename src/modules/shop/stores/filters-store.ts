@@ -10,6 +10,7 @@ export const filtersStore = create<FilterState>((set) => ({
     isLoading: false,
     error: null,
     currentPage: 1,
+    sortBy: '',
 
     setFilters: (filters) =>
         // @ts-ignore
@@ -50,6 +51,8 @@ export const filtersStore = create<FilterState>((set) => ({
 
     setPage: (page: number) => set({ currentPage: page }),
 
+    setSortBy: (sortBy: string) => set({ sortBy, currentPage: 1 }),
+
     resetFilters: () =>
         set((state) => ({
             selectedCategories: [],
@@ -61,6 +64,7 @@ export const filtersStore = create<FilterState>((set) => ({
                   ]
                 : [0, 1000],
             currentPage: state.currentPage || 1,
+            sortBy: '',
         })),
 
     syncWithUrl: (search) =>
@@ -91,6 +95,7 @@ export const filtersStore = create<FilterState>((set) => ({
                         ]
                       : [0, 1000],
                 currentPage: Number(search.page) ?? 1,
+                sortBy: search.sortBy as string,
             };
         }),
 }));

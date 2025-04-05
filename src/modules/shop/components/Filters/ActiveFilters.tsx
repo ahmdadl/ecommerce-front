@@ -37,6 +37,7 @@ export function ActiveFilters({ searchParams }: any) {
                 brands: params.brands,
                 price: params.price,
                 page: Number(params.page ?? 1),
+                sortBy: params.sortBy,
             }),
             replace: true,
         });

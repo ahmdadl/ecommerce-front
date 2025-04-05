@@ -24,6 +24,10 @@ const getSearchParams = (state: FilterState): Record<string, string> => {
     if (state.currentPage > 1) {
         params.page = String(state.currentPage);
     }
+
+    if (state.sortBy) {
+        params.sortBy = state.sortBy;
+    }
     return params;
 };
 

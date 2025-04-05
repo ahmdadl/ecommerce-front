@@ -33,6 +33,7 @@ export type FilterState = {
     isLoading: boolean;
     error: string | null;
     currentPage: number;
+    sortBy: string;
 
     // Actions
     setFilters: (filters: Filters) => void;
@@ -40,6 +41,7 @@ export type FilterState = {
     toggleBrand: (brandId: string) => void;
     setPriceRange: (range: [number, number]) => void;
     setPage: (page: number) => void;
+    setSortBy: (sortBy: string) => void;
     resetFilters: () => void;
     syncWithUrl: (search: Record<string, string | string[]>) => void;
 };

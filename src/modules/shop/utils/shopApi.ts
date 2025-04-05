@@ -12,6 +12,7 @@ export const shopApi = {
                 selectedBrands,
                 currentPriceRange,
                 currentPage,
+                sortBy,
             } = filtersStore.getState();
 
             if (selectedCategories.length > 0)
@@ -21,7 +22,9 @@ export const shopApi = {
             if (currentPriceRange[0] > 0 || currentPriceRange[1] < 1000)
                 filtered.price = `${currentPriceRange[0]}-${currentPriceRange[1]}`;
 
-            filtered.page = currentPage;
+            if (currentPage) filtered.page = currentPage;
+
+            if (sortBy) filtered.sortBy = sortBy;
         }
 
         const response = await http.get('/products', {
