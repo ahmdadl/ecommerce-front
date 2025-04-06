@@ -8,6 +8,7 @@ import {
 import { cartApi } from '@/modules/cart/utils/cart-api';
 import loadingToast from '@/modules/core/utils/methods';
 import { parseError } from '@/modules/core/utils/parseError';
+import { wishlistStore } from '@/modules/wishlist/stores/wishlist-store';
 import { WishlistItemEntity } from '@/modules/wishlist/utils/types';
 import { wishlistApi } from '@/modules/wishlist/utils/wishlist-api';
 import { Trans } from '@lingui/react/macro';
@@ -40,6 +41,7 @@ export default function WishlistItemActions({
 
         loadingToast(cartApi.add(productId).catch(parseError), {
             onFinally: () => {
+                wishlistStore.getState().toggleProductCarted(productId);
                 setLoading('');
             },
         });

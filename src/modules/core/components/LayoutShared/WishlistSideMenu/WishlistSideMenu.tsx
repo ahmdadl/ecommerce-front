@@ -1,4 +1,4 @@
-import { ShoppingCart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -33,7 +33,7 @@ export default function WishlistSideMenu() {
             >
                 <SheetHeader className='border-b pb-4'>
                     <SheetTitle className='flex items-center'>
-                        <ShoppingCart className='mr-2 h-5 w-5' />
+                        <Heart className='mr-2 h-5 w-5' />
                         <Trans>Your Wishlist</Trans>
                     </SheetTitle>
                 </SheetHeader>
