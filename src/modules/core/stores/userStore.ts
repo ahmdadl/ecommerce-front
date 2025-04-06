@@ -19,6 +19,8 @@ interface UserStoreState {
         totalPurchased: number;
         wishlistItems: number;
     };
+    isLoaded: boolean;
+
     isGuest: () => boolean;
     isCustomer: () => boolean;
     login: (userData: any) => void;
@@ -43,6 +45,8 @@ export const userStore = create<UserStoreState>()(
                     totalPurchased: 0,
                     wishlistItems: 0,
                 },
+                isLoaded: false,
+
                 isGuest: () => get().role === 'guest',
                 isCustomer: () => get().role === 'customer',
 

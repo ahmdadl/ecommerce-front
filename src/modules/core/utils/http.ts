@@ -8,6 +8,7 @@ import axios, {
 import useLocaleStore from '../stores/localeStore';
 import { userStore } from '../stores/userStore';
 import { env } from './env';
+import { getDefaultGuestToken } from './methods';
 
 // Interface for error response from API
 interface ApiErrorResponse {
@@ -33,10 +34,14 @@ const http = axios.create({
 http.interceptors.request.use(
     (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
         const token = userStore.getState().access_token;
-        if (token) {
-            config.headers = config.headers || {};
-            config.headers['Authorization'] = `Bearer ${token}`;
+
+        let bearerToken = `Bearer ${getDefaultGuestToken()}`;
+        if (token?.length) {
+            bearerToken = `Bearer ${token}`;
         }
+
+        config.headers = config.headers || {};
+        config.headers['Authorization'] = bearerToken;
         return config;
     },
     (error: AxiosError) => Promise.reject(error)

@@ -1,5 +1,6 @@
 import { i18n } from '@lingui/core';
 import { toast } from 'sonner';
+import { env } from './env';
 
 interface LoadingToastOptions {
     loadingMessage?: string;
@@ -33,4 +34,12 @@ export default async function loadingToast<T>(
         },
         ...toastOptions,
     });
+}
+
+export function getDefaultGuestToken() {
+    const tokens = env.apiDefaultGuestTokens.split(',');
+
+    const randomIndex = Math.floor(Math.random() * tokens.length);
+
+    return tokens[randomIndex];
 }
