@@ -1,3 +1,4 @@
+import { cartStore } from '@/modules/cart/stores/cart-store';
 import axios, {
     AxiosError,
     AxiosResponse,
@@ -41,12 +42,18 @@ http.interceptors.request.use(
 
 // Response interceptor (simplified without refresh token)
 http.interceptors.response.use(
-    (response: AxiosResponse) => ({
-        ...response,
-        success: response.data.success,
-        message: response.data.message,
-        data: response.data.data,
-    }),
+    (response: AxiosResponse) => {
+        if (response.data.data.cart) {
+            cartStore.setState({ cart: response.data.data.cart });
+        }
+
+        return {
+            ...response,
+            success: response.data.success,
+            message: response.data.message,
+            data: response.data.data,
+        };
+    },
     (error: AxiosError<ApiErrorResponse>) => {
         if (error.response?.status === 401) {
             // If unauthorized, clear token and redirect to login

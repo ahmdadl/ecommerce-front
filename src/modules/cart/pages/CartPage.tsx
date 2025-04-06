@@ -229,15 +229,17 @@ export default function CartPage() {
                             </div>
                         </div>
 
-                        <div className='space-y-4'>
+                        <div className='space-y-4 py-4 px-6 lg:px-0'>
                             {cart.items.map((item) => (
                                 <CartItemCard key={item.id} item={item} />
                             ))}
                         </div>
                     </div>
 
-                    <div className='lg:col-span-1'>
-                        <CartTotals totals={cart.totals} />
+                    <div className='lg:col-span-1 relative pe-3'>
+                        <div className='sticky top-4'>
+                            <CartTotals totals={cart.totals} />
+                        </div>
 
                         <div className='mt-4'>
                             <Card>

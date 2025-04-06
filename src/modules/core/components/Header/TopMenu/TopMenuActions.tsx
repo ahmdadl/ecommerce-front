@@ -1,10 +1,13 @@
 import { Button } from '@/components/ui/button';
+import { useCartStore } from '@/modules/cart/stores/cart-store';
 import useNavbarStore from '@/modules/core/stores/navbar-store';
 import { Trans } from '@lingui/react/macro';
 import { BarChart2, Heart, Search, ShoppingCart } from 'lucide-react';
 
 export default function TopMenuActions() {
-    const cartCount = 2;
+    const cart = useCartStore.use.cart();
+
+    const cartCount = cart?.totals?.items;
     const wishlistCount = 3;
     const compareCount = 5;
 
