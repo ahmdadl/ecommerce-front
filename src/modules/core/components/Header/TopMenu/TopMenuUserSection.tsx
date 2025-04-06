@@ -19,6 +19,8 @@ export default function TopMenuUserSection() {
     const userName = useUserStore.use.name();
     const userEmail = useUserStore.use.email();
 
+    console.log('TopMenuUserSection rendered');
+
     return (
         <>
             {isCustomer() ? (
@@ -60,7 +62,7 @@ export default function TopMenuUserSection() {
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
                             <Link
-                                to={urls.profile.orders}
+                                to={urls.profile.orders.index}
                                 className='flex items-center gap-2 cursor-pointer w-full'
                             >
                                 <BarChart2 className='h-4 w-4' />
