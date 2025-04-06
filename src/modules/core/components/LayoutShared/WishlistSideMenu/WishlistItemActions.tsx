@@ -5,31 +5,45 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { cartApi } from '@/modules/cart/utils/cart-api';
+import loadingToast from '@/modules/core/utils/methods';
+import { parseError } from '@/modules/core/utils/parseError';
+import { WishlistItemEntity } from '@/modules/wishlist/utils/types';
+import { wishlistApi } from '@/modules/wishlist/utils/wishlist-api';
 import { Trans } from '@lingui/react/macro';
 import { Loader2, ShoppingCart, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 
-export default function WishlistItemActions({ item }: any) {
+export default function WishlistItemActions({
+    item,
+}: {
+    item: WishlistItemEntity;
+}) {
     const [loading, setLoading] = useState<
         '' | 'addingToCart' | 'removingFromWishlist'
     >('');
 
-    const removeFromWishlist = (id: number) => {
+    async function removeFromWishlist(productId: string) {
+        if (loading !== '') return;
+
         setLoading('removingFromWishlist');
 
-        setTimeout(() => {
-            // setItems(items.filter((i) => i.id !== id));
-            setLoading('');
-        }, 1000);
-    };
+        await wishlistApi.remove(productId).catch(parseError);
 
-    const addToCart = (id: number) => {
+        setLoading('');
+    }
+
+    async function addToCart(productId: string) {
+        if (loading !== '') return;
+
         setLoading('addingToCart');
 
-        setTimeout(() => {
-            setLoading('');
-        }, 1000);
-    };
+        loadingToast(cartApi.add(productId).catch(parseError), {
+            onFinally: () => {
+                setLoading('');
+            },
+        });
+    }
 
     return (
         <div className='flex items-center gap-3'>
@@ -37,9 +51,13 @@ export default function WishlistItemActions({ item }: any) {
                 <Tooltip>
                     <TooltipTrigger asChild>
                         <Button
-                            variant={'default'}
                             size={'icon'}
-                            onClick={() => addToCart(item.id)}
+                            onClick={() => addToCart(item.product.id)}
+                            disabled={
+                                loading === 'addingToCart' ||
+                                item.product.is_carted ||
+                                !item.product.has_stock
+                            }
                         >
                             {loading === 'addingToCart' ? (
                                 <Loader2 className='animate-spin' />
@@ -50,7 +68,11 @@ export default function WishlistItemActions({ item }: any) {
                     </TooltipTrigger>
                     <TooltipContent>
                         <p>
-                            <Trans>Add to cart</Trans>
+                            {item.product.is_carted ? (
+                                <Trans>Product in cart</Trans>
+                            ) : (
+                                <Trans>Add to cart</Trans>
+                            )}
                         </p>
                     </TooltipContent>
                 </Tooltip>
@@ -62,7 +84,8 @@ export default function WishlistItemActions({ item }: any) {
                         <Button
                             variant={'destructive'}
                             size={'icon'}
-                            onClick={() => removeFromWishlist(item.id)}
+                            onClick={() => removeFromWishlist(item.product.id)}
+                            disabled={loading === 'removingFromWishlist'}
                         >
                             {loading === 'removingFromWishlist' ? (
                                 <Loader2 className='animate-spin' />
@@ -73,7 +96,7 @@ export default function WishlistItemActions({ item }: any) {
                     </TooltipTrigger>
                     <TooltipContent>
                         <p>
-                            <Trans>remove from wishlist</Trans>
+                            <Trans>Remove from wishlist</Trans>
                         </p>
                     </TooltipContent>
                 </Tooltip>
