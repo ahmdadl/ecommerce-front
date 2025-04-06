@@ -6,7 +6,7 @@ import TopMenuActions from './TopMenuActions/TopMenuActions';
 import TopMenuLangSwitch from './TopMenuLangSwitch';
 import TopMenuLinks from './TopMenuLinks';
 import TopMenuSearch from './TopMenuSearch';
-import TopMenuUserSection from './TopMenuUserSection';
+import TopMenuUserSectionWrapper from './TopMenuUserSection/TopMenuUserSectionWrapper';
 
 export default function TopMenu() {
     return (
@@ -46,7 +46,7 @@ export default function TopMenu() {
                     {/* Actions */}
                     <TopMenuActions />
 
-                    <TopMenuUserSection />
+                    <TopMenuUserSectionWrapper />
                 </div>
             </div>
         </header>

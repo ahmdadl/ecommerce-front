@@ -60,6 +60,7 @@ export const userStore = create<UserStoreState>()(
                         gender: userData?.gender,
                         totals: userData?.totals,
                         role: userData?.role,
+                        isLoaded: true,
                     }),
                 logout: () =>
                     set({

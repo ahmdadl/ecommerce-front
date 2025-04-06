@@ -36,6 +36,7 @@ export const authApi = {
 
             useUserStore.getState().login({
                 ...response.data.record,
+                isLoaded: true,
                 role: 'guest',
             });
 

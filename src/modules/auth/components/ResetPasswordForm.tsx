@@ -82,6 +82,7 @@ export default function ResetPasswordForm() {
 
         useUserStore.setState({
             ...response.data.record,
+            isLoaded: true,
             role: 'customer',
         });
 

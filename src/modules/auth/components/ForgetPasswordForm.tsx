@@ -59,8 +59,6 @@ export default function ForgetPasswordForm() {
 
             useForgetPasswordStore.setState({ email: values.email });
 
-            console.log(useForgetPasswordStore.getState());
-
             navigate({ to: urls.auth.resetPassword });
         }
     }

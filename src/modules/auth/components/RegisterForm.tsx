@@ -79,7 +79,11 @@ export default function RegisterForm() {
 
         if (typeof response === 'string' || !response) return;
 
-        userStore.setState({ ...response.data.record, role: 'customer' });
+        userStore.setState({
+            ...response.data.record,
+            isLoaded: true,
+            role: 'customer',
+        });
 
         history.go(-1);
 

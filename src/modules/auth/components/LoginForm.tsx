@@ -57,7 +57,11 @@ export default function LoginForm() {
 
         if (!response?.data) return;
 
-        userStore.setState({ ...response.data.record, role: 'customer' });
+        userStore.setState({
+            ...response.data.record,
+            isLoaded: true,
+            role: 'customer',
+        });
 
         history.go(-1);
 
