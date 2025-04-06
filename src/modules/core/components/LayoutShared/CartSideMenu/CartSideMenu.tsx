@@ -32,6 +32,7 @@ export default function CartSideMenu() {
                         <Trans>Your Cart</Trans>
                     </SheetTitle>
                 </SheetHeader>
+
                 <CartMenuContent />
             </SheetContent>
         </Sheet>

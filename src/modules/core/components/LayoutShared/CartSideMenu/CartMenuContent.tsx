@@ -13,8 +13,6 @@ import CartItemQuantity from './CartItemQuantity';
 export default function CartMenuContent() {
     const cart = useCartStore.use.cart();
 
-    if (!cart.totals) return null;
-
     const items = cart.items ?? [];
 
     return (
@@ -98,7 +96,7 @@ export default function CartMenuContent() {
                         <span>
                             <Trans>Subtotal</Trans>
                         </span>
-                        <span>{parsePrice(cart.totals.subtotal)}</span>
+                        <span>{parsePrice(cart.totals?.subtotal)}</span>
                     </div>
                     <div className='text-sm text-muted-foreground'>
                         <Trans>Shipping calculated at checkout.</Trans>
