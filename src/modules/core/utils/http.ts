@@ -1,4 +1,5 @@
 import { cartStore } from '@/modules/cart/stores/cart-store';
+import { wishlistStore } from '@/modules/wishlist/stores/wishlist-store';
 import axios, {
     AxiosError,
     AxiosResponse,
@@ -45,6 +46,10 @@ http.interceptors.response.use(
     (response: AxiosResponse) => {
         if (response.data.data.cart) {
             cartStore.setState({ cart: response.data.data.cart });
+        }
+
+        if (response.data.data.wishlist) {
+            wishlistStore.setState({ wishlist: response.data.data.wishlist });
         }
 
         return {

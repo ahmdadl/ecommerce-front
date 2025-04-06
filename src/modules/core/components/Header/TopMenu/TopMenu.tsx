@@ -2,7 +2,7 @@ import { Trans } from '@lingui/react/macro';
 
 import { urls } from '@/modules/core/utils/urls';
 import Link from '@core/components/LocalizedLink';
-import TopMenuActions from './TopMenuActions';
+import TopMenuActions from './TopMenuActions/TopMenuActions';
 import TopMenuLangSwitch from './TopMenuLangSwitch';
 import TopMenuLinks from './TopMenuLinks';
 import TopMenuSearch from './TopMenuSearch';

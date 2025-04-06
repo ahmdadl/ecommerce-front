@@ -6,10 +6,10 @@ export const wishlistApi = {
 
     add: async (productId: string) => {
         const response = await http.post(`/wishlists/${productId}`, {
-            withoutResponse: true,
+            // withoutResponse: true,
         });
 
-        if (response.status !== 204) return;
+        if (!response?.data) return;
 
         productsStore.getState().toggleWishlist(productId);
 
@@ -21,7 +21,7 @@ export const wishlistApi = {
             `/wishlists/${productId}/by-product`,
             {
                 params: {
-                    withoutResponse: true,
+                    // withoutResponse: true,
                 },
             }
         );
