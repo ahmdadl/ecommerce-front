@@ -20,8 +20,6 @@ export default function TopMenuUserSection() {
     const userName = useUserStore.use.name();
     const userEmail = useUserStore.use.email();
 
-    console.log('TopMenuUserSection rendered');
-
     return (
         <>
             {isCustomer() ? (
