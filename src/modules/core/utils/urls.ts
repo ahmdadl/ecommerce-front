@@ -5,6 +5,7 @@ export const urls = {
         register: '/register',
         forgetPassword: '/forget-password',
         resetPassword: '/reset-password',
+        logout: '/logout',
     },
     shop: '/shop',
     products: {

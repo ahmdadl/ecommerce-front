@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/react/macro';
-import { BarChart2, Heart, LogOut, ShoppingCart, User } from 'lucide-react';
+import { BarChart2, Heart, ShoppingCart, User } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -13,6 +13,7 @@ import {
 import useUserStore from '@/modules/core/stores/userStore';
 import { urls } from '@/modules/core/utils/urls';
 import Link from '../../LocalizedLink';
+import LogOutLink from './LogOutLink';
 
 export default function TopMenuUserSection() {
     const isCustomer = useUserStore.use.isCustomer();
@@ -90,13 +91,7 @@ export default function TopMenuUserSection() {
 
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                            <Link
-                                to='/logout'
-                                className='flex items-center gap-2 cursor-pointer w-full text-destructive'
-                            >
-                                <LogOut className='h-4 w-4' />
-                                <Trans>Logout</Trans>
-                            </Link>
+                            <LogOutLink className='flex items-center gap-2 cursor-pointer w-full text-destructive' />
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

@@ -35,12 +35,12 @@ function Index() {
     // console.log({ accessToken: accessToken(), isCustomer: isCustomer() });
 
     async function fetchUserData() {
-        const response = await authApi.guest.login();
+        await authApi.guest.login();
 
-        useUserStore.getState().login({
-            ...response.data.record,
-            role: 'guest',
-        });
+        // useUserStore.getState().login({
+        //     ...response.data.record,
+        //     role: 'guest',
+        // });
     }
 
     return (

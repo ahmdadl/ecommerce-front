@@ -1,4 +1,7 @@
+import useUserStore from '@/modules/core/stores/userStore';
 import http from '@/modules/core/utils/http';
+import { parseError } from '@/modules/core/utils/parseError';
+import { AxiosResponse } from 'axios';
 
 interface User {
     id: string;
@@ -24,7 +27,20 @@ interface RegisterData {
 // API endpoints
 export const authApi = {
     guest: {
-        login: () => http.post('/login/guests'),
+        login: async () => {
+            const response = (await http
+                .post('/login/guests')
+                .catch(parseError)) as AxiosResponse;
+
+            if (!response?.data) return;
+
+            useUserStore.getState().login({
+                ...response.data.record,
+                role: 'guest',
+            });
+
+            return response.data;
+        },
 
         register: (userData: RegisterData) => http.post('/register', userData),
 
