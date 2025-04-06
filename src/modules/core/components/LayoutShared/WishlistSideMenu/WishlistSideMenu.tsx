@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/sheet';
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import useNavbarStore from '@/modules/core/stores/navbar-store';
+import { urls } from '@/modules/core/utils/urls';
 import Link from '@core/components/LocalizedLink';
 import { Trans } from '@lingui/react/macro';
 import WishlistSideMenuContent from './WishlistSideMenuContent';
@@ -48,7 +49,9 @@ export default function WishlistSideMenu() {
                                 className='w-full'
                                 asChild
                             >
-                                <Link to='/cart'>View Wishlist</Link>
+                                <Link to={urls.profile.wishlist}>
+                                    View Wishlist
+                                </Link>
                             </Button>
                         </SheetClose>
                     </div>

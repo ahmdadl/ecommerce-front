@@ -1,9 +1,9 @@
+import WishlistPage from '@/modules/wishlist/pages/WishlistPage';
+import { wishlistApi } from '@/modules/wishlist/utils/wishlist-api';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/$locale/profile/wishlist')({
-    component: RouteComponent,
-});
+    component: WishlistPage,
 
-function RouteComponent() {
-    return <div>Hello "/$locale/profile/wishlist"! {Math.random()}</div>;
-}
+    loader: async () => wishlistApi.get(),
+});

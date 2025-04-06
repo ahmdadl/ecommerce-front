@@ -1,4 +1,4 @@
-import { ShoppingBag } from 'lucide-react';
+import { HeartCrack } from 'lucide-react';
 
 import { parsePrice } from '@/modules/orders/utils/methods';
 import { useWishlistStore } from '@/modules/wishlist/stores/wishlist-store';
@@ -11,9 +11,9 @@ export default function WishlistSideMenuContent() {
 
     return (
         <div className='flex-1 overflow-y-auto py-4'>
-            {items.length === 0 ? (
+            {!Boolean(items?.length) ? (
                 <div className='flex h-full flex-col items-center justify-center space-y-2 text-center'>
-                    <ShoppingBag className='h-12 w-12 text-muted-foreground' />
+                    <HeartCrack className='h-12 w-12 text-muted-foreground' />
                     <div className='text-lg font-medium'>
                         <Trans>Your wishlist is empty</Trans>
                     </div>

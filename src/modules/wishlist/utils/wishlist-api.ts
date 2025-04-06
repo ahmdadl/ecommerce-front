@@ -26,9 +26,21 @@ export const wishlistApi = {
             }
         );
 
-        if (response.status !== 204) return;
+        if (!response?.data) return;
 
         productsStore.getState().toggleWishlist(productId);
+
+        return response.data;
+    },
+
+    clear: async () => {
+        const response = await http.delete('/wishlists/clear', {
+            params: {
+                // withoutResponse: true,
+            },
+        });
+
+        if (!response?.data) return;
 
         return response.data;
     },
