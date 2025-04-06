@@ -5,6 +5,7 @@ import axios, {
     AxiosResponse,
     InternalAxiosRequestConfig,
 } from 'axios';
+import useLocaleStore from '../stores/localeStore';
 import { userStore } from '../stores/userStore';
 import { env } from './env';
 
@@ -62,8 +63,9 @@ http.interceptors.response.use(
     (error: AxiosError<ApiErrorResponse>) => {
         if (error.response?.status === 401) {
             // If unauthorized, clear token and redirect to login
-            // localStorage.removeItem('authToken');
-            // window.location.href = '/login';
+            userStore.getState().logout();
+            window.location.href =
+                '/' + useLocaleStore.getState().locale + '/login';
         }
 
         return Promise.reject(error);
