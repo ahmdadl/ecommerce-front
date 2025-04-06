@@ -9,13 +9,15 @@ export default function Link(
         Partial<HtmlLinkElement> & {
             to: string;
             children: React.ReactNode;
+            onClick?: () => void;
+            preload?: boolean;
         }
 ) {
     const locale = useLocaleStore.use.locale();
 
     return (
         // @ts-ignore
-        <TanLink {...props} to={`/${locale}${props.to}`}>
+        <TanLink {...props} to={`/${locale}${props.to}`} preload={false}>
             {props.children}
         </TanLink>
     );
