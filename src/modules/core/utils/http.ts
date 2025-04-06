@@ -44,11 +44,11 @@ http.interceptors.request.use(
 // Response interceptor (simplified without refresh token)
 http.interceptors.response.use(
     (response: AxiosResponse) => {
-        if (response.data.data.cart) {
+        if (response?.data?.data?.cart) {
             cartStore.setState({ cart: response.data.data.cart });
         }
 
-        if (response.data.data.wishlist) {
+        if (response?.data?.data?.wishlist) {
             wishlistStore.setState({ wishlist: response.data.data.wishlist });
         }
 

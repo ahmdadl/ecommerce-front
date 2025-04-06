@@ -68,7 +68,7 @@ export default function ChangePasswordPage() {
     }
 
     return (
-        <div className='p-4 xl:w-1/2 mx-auto'>
+        <div className='p-4 w-full xl:w-1/2 mx-auto'>
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}

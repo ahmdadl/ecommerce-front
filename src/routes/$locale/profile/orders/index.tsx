@@ -1,4 +1,3 @@
-import { parseError } from '@/modules/core/utils/parseError';
 import OrdersPage from '@/modules/orders/pages/OrdersPage';
 import OrdersSkeletonPage from '@/modules/orders/pages/OrdersSkeletonPage';
 import { ordersApi } from '@/modules/orders/utils/orders-api';
@@ -6,7 +5,7 @@ import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/$locale/profile/orders/')({
     component: OrdersPage,
-    loader: () => ordersApi.loadOrders().catch(parseError),
+    loader: () => ordersApi.loadOrders(),
 
     pendingComponent: OrdersSkeletonPage,
 });

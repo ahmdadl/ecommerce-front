@@ -11,10 +11,17 @@ export const ordersApi = {
     show: (id: string) => http.get(`/orders/${id}`),
 
     loadOrders: async (page?: number, id?: string) => {
-        const response = (await ordersApi
-            .index({
-                page: page ?? 1,
-                id,
+        const params: any = {
+            page: page ?? 1,
+        };
+
+        if (id) {
+            params.id = id;
+        }
+
+        const response = (await http
+            .get('/profile/orders', {
+                params,
             })
             .catch(parseError)) as AxiosResponse;
 
