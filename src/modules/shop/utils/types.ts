@@ -44,6 +44,15 @@ export type FilterState = {
     setPriceRange: (range: [number, number]) => void;
     setPage: (page: number) => void;
     setSortBy: (sortBy: string) => void;
+    setCategorySlug: (
+        slug: string,
+        search: Record<string, string | string[]>
+    ) => void;
+    setBrandSlug: (
+        slug: string,
+        search: Record<string, string | string[]>
+    ) => void;
+    forShop: (search: Record<string, string | string[]>) => void;
     resetFilters: () => void;
     syncWithUrl: (search: Record<string, string | string[]>) => void;
 };

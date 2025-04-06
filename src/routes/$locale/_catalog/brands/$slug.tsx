@@ -7,8 +7,8 @@ import { createFileRoute } from '@tanstack/react-router';
 export const Route = createFileRoute('/$locale/_catalog/brands/$slug')({
     component: BrandProductsPage,
 
-    loader: ({ params }) => {
-        filtersStore.setState({ brandSlug: params.slug });
+    loader: ({ params, location }) => {
+        filtersStore.getState().setBrandSlug(params.slug, location.search);
 
         return shopApi.loadProducts({
             forBrand: params.slug,

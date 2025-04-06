@@ -2,7 +2,7 @@ import createZustandSelectors from '@/modules/core/utils/zustand/create-zustand-
 import { create } from 'zustand';
 import { FilterState } from '../utils/types';
 
-export const filtersStore = create<FilterState>((set) => ({
+export const filtersStore = create<FilterState>((set, get) => ({
     filters: null,
     selectedCategories: [],
     selectedBrands: [],
@@ -55,6 +55,27 @@ export const filtersStore = create<FilterState>((set) => ({
 
     setSortBy: (sortBy: string) => set({ sortBy, currentPage: 1 }),
 
+    setCategorySlug: (
+        slug: string,
+        search: Record<string, string | string[]>
+    ) => {
+        set({ categorySlug: slug, brandSlug: '' });
+
+        get().syncWithUrl(search);
+    },
+
+    setBrandSlug: (slug: string, search: Record<string, string | string[]>) => {
+        set({ brandSlug: slug, categorySlug: '' });
+
+        get().syncWithUrl(search);
+    },
+
+    forShop: (search: Record<string, string | string[]>) => {
+        set({ categorySlug: '', brandSlug: '' });
+
+        get().syncWithUrl(search);
+    },
+
     resetFilters: () =>
         set((state) => ({
             selectedCategories: [],
@@ -67,8 +88,8 @@ export const filtersStore = create<FilterState>((set) => ({
                 : [0, 1000],
             currentPage: state.currentPage || 1,
             sortBy: '',
-            categorySlug: state.categorySlug ?? '',
-            brandSlug: state.brandSlug ?? '',
+            categorySlug: '',
+            brandSlug: '',
         })),
 
     syncWithUrl: (search) =>
