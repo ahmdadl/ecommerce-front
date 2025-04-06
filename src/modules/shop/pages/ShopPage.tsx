@@ -4,8 +4,6 @@ import ShopHero from '../components/Shop/ShopHero';
 import { useAllowedSidebarFilters } from '../stores/allowed-sidebar-filters';
 
 export default function ShopPage() {
-    const searchParams = shopRoute.useSearch();
-
     useAllowedSidebarFilters.getState().enableForShop();
 
     return (
@@ -13,7 +11,7 @@ export default function ShopPage() {
             <ShopHero />
 
             <div className='shop-page'>
-                <ProductsSidebarGrid searchParams={searchParams} />
+                <ProductsSidebarGrid route={shopRoute} />
             </div>
         </>
     );

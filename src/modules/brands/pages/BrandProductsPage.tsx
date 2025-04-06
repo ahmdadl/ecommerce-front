@@ -4,8 +4,6 @@ import { brandRoute } from '@/routes/$locale/_catalog/brands/$slug';
 import BrandProductsHero from '../components/BrandProductsHero';
 
 export default function BrandProductsPage() {
-    const searchParams = brandRoute.useSearch();
-
     useAllowedSidebarFilters.getState().enableForBrand();
 
     return (
@@ -13,7 +11,7 @@ export default function BrandProductsPage() {
             <BrandProductsHero />
 
             <div className='brand-products-page'>
-                <ProductsSidebarGrid searchParams={searchParams} />
+                <ProductsSidebarGrid route={brandRoute} />
             </div>
         </>
     );

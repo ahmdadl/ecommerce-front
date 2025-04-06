@@ -10,7 +10,7 @@ import { ProductPagination } from '../Shop/ShopPagination';
 import ShopSortMenu from '../Shop/ShopSortMenu';
 import { ProductGrid } from './ProductGrid';
 
-export default function ProductsSidebarGrid({ searchParams }: any) {
+export default function ProductsSidebarGrid({ route }: any) {
     return (
         <SidebarProvider>
             <FiltersSidebar />
@@ -24,7 +24,7 @@ export default function ProductsSidebarGrid({ searchParams }: any) {
                         />
                         <div className='flex justify-between w-full flex-row gap-4'>
                             <div className=''>
-                                <ActiveFilters searchParams={searchParams} />
+                                <ActiveFilters route={route} />
                             </div>
                             <div className='w-fit'>
                                 <ShopSortMenu />

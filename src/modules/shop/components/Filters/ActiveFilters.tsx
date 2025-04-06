@@ -3,11 +3,13 @@ import { Button } from '@/components/ui/button';
 import { Trans } from '@lingui/react/macro';
 import { useNavigate } from '@tanstack/react-router';
 import { X } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { filtersStore } from '../../stores/filters-store';
 import { getFilterSearchParams } from '../../utils/methods';
 
-export function ActiveFilters({ searchParams }: any) {
+export function ActiveFilters({ route }: any) {
+    const searchParams = route.useSearch();
+
     const {
         filters,
         selectedCategories,
@@ -20,17 +22,31 @@ export function ActiveFilters({ searchParams }: any) {
         syncWithUrl,
     } = filtersStore();
 
-    const navigate = useNavigate(); // For updating the URL
+    const navigate = useNavigate();
+    const isMounted = useRef(false);
+    const prevParams = useRef(searchParams); // Track previous searchParams
 
+    // Sync store with URL params on mount or when searchParams change
     useEffect(() => {
-        syncWithUrl(searchParams);
+        if (
+            JSON.stringify(prevParams.current) !== JSON.stringify(searchParams)
+        ) {
+            syncWithUrl(searchParams);
+            prevParams.current = searchParams;
+        }
     }, [searchParams, syncWithUrl]);
 
-    // Update URL whenever store changes
+    // Update URL when filter state changes (after user interaction)
     useEffect(() => {
+        if (!isMounted.current) {
+            isMounted.current = true;
+            return; // Skip initial render
+        }
+
         const params = getFilterSearchParams();
+        console.log('Params:', params);
+
         navigate({
-            // @ts-ignore
             search: (prev) => ({
                 ...prev,
                 categories: params.categories,
