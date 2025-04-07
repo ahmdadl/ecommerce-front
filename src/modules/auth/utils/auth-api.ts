@@ -1,6 +1,8 @@
-import useUserStore from '@/modules/core/stores/userStore';
+import { cartStore } from '@/modules/cart/stores/cart-store';
+import useUserStore, { userStore } from '@/modules/core/stores/userStore';
 import http from '@/modules/core/utils/http';
 import { parseError } from '@/modules/core/utils/parseError';
+import { wishlistStore } from '@/modules/wishlist/stores/wishlist-store';
 import { AxiosResponse } from 'axios';
 
 interface User {
@@ -56,5 +58,30 @@ export const authApi = {
 
     login: (credentials: LoginCredentials) => http.post('/login', credentials),
 
-    logout: () => http.post<void>('/logout'),
+    initialData: async () => {
+        const response = (await http
+            .get('/initial-data')
+            .catch(parseError)) as AxiosResponse;
+
+        if (!response?.data) return;
+
+        userStore.setState({
+            ...response.data.user,
+            isLoaded: true,
+        });
+
+        if (response.data.cart) {
+            cartStore.setState({
+                cart: response.data.cart,
+            });
+        }
+
+        if (response.data.wishlist) {
+            wishlistStore.setState({
+                wishlist: response.data.wishlist,
+            });
+        }
+
+        return response.data;
+    },
 };

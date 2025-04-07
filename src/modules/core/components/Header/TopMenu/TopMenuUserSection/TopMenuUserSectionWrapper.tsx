@@ -9,6 +9,7 @@ export default function TopMenuUserSectionWrapper() {
         const user = userStore.getState();
 
         if (user.access_token?.length) {
+            authApi.initialData();
         } else {
             // generate a guest token and load it
             authApi.guest.login();
