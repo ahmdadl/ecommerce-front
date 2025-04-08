@@ -1,12 +1,11 @@
-import { Home, Plus } from 'lucide-react';
+import { Home } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { RadioGroup } from '@/components/ui/radio-group';
 import { cartStore, useCartStore } from '@/modules/cart/stores/cart-store';
 import { cartApi } from '@/modules/cart/utils/cart-api';
 import loadingToast from '@/modules/core/utils/methods';
 import { Trans } from '@lingui/react/macro';
+import CheckoutAddAddress from './CheckoutAddAddress';
 import CheckoutAddressRadio from './CheckoutAddressRadio';
 
 export default function CheckoutAddresses() {
@@ -31,11 +30,7 @@ export default function CheckoutAddresses() {
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <RadioGroup
-                    defaultValue={cartStore.getState().selectedAddress?.id}
-                    onValueChange={setSelectedAddress}
-                    className='space-y-4'
-                >
+                <div className='space-y-4'>
                     {Boolean(addresses?.length) &&
                         addresses?.map((address) => (
                             <CheckoutAddressRadio
@@ -43,15 +38,9 @@ export default function CheckoutAddresses() {
                                 address={address}
                             />
                         ))}
-                </RadioGroup>
+                </div>
 
-                <Button
-                    variant='outline'
-                    className='mt-4 flex items-center gap-1'
-                >
-                    <Plus className='h-4 w-4' />
-                    <Trans>Add New Address</Trans>
-                </Button>
+                <CheckoutAddAddress />
             </CardContent>
         </Card>
     );

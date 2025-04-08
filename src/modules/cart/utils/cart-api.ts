@@ -16,7 +16,7 @@ export const cartApi = {
             cart: response.data.cart,
             addresses: response.data.addresses,
             paymentMethods: response.data.paymentMethods,
-            selectedAddress: response.data.cart.address,
+            selectedAddress: response.data.cart.shipping_address,
         });
 
         return response.data;
@@ -157,6 +157,21 @@ export const cartApi = {
 
         cartStore.setState({
             ...response.data,
+        });
+
+        return response.data;
+    },
+
+    createAddress: async (values: any) => {
+        const response = (await http
+            .post('/cart/address?with[]=addresses', values)
+            .catch(parseError)) as SuccessResponse<CartResponse>;
+
+        if (!response) return;
+
+        cartStore.setState({
+            ...response.data,
+            selectedAddress: response.data.cart.shipping_address,
         });
 
         return response.data;

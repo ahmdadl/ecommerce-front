@@ -48,10 +48,10 @@ export type CartItemEntity = {
 
 export type CartEntity = {
     id: string;
-    address_id: string | null;
+    shipping_address_id: string | null;
     coupon_id: string | null;
     totals: CartTotalsEntity;
-    address?: AddressEntity;
+    shipping_address?: AddressEntity;
     coupon?: CouponEntity;
     items: CartItemEntity[];
 };

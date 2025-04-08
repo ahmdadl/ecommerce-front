@@ -9,7 +9,6 @@ import { useAddressesStore } from '../stores/addresses-store';
 
 export default function AddressesPage() {
     const addresses = useAddressesStore.use.list();
-    const openCreateModal = useAddressesStore.use.openCreateModal();
 
     return (
         <>
@@ -18,7 +17,11 @@ export default function AddressesPage() {
                     <h1 className='text-2xl font-bold'>
                         <Trans>My Addresses</Trans>
                     </h1>
-                    <Button onClick={() => openCreateModal()}>
+                    <Button
+                        onClick={() =>
+                            useAddressesStore.getState().openCreateModal()
+                        }
+                    >
                         <PlusCircle className='mr-2 h-4 w-4' />
                         <Trans>Add New Address</Trans>
                     </Button>
