@@ -1,9 +1,15 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { cartApi } from '@/modules/cart/utils/cart-api';
+import CheckoutPage from '@/modules/checkout/pages/CheckoutPAge';
+import CheckoutSkeletonPage from '@/modules/checkout/pages/CheckoutSkeletonPage';
+import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/$locale/_cart/checkout')({
-  component: RouteComponent,
-})
+    component: CheckoutPage,
 
-function RouteComponent() {
-  return <div>Hello "/$locale/_cart/checkout"!</div>
-}
+    loader: async () =>
+        cartApi.load({
+            with: ['addresses', 'paymentMethods'],
+        }),
+
+    pendingComponent: CheckoutSkeletonPage,
+});

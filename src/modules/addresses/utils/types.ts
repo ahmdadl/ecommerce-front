@@ -22,4 +22,5 @@ export type AddressEntity = {
     phone: string;
     government: GovernmentEntity;
     city: CityEntity;
+    is_default: boolean;
 };

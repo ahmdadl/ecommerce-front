@@ -63,6 +63,9 @@ export type PaymentMethodEntity = {
 
 export type CartResponse = {
     cart: CartEntity;
-    addresses?: AddressEntity[];
-    payment_methods?: PaymentMethodEntity[];
+    addresses: AddressEntity[] | null;
+    paymentMethods: PaymentMethodEntity[] | null;
+
+    selectedAddress: AddressEntity | null;
+    selectedPaymentMethod: PaymentMethodEntity | null;
 };

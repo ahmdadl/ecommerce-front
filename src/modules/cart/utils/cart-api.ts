@@ -5,15 +5,18 @@ import { cartStore } from '../stores/cart-store';
 import { CartResponse } from './types';
 
 export const cartApi = {
-    load: async () => {
+    load: async (params: any = {}) => {
         const response = (await http
-            .get('/cart')
+            .get('/cart', { params })
             .catch(parseError)) as SuccessResponse<CartResponse>;
 
         if (!response?.data) return;
 
         cartStore.setState({
-            ...response.data,
+            cart: response.data.cart,
+            addresses: response.data.addresses,
+            paymentMethods: response.data.paymentMethods,
+            selectedAddress: response.data.cart.address,
         });
 
         return response.data;

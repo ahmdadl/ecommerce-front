@@ -4,8 +4,11 @@ import { CartEntity, CartResponse } from '../utils/types';
 
 export const cartStore = create<CartResponse>((set, get) => ({
     cart: {} as CartEntity,
-    addresses: [],
-    paymentMethods: [],
+    addresses: null,
+    paymentMethods: null,
+
+    selectedAddress: null,
+    selectedPaymentMethod: null,
 }));
 
 export const useCartStore = createZustandSelectors(cartStore);
