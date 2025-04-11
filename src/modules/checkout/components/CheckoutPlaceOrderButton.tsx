@@ -2,13 +2,16 @@ import { Button } from '@/components/ui/button';
 import { cartStore } from '@/modules/cart/stores/cart-store';
 import { cartApi } from '@/modules/cart/utils/cart-api';
 import loadingToast from '@/modules/core/utils/methods';
+import { urls } from '@/modules/core/utils/urls';
 import { Trans, useLingui } from '@lingui/react/macro';
+import { useNavigate } from '@tanstack/react-router';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
 export default function CheckoutPlaceOrderButton() {
     const { t } = useLingui();
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
     async function createOrder() {
@@ -17,12 +20,12 @@ export default function CheckoutPlaceOrderButton() {
         const { selectedAddress, selectedPaymentMethod } = cartStore.getState();
 
         // validate cart entries
-        if (!selectedAddress) {
+        if (!selectedAddress?.id) {
             toast.warning(t`Please select shipping address`);
             return;
         }
 
-        if (!selectedPaymentMethod) {
+        if (!selectedPaymentMethod?.length) {
             toast.warning(t`Please select payment method`);
             return;
         }
@@ -31,7 +34,18 @@ export default function CheckoutPlaceOrderButton() {
 
         loadingToast(
             async () => {
-                const response = await cartApi.placeOrder({});
+                const response = await cartApi.placeOrder({
+                    address: selectedAddress.id,
+                    payment_method: selectedPaymentMethod,
+                });
+
+                if (!response) return;
+
+                if (response.record) {
+                    return navigate({
+                        to: urls.profile.orders.view(response.record),
+                    });
+                }
 
                 return response;
             },

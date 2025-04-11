@@ -7,6 +7,8 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import Link from '@/modules/core/components/LocalizedLink';
+import { urls } from '@/modules/core/utils/urls';
 import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import CartCouponSection from './CartCouponSection';
@@ -102,8 +104,10 @@ export default function CartTotals({ totals }: CartTotalsProps) {
                 </div>
             </CardContent>
             <CardFooter>
-                <Button className='w-full'>
-                    <Trans>Proceed to Checkout</Trans>
+                <Button className='w-full' asChild>
+                    <Link to={urls.checkout}>
+                        <Trans>Proceed to Checkout</Trans>
+                    </Link>
                 </Button>
             </CardFooter>
         </Card>

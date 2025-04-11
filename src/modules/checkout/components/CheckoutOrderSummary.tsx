@@ -13,7 +13,7 @@ import { Trans } from '@lingui/react/macro';
 import CheckoutPlaceOrderButton from './CheckoutPlaceOrderButton';
 
 export default function CheckoutOrderSummary() {
-    const cart = useCartStore.use.cart();
+    const { items, totals } = useCartStore.use.cart();
 
     return (
         <div className='lg:col-span-1'>
@@ -26,7 +26,7 @@ export default function CheckoutOrderSummary() {
                 <CardContent className='space-y-4'>
                     {/* Cart Items */}
                     <div className='space-y-4'>
-                        {cart.items.map((item) => (
+                        {items.map((item) => (
                             <div key={item.id} className='flex gap-4'>
                                 <Image
                                     src={
@@ -64,26 +64,53 @@ export default function CheckoutOrderSummary() {
                             <p className='text-muted-foreground'>
                                 <Trans>Subtotal</Trans>
                             </p>
-                            <p>{parsePrice(cart.totals.subtotal)}</p>
+                            <p>{parsePrice(totals.subtotal)}</p>
                         </div>
-                        <div className='flex justify-between'>
-                            <p className='text-muted-foreground'>
+                        {totals.discount > 0 && (
+                            <div className='flex items-center justify-between text-sm'>
+                                <span className='text-muted-foreground'>
+                                    <Trans>Discount</Trans>
+                                </span>
+                                <span className='text-green-600'>
+                                    -{parsePrice(totals.discount)}
+                                </span>
+                            </div>
+                        )}
+
+                        {totals.coupon > 0 && (
+                            <div className='flex items-center justify-between text-sm'>
+                                <span className='text-muted-foreground'>
+                                    <Trans>Coupon</Trans>
+                                </span>
+                                <span className='text-green-600'>
+                                    -{parsePrice(totals.coupon)}
+                                </span>
+                            </div>
+                        )}
+                        <div className='flex items-center justify-between text-sm'>
+                            <span className='text-muted-foreground'>
                                 <Trans>Shipping</Trans>
-                            </p>
-                            <p>{parsePrice(cart.totals.shipping)}</p>
+                            </span>
+                            {totals.shipping > 0 ? (
+                                <span>{parsePrice(totals.shipping)}</span>
+                            ) : (
+                                <span className='text-green-600'>
+                                    <Trans>Free</Trans>
+                                </span>
+                            )}
                         </div>
                         <div className='flex justify-between'>
                             <p className='text-muted-foreground'>
                                 <Trans>Tax</Trans>
                             </p>
-                            <p>{parsePrice(cart.totals.taxes)}</p>
+                            <p>{parsePrice(totals.taxes)}</p>
                         </div>
                         <Separator />
                         <div className='flex justify-between font-medium text-lg'>
                             <p>
                                 <Trans>Total</Trans>
                             </p>
-                            <p>{parsePrice(cart.totals.total)}</p>
+                            <p>{parsePrice(totals.total)}</p>
                         </div>
                     </div>
                 </CardContent>

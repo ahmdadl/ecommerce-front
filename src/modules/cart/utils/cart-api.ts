@@ -2,7 +2,7 @@ import http from '@/modules/core/utils/http';
 import { parseError } from '@/modules/core/utils/parseError';
 import { SuccessResponse } from '@/modules/core/utils/types';
 import { cartStore } from '../stores/cart-store';
-import { CartResponse } from './types';
+import { CartResponse, PlaceOrderResponse } from './types';
 
 export const cartApi = {
     load: async (params: any = {}) => {
@@ -180,9 +180,9 @@ export const cartApi = {
     placeOrder: async (values: any) => {
         const response = (await http
             .post('/orders', values)
-            .catch(parseError)) as SuccessResponse<CartResponse>;
+            .catch(parseError)) as SuccessResponse<PlaceOrderResponse>;
 
-        if (!response) return;
+        if (!response?.data) return;
 
         return response.data;
     },

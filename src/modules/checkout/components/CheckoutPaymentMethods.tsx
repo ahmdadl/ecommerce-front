@@ -5,14 +5,24 @@ import { useCartStore } from '@/modules/cart/stores/cart-store';
 import Image from '@/modules/core/components/Image';
 import { Trans } from '@lingui/react/macro';
 import { Check, CreditCard } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function CheckoutPaymentMethods() {
     const paymentMethods = useCartStore.use.paymentMethods();
 
-    const [selectedPayment, setSelectedPayment] = useState(
-        paymentMethods ? paymentMethods[0].code : ''
-    );
+    const [selectedPayment, setSelectedPayment] = useState('');
+
+    useEffect(() => {
+        setSelectedPayment(useCartStore.getState().selectedPaymentMethod || '');
+    }, []);
+
+    function selectPaymentMethod(code: string) {
+        if (selectedPayment === code) return;
+
+        useCartStore.setState({ selectedPaymentMethod: code });
+
+        setSelectedPayment(code);
+    }
 
     if (!paymentMethods) return null;
 
@@ -25,11 +35,7 @@ export default function CheckoutPaymentMethods() {
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <RadioGroup
-                    value={selectedPayment}
-                    onValueChange={setSelectedPayment}
-                    className='space-y-4'
-                >
+                <RadioGroup value={selectedPayment} className='space-y-4'>
                     {paymentMethods.map((method) => (
                         <div
                             key={method.code}
@@ -38,7 +44,7 @@ export default function CheckoutPaymentMethods() {
                                     ? 'border-primary'
                                     : 'border-border'
                             }`}
-                            onClick={() => setSelectedPayment(method.code)}
+                            onClick={() => selectPaymentMethod(method.code)}
                         >
                             <RadioGroupItem
                                 value={method.code}

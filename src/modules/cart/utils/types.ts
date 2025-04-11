@@ -1,3 +1,4 @@
+import { OrderEntity } from '@/modules/orders/utils/types';
 import { AddressEntity } from '../../addresses/utils/types';
 import { ProductEntity } from '../../shop/utils/types';
 
@@ -68,5 +69,10 @@ export type CartResponse = {
     paymentMethods: PaymentMethodEntity[] | null;
 
     selectedAddress: AddressEntity | null;
-    selectedPaymentMethod: PaymentMethodEntity | null;
+    selectedPaymentMethod: string | null;
+};
+
+export type PlaceOrderResponse = {
+    record?: OrderEntity;
+    message?: string;
 };
