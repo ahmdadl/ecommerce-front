@@ -276,15 +276,15 @@ export default function OrderDetailsPage() {
                         <CardContent>
                             <div className='space-y-1'>
                                 <p className='font-medium'>
-                                    {order.address?.name}
+                                    {order.shippingAddress?.name}
                                 </p>
-                                <p>{order.address?.address}</p>
-                                <p>{order.address?.city_title?.en}</p>
+                                <p>{order.shippingAddress?.address}</p>
+                                <p>{order.shippingAddress?.city_title}</p>
                                 <p className='pt-2 text-sm text-muted-foreground'>
                                     <span className='font-medium'>
                                         <Trans>Phone</Trans>:
                                     </span>{' '}
-                                    {order.address?.phone}
+                                    {order.shippingAddress?.phone}
                                 </p>
                             </div>
                         </CardContent>

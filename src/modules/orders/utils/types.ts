@@ -44,14 +44,14 @@ export type PaymentAttemptEntity = {
 export type OrderEntity = {
     id: string;
     user_id: string;
-    address_id: string;
+    shipping_address_id: string;
     status: OrderStatus;
     payment_status: OrderPaymentStatus;
     payment_method: string;
     totals: CartTotalsEntity;
     created_at: string;
     items?: OrderItemEntity[];
-    address?: AddressEntity;
+    shippingAddress?: AddressEntity;
     coupon?: null | Record<string, any>;
     paymentAttempts?: PaymentAttemptEntity[];
 };

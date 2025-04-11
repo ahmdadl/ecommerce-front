@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { cartStore } from '@/modules/cart/stores/cart-store';
 import { cartApi } from '@/modules/cart/utils/cart-api';
+import useLocaleStore from '@/modules/core/stores/localeStore';
 import loadingToast from '@/modules/core/utils/methods';
 import { urls } from '@/modules/core/utils/urls';
 import { Trans, useLingui } from '@lingui/react/macro';
@@ -42,8 +43,12 @@ export default function CheckoutPlaceOrderButton() {
                 if (!response) return;
 
                 if (response.record) {
-                    return navigate({
-                        to: urls.profile.orders.view(response.record),
+                    toast.success(t`Order placed successfully`);
+
+                    navigate({
+                        to:
+                            `/${useLocaleStore.getState().locale}/` +
+                            urls.profile.orders.view(response.record),
                     });
                 }
 
