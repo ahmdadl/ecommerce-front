@@ -9,7 +9,7 @@ export function CategoryGrid() {
     const categories = useCategoriesStore.use.records();
 
     return (
-        <div className='grid grid-cols-1 gap-4 py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+        <div className='grid grid-cols-1 gap-4 py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 lg:px-6 2xl:px-8'>
             {Boolean(categories?.length) &&
                 categories.map((category) => (
                     <Link
@@ -18,11 +18,11 @@ export function CategoryGrid() {
                         className='group transition-transform hover:scale-[1.02]'
                     >
                         <Card className='h-full overflow-hidden py-0'>
-                            <div className='relative aspect-[4/3] w-full overflow-hidden'>
+                            <div className='relative w-full overflow-hidden'>
                                 <Image
                                     src={`https://picsum.photos/seed/${category.slug}/200/300`}
                                     alt={category.title}
-                                    className='object-cover transition-transform group-hover:scale-105 w-full max-w-full'
+                                    className='object-cover transition-transform group-hover:scale-115 w-full max-w-full duration-500 ease-in-out'
                                 />
                             </div>
                             <CardContent className='p-4'>

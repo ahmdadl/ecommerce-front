@@ -45,10 +45,13 @@ export default function Image({
 
     return (
         <div
-            className={cn('relative inline-block overflow-hidden', className)}
+            className={cn(
+                'relative inline-block overflow-hidden w-full',
+                className
+            )}
             style={{
-                width: width ? `${width}px` : 'auto',
-                height: height ? `${height}px` : 'auto',
+                width: width && `${width}px`,
+                height: height && `${height}px`,
             }}
         >
             {/* Placeholder */}

@@ -3,6 +3,8 @@ import { Check } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { AddressEntity } from '@/modules/addresses/utils/types';
 import { useCartStore } from '@/modules/cart/stores/cart-store';
+import { cartApi } from '@/modules/cart/utils/cart-api';
+import loadingToast from '@/modules/core/utils/methods';
 import { Trans } from '@lingui/react/macro';
 
 export default function CheckoutAddressRadio({
@@ -12,6 +14,18 @@ export default function CheckoutAddressRadio({
 }) {
     const selectedAddress = useCartStore.use.selectedAddress();
 
+    async function selectAddress(addressId: string) {
+        if (selectedAddress?.id === addressId) return;
+
+        loadingToast(cartApi.setAddress(addressId), {
+            onFinally: () => {
+                useCartStore.setState({
+                    selectedAddress: address,
+                });
+            },
+        });
+    }
+
     return (
         <div
             className={`flex items-start space-x-3 border cursor-pointer rounded-lg p-4 ${
@@ -19,7 +33,7 @@ export default function CheckoutAddressRadio({
                     ? 'border-primary'
                     : 'border-border'
             }`}
-            onClick={() => useCartStore.setState({ selectedAddress: address })}
+            onClick={() => selectAddress(address.id)}
         >
             <div className='flex'>
                 {selectedAddress?.id === address.id ? (
