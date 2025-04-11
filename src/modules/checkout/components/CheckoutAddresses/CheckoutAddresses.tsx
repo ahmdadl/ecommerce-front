@@ -30,7 +30,7 @@ export default function CheckoutAddresses() {
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <div className='space-y-4'>
+                <div className='space-y-4 max-h-[25rem] py-3 overflow-y-auto'>
                     {Boolean(addresses?.length) &&
                         addresses?.map((address) => (
                             <CheckoutAddressRadio

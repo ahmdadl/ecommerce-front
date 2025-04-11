@@ -1,48 +1,20 @@
-import { Check, CreditCard } from 'lucide-react';
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { useCartStore } from '@/modules/cart/stores/cart-store';
 import Image from '@/modules/core/components/Image';
 import { Trans } from '@lingui/react/macro';
+import { Check, CreditCard } from 'lucide-react';
 import { useState } from 'react';
 
-const paymentMethods = [
-    {
-        id: 'credit-card',
-        title: 'Credit Card',
-        icon: <CreditCard className='h-5 w-5' />,
-    },
-    {
-        id: 'paypal',
-        title: 'PayPal',
-        icon: (
-            <Image
-                src='/placeholder.svg?height=20&width=20'
-                width={20}
-                height={20}
-                alt='PayPal'
-            />
-        ),
-    },
-    {
-        id: 'apple-pay',
-        title: 'Apple Pay',
-        icon: (
-            <Image
-                src='/placeholder.svg?height=20&width=20'
-                width={20}
-                height={20}
-                alt='Apple Pay'
-            />
-        ),
-    },
-];
-
 export default function CheckoutPaymentMethods() {
+    const paymentMethods = useCartStore.use.paymentMethods();
+
     const [selectedPayment, setSelectedPayment] = useState(
-        paymentMethods[0].id
+        paymentMethods ? paymentMethods[0].code : ''
     );
+
+    if (!paymentMethods) return null;
 
     return (
         <Card>
@@ -60,27 +32,33 @@ export default function CheckoutPaymentMethods() {
                 >
                     {paymentMethods.map((method) => (
                         <div
-                            key={method.id}
-                            className={`flex items-center space-x-3 border rounded-lg p-4 ${
-                                selectedPayment === method.id
+                            key={method.code}
+                            className={`flex items-center cursor-pointer space-x-3 border rounded-lg p-4 ${
+                                selectedPayment === method.code
                                     ? 'border-primary'
                                     : 'border-border'
                             }`}
+                            onClick={() => setSelectedPayment(method.code)}
                         >
                             <RadioGroupItem
-                                value={method.id}
-                                id={`payment-${method.id}`}
+                                value={method.code}
+                                id={`payment-${method.code}`}
                             />
                             <div className='flex items-center gap-2'>
-                                {method.icon}
+                                <div className='max-w-24'>
+                                    <Image
+                                        src={method.image}
+                                        alt={method.name}
+                                    />
+                                </div>
                                 <Label
-                                    htmlFor={`payment-${method.id}`}
+                                    htmlFor={`payment-${method.code}`}
                                     className='font-medium'
                                 >
-                                    <Trans>{method.title}</Trans>
+                                    <Trans>{method.name}</Trans>
                                 </Label>
                             </div>
-                            {selectedPayment === method.id && (
+                            {selectedPayment === method.code && (
                                 <div className='ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground'>
                                     <Check className='h-3 w-3' />
                                 </div>

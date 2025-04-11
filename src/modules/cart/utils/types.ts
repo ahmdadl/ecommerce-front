@@ -59,6 +59,7 @@ export type CartEntity = {
 export type PaymentMethodEntity = {
     code: string;
     name: string;
+    image: string;
 };
 
 export type CartResponse = {
