@@ -11,7 +11,7 @@ interface LoadingToastOptions {
 }
 
 export default async function loadingToast<T>(
-    promise: Promise<T>,
+    promise: Promise<T> | (() => Promise<T>),
     options: LoadingToastOptions = {}
 ) {
     const {

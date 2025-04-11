@@ -171,8 +171,18 @@ export const cartApi = {
 
         cartStore.setState({
             ...response.data,
-            selectedAddress: response.data.cart.shipping_address,
+            selectedAddress: response.data.cart?.shipping_address,
         });
+
+        return response.data;
+    },
+
+    placeOrder: async (values: any) => {
+        const response = (await http
+            .post('/orders', values)
+            .catch(parseError)) as SuccessResponse<CartResponse>;
+
+        if (!response) return;
 
         return response.data;
     },

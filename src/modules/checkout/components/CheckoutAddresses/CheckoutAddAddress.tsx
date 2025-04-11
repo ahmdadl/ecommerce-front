@@ -81,7 +81,9 @@ export default function CheckoutAddAddress() {
                             <Trans>Cancel</Trans>
                         </Button>
                         <Button type='submit' form='address-form'>
-                            {isLoading && <Loader2 className='mr-2 h-4 w-4' />}
+                            {isLoading && (
+                                <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                            )}
                             <Trans>Create</Trans>
                         </Button>
                     </DialogFooter>

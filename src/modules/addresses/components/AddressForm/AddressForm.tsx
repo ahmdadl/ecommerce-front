@@ -7,22 +7,14 @@ import {
     FormMessage,
 } from '@/components/ui/form'; // shadcn form components
 import { Input } from '@/components/ui/input';
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from '@/components/ui/select';
 import { userStore } from '@/modules/core/stores/userStore';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { i18n } from '@lingui/core';
 import { Trans, useLingui } from '@lingui/react/macro';
-import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { addressesStore, useAddressesStore } from '../stores/addresses-store';
-import { CityEntity } from '../utils/types';
+import { addressesStore } from '../../stores/addresses-store';
+import AddressFormGovernmentCityInput from './AddressFormGovernmentCityInput';
 
 const addressSchema = z.object({
     title: z.string().min(1, i18n._('Address title is required')),
@@ -45,14 +37,11 @@ export default function AddressForm({
     onSave: SubmitHandler<AddressFormData>;
     isLoading?: boolean;
 }) {
-    const governments = useAddressesStore.use.governments();
-    const cities = useAddressesStore.use.cities();
     const address = addressesStore((state) => state.currentAddress);
 
     const { t } = useLingui();
     const user = userStore.getState();
 
-    const [filteredCities, setFilteredCities] = useState<CityEntity[]>([]);
     const [firstName, lastName] = user.name.split(' ');
 
     const defaultAddressValues: AddressFormData = {
@@ -68,17 +57,6 @@ export default function AddressForm({
         resolver: zodResolver(addressSchema),
         defaultValues: defaultAddressValues,
     });
-
-    const governmentId = form.watch('government_id');
-    useEffect(() => {
-        if (governmentId) {
-            setFilteredCities(
-                cities.filter((city) => city.government_id === governmentId)
-            );
-        } else {
-            setFilteredCities([]);
-        }
-    }, [governmentId]);
 
     return (
         <Form {...form}>
@@ -157,74 +135,10 @@ export default function AddressForm({
                     )}
                 />
 
-                <div className='grid grid-cols-2 gap-4'>
-                    <FormField
-                        control={form.control}
-                        name='government_id'
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>
-                                    <Trans>Government</Trans>
-                                </FormLabel>
-                                <Select
-                                    onValueChange={field.onChange}
-                                    value={field.value}
-                                    disabled={isLoading}
-                                >
-                                    <FormControl>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder='Select government' />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent>
-                                        {governments?.map((government) => (
-                                            <SelectItem
-                                                key={government.id}
-                                                value={government.id}
-                                            >
-                                                {government.title}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name='city_id'
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>
-                                    <Trans>City</Trans>
-                                </FormLabel>
-                                <Select
-                                    onValueChange={field.onChange}
-                                    value={field.value}
-                                    disabled={!governmentId || isLoading}
-                                >
-                                    <FormControl>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder='Select city' />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent>
-                                        {filteredCities?.map((city) => (
-                                            <SelectItem
-                                                key={city.id}
-                                                value={city.id}
-                                            >
-                                                {city.title}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                </div>
+                <AddressFormGovernmentCityInput
+                    form={form}
+                    isLoading={isLoading}
+                />
 
                 <FormField
                     control={form.control}
