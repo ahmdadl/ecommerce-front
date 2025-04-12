@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { cartStore } from '@/modules/cart/stores/cart-store';
 import { cartApi } from '@/modules/cart/utils/cart-api';
+import { CartResponse } from '@/modules/cart/utils/types';
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import loadingToast from '@/modules/core/utils/methods';
 import { urls } from '@/modules/core/utils/urls';
@@ -18,26 +19,22 @@ export default function CheckoutPlaceOrderButton() {
     async function createOrder() {
         if (loading) return;
 
-        const { selectedAddress, selectedPaymentMethod } = cartStore.getState();
+        const cartState = cartStore.getState();
+        const { selectedAddress, selectedPaymentMethod, receipt } = cartState;
 
         // validate cart entries
-        if (!selectedAddress?.id) {
-            toast.warning(t`Please select shipping address`);
-            return;
-        }
+        const isValid = await validateCartEntries(cartState);
 
-        if (!selectedPaymentMethod?.length) {
-            toast.warning(t`Please select payment method`);
-            return;
-        }
+        if (!isValid) return;
 
         setLoading(true);
 
         loadingToast(
             async () => {
                 const response = await cartApi.placeOrder({
-                    address: selectedAddress.id,
+                    address: selectedAddress?.id,
                     payment_method: selectedPaymentMethod,
+                    receipt,
                 });
 
                 if (!response) return;
@@ -50,6 +47,13 @@ export default function CheckoutPlaceOrderButton() {
                             `/${useLocaleStore.getState().locale}/` +
                             urls.profile.orders.view(response.record),
                     });
+
+                    cartStore.setState({
+                        cart: {} as CartResponse['cart'],
+                        selectedAddress: null,
+                        selectedPaymentMethod: null,
+                        receipt: null,
+                    });
                 }
 
                 return response;
@@ -60,6 +64,34 @@ export default function CheckoutPlaceOrderButton() {
                 },
             }
         );
+    }
+
+    async function validateCartEntries(state: CartResponse) {
+        return new Promise((resolve, reject) => {
+            const { selectedAddress, selectedPaymentMethod, paymentMethods } =
+                state;
+
+            if (!selectedAddress?.id) {
+                toast.warning(t`Please select shipping address`);
+                resolve(false);
+            }
+
+            if (!selectedPaymentMethod?.length) {
+                toast.warning(t`Please select payment method`);
+                resolve(false);
+            }
+
+            const paymentMethod = paymentMethods?.find(
+                (method) => method.code === selectedPaymentMethod
+            )!;
+
+            if (paymentMethod.require_receipt && !state.receipt) {
+                toast.warning(t`Please upload receipt`);
+                resolve(false);
+            }
+
+            resolve(true);
+        });
     }
 
     return (

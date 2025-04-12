@@ -61,6 +61,7 @@ export type PaymentMethodEntity = {
     code: string;
     name: string;
     image: string;
+    require_receipt: boolean;
 };
 
 export type CartResponse = {
@@ -70,6 +71,7 @@ export type CartResponse = {
 
     selectedAddress: AddressEntity | null;
     selectedPaymentMethod: string | null;
+    receipt: string | null;
 };
 
 export type PlaceOrderResponse = {

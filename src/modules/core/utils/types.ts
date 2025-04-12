@@ -96,3 +96,11 @@ export const isValidationErrorResponse = <T>(
     response: ApiResponseType<T>
 ): response is ValidationErrorResponse =>
     response.success === false && 'errors' in response;
+
+export type UploadEntity = {
+    id: string;
+    name: string;
+    url: string;
+    size: number;
+    type: string;
+};

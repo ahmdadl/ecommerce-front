@@ -26,34 +26,37 @@ export default function CheckoutOrderSummary() {
                 <CardContent className='space-y-4'>
                     {/* Cart Items */}
                     <div className='space-y-4'>
-                        {items.map((item) => (
-                            <div key={item.id} className='flex gap-4'>
-                                <Image
-                                    src={
-                                        'https://picsum.photos/seed/' +
-                                        item.id +
-                                        '/64/64'
-                                    }
-                                    alt={item.product.title}
-                                    width={64}
-                                    height={64}
-                                    className='rounded-md object-cover'
-                                />
-                                <div className='flex-1'>
-                                    <h4 className='font-medium'>
-                                        <Trans>{item.product.title}</Trans>
-                                    </h4>
-                                    <p className='text-sm text-muted-foreground'>
-                                        <Trans>Quantity: {item.quantity}</Trans>
-                                    </p>
+                        {Boolean(items?.length) &&
+                            items.map((item) => (
+                                <div key={item.id} className='flex gap-4'>
+                                    <Image
+                                        src={
+                                            'https://picsum.photos/seed/' +
+                                            item.id +
+                                            '/64/64'
+                                        }
+                                        alt={item.product.title}
+                                        width={64}
+                                        height={64}
+                                        className='rounded-md object-cover'
+                                    />
+                                    <div className='flex-1'>
+                                        <h4 className='font-medium'>
+                                            <Trans>{item.product.title}</Trans>
+                                        </h4>
+                                        <p className='text-sm text-muted-foreground'>
+                                            <Trans>
+                                                Quantity: {item.quantity}
+                                            </Trans>
+                                        </p>
+                                    </div>
+                                    <div className='text-right'>
+                                        <p className='font-medium'>
+                                            {parsePrice(item.totals.total)}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className='text-right'>
-                                    <p className='font-medium'>
-                                        {parsePrice(item.totals.total)}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
+                            ))}
                     </div>
 
                     <Separator />

@@ -9,6 +9,7 @@ export const cartStore = create<CartResponse>((set, get) => ({
 
     selectedAddress: null,
     selectedPaymentMethod: null,
+    receipt: null,
 }));
 
 export const useCartStore = createZustandSelectors(cartStore);
