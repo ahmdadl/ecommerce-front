@@ -1,11 +1,22 @@
 import { Button } from '@/components/ui/button';
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import { Trans } from '@lingui/react/macro';
-import { Link } from '@tanstack/react-router';
+import { useLocation } from '@tanstack/react-router';
 import { LanguagesIcon } from 'lucide-react';
 
 export default function TopMenuLangSwitch() {
     const otherLocale = useLocaleStore.use.otherLocale();
+    const location = useLocation();
+
+    function toggleLocale() {
+        const locale = otherLocale();
+
+        useLocaleStore.setState({
+            locale,
+        });
+
+        window.location.href = `/${locale}${location.href.substring(3)}`;
+    }
 
     return (
         <Button
@@ -13,15 +24,14 @@ export default function TopMenuLangSwitch() {
             className='flex items-center hover:text-primary'
             asChild
         >
-            {/* @ts-ignore */}
-            <Link to={`/${otherLocale()}`}>
+            <Button variant={'link'} onClick={toggleLocale}>
                 <div className='relative'>
                     <LanguagesIcon className='h-5 w-5' />
                 </div>
                 <span className='ms-1 hidden lg:inline'>
                     <Trans>{`${otherLocale()}Locale`}</Trans>
                 </span>
-            </Link>
+            </Button>
         </Button>
     );
 }

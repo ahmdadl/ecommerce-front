@@ -1,12 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { authApi } from '@/modules/auth/utils/auth-api';
+import useLocaleStore from '@/modules/core/stores/localeStore';
 import useUserStore from '@/modules/core/stores/userStore';
+import { env } from '@/modules/core/utils/env';
 import HomeBanners from '@/modules/home/components/HomeBanner';
 import HomeBestSellers from '@/modules/home/components/HomeBestSellers';
 import HomeBrands from '@/modules/home/components/Homebrands';
 import HomeCategories from '@/modules/home/components/HomeCategories';
 import { Trans } from '@lingui/react/macro';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/$locale/')({
     head: () => ({
@@ -24,6 +26,16 @@ export const Route = createFileRoute('/$locale/')({
         ],
     }),
     component: Index,
+
+    beforeLoad: ({ params, location }) => {
+        const { locale } = params;
+
+        if (!env.supportedLocales.includes(locale)) {
+            throw redirect({
+                to: `/${useLocaleStore.getState().locale}/` + location.href,
+            });
+        }
+    },
 });
 
 export const homeRoute = Route;

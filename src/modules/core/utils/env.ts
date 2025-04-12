@@ -8,4 +8,5 @@ export const env = {
     encryptionKey: import.meta.env.VITE_ENCRYPTION_KEY,
     apiPublicToken: import.meta.env.VITE_API_PUBLIC_TOKEN,
     apiDefaultGuestTokens: import.meta.env.VITE_API_DEFAULT_GUEST_TOKENS,
+    supportedLocales: import.meta.env.VITE_SUPPORTED_LOCALES,
 };
