@@ -31,4 +31,9 @@ export const urls = {
     },
     cart: '/cart',
     checkout: '/checkout',
+    contactUs: '/contact-us',
+    aboutUs: '/about-us',
+    privacyPolicy: '/privacy-policy',
+    termsAndConditions: '/terms-and-conditions',
+    faq: '/faq',
 };
