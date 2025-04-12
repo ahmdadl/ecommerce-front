@@ -1,4 +1,4 @@
-import { Eye } from 'lucide-react';
+import { Eye, MapPin } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -149,6 +149,36 @@ export default function OrdersPage() {
                                                                     <Trans>
                                                                         View
                                                                         Details
+                                                                    </Trans>
+                                                                </p>
+                                                            </TooltipContent>
+                                                        </Tooltip>
+                                                    </TooltipProvider>
+                                                    <TooltipProvider>
+                                                        <Tooltip>
+                                                            <TooltipTrigger
+                                                                asChild
+                                                            >
+                                                                <Button
+                                                                    variant='ghost'
+                                                                    size='icon'
+                                                                    aria-label='Track Order'
+                                                                    asChild
+                                                                >
+                                                                    <Link
+                                                                        to={urls.profile.orders.track(
+                                                                            order
+                                                                        )}
+                                                                    >
+                                                                        <MapPin className='h-4 w-4' />
+                                                                    </Link>
+                                                                </Button>
+                                                            </TooltipTrigger>
+                                                            <TooltipContent>
+                                                                <p>
+                                                                    <Trans>
+                                                                        Track
+                                                                        Order
                                                                     </Trans>
                                                                 </p>
                                                             </TooltipContent>

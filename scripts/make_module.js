@@ -30,9 +30,19 @@ const generateStudlyCaseName = (input) => {
     return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
 };
 
+function toSlug(str) {
+    return str
+        .replace(/([a-z])([A-Z])/g, '$1 $2') // insert space before camelCase
+        .replace(/[^a-zA-Z0-9]+/g, '-') // replace non-alphanumeric characters with hyphen
+        .replace(/^-+|-+$/g, '') // remove leading/trailing hyphens
+        .toLowerCase(); // convert to lowercase
+}
+
 async function createModule() {
     // Prompt for module name
-    const moduleName = await readline.question('Enter the module name: ');
+    const moduleName = toSlug(
+        await readline.question('Enter the module name: ')
+    );
     const camelCaseName = moduleName.toLowerCase().replace(/\s+/g, '');
 
     const studlyCaseName = generateStudlyCaseName(moduleName);

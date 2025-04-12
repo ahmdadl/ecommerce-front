@@ -25,6 +25,7 @@ export const urls = {
         orders: {
             index: '/profile/orders',
             view: (order: any) => '/profile/orders/' + order.id,
+            track: (order: any) => '/profile/orders/' + order.id + '/track',
         },
         wishlist: '/profile/wishlist',
         addresses: '/profile/addresses',
