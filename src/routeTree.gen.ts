@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as LocaleIndexImport } from './routes/$locale/index'
+import { Route as LocalePrivacyPolicyImport } from './routes/$locale/privacy-policy'
 import { Route as LocaleFaqImport } from './routes/$locale/faq'
 import { Route as LocaleContactUsImport } from './routes/$locale/contact-us'
 import { Route as LocaleAboutImport } from './routes/$locale/about'
@@ -46,6 +47,12 @@ const IndexRoute = IndexImport.update({
 const LocaleIndexRoute = LocaleIndexImport.update({
   id: '/$locale/',
   path: '/$locale/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LocalePrivacyPolicyRoute = LocalePrivacyPolicyImport.update({
+  id: '/$locale/privacy-policy',
+  path: '/$locale/privacy-policy',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -217,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleFaqImport
       parentRoute: typeof rootRoute
     }
+    '/$locale/privacy-policy': {
+      id: '/$locale/privacy-policy'
+      path: '/$locale/privacy-policy'
+      fullPath: '/$locale/privacy-policy'
+      preLoaderRoute: typeof LocalePrivacyPolicyImport
+      parentRoute: typeof rootRoute
+    }
     '/$locale/': {
       id: '/$locale/'
       path: '/$locale'
@@ -375,6 +389,7 @@ export interface FileRoutesByFullPath {
   '/$locale/about': typeof LocaleAboutRoute
   '/$locale/contact-us': typeof LocaleContactUsRoute
   '/$locale/faq': typeof LocaleFaqRoute
+  '/$locale/privacy-policy': typeof LocalePrivacyPolicyRoute
   '/$locale': typeof LocaleIndexRoute
   '/$locale/forget-password': typeof LocaleAuthForgetPasswordRoute
   '/$locale/login': typeof LocaleAuthLoginRoute
@@ -400,6 +415,7 @@ export interface FileRoutesByTo {
   '/$locale/about': typeof LocaleAboutRoute
   '/$locale/contact-us': typeof LocaleContactUsRoute
   '/$locale/faq': typeof LocaleFaqRoute
+  '/$locale/privacy-policy': typeof LocalePrivacyPolicyRoute
   '/$locale': typeof LocaleIndexRoute
   '/$locale/forget-password': typeof LocaleAuthForgetPasswordRoute
   '/$locale/login': typeof LocaleAuthLoginRoute
@@ -427,6 +443,7 @@ export interface FileRoutesById {
   '/$locale/about': typeof LocaleAboutRoute
   '/$locale/contact-us': typeof LocaleContactUsRoute
   '/$locale/faq': typeof LocaleFaqRoute
+  '/$locale/privacy-policy': typeof LocalePrivacyPolicyRoute
   '/$locale/': typeof LocaleIndexRoute
   '/$locale/_auth/forget-password': typeof LocaleAuthForgetPasswordRoute
   '/$locale/_auth/login': typeof LocaleAuthLoginRoute
@@ -455,6 +472,7 @@ export interface FileRouteTypes {
     | '/$locale/about'
     | '/$locale/contact-us'
     | '/$locale/faq'
+    | '/$locale/privacy-policy'
     | '/$locale'
     | '/$locale/forget-password'
     | '/$locale/login'
@@ -479,6 +497,7 @@ export interface FileRouteTypes {
     | '/$locale/about'
     | '/$locale/contact-us'
     | '/$locale/faq'
+    | '/$locale/privacy-policy'
     | '/$locale'
     | '/$locale/forget-password'
     | '/$locale/login'
@@ -504,6 +523,7 @@ export interface FileRouteTypes {
     | '/$locale/about'
     | '/$locale/contact-us'
     | '/$locale/faq'
+    | '/$locale/privacy-policy'
     | '/$locale/'
     | '/$locale/_auth/forget-password'
     | '/$locale/_auth/login'
@@ -531,6 +551,7 @@ export interface RootRouteChildren {
   LocaleAboutRoute: typeof LocaleAboutRoute
   LocaleContactUsRoute: typeof LocaleContactUsRoute
   LocaleFaqRoute: typeof LocaleFaqRoute
+  LocalePrivacyPolicyRoute: typeof LocalePrivacyPolicyRoute
   LocaleIndexRoute: typeof LocaleIndexRoute
   LocaleAuthForgetPasswordRoute: typeof LocaleAuthForgetPasswordRoute
   LocaleAuthLoginRoute: typeof LocaleAuthLoginRoute
@@ -551,6 +572,7 @@ const rootRouteChildren: RootRouteChildren = {
   LocaleAboutRoute: LocaleAboutRoute,
   LocaleContactUsRoute: LocaleContactUsRoute,
   LocaleFaqRoute: LocaleFaqRoute,
+  LocalePrivacyPolicyRoute: LocalePrivacyPolicyRoute,
   LocaleIndexRoute: LocaleIndexRoute,
   LocaleAuthForgetPasswordRoute: LocaleAuthForgetPasswordRoute,
   LocaleAuthLoginRoute: LocaleAuthLoginRoute,
@@ -580,6 +602,7 @@ export const routeTree = rootRoute
         "/$locale/about",
         "/$locale/contact-us",
         "/$locale/faq",
+        "/$locale/privacy-policy",
         "/$locale/",
         "/$locale/_auth/forget-password",
         "/$locale/_auth/login",
@@ -616,6 +639,9 @@ export const routeTree = rootRoute
     },
     "/$locale/faq": {
       "filePath": "$locale/faq.tsx"
+    },
+    "/$locale/privacy-policy": {
+      "filePath": "$locale/privacy-policy.tsx"
     },
     "/$locale/": {
       "filePath": "$locale/index.tsx"
