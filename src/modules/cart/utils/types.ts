@@ -77,4 +77,5 @@ export type CartResponse = {
 export type PlaceOrderResponse = {
     record?: OrderEntity;
     message?: string;
+    payment_url?: string;
 };

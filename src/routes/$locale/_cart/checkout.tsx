@@ -13,3 +13,5 @@ export const Route = createFileRoute('/$locale/_cart/checkout')({
 
     pendingComponent: CheckoutSkeletonPage,
 });
+
+export const checkoutRoute = Route;

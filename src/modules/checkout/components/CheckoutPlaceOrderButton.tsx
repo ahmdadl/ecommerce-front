@@ -39,6 +39,12 @@ export default function CheckoutPlaceOrderButton() {
 
                 if (!response) return;
 
+                if (response.payment_url) {
+                    window.location.href = response.payment_url;
+
+                    return response;
+                }
+
                 if (response.record) {
                     toast.success(t`Order placed successfully`);
 
