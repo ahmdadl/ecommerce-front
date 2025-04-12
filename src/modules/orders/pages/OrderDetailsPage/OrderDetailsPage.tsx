@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { ArrowLeft, Calendar, CreditCard, MapPin, Truck } from 'lucide-react';
+import { ArrowLeft, Calendar, CreditCard, MapPin } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -102,15 +102,6 @@ export default function OrderDetailsPage() {
                                     <Badge variant='outline'>
                                         {order.payment_status}
                                     </Badge>
-                                </div>
-                                <div className='space-y-1'>
-                                    <p className='text-sm font-medium'>
-                                        <Trans>Shipping Status</Trans>
-                                    </p>
-                                    <div className='flex items-center gap-2'>
-                                        <Truck className='h-4 w-4 text-muted-foreground' />
-                                        <span>{order.status}</span>
-                                    </div>
                                 </div>
                             </div>
                         </CardContent>
