@@ -29,8 +29,12 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { parseError } from '@/modules/core/utils/parseError';
 import { Trans, useLingui } from '@lingui/react/macro';
+import { AxiosResponse } from 'axios';
 import { Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
+import { contactUsApi } from '../utils/contact-us-api';
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -64,20 +68,23 @@ export default function ContactForm() {
     });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
+        if (isSubmitting) return;
+
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const response = (await contactUsApi
+            .send(values)
+            .catch((err) => parseError(err, form))) as AxiosResponse;
 
-        console.log(values);
+        setIsSubmitting(false);
 
-        // toast.success({
-        //     title: 'Message sent!',
-        //     description: "We'll get back to you as soon as possible.",
-        // });
+        if (!response || response.status !== 204) return;
+
+        toast.success(
+            t`Message sent, We'll get back to you as soon as possible.`
+        );
 
         form.reset();
-        setIsSubmitting(false);
     }
 
     return (
