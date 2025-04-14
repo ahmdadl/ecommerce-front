@@ -15,8 +15,8 @@ export default function ContactUsPage() {
                 ]}
             />
 
-            <div className='container py-6 md:py-6'>
-                <div className='mx-auto max-w-5xl space-y-12'>
+            <div className='w-full py-6 md:py-6'>
+                <div className='mx-auto max-w-[90%] lg:max-w-5xl space-y-12'>
                     <div className='text-center'>
                         {/* <h1 className='text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'>
                             <Trans>Contact Us</Trans>
