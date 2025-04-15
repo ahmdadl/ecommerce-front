@@ -23,6 +23,7 @@ import { Route as LocaleProfileIndexImport } from './routes/$locale/profile/inde
 import { Route as LocaleProfileWishlistImport } from './routes/$locale/profile/wishlist'
 import { Route as LocaleProfileChangePasswordImport } from './routes/$locale/profile/change-password'
 import { Route as LocaleProfileAddressesImport } from './routes/$locale/profile/addresses'
+import { Route as LocaleProductsSlugImport } from './routes/$locale/products/$slug'
 import { Route as LocaleCatalogShopImport } from './routes/$locale/_catalog/shop'
 import { Route as LocaleCartCheckoutImport } from './routes/$locale/_cart/checkout'
 import { Route as LocaleCartCartImport } from './routes/$locale/_cart/cart'
@@ -111,6 +112,12 @@ const LocaleProfileAddressesRoute = LocaleProfileAddressesImport.update({
   id: '/addresses',
   path: '/addresses',
   getParentRoute: () => LocaleProfileRouteRoute,
+} as any)
+
+const LocaleProductsSlugRoute = LocaleProductsSlugImport.update({
+  id: '/$locale/products/$slug',
+  path: '/$locale/products/$slug',
+  getParentRoute: () => rootRoute,
 } as any)
 
 const LocaleCatalogShopRoute = LocaleCatalogShopImport.update({
@@ -312,6 +319,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleCatalogShopImport
       parentRoute: typeof rootRoute
     }
+    '/$locale/products/$slug': {
+      id: '/$locale/products/$slug'
+      path: '/$locale/products/$slug'
+      fullPath: '/$locale/products/$slug'
+      preLoaderRoute: typeof LocaleProductsSlugImport
+      parentRoute: typeof rootRoute
+    }
     '/$locale/profile/addresses': {
       id: '/$locale/profile/addresses'
       path: '/addresses'
@@ -433,6 +447,7 @@ export interface FileRoutesByFullPath {
   '/$locale/cart': typeof LocaleCartCartRoute
   '/$locale/checkout': typeof LocaleCartCheckoutRoute
   '/$locale/shop': typeof LocaleCatalogShopRoute
+  '/$locale/products/$slug': typeof LocaleProductsSlugRoute
   '/$locale/profile/addresses': typeof LocaleProfileAddressesRoute
   '/$locale/profile/change-password': typeof LocaleProfileChangePasswordRoute
   '/$locale/profile/wishlist': typeof LocaleProfileWishlistRoute
@@ -461,6 +476,7 @@ export interface FileRoutesByTo {
   '/$locale/cart': typeof LocaleCartCartRoute
   '/$locale/checkout': typeof LocaleCartCheckoutRoute
   '/$locale/shop': typeof LocaleCatalogShopRoute
+  '/$locale/products/$slug': typeof LocaleProductsSlugRoute
   '/$locale/profile/addresses': typeof LocaleProfileAddressesRoute
   '/$locale/profile/change-password': typeof LocaleProfileChangePasswordRoute
   '/$locale/profile/wishlist': typeof LocaleProfileWishlistRoute
@@ -491,6 +507,7 @@ export interface FileRoutesById {
   '/$locale/_cart/cart': typeof LocaleCartCartRoute
   '/$locale/_cart/checkout': typeof LocaleCartCheckoutRoute
   '/$locale/_catalog/shop': typeof LocaleCatalogShopRoute
+  '/$locale/products/$slug': typeof LocaleProductsSlugRoute
   '/$locale/profile/addresses': typeof LocaleProfileAddressesRoute
   '/$locale/profile/change-password': typeof LocaleProfileChangePasswordRoute
   '/$locale/profile/wishlist': typeof LocaleProfileWishlistRoute
@@ -522,6 +539,7 @@ export interface FileRouteTypes {
     | '/$locale/cart'
     | '/$locale/checkout'
     | '/$locale/shop'
+    | '/$locale/products/$slug'
     | '/$locale/profile/addresses'
     | '/$locale/profile/change-password'
     | '/$locale/profile/wishlist'
@@ -549,6 +567,7 @@ export interface FileRouteTypes {
     | '/$locale/cart'
     | '/$locale/checkout'
     | '/$locale/shop'
+    | '/$locale/products/$slug'
     | '/$locale/profile/addresses'
     | '/$locale/profile/change-password'
     | '/$locale/profile/wishlist'
@@ -577,6 +596,7 @@ export interface FileRouteTypes {
     | '/$locale/_cart/cart'
     | '/$locale/_cart/checkout'
     | '/$locale/_catalog/shop'
+    | '/$locale/products/$slug'
     | '/$locale/profile/addresses'
     | '/$locale/profile/change-password'
     | '/$locale/profile/wishlist'
@@ -607,6 +627,7 @@ export interface RootRouteChildren {
   LocaleCartCartRoute: typeof LocaleCartCartRoute
   LocaleCartCheckoutRoute: typeof LocaleCartCheckoutRoute
   LocaleCatalogShopRoute: typeof LocaleCatalogShopRoute
+  LocaleProductsSlugRoute: typeof LocaleProductsSlugRoute
   LocaleCatalogBrandsSlugRoute: typeof LocaleCatalogBrandsSlugRoute
   LocaleCatalogCategoriesSlugRoute: typeof LocaleCatalogCategoriesSlugRoute
   LocaleCatalogBrandsIndexRoute: typeof LocaleCatalogBrandsIndexRoute
@@ -629,6 +650,7 @@ const rootRouteChildren: RootRouteChildren = {
   LocaleCartCartRoute: LocaleCartCartRoute,
   LocaleCartCheckoutRoute: LocaleCartCheckoutRoute,
   LocaleCatalogShopRoute: LocaleCatalogShopRoute,
+  LocaleProductsSlugRoute: LocaleProductsSlugRoute,
   LocaleCatalogBrandsSlugRoute: LocaleCatalogBrandsSlugRoute,
   LocaleCatalogCategoriesSlugRoute: LocaleCatalogCategoriesSlugRoute,
   LocaleCatalogBrandsIndexRoute: LocaleCatalogBrandsIndexRoute,
@@ -660,6 +682,7 @@ export const routeTree = rootRoute
         "/$locale/_cart/cart",
         "/$locale/_cart/checkout",
         "/$locale/_catalog/shop",
+        "/$locale/products/$slug",
         "/$locale/_catalog/brands/$slug",
         "/$locale/_catalog/categories/$slug",
         "/$locale/_catalog/brands/",
@@ -719,6 +742,9 @@ export const routeTree = rootRoute
     },
     "/$locale/_catalog/shop": {
       "filePath": "$locale/_catalog/shop.tsx"
+    },
+    "/$locale/products/$slug": {
+      "filePath": "$locale/products/$slug.tsx"
     },
     "/$locale/profile/addresses": {
       "filePath": "$locale/profile/addresses.tsx",

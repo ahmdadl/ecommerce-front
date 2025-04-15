@@ -29,7 +29,11 @@ export default function TopMenuLangSwitch() {
                     <LanguagesIcon className='h-5 w-5' />
                 </div>
                 <span className='ms-1 hidden lg:inline'>
-                    <Trans>{`${otherLocale()}Locale`}</Trans>
+                    {otherLocale() === 'ar' ? (
+                        <Trans>arLocale</Trans>
+                    ) : (
+                        <Trans>enLocale</Trans>
+                    )}
                 </span>
             </Button>
         </Button>

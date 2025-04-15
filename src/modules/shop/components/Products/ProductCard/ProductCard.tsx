@@ -1,5 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import Link from '@/modules/core/components/LocalizedLink';
+import { urls } from '@/modules/core/utils/urls';
 import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import { ProductEntity } from '../../../utils/types';
@@ -46,7 +48,9 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
                 </p>
 
                 <h3 className='font-medium mt-1 line-clamp-2 min-h-[2.5rem]'>
-                    {product.title}
+                    <Link to={urls.products.view(product)}>
+                        {product.title}
+                    </Link>
                 </h3>
 
                 <div className='mt-2 flex items-center gap-2'>
