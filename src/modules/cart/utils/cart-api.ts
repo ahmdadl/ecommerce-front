@@ -78,9 +78,11 @@ export const cartApi = {
         return response.data;
     },
 
-    add: async (productId: string) => {
+    add: async (productId: string, quantity?: number) => {
         const response = (await http
-            .post(`/cart/${productId}`)
+            .post(`/cart/${productId}`, {
+                quantity: quantity || 1,
+            })
             .catch(parseError)) as SuccessResponse<CartResponse>;
 
         if (!response?.data) return;
