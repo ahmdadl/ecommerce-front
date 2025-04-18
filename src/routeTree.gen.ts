@@ -35,6 +35,7 @@ import { Route as LocaleAuthForgetPasswordImport } from './routes/$locale/_auth/
 import { Route as LocaleProfileOrdersIndexImport } from './routes/$locale/profile/orders/index'
 import { Route as LocaleCatalogCategoriesIndexImport } from './routes/$locale/_catalog/categories/index'
 import { Route as LocaleCatalogBrandsIndexImport } from './routes/$locale/_catalog/brands/index'
+import { Route as LocaleCatalogTagsSlugImport } from './routes/$locale/_catalog/tags/$slug'
 import { Route as LocaleCatalogCategoriesSlugImport } from './routes/$locale/_catalog/categories/$slug'
 import { Route as LocaleCatalogBrandsSlugImport } from './routes/$locale/_catalog/brands/$slug'
 import { Route as LocaleProfileOrdersIdIndexImport } from './routes/$locale/profile/orders/$id/index'
@@ -185,6 +186,12 @@ const LocaleCatalogCategoriesIndexRoute =
 const LocaleCatalogBrandsIndexRoute = LocaleCatalogBrandsIndexImport.update({
   id: '/$locale/_catalog/brands/',
   path: '/$locale/brands/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LocaleCatalogTagsSlugRoute = LocaleCatalogTagsSlugImport.update({
+  id: '/$locale/_catalog/tags/$slug',
+  path: '/$locale/tags/$slug',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -382,6 +389,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleCatalogCategoriesSlugImport
       parentRoute: typeof rootRoute
     }
+    '/$locale/_catalog/tags/$slug': {
+      id: '/$locale/_catalog/tags/$slug'
+      path: '/$locale/tags/$slug'
+      fullPath: '/$locale/tags/$slug'
+      preLoaderRoute: typeof LocaleCatalogTagsSlugImport
+      parentRoute: typeof rootRoute
+    }
     '/$locale/_catalog/brands/': {
       id: '/$locale/_catalog/brands/'
       path: '/$locale/brands'
@@ -469,6 +483,7 @@ export interface FileRoutesByFullPath {
   '/$locale/profile/': typeof LocaleProfileIndexRoute
   '/$locale/brands/$slug': typeof LocaleCatalogBrandsSlugRoute
   '/$locale/categories/$slug': typeof LocaleCatalogCategoriesSlugRoute
+  '/$locale/tags/$slug': typeof LocaleCatalogTagsSlugRoute
   '/$locale/brands': typeof LocaleCatalogBrandsIndexRoute
   '/$locale/categories': typeof LocaleCatalogCategoriesIndexRoute
   '/$locale/profile/orders': typeof LocaleProfileOrdersIndexRoute
@@ -499,6 +514,7 @@ export interface FileRoutesByTo {
   '/$locale/profile': typeof LocaleProfileIndexRoute
   '/$locale/brands/$slug': typeof LocaleCatalogBrandsSlugRoute
   '/$locale/categories/$slug': typeof LocaleCatalogCategoriesSlugRoute
+  '/$locale/tags/$slug': typeof LocaleCatalogTagsSlugRoute
   '/$locale/brands': typeof LocaleCatalogBrandsIndexRoute
   '/$locale/categories': typeof LocaleCatalogCategoriesIndexRoute
   '/$locale/profile/orders': typeof LocaleProfileOrdersIndexRoute
@@ -531,6 +547,7 @@ export interface FileRoutesById {
   '/$locale/profile/': typeof LocaleProfileIndexRoute
   '/$locale/_catalog/brands/$slug': typeof LocaleCatalogBrandsSlugRoute
   '/$locale/_catalog/categories/$slug': typeof LocaleCatalogCategoriesSlugRoute
+  '/$locale/_catalog/tags/$slug': typeof LocaleCatalogTagsSlugRoute
   '/$locale/_catalog/brands/': typeof LocaleCatalogBrandsIndexRoute
   '/$locale/_catalog/categories/': typeof LocaleCatalogCategoriesIndexRoute
   '/$locale/profile/orders/': typeof LocaleProfileOrdersIndexRoute
@@ -564,6 +581,7 @@ export interface FileRouteTypes {
     | '/$locale/profile/'
     | '/$locale/brands/$slug'
     | '/$locale/categories/$slug'
+    | '/$locale/tags/$slug'
     | '/$locale/brands'
     | '/$locale/categories'
     | '/$locale/profile/orders'
@@ -593,6 +611,7 @@ export interface FileRouteTypes {
     | '/$locale/profile'
     | '/$locale/brands/$slug'
     | '/$locale/categories/$slug'
+    | '/$locale/tags/$slug'
     | '/$locale/brands'
     | '/$locale/categories'
     | '/$locale/profile/orders'
@@ -623,6 +642,7 @@ export interface FileRouteTypes {
     | '/$locale/profile/'
     | '/$locale/_catalog/brands/$slug'
     | '/$locale/_catalog/categories/$slug'
+    | '/$locale/_catalog/tags/$slug'
     | '/$locale/_catalog/brands/'
     | '/$locale/_catalog/categories/'
     | '/$locale/profile/orders/'
@@ -651,6 +671,7 @@ export interface RootRouteChildren {
   LocaleProductsSlugRoute: typeof LocaleProductsSlugRoute
   LocaleCatalogBrandsSlugRoute: typeof LocaleCatalogBrandsSlugRoute
   LocaleCatalogCategoriesSlugRoute: typeof LocaleCatalogCategoriesSlugRoute
+  LocaleCatalogTagsSlugRoute: typeof LocaleCatalogTagsSlugRoute
   LocaleCatalogBrandsIndexRoute: typeof LocaleCatalogBrandsIndexRoute
   LocaleCatalogCategoriesIndexRoute: typeof LocaleCatalogCategoriesIndexRoute
 }
@@ -675,6 +696,7 @@ const rootRouteChildren: RootRouteChildren = {
   LocaleProductsSlugRoute: LocaleProductsSlugRoute,
   LocaleCatalogBrandsSlugRoute: LocaleCatalogBrandsSlugRoute,
   LocaleCatalogCategoriesSlugRoute: LocaleCatalogCategoriesSlugRoute,
+  LocaleCatalogTagsSlugRoute: LocaleCatalogTagsSlugRoute,
   LocaleCatalogBrandsIndexRoute: LocaleCatalogBrandsIndexRoute,
   LocaleCatalogCategoriesIndexRoute: LocaleCatalogCategoriesIndexRoute,
 }
@@ -708,6 +730,7 @@ export const routeTree = rootRoute
         "/$locale/products/$slug",
         "/$locale/_catalog/brands/$slug",
         "/$locale/_catalog/categories/$slug",
+        "/$locale/_catalog/tags/$slug",
         "/$locale/_catalog/brands/",
         "/$locale/_catalog/categories/"
       ]
@@ -793,6 +816,9 @@ export const routeTree = rootRoute
     },
     "/$locale/_catalog/categories/$slug": {
       "filePath": "$locale/_catalog/categories/$slug.tsx"
+    },
+    "/$locale/_catalog/tags/$slug": {
+      "filePath": "$locale/_catalog/tags/$slug.tsx"
     },
     "/$locale/_catalog/brands/": {
       "filePath": "$locale/_catalog/brands/index.tsx"

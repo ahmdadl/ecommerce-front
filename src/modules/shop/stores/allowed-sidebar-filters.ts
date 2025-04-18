@@ -7,6 +7,7 @@ type AllowedFiltersState = {
     enableForShop: () => void;
     enableForCategory: () => void;
     enableForBrand: () => void;
+    enableForTag: () => void;
 };
 export const allowedSidebarFilters = create<AllowedFiltersState>(
     (set, get) => ({
@@ -20,6 +21,9 @@ export const allowedSidebarFilters = create<AllowedFiltersState>(
 
         enableForBrand: () =>
             set({ list: get().all.filter((item) => item !== 'brand') }),
+
+        enableForTag: () =>
+            set({ list: get().all.filter((item) => item !== 'tags') }),
     })
 );
 

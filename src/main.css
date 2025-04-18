@@ -146,7 +146,8 @@
 
 .shop-page,
 .category-products-page,
-.brand-products-page {
+.brand-products-page,
+.tag-products-page {
     .relative-sidebar {
         position: relative !important;
         height: 100%;

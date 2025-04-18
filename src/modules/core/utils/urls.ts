@@ -38,4 +38,8 @@ export const urls = {
     termsAndConditions: '/terms-and-conditions',
     faq: '/faq',
     compareList: '/compare-list',
+    tags: {
+        // index: '/tags',
+        view: (tag: any) => '/tags/' + tag.slug,
+    },
 };
