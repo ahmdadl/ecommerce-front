@@ -1,24 +1,11 @@
 import { CategoryEntity } from '@/modules/categories/utils/types';
+import { TagEntity } from '@/modules/tags/utils/types';
 
-export type CategoryFilterEntity = {
+export type BrandEntity = {
     id: string;
     title: string;
     slug: string;
-    products_count: number;
-};
-
-export type TagFilterEntity = {
-    id: string;
-    title: string;
-    slug: string;
-    products_count: number;
-};
-
-export type BrandFilterEntity = {
-    id: string;
-    title: string;
-    slug: string;
-    products_count: number;
+    products_count?: number;
 };
 
 export type PriceRangeFilterEntity = {
@@ -27,10 +14,10 @@ export type PriceRangeFilterEntity = {
 };
 
 export type Filters = {
-    categories: CategoryFilterEntity[];
-    brands: BrandFilterEntity[];
+    categories: CategoryEntity[];
+    brands: BrandEntity[];
     price_range: PriceRangeFilterEntity;
-    tags: TagFilterEntity[];
+    tags: TagEntity[];
 };
 
 export type FilterState = {
@@ -99,5 +86,6 @@ export type ProductEntity = {
     meta_keywords: string[];
     is_new: boolean;
     category: CategoryEntity;
-    brand: BrandFilterEntity;
+    brand: BrandEntity;
+    tags: TagEntity[];
 };

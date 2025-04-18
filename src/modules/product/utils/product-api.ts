@@ -10,6 +10,7 @@ export const productApi = {
                 params: {
                     withCategory: true,
                     withBrand: true,
+                    withTags: true,
                 },
             })
             .catch(parseError);

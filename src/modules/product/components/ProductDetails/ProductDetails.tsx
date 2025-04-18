@@ -1,6 +1,8 @@
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import Link from '@/modules/core/components/LocalizedLink';
+import { urls } from '@/modules/core/utils/urls';
 import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import { useProductStore } from '../../stores/product-store';
@@ -101,7 +103,6 @@ export default function ProductDetails() {
 
                 <ProductShare product={product} />
 
-                {/* Meta Information */}
                 <Card className='p-4'>
                     <div className='space-y-3'>
                         <div>
@@ -125,13 +126,16 @@ export default function ProductDetails() {
                                 <Trans>Tags</Trans>
                             </h3>
                             <div className='flex flex-wrap gap-1 mt-1'>
-                                {product.meta_keywords.map((keyword, index) => (
+                                {product.tags.map((tag) => (
                                     <Badge
-                                        key={index}
+                                        key={tag.id}
                                         variant='secondary'
                                         className='text-xs'
+                                        asChild
                                     >
-                                        {keyword}
+                                        <Link to={urls.tags.view(tag)}>
+                                            {tag.title}
+                                        </Link>
                                     </Badge>
                                 ))}
                             </div>
