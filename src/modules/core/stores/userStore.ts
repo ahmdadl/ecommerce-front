@@ -14,7 +14,7 @@ interface UserStoreState {
     gender?: UserGender;
     totals: {
         cartItems: number;
-        comparedItems: number;
+        compareItems: number;
         orders: number;
         totalPurchased: number;
         wishlistItems: number;
@@ -25,6 +25,8 @@ interface UserStoreState {
     isCustomer: () => boolean;
     login: (userData: any) => void;
     logout: () => void;
+
+    setTotalComparedItems: (compareItemsCount: number) => void;
 }
 
 export const userStore = create<UserStoreState>()(
@@ -40,7 +42,7 @@ export const userStore = create<UserStoreState>()(
                 access_token: '',
                 totals: {
                     cartItems: 0,
-                    comparedItems: 0,
+                    compareItems: 0,
                     orders: 0,
                     totalPurchased: 0,
                     wishlistItems: 0,
@@ -70,7 +72,16 @@ export const userStore = create<UserStoreState>()(
                         role: '',
                         access_token: '',
                     }),
+                setTotalComparedItems: (compareItemsCount: number) => {
+                    set((state) => ({
+                        totals: {
+                            ...state.totals,
+                            compareItems: compareItemsCount,
+                        },
+                    }));
+                },
             }),
+
             {
                 name: 'user_store',
                 storage: createJSONStorage(() => secureStorage),

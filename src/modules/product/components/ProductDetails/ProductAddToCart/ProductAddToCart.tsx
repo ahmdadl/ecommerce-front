@@ -1,17 +1,12 @@
-import { BarChart2, Loader2, Minus, Plus, ShoppingCart } from 'lucide-react';
+import { Loader2, Minus, Plus, ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from '@/components/ui/tooltip';
 import { cartApi } from '@/modules/cart/utils/cart-api';
 import loadingToast from '@/modules/core/utils/methods';
 import { ProductEntity } from '@/modules/shop/utils/types';
 import { Trans } from '@lingui/react/macro';
+import ProductToggleCompare from './ProductToggleCompare';
 import ProductToggleWishlist from './ProductToggleWishlist';
 
 export default function ProductAddToCart({
@@ -99,31 +94,7 @@ export default function ProductAddToCart({
                     )}
                 </Button>
 
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Button
-                                variant={
-                                    product.is_compared
-                                        ? 'secondary'
-                                        : 'outline'
-                                }
-                                size='icon'
-                            >
-                                <BarChart2 className='h-4 w-4' />
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>
-                                {product.is_compared ? (
-                                    <Trans>Remove from Compare</Trans>
-                                ) : (
-                                    <Trans>Add to Compare</Trans>
-                                )}
-                            </p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                <ProductToggleCompare product={product} />
 
                 <ProductToggleWishlist product={product} />
             </div>

@@ -37,4 +37,5 @@ export const urls = {
     privacyPolicy: '/privacy-policy',
     termsAndConditions: '/terms-and-conditions',
     faq: '/faq',
+    compareList: '/compare-list',
 };

@@ -9,6 +9,9 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
+import { compareApi } from '@/modules/compare-list/utils/compare-api';
+import loadingToast from '@/modules/core/utils/methods';
+import { productStore } from '@/modules/product/stores/product-store';
 import { ProductEntity } from '@/modules/shop/utils/types';
 import { Trans } from '@lingui/react/macro';
 
@@ -24,11 +27,17 @@ export default function ProductToggleCompare({
 
         setIsLoading(true);
 
-        // loadingToast(cartApi.add(product.id, quantity), {
-        //     onFinally: () => {
-        //         setIsLoading(false);
-        //     },
-        // });
+        loadingToast(compareApi.add(product.id), {
+            onSuccess: () => {
+                setIsLoading(false);
+                productStore.setState({
+                    record: {
+                        ...product,
+                        is_compared: true,
+                    },
+                });
+            },
+        });
     }
 
     return (
@@ -38,6 +47,11 @@ export default function ProductToggleCompare({
                     <Button
                         variant={product.is_compared ? 'secondary' : 'outline'}
                         size='icon'
+                        onClick={addToCompare}
+                        className={cn(
+                            product.is_compared && 'fill-blue-600 text-blue-500'
+                        )}
+                        disabled={isLoading || product.is_compared}
                     >
                         {isLoading ? (
                             <Loader2 className='h-4 w-4 animate-spin' />

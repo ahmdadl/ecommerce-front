@@ -17,6 +17,7 @@ import { Route as LocaleTermsAndConditionsImport } from './routes/$locale/terms-
 import { Route as LocalePrivacyPolicyImport } from './routes/$locale/privacy-policy'
 import { Route as LocaleFaqImport } from './routes/$locale/faq'
 import { Route as LocaleContactUsImport } from './routes/$locale/contact-us'
+import { Route as LocaleCompareListImport } from './routes/$locale/compare-list'
 import { Route as LocaleAboutImport } from './routes/$locale/about'
 import { Route as LocaleProfileRouteImport } from './routes/$locale/profile/route'
 import { Route as LocaleProfileIndexImport } from './routes/$locale/profile/index'
@@ -74,6 +75,12 @@ const LocaleFaqRoute = LocaleFaqImport.update({
 const LocaleContactUsRoute = LocaleContactUsImport.update({
   id: '/$locale/contact-us',
   path: '/$locale/contact-us',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LocaleCompareListRoute = LocaleCompareListImport.update({
+  id: '/$locale/compare-list',
+  path: '/$locale/compare-list',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -233,6 +240,13 @@ declare module '@tanstack/react-router' {
       path: '/$locale/about'
       fullPath: '/$locale/about'
       preLoaderRoute: typeof LocaleAboutImport
+      parentRoute: typeof rootRoute
+    }
+    '/$locale/compare-list': {
+      id: '/$locale/compare-list'
+      path: '/$locale/compare-list'
+      fullPath: '/$locale/compare-list'
+      preLoaderRoute: typeof LocaleCompareListImport
       parentRoute: typeof rootRoute
     }
     '/$locale/contact-us': {
@@ -435,6 +449,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$locale/profile': typeof LocaleProfileRouteRouteWithChildren
   '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/compare-list': typeof LocaleCompareListRoute
   '/$locale/contact-us': typeof LocaleContactUsRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/privacy-policy': typeof LocalePrivacyPolicyRoute
@@ -464,6 +479,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/compare-list': typeof LocaleCompareListRoute
   '/$locale/contact-us': typeof LocaleContactUsRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/privacy-policy': typeof LocalePrivacyPolicyRoute
@@ -495,6 +511,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$locale/profile': typeof LocaleProfileRouteRouteWithChildren
   '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/compare-list': typeof LocaleCompareListRoute
   '/$locale/contact-us': typeof LocaleContactUsRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/privacy-policy': typeof LocalePrivacyPolicyRoute
@@ -527,6 +544,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$locale/profile'
     | '/$locale/about'
+    | '/$locale/compare-list'
     | '/$locale/contact-us'
     | '/$locale/faq'
     | '/$locale/privacy-policy'
@@ -555,6 +573,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/$locale/about'
+    | '/$locale/compare-list'
     | '/$locale/contact-us'
     | '/$locale/faq'
     | '/$locale/privacy-policy'
@@ -584,6 +603,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$locale/profile'
     | '/$locale/about'
+    | '/$locale/compare-list'
     | '/$locale/contact-us'
     | '/$locale/faq'
     | '/$locale/privacy-policy'
@@ -615,6 +635,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LocaleProfileRouteRoute: typeof LocaleProfileRouteRouteWithChildren
   LocaleAboutRoute: typeof LocaleAboutRoute
+  LocaleCompareListRoute: typeof LocaleCompareListRoute
   LocaleContactUsRoute: typeof LocaleContactUsRoute
   LocaleFaqRoute: typeof LocaleFaqRoute
   LocalePrivacyPolicyRoute: typeof LocalePrivacyPolicyRoute
@@ -638,6 +659,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LocaleProfileRouteRoute: LocaleProfileRouteRouteWithChildren,
   LocaleAboutRoute: LocaleAboutRoute,
+  LocaleCompareListRoute: LocaleCompareListRoute,
   LocaleContactUsRoute: LocaleContactUsRoute,
   LocaleFaqRoute: LocaleFaqRoute,
   LocalePrivacyPolicyRoute: LocalePrivacyPolicyRoute,
@@ -670,6 +692,7 @@ export const routeTree = rootRoute
         "/",
         "/$locale/profile",
         "/$locale/about",
+        "/$locale/compare-list",
         "/$locale/contact-us",
         "/$locale/faq",
         "/$locale/privacy-policy",
@@ -706,6 +729,9 @@ export const routeTree = rootRoute
     },
     "/$locale/about": {
       "filePath": "$locale/about.tsx"
+    },
+    "/$locale/compare-list": {
+      "filePath": "$locale/compare-list.ts"
     },
     "/$locale/contact-us": {
       "filePath": "$locale/contact-us.tsx"

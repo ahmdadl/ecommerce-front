@@ -6,8 +6,9 @@ interface LoadingToastOptions {
     loadingMessage?: string;
     successMessage?: string | ((data: any) => string);
     errorMessage?: string;
-    onFinally?: () => void | Promise<void>;
     toastOptions?: any;
+    onFinally?: () => void | Promise<void>;
+    onSuccess?: () => void | Promise<void>;
 }
 
 export default async function loadingToast<T>(
@@ -24,10 +25,13 @@ export default async function loadingToast<T>(
 
     return toast.promise<T>(promise, {
         loading: loadingMessage,
-        success: (data) =>
-            typeof successMessage === 'function'
+        success: (data) => {
+            options.onSuccess?.();
+
+            return typeof successMessage === 'function'
                 ? successMessage(data)
-                : successMessage,
+                : successMessage;
+        },
         error: errorMessage,
         finally: async () => {
             await Promise.resolve(onFinally());
@@ -42,4 +46,8 @@ export function getDefaultGuestToken() {
     const randomIndex = Math.floor(Math.random() * tokens.length);
 
     return tokens[randomIndex];
+}
+
+export function isValidResponse(response: any) {
+    return typeof response === 'object' && typeof response?.data === 'object';
 }

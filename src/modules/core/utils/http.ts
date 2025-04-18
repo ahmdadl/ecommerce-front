@@ -58,6 +58,14 @@ http.interceptors.response.use(
             wishlistStore.setState({ wishlist: response.data.data.wishlist });
         }
 
+        if (response?.data?.data?.compareList) {
+            userStore
+                .getState()
+                .setTotalComparedItems(
+                    response.data.data.compareList.items?.length
+                );
+        }
+
         return {
             ...response,
             success: response.data.success,
