@@ -15,6 +15,7 @@ import { useAllowedSidebarFilters } from '../../stores/allowed-sidebar-filters';
 import { BrandFilters } from '../Filters/BrandFilters';
 import { CategoryFilters } from '../Filters/CategoryFilters';
 import { PriceRangeFilter } from '../Filters/PriceRangeFilter';
+import TagFilters from '../Filters/TagFilters';
 
 export function ShopFilters() {
     const allowedFilters = useAllowedSidebarFilters.use.list();
@@ -64,6 +65,20 @@ export function ShopFilters() {
                             <AccordionContent>
                                 <SidebarGroupLabel className='h-auto w-full'>
                                     <PriceRangeFilter />
+                                </SidebarGroupLabel>
+                            </AccordionContent>
+                        </AccordionItem>
+                    )}
+
+                    {allowedFilters.includes('tags') && (
+                        <AccordionItem value='tags'>
+                            <AccordionTrigger className='text-base'>
+                                <List />
+                                <Trans>Tag</Trans>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <SidebarGroupLabel className='h-auto w-full'>
+                                    <TagFilters />
                                 </SidebarGroupLabel>
                             </AccordionContent>
                         </AccordionItem>

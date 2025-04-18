@@ -13,6 +13,8 @@ export const filtersStore = create<FilterState>((set, get) => ({
     sortBy: '',
     categorySlug: '',
     brandSlug: '',
+    selectedTags: [],
+    tagSlug: '',
 
     setFilters: (filters) =>
         // @ts-ignore
@@ -49,6 +51,21 @@ export const filtersStore = create<FilterState>((set, get) => ({
             currentPage: 1,
         })),
 
+    toggleTag: (tagId) => {
+        console.log({
+            selectedTags: get().selectedTags.includes(tagId)
+                ? get().selectedTags.filter((id) => id !== tagId)
+                : [...get().selectedTags, tagId],
+            currentPage: 1,
+        });
+        return set((state) => ({
+            selectedTags: state.selectedTags.includes(tagId)
+                ? state.selectedTags.filter((id) => id !== tagId)
+                : [...state.selectedTags, tagId],
+            currentPage: 1,
+        }));
+    },
+
     setPriceRange: (range) => set({ currentPriceRange: range, currentPage: 1 }),
 
     setPage: (page: number) => set({ currentPage: page }),
@@ -66,6 +83,12 @@ export const filtersStore = create<FilterState>((set, get) => ({
 
     setBrandSlug: (slug: string, search: Record<string, string | string[]>) => {
         set({ brandSlug: slug, categorySlug: '' });
+
+        get().syncWithUrl(search);
+    },
+
+    setTagSlug: (slug: string, search: Record<string, string | string[]>) => {
+        set({ tagSlug: slug, categorySlug: '' });
 
         get().syncWithUrl(search);
     },
@@ -90,6 +113,8 @@ export const filtersStore = create<FilterState>((set, get) => ({
             sortBy: '',
             categorySlug: '',
             brandSlug: '',
+            selectedTags: [],
+            tagSlug: '',
         })),
 
     syncWithUrl: (search) =>
@@ -106,6 +131,10 @@ export const filtersStore = create<FilterState>((set, get) => ({
                 typeof search.price === 'string'
                     ? search.price.split('-')
                     : null;
+            const tags =
+                typeof search.tags === 'string'
+                    ? search.tags.split(',').filter(Boolean)
+                    : [];
 
             return {
                 ...state,
@@ -121,6 +150,7 @@ export const filtersStore = create<FilterState>((set, get) => ({
                       : [0, 1000],
                 currentPage: Number(search.page) ?? 1,
                 sortBy: search.sortBy as string,
+                selectedTags: tags,
             };
         }),
 }));

@@ -10,6 +10,7 @@ import {
     SidebarMenuItem,
     SidebarRail,
 } from '@/components/ui/sidebar';
+import { Trans } from '@lingui/react/macro';
 import { ShopFilters } from './ShopFilters';
 
 export function FiltersSidebar({
@@ -27,7 +28,7 @@ export function FiltersSidebar({
                                 </div>
                                 <div className='flex flex-col gap-0.5 leading-none'>
                                     <span className='font-semibold'>
-                                        Filters
+                                        <Trans>Filters</Trans>
                                     </span>
                                 </div>
                             </div>

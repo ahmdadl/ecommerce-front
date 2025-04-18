@@ -11,7 +11,7 @@ type AllowedFiltersState = {
 export const allowedSidebarFilters = create<AllowedFiltersState>(
     (set, get) => ({
         list: [],
-        all: ['category', 'brand', 'price'],
+        all: ['category', 'brand', 'price', 'tags'],
 
         enableForShop: () => set({ list: get().all }),
 

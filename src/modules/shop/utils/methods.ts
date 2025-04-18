@@ -28,6 +28,10 @@ const getSearchParams = (state: FilterState): Record<string, string> => {
     if (state.sortBy) {
         params.sortBy = state.sortBy;
     }
+
+    if (state.selectedTags.length > 0) {
+        params.tags = state.selectedTags.join(',');
+    }
     return params;
 };
 

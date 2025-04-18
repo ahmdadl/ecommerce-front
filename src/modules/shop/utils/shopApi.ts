@@ -15,6 +15,8 @@ export const shopApi = {
                 sortBy,
                 categorySlug,
                 brandSlug,
+                tagSlug,
+                selectedTags,
             } = filtersStore.getState();
 
             if (selectedCategories.length > 0)
@@ -24,6 +26,8 @@ export const shopApi = {
             if (currentPriceRange[0] > 0 || currentPriceRange[1] < 1000)
                 filtered.price = `${currentPriceRange[0]}-${currentPriceRange[1]}`;
 
+            if (selectedTags.length > 0) filtered.tags = selectedTags.join(',');
+
             if (currentPage) filtered.page = currentPage;
 
             if (sortBy) filtered.sortBy = sortBy;
@@ -31,6 +35,8 @@ export const shopApi = {
             if (categorySlug?.length) filtered.categorySlug = categorySlug;
 
             if (brandSlug?.length) filtered.brandSlug = brandSlug;
+
+            if (tagSlug?.length) filtered.tagSlug = tagSlug;
         }
 
         const response = await http.get('/products', {
@@ -50,6 +56,7 @@ export const shopApi = {
             paginationInfo: response.data.paginationInfo,
             category: response.data.category,
             brand: response.data.brand,
+            tag: response.data.tag,
         });
 
         filtersStore.setState({

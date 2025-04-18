@@ -7,6 +7,13 @@ export type CategoryFilterEntity = {
     products_count: number;
 };
 
+export type TagFilterEntity = {
+    id: string;
+    title: string;
+    slug: string;
+    products_count: number;
+};
+
 export type BrandFilterEntity = {
     id: string;
     title: string;
@@ -23,6 +30,7 @@ export type Filters = {
     categories: CategoryFilterEntity[];
     brands: BrandFilterEntity[];
     price_range: PriceRangeFilterEntity;
+    tags: TagFilterEntity[];
 };
 
 export type FilterState = {
@@ -36,6 +44,8 @@ export type FilterState = {
     sortBy: string;
     categorySlug?: string;
     brandSlug?: string;
+    selectedTags: string[];
+    tagSlug?: string;
 
     // Actions
     setFilters: (filters: Filters) => void;
@@ -55,6 +65,11 @@ export type FilterState = {
     forShop: (search: Record<string, string | string[]>) => void;
     resetFilters: () => void;
     syncWithUrl: (search: Record<string, string | string[]>) => void;
+    toggleTag: (tagId: string) => void;
+    setTagSlug: (
+        slug: string,
+        search: Record<string, string | string[]>
+    ) => void;
 };
 
 // Product details

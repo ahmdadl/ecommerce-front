@@ -20,6 +20,8 @@ export function ActiveFilters({ route }: any) {
         toggleBrand,
         resetFilters,
         syncWithUrl,
+        selectedTags,
+        toggleTag,
     } = filtersStore();
 
     const navigate = useNavigate();
@@ -54,6 +56,7 @@ export function ActiveFilters({ route }: any) {
                 price: params.price,
                 page: Number(params.page ?? 1),
                 sortBy: params.sortBy,
+                tags: params.tags,
             }),
             replace: true,
         });
@@ -64,6 +67,7 @@ export function ActiveFilters({ route }: any) {
         currentPage,
         filters,
         navigate,
+        selectedTags,
     ]);
 
     if (!filters) return null;
@@ -72,7 +76,8 @@ export function ActiveFilters({ route }: any) {
         selectedCategories.length > 0 ||
         selectedBrands.length > 0 ||
         currentPriceRange[0] > Number.parseFloat(filters.price_range.min) ||
-        currentPriceRange[1] < Number.parseFloat(filters.price_range.max);
+        currentPriceRange[1] < Number.parseFloat(filters.price_range.max) ||
+        selectedTags.length > 0;
 
     if (!hasActiveFilters) return null;
 
@@ -82,6 +87,10 @@ export function ActiveFilters({ route }: any) {
 
     const getBrandTitle = (id: string) => {
         return filters.brands.find((brand) => brand.id === id)?.title || '';
+    };
+
+    const getTagTitle = (id: string) => {
+        return filters.tags.find((tag) => tag.id === id)?.title || '';
     };
 
     const isPriceRangeModified =
@@ -138,6 +147,27 @@ export function ActiveFilters({ route }: any) {
                     {currentPriceRange[1].toFixed(2)}
                 </Badge>
             )}
+
+            {selectedTags.map((id) => (
+                <Badge
+                    key={id}
+                    variant='secondary'
+                    className='flex items-center gap-1'
+                >
+                    <Trans>Tag:</Trans> {getTagTitle(id)}
+                    <Button
+                        variant='ghost'
+                        size='icon'
+                        className='h-4 w-4 p-0 hover:bg-transparent'
+                        onClick={() => toggleTag(id)}
+                    >
+                        <X className='h-3 w-3' />
+                        <span className='sr-only'>
+                            Remove {getTagTitle(id)} filter
+                        </span>
+                    </Button>
+                </Badge>
+            ))}
 
             {hasActiveFilters && (
                 <Button
