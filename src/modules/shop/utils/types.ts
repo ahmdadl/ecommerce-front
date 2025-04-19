@@ -1,4 +1,5 @@
 import { CategoryEntity } from '@/modules/categories/utils/types';
+import { LocalizedEntity } from '@/modules/core/utils/types';
 import { TagEntity } from '@/modules/tags/utils/types';
 
 export type BrandEntity = {
@@ -6,6 +7,12 @@ export type BrandEntity = {
     title: string;
     slug: string;
     products_count?: number;
+};
+
+export type BrandCachedEntity = BrandEntity & {
+    title: LocalizedEntity;
+    meta_title: LocalizedEntity;
+    meta_description: LocalizedEntity;
 };
 
 export type PriceRangeFilterEntity = {

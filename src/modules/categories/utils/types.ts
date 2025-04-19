@@ -1,3 +1,5 @@
+import { LocalizedEntity } from '@/modules/core/utils/types';
+
 export type CategoryEntity = {
     id: number;
     title: string;
@@ -5,4 +7,11 @@ export type CategoryEntity = {
     description: string;
     image: string;
     products_count?: number;
+};
+
+export type CategoryCachedEntity = CategoryEntity & {
+    title: LocalizedEntity;
+    description: LocalizedEntity;
+    meta_title: LocalizedEntity;
+    meta_description: LocalizedEntity;
 };

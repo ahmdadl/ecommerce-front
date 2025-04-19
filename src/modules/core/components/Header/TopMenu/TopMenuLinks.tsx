@@ -9,12 +9,6 @@ export default function TopMenuLinks() {
                 <Trans>Shop</Trans>
             </Link>
             <Link
-                to={urls.categories.index}
-                className='px-3 py-2 hover:text-primary'
-            >
-                <Trans>Categories</Trans>
-            </Link>
-            <Link
                 to={urls.brands.index}
                 className='px-3 py-2 hover:text-primary'
             >

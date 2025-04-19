@@ -1,3 +1,5 @@
+import { CategoryCachedEntity } from '@/modules/categories/utils/types';
+import { BrandCachedEntity } from '@/modules/shop/utils/types';
 import { AxiosResponse } from 'axios';
 
 export type PaginationInfoEntity = {
@@ -103,4 +105,53 @@ export type UploadEntity = {
     url: string;
     size: number;
     type: string;
+};
+
+export type LocalizedEntity = {
+    en: string;
+    ar: string;
+};
+
+export type LocalizedEntityIndex = 'en' | 'ar';
+
+export type CachedDataType = {
+    categories: CategoryCachedEntity[];
+    brands: BrandCachedEntity[];
+    settings: SettingsCachedEntity;
+};
+
+export type SettingsEntity = {
+    general: {
+        name: string;
+        description: string;
+        maintenanceMode: boolean;
+    };
+    contact: {
+        email: string;
+        phoneNumbers: string[];
+        address: string;
+        googleMapUrl: string;
+    };
+    social: {
+        facebook: string;
+    };
+    top_header: {
+        image: string;
+        body: string;
+        end_time: string;
+        is_active: boolean;
+    };
+};
+
+export type SettingsCachedEntity = SettingsEntity & {
+    general: {
+        name: LocalizedEntity;
+        description: LocalizedEntity;
+    };
+    contact: {
+        address: LocalizedEntity;
+    };
+    top_header: {
+        body: LocalizedEntity;
+    };
 };

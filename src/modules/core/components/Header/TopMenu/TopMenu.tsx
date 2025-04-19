@@ -10,7 +10,7 @@ import TopMenuUserSectionWrapper from './TopMenuUserSection/TopMenuUserSectionWr
 
 export default function TopMenu() {
     return (
-        <header className={`w-full bg-background border-b`}>
+        <header className={`w-full bg-background border-b relative`}>
             <div className='container mx-auto px-4'>
                 <div className='flex items-center justify-between gap-3 h-16'>
                     {/* Logo */}
