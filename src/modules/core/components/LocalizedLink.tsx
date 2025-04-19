@@ -1,7 +1,7 @@
 import { LinkComponent, Link as TanLink } from '@tanstack/react-router';
 import useLocaleStore from '../stores/localeStore';
 
-type LinkProps = LinkComponent<'a'>;
+type LinkProps = LinkComponent<'a'> & { activeProps?: Record<string, string> };
 type HtmlLinkElement = Omit<HTMLAnchorElement, 'children'>;
 
 export default function Link(

@@ -3,7 +3,6 @@ import { Footer } from '@/modules/core/components/Footer/Footer';
 import { Header } from '@/modules/core/components/Header/Header';
 import LayoutShared from '@/modules/core/components/LayoutShared/LayoutShared';
 import { createRootRoute, Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 export const Route = createRootRoute({
     component: () => (
@@ -19,7 +18,7 @@ export const Route = createRootRoute({
 
                 <LayoutShared />
             </main>
-            <TanStackRouterDevtools />
+            {/* <TanStackRouterDevtools /> */}
         </>
     ),
 });

@@ -3,6 +3,7 @@ import Link from '@core/components/LocalizedLink';
 import { Trans } from '@lingui/react/macro';
 import { Home, LayoutGrid, Search, ShoppingCart, User } from 'lucide-react';
 import useNavbarStore from '../../stores/navbar-store';
+import { urls } from '../../utils/urls';
 
 export function BottomMenu() {
     const isLoggedIn = true;
@@ -15,7 +16,7 @@ export function BottomMenu() {
                     className='flex flex-col items-center justify-center'
                     asChild
                 >
-                    <Link to='/shop' className='px-6'>
+                    <Link to={urls.shop} className='px-6'>
                         <Home className='h-5 w-5' />
                         <span className='text-xs'>
                             <Trans>Shop</Trans>
@@ -26,14 +27,16 @@ export function BottomMenu() {
                 <Button
                     variant='ghost'
                     className='flex flex-col items-center justify-center h-full'
-                    asChild
+                    onClick={() =>
+                        useNavbarStore.setState({
+                            isCategoriesOpened: true,
+                        })
+                    }
                 >
-                    <Link to='/Categories' className='px-6'>
-                        <LayoutGrid className='h-5 w-5' />
-                        <span className='text-xs'>
-                            <Trans>Categories</Trans>
-                        </span>
-                    </Link>
+                    <LayoutGrid className='h-5 w-5' />
+                    <span className='text-xs'>
+                        <Trans>Categories</Trans>
+                    </span>
                 </Button>
 
                 <Button

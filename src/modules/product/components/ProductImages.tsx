@@ -13,9 +13,8 @@ export default function ProductImages() {
                     <Image
                         src={product.images[activeImage]}
                         alt={product.title}
-                        width={600}
                         height={400}
-                        className='h-full w-full object-cover rounded-lg'
+                        className='h-full w-full max-w-full object-cover rounded-lg'
                     />
                 </div>
                 <div className='flex space-x-2'>

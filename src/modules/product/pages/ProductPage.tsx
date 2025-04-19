@@ -8,7 +8,7 @@ export default function ProductPage() {
         <>
             <ProductHero />
 
-            <div className='px-4 py-8 mx-auto xl:max-w-7xl'>
+            <div className='px-2 lg:px-4 py-8 mx-auto xl:max-w-7xl'>
                 <div className='grid gap-8 md:grid-cols-2'>
                     <ProductImages />
 
