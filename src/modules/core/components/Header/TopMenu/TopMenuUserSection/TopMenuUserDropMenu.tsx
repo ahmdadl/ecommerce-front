@@ -1,5 +1,4 @@
-import { Trans } from '@lingui/react/macro';
-import { BarChart2, Heart, ShoppingCart, User } from 'lucide-react';
+import { User } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -12,6 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import useUserStore from '@/modules/core/stores/userStore';
 import { urls } from '@/modules/core/utils/urls';
+import { userMenuLinks } from '@/modules/profile/utils/flags';
 import Link from '../../../LocalizedLink';
 import LogOutLink from '../LogOutLink';
 
@@ -36,51 +36,23 @@ export default function TopMenuUserDropMenu() {
                         </div>
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem asChild>
-                        <Link
-                            to={urls.profile.index}
-                            className='flex items-center gap-2 cursor-pointer w-full'
-                        >
-                            <User className='h-4 w-4' />
-                            <Trans>Profile</Trans>
-                        </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link
-                            to={urls.profile.changePassword}
-                            className='flex items-center gap-2 cursor-pointer w-full'
-                        >
-                            <Heart className='h-4 w-4' />
-                            <Trans>changePassword</Trans>
-                        </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link
-                            to={urls.profile.orders.index}
-                            className='flex items-center gap-2 cursor-pointer w-full'
-                        >
-                            <BarChart2 className='h-4 w-4' />
-                            <Trans>Orders</Trans>
-                        </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link
-                            to={urls.profile.addresses}
-                            className='flex items-center gap-2 cursor-pointer w-full'
-                        >
-                            <Heart className='h-4 w-4' />
-                            <Trans>Addresses</Trans>
-                        </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link
-                            to={urls.profile.wishlist}
-                            className='flex items-center gap-2 cursor-pointer w-full'
-                        >
-                            <ShoppingCart className='h-4 w-4' />
-                            <Trans>Wishlist</Trans>
-                        </Link>
-                    </DropdownMenuItem>
+                    {userMenuLinks
+                        .filter(
+                            (link) =>
+                                link.url !== urls.profile.wishlist &&
+                                link.url !== urls.compareList
+                        )
+                        .map((link) => (
+                            <DropdownMenuItem asChild key={link.url}>
+                                <Link
+                                    to={link.url}
+                                    className='flex items-center gap-2 cursor-pointer w-full'
+                                >
+                                    <User className='h-4 w-4' />
+                                    {link.label}
+                                </Link>
+                            </DropdownMenuItem>
+                        ))}
 
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>

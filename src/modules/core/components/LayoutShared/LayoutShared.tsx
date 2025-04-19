@@ -3,6 +3,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import useLocaleStore from '../../stores/localeStore';
 import CartSideMenu from './CartSideMenu';
 import { SearchCommand } from './SearchCommand';
+import UserSideMenu from './UserSideMenu';
 import WishlistSideMenu from './WishlistSideMenu';
 
 export default function LayoutShared() {
@@ -16,6 +17,8 @@ export default function LayoutShared() {
             <CartSideMenu />
 
             {!isMobile && <WishlistSideMenu />}
+
+            {isMobile && <UserSideMenu />}
 
             <Toaster position={isRtl() ? 'top-left' : 'top-right'} richColors />
         </>

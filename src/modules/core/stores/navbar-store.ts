@@ -5,12 +5,14 @@ interface NavbarState {
     isSearchOpened: boolean;
     isCartOpened: boolean;
     isWishlistOpened: boolean;
+    isUserMenuOpened: boolean;
 }
 
 const NavbarStore = create<NavbarState>((set, get) => ({
     isSearchOpened: false,
     isCartOpened: false,
     isWishlistOpened: false,
+    isUserMenuOpened: false,
 }));
 
 const useNavbarStore = createZustandSelectors(NavbarStore);

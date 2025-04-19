@@ -1,13 +1,12 @@
 import { Button } from '@/components/ui/button';
 import Link from '@core/components/LocalizedLink';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { localeStore } from '../../stores/localeStore';
 import { cachedData } from '../../utils/cached-data';
 import { urls } from '../../utils/urls';
 
 export function Footer() {
-    const { t } = useLingui();
     const { general, contact, social } = cachedData.settings;
 
     return (
@@ -248,7 +247,9 @@ export function Footer() {
                                 <span className='text-muted-foreground flex gap-2 flex-col'>
                                     {contact?.phoneNumbers &&
                                         contact.phoneNumbers.map((ph) => (
-                                            <a href={`tel:${ph}`}>{ph}</a>
+                                            <a key={ph} href={`tel:${ph}`}>
+                                                {ph}
+                                            </a>
                                         ))}
                                 </span>
                             </li>
@@ -277,7 +278,7 @@ export function Footer() {
                         </div> */}
                     </div>
                 </div>
-                <div className='border-t mt-8 pt-8 flex items-center justify-between text-muted-foreground'>
+                <div className='border-t mt-8 pt-8 pb-8 flex flex-col lg:flex-row gap-4 items-center justify-between text-muted-foreground'>
                     <p>
                         <Trans>
                             &copy; {new Date().getFullYear()}{' '}

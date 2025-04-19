@@ -52,34 +52,31 @@ export function BottomMenu() {
                 <Button
                     variant='ghost'
                     className='flex flex-col items-center justify-center h-full'
-                    asChild
                     onClick={() =>
                         useNavbarStore.setState({ isCartOpened: true })
                     }
                 >
-                    <Link to='/Cart' className='px-6'>
-                        <ShoppingCart className='h-5 w-5' />
-                        <span className='text-xs'>
-                            <Trans>Cart</Trans>
-                        </span>
-                    </Link>
+                    <ShoppingCart className='h-5 w-5' />
+                    <span className='text-xs'>
+                        <Trans>Cart</Trans>
+                    </span>
                 </Button>
 
                 <Button
                     variant='ghost'
                     className='flex flex-col items-center justify-center h-full'
-                    asChild
+                    onClick={() =>
+                        useNavbarStore.setState({ isUserMenuOpened: true })
+                    }
                 >
-                    <Link to='/profile' className='px-6'>
-                        <User className='h-5 w-5' />
-                        <span className='text-xs'>
-                            {isLoggedIn ? (
-                                <Trans>Profile</Trans>
-                            ) : (
-                                <Trans>Login</Trans>
-                            )}
-                        </span>
-                    </Link>
+                    <User className='h-5 w-5' />
+                    <span className='text-xs'>
+                        {isLoggedIn ? (
+                            <Trans>Profile</Trans>
+                        ) : (
+                            <Trans>Login</Trans>
+                        )}
+                    </span>
                 </Button>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import { urls } from '@/modules/core/utils/urls';
 import { Trans } from '@lingui/react/macro';
-import { Heart, Lock, MapPin, ShoppingBag, User } from 'lucide-react';
+import { Heart, List, Lock, MapPin, ShoppingBag, User } from 'lucide-react';
 import { UserGender } from './types';
 
 export const profileNavLinks = [
@@ -44,3 +44,36 @@ export const profileNavLinks = [
 ];
 
 export const userGenders = Object.values(UserGender);
+
+export const userMenuLinks = [
+    {
+        url: urls.profile.index,
+        label: <Trans>Profile</Trans>,
+        icon: <User className='size-4 me-2' />,
+    },
+    {
+        url: urls.profile.changePassword,
+        label: <Trans>Change Password</Trans>,
+        icon: <Lock className='size-4 me-2' />,
+    },
+    {
+        url: urls.profile.orders.index,
+        label: <Trans>Orders</Trans>,
+        icon: <ShoppingBag className='size-4 me-2' />,
+    },
+    {
+        url: urls.profile.addresses,
+        label: <Trans>Addresses</Trans>,
+        icon: <MapPin className='size-4 me-2' />,
+    },
+    {
+        url: urls.profile.wishlist,
+        label: <Trans>Wishlist</Trans>,
+        icon: <Heart className='size-4 me-2' />,
+    },
+    {
+        url: urls.compareList,
+        label: <Trans>Compare</Trans>,
+        icon: <List className='size-4 me-2' />,
+    },
+];
