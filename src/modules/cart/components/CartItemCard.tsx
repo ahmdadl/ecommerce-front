@@ -11,8 +11,8 @@ import RemoveFromCartButton from './RemoveFromCartButton';
 
 export function CartItemCard({ item }: { item: CartItemEntity }) {
     return (
-        <div className='flex align-center justify-between shadow border border-gray-300 rounded-lg items-center p-3 xl:p-5'>
-            <div className='w-[60%] lg:w-[65%] 2xl:w-[80%] flex gap-3'>
+        <div className='flex flex-col gap-3 lg:flex-row align-center justify-between shadow border border-gray-300 rounded-lg lg:items-center p-3 xl:p-5'>
+            <div className='w-[60%] xl:w-[65%] 2xl:w-[80%] flex gap-3'>
                 <div className='max-w-36'>
                     <Image
                         // src={item.product.images[0]}
@@ -50,11 +50,9 @@ export function CartItemCard({ item }: { item: CartItemEntity }) {
                     </h5>
                 </div>
             </div>
-            <div>
+            <div className='flex flex-row justify-between items-center lg:w-[40%]'>
                 <CartItemQuantity item={item} />
-            </div>
 
-            <div>
                 <RemoveFromCartButton itemId={item.id}>
                     <Trash2 className='h-5 w-5' />
                 </RemoveFromCartButton>
