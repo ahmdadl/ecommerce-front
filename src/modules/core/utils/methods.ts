@@ -1,5 +1,6 @@
 import { i18n } from '@lingui/core';
 import { toast } from 'sonner';
+import { localeStore } from '../stores/localeStore';
 import { env } from './env';
 
 interface LoadingToastOptions {
@@ -50,4 +51,8 @@ export function getDefaultGuestToken() {
 
 export function isValidResponse(response: any) {
     return typeof response === 'object' && typeof response?.data === 'object';
+}
+
+export function getCurrentLocaleKey() {
+    return localeStore.getState().localeKey();
 }

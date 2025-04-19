@@ -134,6 +134,10 @@ export type SettingsEntity = {
     };
     social: {
         facebook: string;
+        twitter: string;
+        instagram: string;
+        youtube: string;
+        linkedin: string;
     };
     top_header: {
         image: string;
