@@ -17,8 +17,8 @@ export default function TopMenuUserSectionWrapper() {
     }, []);
 
     return (
-        <>
+        <div className='hidden lg:block'>
             <TopMenuUserSection />
-        </>
+        </div>
     );
 }

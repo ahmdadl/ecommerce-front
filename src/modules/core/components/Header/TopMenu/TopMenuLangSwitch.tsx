@@ -28,7 +28,7 @@ export default function TopMenuLangSwitch() {
                 <div className='relative'>
                     <LanguagesIcon className='h-5 w-5' />
                 </div>
-                <span className='ms-1 hidden lg:inline'>
+                <span className='ms-1'>
                     {otherLocale() === 'ar' ? (
                         <Trans>arLocale</Trans>
                     ) : (
