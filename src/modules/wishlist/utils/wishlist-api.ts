@@ -5,7 +5,7 @@ import { productsStore } from '@/modules/shop/stores/products-store';
 import { AxiosResponse } from 'axios';
 
 export const wishlistApi = {
-    get: () => http.get('/wishlists'),
+    get: () => http.get('/profile/wishlist'),
 
     add: async (productId: string) => {
         const response = (await http
