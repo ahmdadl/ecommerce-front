@@ -12,17 +12,10 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from '@/components/ui/table';
 import Link from '@/modules/core/components/LocalizedLink';
 import { urls } from '@/modules/core/utils/urls';
 import { Trans } from '@lingui/react/macro';
+import OrderItemsTable from '../../components/OrderItemsTable';
 import { useOrdersStore } from '../../stores/orders-store';
 import { getOrderStatusColor, parsePrice } from '../../utils/methods';
 
@@ -36,9 +29,9 @@ export default function OrderDetailsPage() {
     const formattedDate = format(orderDate, 'dd MMMM yyyy');
 
     return (
-        <div className='container mx-auto px-4 py-8'>
-            <div className='mb-6 flex items-center'>
-                <Link to={urls.profile.orders.index} className='mr-4'>
+        <div className='mx-auto max-w-full px-4 py-6 sm:px-6 lg:px-8 2xl:max-w-7xl'>
+            <div className='mb-6 flex flex-col items-start sm:flex-row sm:items-center gap-4'>
+                <Link to={urls.profile.orders.index}>
                     <Button variant='outline' size='icon'>
                         <ArrowLeft className='h-4 w-4' />
                         <span className='sr-only'>
@@ -47,10 +40,10 @@ export default function OrderDetailsPage() {
                     </Button>
                 </Link>
                 <div>
-                    <h1 className='text-2xl font-bold md:text-3xl max-w-full text-wrap'>
+                    <h1 className='text-xl sm:text-2xl lg:text-3xl font-bold max-w-full break-words'>
                         <Trans>Order #{order.id}</Trans>
                     </h1>
-                    <p className='text-muted-foreground'>
+                    <p className='text-sm sm:text-base text-muted-foreground'>
                         <Trans>Placed on {formattedDate}</Trans>
                     </p>
                 </div>
@@ -58,14 +51,14 @@ export default function OrderDetailsPage() {
 
             <div className='grid gap-6 md:grid-cols-3'>
                 {/* Order Summary */}
-                <div className='md:col-span-2'>
+                <div className='md:col-span-2 space-y-6'>
                     <Card>
-                        <CardHeader className='flex flex-row items-center justify-between'>
+                        <CardHeader className='flex flex-col sm:flex-row sm:items-center justify-between gap-4'>
                             <div>
-                                <CardTitle>
+                                <CardTitle className='text-lg sm:text-xl'>
                                     <Trans>Order Summary</Trans>
                                 </CardTitle>
-                                <CardDescription>
+                                <CardDescription className='text-sm'>
                                     <Trans>Order details and status</Trans>
                                 </CardDescription>
                             </div>
@@ -76,14 +69,16 @@ export default function OrderDetailsPage() {
                             </Badge>
                         </CardHeader>
                         <CardContent>
-                            <div className='grid gap-4 md:grid-cols-2'>
+                            <div className='grid gap-4 sm:grid-cols-2'>
                                 <div className='space-y-1'>
                                     <p className='text-sm font-medium'>
                                         <Trans>Order Date</Trans>
                                     </p>
                                     <div className='flex items-center gap-2'>
                                         <Calendar className='h-4 w-4 text-muted-foreground' />
-                                        <span>{formattedDate}</span>
+                                        <span className='text-sm'>
+                                            {formattedDate}
+                                        </span>
                                     </div>
                                 </div>
                                 <div className='space-y-1'>
@@ -92,14 +87,19 @@ export default function OrderDetailsPage() {
                                     </p>
                                     <div className='flex items-center gap-2'>
                                         <CreditCard className='h-4 w-4 text-muted-foreground' />
-                                        <span>{order.payment_method}</span>
+                                        <span className='text-sm'>
+                                            {order.payment_method}
+                                        </span>
                                     </div>
                                 </div>
                                 <div className='space-y-1'>
                                     <p className='text-sm font-medium'>
                                         <Trans>Payment Status</Trans>
                                     </p>
-                                    <Badge variant='outline'>
+                                    <Badge
+                                        variant='outline'
+                                        className='text-xs'
+                                    >
                                         {order.payment_status}
                                     </Badge>
                                 </div>
@@ -108,85 +108,7 @@ export default function OrderDetailsPage() {
                     </Card>
 
                     {/* Order Items */}
-                    <Card className='mt-6'>
-                        <CardHeader>
-                            <CardTitle>
-                                <Trans>Order Items</Trans>
-                            </CardTitle>
-                            <CardDescription>
-                                <Trans>Order Items</Trans> (
-                                {order.items?.length ?? 0})
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Table>
-                                <TableHeader>
-                                    <TableRow>
-                                        <TableHead className='w-[100px]'>
-                                            <Trans>Image</Trans>
-                                        </TableHead>
-                                        <TableHead>Product</TableHead>
-                                        <TableHead className='text-right'>
-                                            <Trans>Price</Trans>
-                                        </TableHead>
-                                        <TableHead className='text-right'>
-                                            <Trans>Quantity</Trans>
-                                        </TableHead>
-                                        <TableHead className='text-right'>
-                                            <Trans>Total</Trans>
-                                        </TableHead>
-                                    </TableRow>
-                                </TableHeader>
-                                <TableBody>
-                                    {Boolean(order.items?.length) &&
-                                        order.items?.map((item) => (
-                                            <TableRow key={item.id}>
-                                                <TableCell>
-                                                    <div className='relative h-16 w-16 overflow-hidden rounded-md'>
-                                                        <img
-                                                            src={
-                                                                item.product
-                                                                    .images[0] ||
-                                                                '/placeholder.svg?height=64&width=64'
-                                                            }
-                                                            alt={
-                                                                item.product
-                                                                    .title
-                                                            }
-                                                            className='object-cover'
-                                                        />
-                                                    </div>
-                                                </TableCell>
-                                                <TableCell>
-                                                    <div className='font-medium'>
-                                                        {item.product.title}
-                                                    </div>
-                                                    <div className='text-sm text-muted-foreground'>
-                                                        <Trans>
-                                                            SKU:{' '}
-                                                            {item.product.sku}
-                                                        </Trans>
-                                                    </div>
-                                                </TableCell>
-                                                <TableCell className='text-right'>
-                                                    {parsePrice(
-                                                        item.product.price
-                                                    )}
-                                                </TableCell>
-                                                <TableCell className='text-right'>
-                                                    {item.quantity}
-                                                </TableCell>
-                                                <TableCell className='text-right font-medium'>
-                                                    {parsePrice(
-                                                        item.totals.total
-                                                    )}
-                                                </TableCell>
-                                            </TableRow>
-                                        ))}
-                                </TableBody>
-                            </Table>
-                        </CardContent>
-                    </Card>
+                    <OrderItemsTable order={order} />
                 </div>
 
                 {/* Order Totals and Shipping */}
@@ -194,12 +116,12 @@ export default function OrderDetailsPage() {
                     {/* Order Totals */}
                     <Card>
                         <CardHeader>
-                            <CardTitle>
+                            <CardTitle className='text-lg sm:text-xl'>
                                 <Trans>Order Total</Trans>
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className='space-y-2'>
+                            <div className='space-y-2 text-sm'>
                                 <div className='flex justify-between'>
                                     <span className='text-muted-foreground'>
                                         <Trans>Subtotal</Trans>
@@ -253,25 +175,25 @@ export default function OrderDetailsPage() {
                     <Card>
                         <CardHeader className='flex flex-row items-center'>
                             <div>
-                                <CardTitle>
+                                <CardTitle className='text-lg sm:text-xl'>
                                     <Trans>Shipping Address</Trans>
                                 </CardTitle>
-                                <CardDescription>
+                                <CardDescription className='text-sm'>
                                     <Trans>
                                         Where your order will be delivered
                                     </Trans>
                                 </CardDescription>
                             </div>
-                            <MapPin className='ml-auto h-5 w-5 text-muted-foreground' />
+                            <MapPin className='ml-auto h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground' />
                         </CardHeader>
                         <CardContent>
-                            <div className='space-y-1'>
+                            <div className='space-y-1 text-sm'>
                                 <p className='font-medium'>
                                     {order.shippingAddress?.name}
                                 </p>
                                 <p>{order.shippingAddress?.address}</p>
                                 <p>{order.shippingAddress?.city_title}</p>
-                                <p className='pt-2 text-sm text-muted-foreground'>
+                                <p className='pt-2 text-xs sm:text-sm text-muted-foreground'>
                                     <span className='font-medium'>
                                         <Trans>Phone</Trans>:
                                     </span>{' '}
@@ -284,12 +206,12 @@ export default function OrderDetailsPage() {
                     {/* Need Help */}
                     <Card>
                         <CardHeader>
-                            <CardTitle>
+                            <CardTitle className='text-lg sm:text-xl'>
                                 <Trans>Need Help?</Trans>
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className='text-sm text-muted-foreground'>
+                            <p className='text-xs sm:text-sm text-muted-foreground'>
                                 <Trans>
                                     If you have any questions about your order,
                                     please contact our customer support.
@@ -297,8 +219,14 @@ export default function OrderDetailsPage() {
                             </p>
                         </CardContent>
                         <CardFooter>
-                            <Button variant='outline' className='w-full'>
-                                <Trans>Contact Support</Trans>
+                            <Button
+                                variant='outline'
+                                className='w-full text-sm'
+                                asChild
+                            >
+                                <Link to={urls.contactUs}>
+                                    <Trans>Contact Support</Trans>
+                                </Link>
                             </Button>
                         </CardFooter>
                     </Card>
