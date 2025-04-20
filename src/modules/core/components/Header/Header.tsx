@@ -1,6 +1,5 @@
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useEffect, useState } from 'react';
-import { useDebounce } from '../../hooks/use-debounce';
 import { cachedData } from '../../utils/cached-data';
 import HeaderCategoriesBar from './HeaderCategoriesBar';
 import { TopHeader } from './TopHeader';
@@ -15,7 +14,7 @@ export function Header() {
     const topHeader = cachedData.settings.top_header;
 
     // Debounce the scroll direction to prevent rapid changes
-    const debouncedScrollDirection = useDebounce(scrollDirection, 100);
+    // const debouncedScrollDirection = useDebounce(scrollDirection, 100);
 
     useEffect(() => {
         let timeoutId;

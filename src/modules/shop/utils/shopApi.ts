@@ -1,6 +1,8 @@
 import http from '@/modules/core/utils/http';
+import { parseError } from '@/modules/core/utils/parseError';
 import { filtersStore } from '../stores/filters-store';
 import { productsStore } from '../stores/products-store';
+import { searchResultStore } from '../stores/search-results-store';
 
 export const shopApi = {
     loadProducts: async (params: any = {}, allowFilters: boolean = true) => {
@@ -61,6 +63,22 @@ export const shopApi = {
 
         filtersStore.setState({
             filters: response.data.filters,
+        });
+
+        return {};
+    },
+
+    searchForProducts: async (query: string) => {
+        const response = await http
+            .get('/products', {
+                params: { searchQuery: query, perPage: 5 },
+            })
+            .catch(parseError);
+
+        if (typeof response !== 'object' || !response?.data) return;
+
+        searchResultStore.setState({
+            records: response.data.records,
         });
 
         return {};

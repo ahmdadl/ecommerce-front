@@ -3,7 +3,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import useLocaleStore from '../../stores/localeStore';
 import CartSideMenu from './CartSideMenu';
 import CategoriesSideMenu from './CategoriesSideMenu';
-import { SearchCommand } from './SearchCommand';
+import SearchCommand from './SearchCommand';
 import UserSideMenu from './UserSideMenu';
 import WishlistSideMenu from './WishlistSideMenu';
 

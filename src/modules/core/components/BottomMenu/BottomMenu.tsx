@@ -42,14 +42,14 @@ export function BottomMenu() {
                 <Button
                     variant='ghost'
                     className='flex flex-col items-center justify-center h-full'
-                    asChild
+                    onClick={() => {
+                        useNavbarStore.setState({ isSearchOpened: true });
+                    }}
                 >
-                    <Link to='/search' className='px-6'>
-                        <Search className='h-5 w-5' />
-                        <span className='text-xs'>
-                            <Trans>search</Trans>
-                        </span>
-                    </Link>
+                    <Search className='h-5 w-5' />
+                    <span className='text-xs'>
+                        <Trans>search</Trans>
+                    </span>
                 </Button>
 
                 <Button
