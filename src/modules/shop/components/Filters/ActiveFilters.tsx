@@ -1,11 +1,9 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Trans } from '@lingui/react/macro';
-import { useNavigate } from '@tanstack/react-router';
 import { X } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { filtersStore } from '../../stores/filters-store';
-import { getFilterSearchParams } from '../../utils/methods';
 
 export function ActiveFilters({ route }: any) {
     const searchParams = route.useSearch();
@@ -24,7 +22,6 @@ export function ActiveFilters({ route }: any) {
         toggleTag,
     } = filtersStore();
 
-    const navigate = useNavigate();
     const isMounted = useRef(false);
     const prevParams = useRef(searchParams); // Track previous searchParams
 
@@ -39,37 +36,6 @@ export function ActiveFilters({ route }: any) {
     }, [searchParams, syncWithUrl]);
 
     // Update URL when filter state changes (after user interaction)
-    useEffect(() => {
-        if (!isMounted.current) {
-            isMounted.current = true;
-            return; // Skip initial render
-        }
-
-        const params = getFilterSearchParams();
-
-        if (!params.page || Number(params?.page) === 1) return;
-
-        navigate({
-            search: (prev) => ({
-                ...prev,
-                categories: params.categories,
-                brands: params.brands,
-                price: params.price,
-                page: Number(params.page ?? 1),
-                sortBy: params.sortBy,
-                tags: params.tags,
-            }),
-            replace: true,
-        });
-    }, [
-        selectedCategories,
-        selectedBrands,
-        currentPriceRange,
-        currentPage,
-        filters,
-        navigate,
-        selectedTags,
-    ]);
 
     if (!filters) return null;
 

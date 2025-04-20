@@ -5,6 +5,7 @@ import {
     SidebarTrigger,
 } from '@/components/ui/sidebar';
 import { ActiveFilters } from '../Filters/ActiveFilters';
+import { AppendFiltersToUrl } from '../Filters/AppendFiltersToUrl';
 import { FiltersSidebar } from '../Shop/FiltersSidebar';
 import { ProductPagination } from '../Shop/ShopPagination';
 import ShopSortMenu from '../Shop/ShopSortMenu';
@@ -25,6 +26,7 @@ export default function ProductsSidebarGrid({ route }: any) {
                         <div className='flex justify-between w-full flex-row gap-4'>
                             <div className=''>
                                 <ActiveFilters route={route} />
+                                <AppendFiltersToUrl />
                             </div>
                             <div className='w-fit'>
                                 <ShopSortMenu />
