@@ -1,7 +1,7 @@
 import { LocalizedEntity } from '@/modules/core/utils/types';
 
 export type CategoryEntity = {
-    id: number;
+    id: string;
     title: string;
     slug: string;
     description: string;

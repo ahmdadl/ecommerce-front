@@ -46,7 +46,8 @@ export function ActiveFilters({ route }: any) {
         }
 
         const params = getFilterSearchParams();
-        console.log('Params:', params);
+
+        if (!params.page || Number(params?.page) === 1) return;
 
         navigate({
             search: (prev) => ({

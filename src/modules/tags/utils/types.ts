@@ -1,5 +1,5 @@
 export type TagEntity = {
-    id: number;
+    id: string;
     title: string;
     slug: string;
     products_count?: number;

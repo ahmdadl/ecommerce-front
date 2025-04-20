@@ -19,6 +19,7 @@ export default function HeaderCategoriesBar() {
                         key={category.id}
                         to={urls.categories.view(category)}
                         className='whitespace-nowrap text-sm font-medium transition-colors hover:text-primary'
+                        preload={false}
                     >
                         {category.title[localeStore.getState().localeKey()]}
                     </Link>
