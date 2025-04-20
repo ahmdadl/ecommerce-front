@@ -37,7 +37,10 @@ export default function CartMenuContent() {
                                 key={item.id}
                                 className='flex items-center space-x-3 border-b pb-4'
                             >
-                                <div className='h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border'>
+                                <Link
+                                    to={urls.products.view(item.product)}
+                                    className='h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border'
+                                >
                                     <Image
                                         src={
                                             'https://picsum.photos/seed/' +
@@ -49,13 +52,16 @@ export default function CartMenuContent() {
                                         height={80}
                                         className='h-full w-full object-cover'
                                     />
-                                </div>
+                                </Link>
                                 <div className='flex flex-1 flex-col'>
-                                    <div className='flex justify-between text-base font-medium'>
+                                    <Link
+                                        to={urls.products.view(item.product)}
+                                        className='flex justify-between text-base font-medium'
+                                    >
                                         <h3 className='line-clamp-2'>
                                             {item.product.title}
                                         </h3>
-                                    </div>
+                                    </Link>
                                     <div className='mt-1 flex items-end justify-between'>
                                         <div>
                                             {item.product.is_discounted ? (
