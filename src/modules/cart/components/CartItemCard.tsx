@@ -15,8 +15,7 @@ export function CartItemCard({ item }: { item: CartItemEntity }) {
             <div className='w-[60%] xl:w-[65%] 2xl:w-[80%] flex gap-3'>
                 <div className='max-w-36'>
                     <Image
-                        // src={item.product.images[0]}
-                        src={`https://picsum.photos/seed/${item.product.id}/300/200`}
+                        src={item.product.images[0]}
                         alt={item.product.title}
                         className='rounded-md'
                     />

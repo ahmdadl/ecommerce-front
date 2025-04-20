@@ -42,11 +42,7 @@ export default function CartMenuContent() {
                                     className='h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border'
                                 >
                                     <Image
-                                        src={
-                                            'https://picsum.photos/seed/' +
-                                            item.product.id +
-                                            '/80/80'
-                                        }
+                                        src={item.product.images[0] || ''}
                                         alt={item.product.title}
                                         width={80}
                                         height={80}

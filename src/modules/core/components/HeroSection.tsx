@@ -15,8 +15,8 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ title, breadcrumbs }: HeroSectionProps) {
-    // Default background image from picsum.photos (or use a local asset)
-    const defaultBackgroundImage = 'https://picsum.photos/seed/1200/300?blur=2';
+    const defaultBackgroundImage =
+        'https://picsum.photos/seed/01jrkff9ks7hz5jtfz55v3tw5p/1200/100?blur=2';
 
     return (
         <section
@@ -30,7 +30,7 @@ export default function HeroSection({ title, breadcrumbs }: HeroSectionProps) {
         >
             <div className='container mx-auto px-4'>
                 {/* Overlay to ensure text readability */}
-                <div className='bg-background/80 backdrop-blur-sm p-4 rounded-md w-fit min-w-3/4 md:min-w-1/4'>
+                <div className='bg-background/80 backdrop-blur-sm p-4 rounded-md w-fit min-w-3/4 md:min-w-1/3'>
                     {/* Title */}
                     <h1 className='text-2xl font-bold tracking-tight md:text-3xl'>
                         {title}

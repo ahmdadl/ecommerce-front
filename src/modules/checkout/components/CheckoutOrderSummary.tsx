@@ -30,11 +30,7 @@ export default function CheckoutOrderSummary() {
                             items.map((item) => (
                                 <div key={item.id} className='flex gap-4'>
                                     <Image
-                                        src={
-                                            'https://picsum.photos/seed/' +
-                                            item.id +
-                                            '/64/64'
-                                        }
+                                        src={item.product.images[0] || ''}
                                         alt={item.product.title}
                                         width={64}
                                         height={64}

@@ -19,7 +19,7 @@ export default function BrandGrid() {
                         <div className='overflow-hidden rounded-lg border bg-background p-6 transition-all hover:shadow-md'>
                             <div className='flex h-24 items-center justify-center mb-4'>
                                 <img
-                                    src={`https://picsum.photos/seed/${brand.slug}/200/200`}
+                                    src={brand.image ?? ''}
                                     alt={`${brand.title} logo`}
                                     className='max-h-full max-w-full object-contain rounded'
                                 />

@@ -347,9 +347,7 @@ export default function TrackOrderPage() {
                                         <div className='w-16 h-16 rounded-md overflow-hidden bg-muted flex-shrink-0'>
                                             <Image
                                                 src={
-                                                    'https://picsum.photos/seed/' +
-                                                    item.product.id +
-                                                    '/300/200'
+                                                    item.product.images[0] || ''
                                                 }
                                                 alt={item.product.title}
                                                 width={64}

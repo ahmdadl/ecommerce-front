@@ -20,7 +20,7 @@ export function CategoryGrid() {
                         <Card className='h-full overflow-hidden py-0'>
                             <div className='relative w-full overflow-hidden'>
                                 <Image
-                                    src={`https://picsum.photos/seed/${category.slug}/200/300`}
+                                    src={category.image ?? ''}
                                     alt={category.title}
                                     className='object-cover transition-transform group-hover:scale-115 w-full max-w-full duration-500 ease-in-out'
                                 />

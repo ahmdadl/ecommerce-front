@@ -14,7 +14,7 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
             <div className='relative'>
                 <div className='h-48 overflow-hidden'>
                     <img
-                        src={`https://picsum.photos/seed/${product.id}/250/150`}
+                        src={product.images[0] || ''}
                         alt={product.title}
                         width={250}
                         height={150}
