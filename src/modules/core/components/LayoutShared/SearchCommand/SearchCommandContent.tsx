@@ -16,12 +16,10 @@ export default function SearchCommandContent() {
     const { t } = useLingui();
     const [isLoading, setIsLoading] = useState(false);
     const [searchQuery, setSearchQuery] = useState<string | null>(null);
-    const [results, setResults] = useState<string[]>([]);
 
     const debouncedSearchQuery = useDebounce(searchQuery, 500);
 
     async function searchForProduct(value: string) {
-        console.log(value);
         if (isLoading) return;
 
         setIsLoading(true);
