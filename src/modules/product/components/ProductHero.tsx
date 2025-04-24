@@ -8,6 +8,16 @@ export default function ProductHero() {
 
     return (
         <>
+            <meta
+                name='keywords'
+                content={
+                    [
+                        product?.meta_keywords,
+                        product?.tags?.map((tag) => tag.title),
+                    ]?.join(', ') || ''
+                }
+            />
+
             <HeroSection
                 title={product?.title}
                 breadcrumbs={[

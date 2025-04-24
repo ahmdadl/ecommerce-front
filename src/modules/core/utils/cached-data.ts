@@ -9,4 +9,5 @@ export const cachedData: CachedDataType = customWindow.CACHED_DATA || {
     categories: [],
     brands: [],
     settings: {} as SettingsCachedEntity,
+    pageMetas: [],
 };

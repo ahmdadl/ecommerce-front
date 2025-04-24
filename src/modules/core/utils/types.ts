@@ -118,6 +118,13 @@ export type CachedDataType = {
     categories: CategoryCachedEntity[];
     brands: BrandCachedEntity[];
     settings: SettingsCachedEntity;
+    pageMetas: {
+        page_url: string;
+        title: LocalizedEntity;
+        description: LocalizedEntity;
+        image: string;
+        keywords: string;
+    }[];
 };
 
 export type SettingsEntity = {

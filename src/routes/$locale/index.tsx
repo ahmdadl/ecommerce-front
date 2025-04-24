@@ -3,8 +3,8 @@ import { authApi } from '@/modules/auth/utils/auth-api';
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import useUserStore from '@/modules/core/stores/userStore';
 import { env } from '@/modules/core/utils/env';
+import { getPageMetaData } from '@/modules/core/utils/methods';
 import HomeBanners from '@/modules/home/components/HomeBanner';
-import HomeBestSellers from '@/modules/home/components/HomeBestSellers';
 import HomeBrands from '@/modules/home/components/Homebrands';
 import HomeCategories from '@/modules/home/components/HomeCategories';
 import { Trans } from '@lingui/react/macro';
@@ -12,19 +12,9 @@ import { createFileRoute, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/$locale/')({
     head: () => ({
-        meta: [
-            {
-                charSet: 'utf-8',
-            },
-            {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-            },
-            {
-                title: 'TanStack Start Starter',
-            },
-        ],
+        ...getPageMetaData('home'),
     }),
+
     component: Index,
 
     beforeLoad: ({ params, location }) => {
@@ -67,7 +57,7 @@ function Index() {
 
             <HomeBrands />
 
-            <HomeBestSellers />
+            {/* <HomeBestSellers /> */}
         </div>
     );
 }

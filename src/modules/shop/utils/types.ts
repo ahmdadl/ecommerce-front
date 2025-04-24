@@ -1,13 +1,7 @@
+import { BrandEntity } from '@/modules/brands/utils/types';
 import { CategoryEntity } from '@/modules/categories/utils/types';
 import { LocalizedEntity } from '@/modules/core/utils/types';
 import { TagEntity } from '@/modules/tags/utils/types';
-
-export type BrandEntity = {
-    id: string;
-    title: string;
-    slug: string;
-    products_count?: number;
-};
 
 export type BrandCachedEntity = BrandEntity & {
     title: LocalizedEntity;
@@ -88,9 +82,10 @@ export type ProductEntity = {
     is_compared: boolean;
     carted_quantity: number;
     sku: string;
-    meta_title: string;
-    meta_description: string;
+    meta_title: string | null;
+    meta_description: string | null;
     meta_keywords: string[];
+    meta_image: string | null;
     is_new: boolean;
     category: CategoryEntity;
     brand: BrandEntity;

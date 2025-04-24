@@ -7,16 +7,18 @@ export default function CategoryProductsHero() {
     const category = useProductsStore.use.category();
 
     return (
-        <HeroSection
-            title={category?.title}
-            breadcrumbs={[
-                { label: <Trans>Home</Trans>, path: urls.home },
-                {
-                    label: <Trans>Categories</Trans>,
-                    path: urls.categories.index,
-                },
-                { label: category?.title },
-            ]}
-        />
+        <>
+            <HeroSection
+                title={category?.title}
+                breadcrumbs={[
+                    { label: <Trans>Home</Trans>, path: urls.home },
+                    {
+                        label: <Trans>Categories</Trans>,
+                        path: urls.categories.index,
+                    },
+                    { label: category?.title },
+                ]}
+            />
+        </>
     );
 }

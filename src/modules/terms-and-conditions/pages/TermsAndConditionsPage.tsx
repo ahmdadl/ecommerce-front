@@ -3,11 +3,10 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from '@/components/ui/accordion'; // Import ShadCN Accordion components
+} from '@/components/ui/accordion';
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
@@ -24,9 +23,9 @@ export default function TermsAndConditionsPage() {
                     <CardTitle className='text-2xl font-bold'>
                         <Trans>Terms and Conditions</Trans>
                     </CardTitle>
-                    <CardDescription>
+                    {/* <CardDescription>
                         <Trans>Last updated: April 12, 2025</Trans>
-                    </CardDescription>
+                    </CardDescription> */}
                 </CardHeader>
                 <CardContent>
                     <ScrollArea className='h-[500px] pr-4'>

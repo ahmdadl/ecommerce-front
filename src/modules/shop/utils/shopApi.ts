@@ -65,7 +65,12 @@ export const shopApi = {
             filters: response.data.filters,
         });
 
-        return {};
+        return {
+            record:
+                response.data.category ??
+                response.data.brand ??
+                response.data.tag,
+        };
     },
 
     searchForProducts: async (query: string) => {

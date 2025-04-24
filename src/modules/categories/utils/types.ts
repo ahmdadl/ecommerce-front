@@ -4,9 +4,13 @@ export type CategoryEntity = {
     id: string;
     title: string;
     slug: string;
-    description: string;
+    description: string | null;
     image: string;
     products_count?: number;
+    meta_title: string | null;
+    meta_description: string | null;
+    meta_keywords: string[];
+    meta_image: string | null;
 };
 
 export type CategoryCachedEntity = CategoryEntity & {

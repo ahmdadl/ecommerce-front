@@ -1,3 +1,4 @@
+import { getCatalogMetaData } from '@/modules/core/utils/methods';
 import { filtersStore } from '@/modules/shop/stores/filters-store';
 import { shopApi } from '@/modules/shop/utils/shopApi';
 import TagProductsSkeletonPage from '@/modules/tags/pages/TagProductsSkeletonPage';
@@ -5,6 +6,11 @@ import TagsProductsPage from '@/modules/tags/pages/TagsProductsPage';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/$locale/_catalog/tags/$slug')({
+    head: ({ loaderData }) => ({
+        // @ts-ignore
+        ...getCatalogMetaData(loaderData?.record),
+    }),
+
     component: TagsProductsPage,
 
     loader: ({ params, location }) => {

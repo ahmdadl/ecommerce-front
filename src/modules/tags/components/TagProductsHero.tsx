@@ -7,19 +7,21 @@ export default function TagProductsHero() {
     const tag = useProductsStore.use.tag();
 
     return (
-        <HeroSection
-            title={tag?.title}
-            breadcrumbs={[
-                { label: <Trans>Home</Trans>, path: urls.home },
-                {
-                    label: <Trans>Shop</Trans>,
-                    path: urls.shop,
-                },
-                {
-                    label: <Trans>Tags</Trans>,
-                },
-                { label: tag?.title },
-            ]}
-        />
+        <>
+            <HeroSection
+                title={tag?.title}
+                breadcrumbs={[
+                    { label: <Trans>Home</Trans>, path: urls.home },
+                    {
+                        label: <Trans>Shop</Trans>,
+                        path: urls.shop,
+                    },
+                    {
+                        label: <Trans>Tags</Trans>,
+                    },
+                    { label: tag?.title },
+                ]}
+            />
+        </>
     );
 }

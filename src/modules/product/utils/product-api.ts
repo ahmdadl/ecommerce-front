@@ -24,5 +24,9 @@ export const productApi = {
         productsStore.setState({
             records: response.data.relatedProducts,
         });
+
+        return {
+            record: response.data.record,
+        };
     },
 };

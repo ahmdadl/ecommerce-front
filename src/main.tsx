@@ -25,6 +25,7 @@ const router = createRouter({
     defaultPreload: 'intent',
     scrollRestoration: true,
     routeMasks: [withoutLocaleToLocalizedMask],
+    defaultHashScrollIntoView: true,
 });
 declare module '@tanstack/react-router' {
     interface Register {

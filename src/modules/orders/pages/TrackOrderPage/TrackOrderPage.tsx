@@ -9,7 +9,6 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import Image from '@/modules/core/components/Image';
 import { parsePrice } from '@/modules/orders/utils/methods';
 import {
     OrderEntity,
@@ -61,10 +60,11 @@ export default function TrackOrderPage() {
                 created_at: '2025-04-08T10:23:00Z',
                 product: {
                     id: 'PROD-1',
-                    name: 'Premium Wireless Headphones',
+                    title: 'Premium Wireless Headphones',
                     price: 129.99,
                     image: '/placeholder.svg',
                     color: 'Matte Black',
+                    images: [],
                 },
             },
             {
@@ -80,7 +80,7 @@ export default function TrackOrderPage() {
                 created_at: '2025-04-08T10:23:00Z',
                 product: {
                     id: 'PROD-2',
-                    name: 'Smart Fitness Watch',
+                    title: 'Smart Fitness Watch',
                     price: 89.99,
                     image: '/placeholder.svg',
                     color: 'Silver',
@@ -309,11 +309,6 @@ export default function TrackOrderPage() {
                                                 }
                                                 , {order.shippingAddress?.title}
                                             </p>
-                                            <p>
-                                                {order.shippingAddress
-                                                    ?.country ||
-                                                    'United States'}
-                                            </p>
                                         </div>
                                     </div>
                                     <div className='flex-1'>
@@ -342,14 +337,15 @@ export default function TrackOrderPage() {
                         </CardHeader>
                         <CardContent>
                             <div className='space-y-4'>
-                                {order.items?.map((item) => (
+                                {/* {order.items?.map((item) => (
                                     <div key={item.id} className='flex gap-3'>
                                         <div className='w-16 h-16 rounded-md overflow-hidden bg-muted flex-shrink-0'>
                                             <Image
                                                 src={
-                                                    item.product.images[0] || ''
+                                                    item.product?.images[0] ||
+                                                    ''
                                                 }
-                                                alt={item.product.title}
+                                                alt={item.product?.title}
                                                 width={64}
                                                 height={64}
                                                 className='object-cover w-full h-full'
@@ -358,7 +354,7 @@ export default function TrackOrderPage() {
                                         <div className='flex-1'>
                                             <h4 className='font-medium text-sm'>
                                                 <Trans>
-                                                    {item.product.title}
+                                                    {item.product?.title}
                                                 </Trans>
                                             </h4>
                                             <div className='flex justify-between mt-1'>
@@ -374,7 +370,7 @@ export default function TrackOrderPage() {
                                             </div>
                                         </div>
                                     </div>
-                                ))}
+                                ))} */}
                             </div>
 
                             <Separator className='my-4' />

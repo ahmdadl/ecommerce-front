@@ -1,8 +1,9 @@
+import { BrandEntity } from '@/modules/brands/utils/types';
 import { CategoryEntity } from '@/modules/categories/utils/types';
 import { PaginationInfoEntity } from '@/modules/core/utils/types';
 import createZustandSelectors from '@/modules/core/utils/zustand/create-zustand-selectors';
 import { create } from 'zustand';
-import { BrandEntity, ProductEntity } from '../utils/types';
+import { ProductEntity } from '../utils/types';
 import { TagEntity } from './../../tags/utils/types';
 
 type ProductsState = {

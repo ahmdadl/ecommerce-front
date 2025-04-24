@@ -6,17 +6,21 @@ import { Trans } from '@lingui/react/macro';
 export default function BrandProductsHero() {
     const brand = useProductsStore.use.brand();
 
+    if (!brand) return null;
+
     return (
-        <HeroSection
-            title={brand?.title}
-            breadcrumbs={[
-                { label: <Trans>Home</Trans>, path: urls.home },
-                {
-                    label: <Trans>Brands</Trans>,
-                    path: urls.brands.index,
-                },
-                { label: brand?.title },
-            ]}
-        />
+        <>
+            <HeroSection
+                title={brand?.title}
+                breadcrumbs={[
+                    { label: <Trans>Home</Trans>, path: urls.home },
+                    {
+                        label: <Trans>Brands</Trans>,
+                        path: urls.brands.index,
+                    },
+                    { label: brand.title },
+                ]}
+            />
+        </>
     );
 }

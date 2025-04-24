@@ -2,10 +2,10 @@ import { ShoppingBag } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import HeroSection from '@/modules/core/components/HeroSection';
 import Link from '@/modules/core/components/LocalizedLink';
 import { urls } from '@/modules/core/utils/urls';
 import { Trans } from '@lingui/react/macro';
+import CartHero from '../components/CartHero';
 import { CartItemCard } from '../components/CartItemCard';
 import CartTotals from '../components/CartTotals';
 import ClearCartButton from '../components/ClearCartButton';
@@ -16,13 +16,7 @@ export default function CartPage() {
 
     return (
         <div className='flex flex-col gap-4'>
-            <HeroSection
-                title={<Trans>Shopping Cart</Trans>}
-                breadcrumbs={[
-                    { label: <Trans>Home</Trans>, path: urls.home },
-                    { label: <Trans>Cart</Trans>, path: urls.cart },
-                ]}
-            />
+            <CartHero />
 
             {cart.items.length === 0 ? (
                 <div className='text-center py-16'>

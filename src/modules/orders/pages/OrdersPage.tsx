@@ -1,4 +1,4 @@
-import { Eye, MapPin } from 'lucide-react';
+import { Eye } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -154,7 +154,7 @@ export default function OrdersPage() {
                                                             </TooltipContent>
                                                         </Tooltip>
                                                     </TooltipProvider>
-                                                    <TooltipProvider>
+                                                    {/* <TooltipProvider>
                                                         <Tooltip>
                                                             <TooltipTrigger
                                                                 asChild
@@ -183,7 +183,7 @@ export default function OrdersPage() {
                                                                 </p>
                                                             </TooltipContent>
                                                         </Tooltip>
-                                                    </TooltipProvider>
+                                                    </TooltipProvider> */}
                                                 </TableCell>
                                             </TableRow>
                                         ))
