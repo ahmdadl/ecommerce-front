@@ -58,7 +58,7 @@ export function Header() {
     const mainNavbarHeight = 70; // px
 
     return (
-        <div className='sticky top-0 left-0 right-0 z-50'>
+        <div className='sticky top-0 left-0 right-0 z-50 print:hidden'>
             <div
                 className={`transition-transform duration-300 ease-in-out ${!isAtTop ? '-translate-y-full -z-10 opacity-0' : 'translate-y-0'}`}
                 style={{ height: `${isAtTop ? promotionBarHeight : 0}px` }}
