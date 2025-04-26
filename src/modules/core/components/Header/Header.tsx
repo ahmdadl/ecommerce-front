@@ -11,13 +11,13 @@ export function Header() {
     const [isAtTop, setIsAtTop] = useState(true);
     const isMobile = useIsMobile();
 
-    const topHeader = cachedData.settings.top_header;
+    const topHeader = cachedData?.settings?.top_header;
 
     // Debounce the scroll direction to prevent rapid changes
     // const debouncedScrollDirection = useDebounce(scrollDirection, 100);
 
     useEffect(() => {
-        let timeoutId;
+        let timeoutId: any = 0;
         const handleScroll = () => {
             // Throttle scroll events
             if (timeoutId) return;
@@ -54,7 +54,7 @@ export function Header() {
         };
     }, []); // Empty dependency array to prevent re-registration
 
-    const promotionBarHeight = topHeader.is_active ? (isMobile ? 100 : 60) : 0; // px
+    const promotionBarHeight = topHeader?.is_active ? (isMobile ? 100 : 60) : 0; // px
     const mainNavbarHeight = 70; // px
 
     return (

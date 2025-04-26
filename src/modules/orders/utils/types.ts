@@ -1,15 +1,27 @@
 import { CartTotalsEntity } from '@/modules/cart/utils/types';
-import { ProductEntity } from '@/modules/shop/utils/types';
 
 // Order item
 export type OrderItemEntity = {
     id: string;
     order_id: string;
-    product_id: string;
     quantity: number;
     totals: CartTotalsEntity;
     created_at: string;
-    product: ProductEntity;
+    product: OrderItemProductEntity;
+};
+
+export type OrderItemProductEntity = {
+    id: string;
+    order_item_id: string;
+    product_id: string;
+    category_id: string;
+    brand_id: string;
+    title: string;
+    category_title: string;
+    brand_title: string;
+    images: string[];
+    sku: string;
+    price: number;
 };
 
 // Address details

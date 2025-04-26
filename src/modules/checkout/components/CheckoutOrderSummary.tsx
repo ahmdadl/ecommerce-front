@@ -6,6 +6,7 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import CartCouponSection from '@/modules/cart/components/CartCouponSection';
 import { useCartStore } from '@/modules/cart/stores/cart-store';
 import Image from '@/modules/core/components/Image';
 import { parsePrice } from '@/modules/orders/utils/methods';
@@ -111,6 +112,10 @@ export default function CheckoutOrderSummary() {
                             </p>
                             <p>{parsePrice(totals.total)}</p>
                         </div>
+                    </div>
+
+                    <div className='py-4'>
+                        <CartCouponSection />
                     </div>
                 </CardContent>
                 <CardFooter>

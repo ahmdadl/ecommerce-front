@@ -68,13 +68,13 @@ const Countdown = ({ targetDate }: CountdownProps) => {
 };
 
 export function TopHeader({ className }: TopHeaderProps) {
-    const topHeader = cachedData.settings.top_header;
+    const topHeader = cachedData.settings?.top_header;
 
-    if (!topHeader.is_active) {
+    const targetDate = new Date(topHeader?.end_time);
+
+    if (!topHeader?.is_active) {
         return null;
     }
-
-    const targetDate = new Date(topHeader.end_time);
 
     return (
         <div
