@@ -17,7 +17,7 @@ export default function TermsAndConditionsPage() {
     return (
         <div className=' py-12 px-3 md:py-16'>
             <div className='mx-auto max-w-5xl space-y-12'>
-                <div className='flex items-center justify-between mb-8'>
+                <div className='flex items-center justify-between mb-8 print:hidden'>
                     <Link
                         to={urls.home}
                         className='flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors'
