@@ -9,9 +9,9 @@ export const Route = createFileRoute('/$locale/terms-and-conditions')({
         ...getPageMetaData('terms-and-conditions'),
     }),
 
-    component: TermsAndConditionsPage,
-
     loader: () => termsConditionsApi.load(),
+
+    component: TermsAndConditionsPage,
 
     pendingComponent: TermsAndConditionsSkeletonPage,
 });
