@@ -10,6 +10,7 @@ import ReactDOM from 'react-dom/client';
 import { messages as arMessages } from './locales/ar/messages.po';
 import { messages as enMessages } from './locales/en/messages.po';
 import './main.css';
+import useLocaleStore from './modules/core/stores/localeStore';
 import { routeTree } from './routeTree.gen';
 
 const withoutLocaleToLocalizedMask = createRouteMask({
@@ -37,7 +38,12 @@ i18n.load({
     en: enMessages,
     ar: arMessages,
 });
-i18n.activate('en');
+const locale = useLocaleStore.getState().locale;
+i18n.activate(locale);
+document.documentElement.lang = locale;
+document.documentElement.dir = useLocaleStore.getState().isRtl()
+    ? 'rtl'
+    : 'ltr';
 
 const root = document.getElementById('root')!;
 ReactDOM.createRoot(root).render(

@@ -25,7 +25,7 @@ const http = axios.create({
         'Content-Type': 'application/json',
         Accept: 'application/json',
         'x-app-key': env.apiKey,
-        'x-app-type': 'wui',
+        'x-application-type': 'wui',
         'x-public-token': env.apiPublicToken,
     },
 });
@@ -42,6 +42,8 @@ http.interceptors.request.use(
 
         config.headers = config.headers || {};
         config.headers['Authorization'] = bearerToken;
+
+        config.headers['locale-code'] = useLocaleStore.getState().locale;
         return config;
     },
     (error: AxiosError) => Promise.reject(error)
