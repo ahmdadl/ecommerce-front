@@ -1,10 +1,11 @@
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import { env } from '@/modules/core/utils/env';
 import { getPageMetaData } from '@/modules/core/utils/methods';
+import HomeBrands from '@/modules/home/components/Home_Brands';
 import HomeBanners from '@/modules/home/components/HomeBanner';
 import HomeBestSellers from '@/modules/home/components/HomeBestSellers';
-import HomeBrands from '@/modules/home/components/Homebrands';
 import HomeCategories from '@/modules/home/components/HomeCategories';
+import HomeSkeletonPage from '@/modules/home/pages/HomeSkeletonPage';
 import { homeApi } from '@/modules/home/utils/home-api';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 
@@ -13,7 +14,7 @@ export const Route = createFileRoute('/$locale/')({
         ...getPageMetaData('home'),
     }),
 
-    loader: homeApi.load,
+    loader: () => homeApi.load(),
 
     component: Index,
 
@@ -26,6 +27,8 @@ export const Route = createFileRoute('/$locale/')({
             });
         }
     },
+
+    pendingComponent: HomeSkeletonPage,
 });
 
 function Index() {
