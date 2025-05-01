@@ -14,4 +14,5 @@ export type BrandEntity = {
     meta_image: string | null;
     products_count: number;
     products: ProductEntity[];
+    is_main: boolean;
 };

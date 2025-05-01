@@ -11,6 +11,7 @@ export type CategoryEntity = {
     meta_description: string | null;
     meta_keywords: string[];
     meta_image: string | null;
+    is_main: boolean;
 };
 
 export type CategoryCachedEntity = CategoryEntity & {

@@ -233,10 +233,10 @@ export function Footer() {
                                 <MapPin className='h-5 w-5 mr-2 mt-0.5 text-muted-foreground' />
                                 <span className='text-muted-foreground'>
                                     <a
-                                        href={contact.googleMapUrl}
+                                        href={contact?.googleMapUrl}
                                         target='_blank'
                                     >
-                                        {contact.address[
+                                        {contact?.address[
                                             localeStore.getState().localeKey()
                                         ] ?? ''}
                                     </a>
@@ -256,8 +256,8 @@ export function Footer() {
                             <li className='flex items-center'>
                                 <Mail className='h-5 w-5 mr-2 text-muted-foreground' />
                                 <span className='text-muted-foreground'>
-                                    <a href={`mailto:${contact.email}`}>
-                                        {contact.email}
+                                    <a href={`mailto:${contact?.email}`}>
+                                        {contact?.email}
                                     </a>
                                 </span>
                             </li>
