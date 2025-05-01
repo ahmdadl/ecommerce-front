@@ -31,9 +31,10 @@ export default function CreateAddressModal() {
 
         setIsLoading(true);
 
-        const response = (await addressApi
-            .create(values)
-            .catch((err) => parseError(err))) as AxiosResponse;
+        const response = (await addressApi.create(values).catch((err) => {
+            setIsLoading(false);
+            parseError(err);
+        })) as AxiosResponse;
 
         setIsLoading(false);
 

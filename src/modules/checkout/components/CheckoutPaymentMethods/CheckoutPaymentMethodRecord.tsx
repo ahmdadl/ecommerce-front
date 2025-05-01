@@ -36,8 +36,12 @@ export default function CheckoutPaymentMethodRecord({
                         id={`payment-${method.code}`}
                     />
                     <div className='flex items-center gap-2'>
-                        <div className='max-w-24'>
-                            <Image src={method.image} alt={method.name} />
+                        <div className='max-w-14'>
+                            <Image
+                                src={method.image}
+                                alt={method.name}
+                                className='rounded object-contain'
+                            />
                         </div>
                         <Label
                             htmlFor={`payment-${method.code}`}

@@ -23,7 +23,10 @@ export default function TopMenuUserDropMenu() {
         <>
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant='ghost' className='flex items-center gap-2'>
+                    <Button
+                        variant='outline'
+                        className='flex items-center gap-2'
+                    >
                         <User className='h-5 w-5' />
                         <span className='hidden lg:inline'>{userName}</span>
                     </Button>

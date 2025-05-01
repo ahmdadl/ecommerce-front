@@ -12,31 +12,31 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import loadingToast from '@/modules/core/utils/methods';
 import { Trans } from '@lingui/react/macro';
-import { useEffect } from 'react';
-import { useCitiesStore } from '../../stores/cities-store';
+import { useEffect, useState } from 'react';
 import { useGovernmentsStore } from '../../stores/goverments-store';
 import { addressApi } from '../../utils/addresses-api';
+import AddressFormCityInput from './AddressFormCity';
 
 export default function AddressFormGovernmentCityInput({
     form,
     isLoading,
 }: any) {
     const governments = useGovernmentsStore.use.records();
-    const cities = useCitiesStore.use.currentGovernmentCities();
-
-    // const [filteredCities, setFilteredCities] = useState<CityEntity[]>(cities);
+    const [isLoadingCities, setIsLoadingCities] = useState(true);
 
     const governmentId = form.watch('government_id');
 
     useEffect(() => {
-        addressApi.loadGovernments();
+        addressApi.loadGovernments().finally(() => setIsLoadingCities(false));
     }, []);
 
     useEffect(() => {
         if (governmentId) {
-            loadingToast(addressApi.loadCities(governmentId));
+            setIsLoadingCities(true);
+            addressApi
+                .loadCities(governmentId)
+                .finally(() => setIsLoadingCities(false));
         }
     }, [governmentId]);
 
@@ -75,35 +75,12 @@ export default function AddressFormGovernmentCityInput({
                     </FormItem>
                 )}
             />
-            <FormField
-                control={form.control}
-                name='city_id'
-                render={({ field }) => (
-                    <FormItem>
-                        <FormLabel>
-                            <Trans>City</Trans>
-                        </FormLabel>
-                        <Select
-                            onValueChange={field.onChange}
-                            value={field.value}
-                            disabled={!governmentId || isLoading}
-                        >
-                            <FormControl>
-                                <SelectTrigger>
-                                    <SelectValue placeholder='Select city' />
-                                </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                                {cities(governmentId).map((city) => (
-                                    <SelectItem key={city.id} value={city.id}>
-                                        {city.title}
-                                    </SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                        <FormMessage />
-                    </FormItem>
-                )}
+
+            <AddressFormCityInput
+                form={form}
+                isLoading={isLoading}
+                governmentId={governmentId}
+                isLoadingCities={isLoadingCities}
             />
         </div>
     );
