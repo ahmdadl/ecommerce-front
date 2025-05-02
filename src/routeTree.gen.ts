@@ -8,6 +8,8 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
@@ -19,6 +21,7 @@ import { Route as LocaleFaqImport } from './routes/$locale/faq'
 import { Route as LocaleContactUsImport } from './routes/$locale/contact-us'
 import { Route as LocaleCompareListImport } from './routes/$locale/compare-list'
 import { Route as LocaleProfileRouteImport } from './routes/$locale/profile/route'
+import { Route as LocaleAuthRouteImport } from './routes/$locale/_auth/route'
 import { Route as LocaleProfileIndexImport } from './routes/$locale/profile/index'
 import { Route as LocaleProfileWishlistImport } from './routes/$locale/profile/wishlist'
 import { Route as LocaleProfileChangePasswordImport } from './routes/$locale/profile/change-password'
@@ -40,7 +43,17 @@ import { Route as LocaleCatalogBrandsSlugImport } from './routes/$locale/_catalo
 import { Route as LocaleProfileOrdersIdIndexImport } from './routes/$locale/profile/orders/$id/index'
 import { Route as LocaleProfileOrdersIdTrackImport } from './routes/$locale/profile/orders/$id/track'
 
+// Create Virtual Routes
+
+const LocaleImport = createFileRoute('/$locale')()
+
 // Create/Update Routes
+
+const LocaleRoute = LocaleImport.update({
+  id: '/$locale',
+  path: '/$locale',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -49,45 +62,50 @@ const IndexRoute = IndexImport.update({
 } as any)
 
 const LocaleIndexRoute = LocaleIndexImport.update({
-  id: '/$locale/',
-  path: '/$locale/',
-  getParentRoute: () => rootRoute,
+  id: '/',
+  path: '/',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleTermsAndConditionsRoute = LocaleTermsAndConditionsImport.update({
-  id: '/$locale/terms-and-conditions',
-  path: '/$locale/terms-and-conditions',
-  getParentRoute: () => rootRoute,
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocalePrivacyPolicyRoute = LocalePrivacyPolicyImport.update({
-  id: '/$locale/privacy-policy',
-  path: '/$locale/privacy-policy',
-  getParentRoute: () => rootRoute,
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleFaqRoute = LocaleFaqImport.update({
-  id: '/$locale/faq',
-  path: '/$locale/faq',
-  getParentRoute: () => rootRoute,
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleContactUsRoute = LocaleContactUsImport.update({
-  id: '/$locale/contact-us',
-  path: '/$locale/contact-us',
-  getParentRoute: () => rootRoute,
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleCompareListRoute = LocaleCompareListImport.update({
-  id: '/$locale/compare-list',
-  path: '/$locale/compare-list',
-  getParentRoute: () => rootRoute,
+  id: '/compare-list',
+  path: '/compare-list',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleProfileRouteRoute = LocaleProfileRouteImport.update({
-  id: '/$locale/profile',
-  path: '/$locale/profile',
-  getParentRoute: () => rootRoute,
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => LocaleRoute,
+} as any)
+
+const LocaleAuthRouteRoute = LocaleAuthRouteImport.update({
+  id: '/_auth',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleProfileIndexRoute = LocaleProfileIndexImport.update({
@@ -116,51 +134,51 @@ const LocaleProfileAddressesRoute = LocaleProfileAddressesImport.update({
 } as any)
 
 const LocaleProductsSlugRoute = LocaleProductsSlugImport.update({
-  id: '/$locale/products/$slug',
-  path: '/$locale/products/$slug',
-  getParentRoute: () => rootRoute,
+  id: '/products/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleCatalogShopRoute = LocaleCatalogShopImport.update({
-  id: '/$locale/_catalog/shop',
-  path: '/$locale/shop',
-  getParentRoute: () => rootRoute,
+  id: '/_catalog/shop',
+  path: '/shop',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleCartCheckoutRoute = LocaleCartCheckoutImport.update({
-  id: '/$locale/_cart/checkout',
-  path: '/$locale/checkout',
-  getParentRoute: () => rootRoute,
+  id: '/_cart/checkout',
+  path: '/checkout',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleCartCartRoute = LocaleCartCartImport.update({
-  id: '/$locale/_cart/cart',
-  path: '/$locale/cart',
-  getParentRoute: () => rootRoute,
+  id: '/_cart/cart',
+  path: '/cart',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleAuthResetPasswordRoute = LocaleAuthResetPasswordImport.update({
-  id: '/$locale/_auth/reset-password',
-  path: '/$locale/reset-password',
-  getParentRoute: () => rootRoute,
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => LocaleAuthRouteRoute,
 } as any)
 
 const LocaleAuthRegisterRoute = LocaleAuthRegisterImport.update({
-  id: '/$locale/_auth/register',
-  path: '/$locale/register',
-  getParentRoute: () => rootRoute,
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => LocaleAuthRouteRoute,
 } as any)
 
 const LocaleAuthLoginRoute = LocaleAuthLoginImport.update({
-  id: '/$locale/_auth/login',
-  path: '/$locale/login',
-  getParentRoute: () => rootRoute,
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => LocaleAuthRouteRoute,
 } as any)
 
 const LocaleAuthForgetPasswordRoute = LocaleAuthForgetPasswordImport.update({
-  id: '/$locale/_auth/forget-password',
-  path: '/$locale/forget-password',
-  getParentRoute: () => rootRoute,
+  id: '/forget-password',
+  path: '/forget-password',
+  getParentRoute: () => LocaleAuthRouteRoute,
 } as any)
 
 const LocaleProfileOrdersIndexRoute = LocaleProfileOrdersIndexImport.update({
@@ -171,34 +189,34 @@ const LocaleProfileOrdersIndexRoute = LocaleProfileOrdersIndexImport.update({
 
 const LocaleCatalogCategoriesIndexRoute =
   LocaleCatalogCategoriesIndexImport.update({
-    id: '/$locale/_catalog/categories/',
-    path: '/$locale/categories/',
-    getParentRoute: () => rootRoute,
+    id: '/_catalog/categories/',
+    path: '/categories/',
+    getParentRoute: () => LocaleRoute,
   } as any)
 
 const LocaleCatalogBrandsIndexRoute = LocaleCatalogBrandsIndexImport.update({
-  id: '/$locale/_catalog/brands/',
-  path: '/$locale/brands/',
-  getParentRoute: () => rootRoute,
+  id: '/_catalog/brands/',
+  path: '/brands/',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleCatalogTagsSlugRoute = LocaleCatalogTagsSlugImport.update({
-  id: '/$locale/_catalog/tags/$slug',
-  path: '/$locale/tags/$slug',
-  getParentRoute: () => rootRoute,
+  id: '/_catalog/tags/$slug',
+  path: '/tags/$slug',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleCatalogCategoriesSlugRoute =
   LocaleCatalogCategoriesSlugImport.update({
-    id: '/$locale/_catalog/categories/$slug',
-    path: '/$locale/categories/$slug',
-    getParentRoute: () => rootRoute,
+    id: '/_catalog/categories/$slug',
+    path: '/categories/$slug',
+    getParentRoute: () => LocaleRoute,
   } as any)
 
 const LocaleCatalogBrandsSlugRoute = LocaleCatalogBrandsSlugImport.update({
-  id: '/$locale/_catalog/brands/$slug',
-  path: '/$locale/brands/$slug',
-  getParentRoute: () => rootRoute,
+  id: '/_catalog/brands/$slug',
+  path: '/brands/$slug',
+  getParentRoute: () => LocaleRoute,
 } as any)
 
 const LocaleProfileOrdersIdIndexRoute = LocaleProfileOrdersIdIndexImport.update(
@@ -228,110 +246,124 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/$locale': {
+      id: '/$locale'
+      path: '/$locale'
+      fullPath: '/$locale'
+      preLoaderRoute: typeof LocaleImport
+      parentRoute: typeof rootRoute
+    }
+    '/$locale/_auth': {
+      id: '/$locale/_auth'
+      path: '/$locale'
+      fullPath: '/$locale'
+      preLoaderRoute: typeof LocaleAuthRouteImport
+      parentRoute: typeof LocaleRoute
+    }
     '/$locale/profile': {
       id: '/$locale/profile'
-      path: '/$locale/profile'
+      path: '/profile'
       fullPath: '/$locale/profile'
       preLoaderRoute: typeof LocaleProfileRouteImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/compare-list': {
       id: '/$locale/compare-list'
-      path: '/$locale/compare-list'
+      path: '/compare-list'
       fullPath: '/$locale/compare-list'
       preLoaderRoute: typeof LocaleCompareListImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/contact-us': {
       id: '/$locale/contact-us'
-      path: '/$locale/contact-us'
+      path: '/contact-us'
       fullPath: '/$locale/contact-us'
       preLoaderRoute: typeof LocaleContactUsImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/faq': {
       id: '/$locale/faq'
-      path: '/$locale/faq'
+      path: '/faq'
       fullPath: '/$locale/faq'
       preLoaderRoute: typeof LocaleFaqImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/privacy-policy': {
       id: '/$locale/privacy-policy'
-      path: '/$locale/privacy-policy'
+      path: '/privacy-policy'
       fullPath: '/$locale/privacy-policy'
       preLoaderRoute: typeof LocalePrivacyPolicyImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/terms-and-conditions': {
       id: '/$locale/terms-and-conditions'
-      path: '/$locale/terms-and-conditions'
+      path: '/terms-and-conditions'
       fullPath: '/$locale/terms-and-conditions'
       preLoaderRoute: typeof LocaleTermsAndConditionsImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/': {
       id: '/$locale/'
-      path: '/$locale'
-      fullPath: '/$locale'
+      path: '/'
+      fullPath: '/$locale/'
       preLoaderRoute: typeof LocaleIndexImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/_auth/forget-password': {
       id: '/$locale/_auth/forget-password'
-      path: '/$locale/forget-password'
+      path: '/forget-password'
       fullPath: '/$locale/forget-password'
       preLoaderRoute: typeof LocaleAuthForgetPasswordImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleAuthRouteImport
     }
     '/$locale/_auth/login': {
       id: '/$locale/_auth/login'
-      path: '/$locale/login'
+      path: '/login'
       fullPath: '/$locale/login'
       preLoaderRoute: typeof LocaleAuthLoginImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleAuthRouteImport
     }
     '/$locale/_auth/register': {
       id: '/$locale/_auth/register'
-      path: '/$locale/register'
+      path: '/register'
       fullPath: '/$locale/register'
       preLoaderRoute: typeof LocaleAuthRegisterImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleAuthRouteImport
     }
     '/$locale/_auth/reset-password': {
       id: '/$locale/_auth/reset-password'
-      path: '/$locale/reset-password'
+      path: '/reset-password'
       fullPath: '/$locale/reset-password'
       preLoaderRoute: typeof LocaleAuthResetPasswordImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleAuthRouteImport
     }
     '/$locale/_cart/cart': {
       id: '/$locale/_cart/cart'
-      path: '/$locale/cart'
+      path: '/cart'
       fullPath: '/$locale/cart'
       preLoaderRoute: typeof LocaleCartCartImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/_cart/checkout': {
       id: '/$locale/_cart/checkout'
-      path: '/$locale/checkout'
+      path: '/checkout'
       fullPath: '/$locale/checkout'
       preLoaderRoute: typeof LocaleCartCheckoutImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/_catalog/shop': {
       id: '/$locale/_catalog/shop'
-      path: '/$locale/shop'
+      path: '/shop'
       fullPath: '/$locale/shop'
       preLoaderRoute: typeof LocaleCatalogShopImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/products/$slug': {
       id: '/$locale/products/$slug'
-      path: '/$locale/products/$slug'
+      path: '/products/$slug'
       fullPath: '/$locale/products/$slug'
       preLoaderRoute: typeof LocaleProductsSlugImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/profile/addresses': {
       id: '/$locale/profile/addresses'
@@ -363,38 +395,38 @@ declare module '@tanstack/react-router' {
     }
     '/$locale/_catalog/brands/$slug': {
       id: '/$locale/_catalog/brands/$slug'
-      path: '/$locale/brands/$slug'
+      path: '/brands/$slug'
       fullPath: '/$locale/brands/$slug'
       preLoaderRoute: typeof LocaleCatalogBrandsSlugImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/_catalog/categories/$slug': {
       id: '/$locale/_catalog/categories/$slug'
-      path: '/$locale/categories/$slug'
+      path: '/categories/$slug'
       fullPath: '/$locale/categories/$slug'
       preLoaderRoute: typeof LocaleCatalogCategoriesSlugImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/_catalog/tags/$slug': {
       id: '/$locale/_catalog/tags/$slug'
-      path: '/$locale/tags/$slug'
+      path: '/tags/$slug'
       fullPath: '/$locale/tags/$slug'
       preLoaderRoute: typeof LocaleCatalogTagsSlugImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/_catalog/brands/': {
       id: '/$locale/_catalog/brands/'
-      path: '/$locale/brands'
+      path: '/brands'
       fullPath: '/$locale/brands'
       preLoaderRoute: typeof LocaleCatalogBrandsIndexImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/_catalog/categories/': {
       id: '/$locale/_catalog/categories/'
-      path: '/$locale/categories'
+      path: '/categories'
       fullPath: '/$locale/categories'
       preLoaderRoute: typeof LocaleCatalogCategoriesIndexImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof LocaleImport
     }
     '/$locale/profile/orders/': {
       id: '/$locale/profile/orders/'
@@ -422,6 +454,24 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
+interface LocaleAuthRouteRouteChildren {
+  LocaleAuthForgetPasswordRoute: typeof LocaleAuthForgetPasswordRoute
+  LocaleAuthLoginRoute: typeof LocaleAuthLoginRoute
+  LocaleAuthRegisterRoute: typeof LocaleAuthRegisterRoute
+  LocaleAuthResetPasswordRoute: typeof LocaleAuthResetPasswordRoute
+}
+
+const LocaleAuthRouteRouteChildren: LocaleAuthRouteRouteChildren = {
+  LocaleAuthForgetPasswordRoute: LocaleAuthForgetPasswordRoute,
+  LocaleAuthLoginRoute: LocaleAuthLoginRoute,
+  LocaleAuthRegisterRoute: LocaleAuthRegisterRoute,
+  LocaleAuthResetPasswordRoute: LocaleAuthResetPasswordRoute,
+}
+
+const LocaleAuthRouteRouteWithChildren = LocaleAuthRouteRoute._addFileChildren(
+  LocaleAuthRouteRouteChildren,
+)
+
 interface LocaleProfileRouteRouteChildren {
   LocaleProfileAddressesRoute: typeof LocaleProfileAddressesRoute
   LocaleProfileChangePasswordRoute: typeof LocaleProfileChangePasswordRoute
@@ -445,15 +495,59 @@ const LocaleProfileRouteRouteChildren: LocaleProfileRouteRouteChildren = {
 const LocaleProfileRouteRouteWithChildren =
   LocaleProfileRouteRoute._addFileChildren(LocaleProfileRouteRouteChildren)
 
+interface LocaleRouteChildren {
+  LocaleAuthRouteRoute: typeof LocaleAuthRouteRouteWithChildren
+  LocaleProfileRouteRoute: typeof LocaleProfileRouteRouteWithChildren
+  LocaleCompareListRoute: typeof LocaleCompareListRoute
+  LocaleContactUsRoute: typeof LocaleContactUsRoute
+  LocaleFaqRoute: typeof LocaleFaqRoute
+  LocalePrivacyPolicyRoute: typeof LocalePrivacyPolicyRoute
+  LocaleTermsAndConditionsRoute: typeof LocaleTermsAndConditionsRoute
+  LocaleIndexRoute: typeof LocaleIndexRoute
+  LocaleCartCartRoute: typeof LocaleCartCartRoute
+  LocaleCartCheckoutRoute: typeof LocaleCartCheckoutRoute
+  LocaleCatalogShopRoute: typeof LocaleCatalogShopRoute
+  LocaleProductsSlugRoute: typeof LocaleProductsSlugRoute
+  LocaleCatalogBrandsSlugRoute: typeof LocaleCatalogBrandsSlugRoute
+  LocaleCatalogCategoriesSlugRoute: typeof LocaleCatalogCategoriesSlugRoute
+  LocaleCatalogTagsSlugRoute: typeof LocaleCatalogTagsSlugRoute
+  LocaleCatalogBrandsIndexRoute: typeof LocaleCatalogBrandsIndexRoute
+  LocaleCatalogCategoriesIndexRoute: typeof LocaleCatalogCategoriesIndexRoute
+}
+
+const LocaleRouteChildren: LocaleRouteChildren = {
+  LocaleAuthRouteRoute: LocaleAuthRouteRouteWithChildren,
+  LocaleProfileRouteRoute: LocaleProfileRouteRouteWithChildren,
+  LocaleCompareListRoute: LocaleCompareListRoute,
+  LocaleContactUsRoute: LocaleContactUsRoute,
+  LocaleFaqRoute: LocaleFaqRoute,
+  LocalePrivacyPolicyRoute: LocalePrivacyPolicyRoute,
+  LocaleTermsAndConditionsRoute: LocaleTermsAndConditionsRoute,
+  LocaleIndexRoute: LocaleIndexRoute,
+  LocaleCartCartRoute: LocaleCartCartRoute,
+  LocaleCartCheckoutRoute: LocaleCartCheckoutRoute,
+  LocaleCatalogShopRoute: LocaleCatalogShopRoute,
+  LocaleProductsSlugRoute: LocaleProductsSlugRoute,
+  LocaleCatalogBrandsSlugRoute: LocaleCatalogBrandsSlugRoute,
+  LocaleCatalogCategoriesSlugRoute: LocaleCatalogCategoriesSlugRoute,
+  LocaleCatalogTagsSlugRoute: LocaleCatalogTagsSlugRoute,
+  LocaleCatalogBrandsIndexRoute: LocaleCatalogBrandsIndexRoute,
+  LocaleCatalogCategoriesIndexRoute: LocaleCatalogCategoriesIndexRoute,
+}
+
+const LocaleRouteWithChildren =
+  LocaleRoute._addFileChildren(LocaleRouteChildren)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$locale': typeof LocaleAuthRouteRouteWithChildren
   '/$locale/profile': typeof LocaleProfileRouteRouteWithChildren
   '/$locale/compare-list': typeof LocaleCompareListRoute
   '/$locale/contact-us': typeof LocaleContactUsRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/privacy-policy': typeof LocalePrivacyPolicyRoute
   '/$locale/terms-and-conditions': typeof LocaleTermsAndConditionsRoute
-  '/$locale': typeof LocaleIndexRoute
+  '/$locale/': typeof LocaleIndexRoute
   '/$locale/forget-password': typeof LocaleAuthForgetPasswordRoute
   '/$locale/login': typeof LocaleAuthLoginRoute
   '/$locale/register': typeof LocaleAuthRegisterRoute
@@ -478,12 +572,12 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$locale': typeof LocaleIndexRoute
   '/$locale/compare-list': typeof LocaleCompareListRoute
   '/$locale/contact-us': typeof LocaleContactUsRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/privacy-policy': typeof LocalePrivacyPolicyRoute
   '/$locale/terms-and-conditions': typeof LocaleTermsAndConditionsRoute
-  '/$locale': typeof LocaleIndexRoute
   '/$locale/forget-password': typeof LocaleAuthForgetPasswordRoute
   '/$locale/login': typeof LocaleAuthLoginRoute
   '/$locale/register': typeof LocaleAuthRegisterRoute
@@ -509,6 +603,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/$locale': typeof LocaleRouteWithChildren
+  '/$locale/_auth': typeof LocaleAuthRouteRouteWithChildren
   '/$locale/profile': typeof LocaleProfileRouteRouteWithChildren
   '/$locale/compare-list': typeof LocaleCompareListRoute
   '/$locale/contact-us': typeof LocaleContactUsRoute
@@ -542,13 +638,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$locale'
     | '/$locale/profile'
     | '/$locale/compare-list'
     | '/$locale/contact-us'
     | '/$locale/faq'
     | '/$locale/privacy-policy'
     | '/$locale/terms-and-conditions'
-    | '/$locale'
+    | '/$locale/'
     | '/$locale/forget-password'
     | '/$locale/login'
     | '/$locale/register'
@@ -572,12 +669,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$locale'
     | '/$locale/compare-list'
     | '/$locale/contact-us'
     | '/$locale/faq'
     | '/$locale/privacy-policy'
     | '/$locale/terms-and-conditions'
-    | '/$locale'
     | '/$locale/forget-password'
     | '/$locale/login'
     | '/$locale/register'
@@ -601,6 +698,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/$locale'
+    | '/$locale/_auth'
     | '/$locale/profile'
     | '/$locale/compare-list'
     | '/$locale/contact-us'
@@ -633,50 +732,12 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  LocaleProfileRouteRoute: typeof LocaleProfileRouteRouteWithChildren
-  LocaleCompareListRoute: typeof LocaleCompareListRoute
-  LocaleContactUsRoute: typeof LocaleContactUsRoute
-  LocaleFaqRoute: typeof LocaleFaqRoute
-  LocalePrivacyPolicyRoute: typeof LocalePrivacyPolicyRoute
-  LocaleTermsAndConditionsRoute: typeof LocaleTermsAndConditionsRoute
-  LocaleIndexRoute: typeof LocaleIndexRoute
-  LocaleAuthForgetPasswordRoute: typeof LocaleAuthForgetPasswordRoute
-  LocaleAuthLoginRoute: typeof LocaleAuthLoginRoute
-  LocaleAuthRegisterRoute: typeof LocaleAuthRegisterRoute
-  LocaleAuthResetPasswordRoute: typeof LocaleAuthResetPasswordRoute
-  LocaleCartCartRoute: typeof LocaleCartCartRoute
-  LocaleCartCheckoutRoute: typeof LocaleCartCheckoutRoute
-  LocaleCatalogShopRoute: typeof LocaleCatalogShopRoute
-  LocaleProductsSlugRoute: typeof LocaleProductsSlugRoute
-  LocaleCatalogBrandsSlugRoute: typeof LocaleCatalogBrandsSlugRoute
-  LocaleCatalogCategoriesSlugRoute: typeof LocaleCatalogCategoriesSlugRoute
-  LocaleCatalogTagsSlugRoute: typeof LocaleCatalogTagsSlugRoute
-  LocaleCatalogBrandsIndexRoute: typeof LocaleCatalogBrandsIndexRoute
-  LocaleCatalogCategoriesIndexRoute: typeof LocaleCatalogCategoriesIndexRoute
+  LocaleRoute: typeof LocaleRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  LocaleProfileRouteRoute: LocaleProfileRouteRouteWithChildren,
-  LocaleCompareListRoute: LocaleCompareListRoute,
-  LocaleContactUsRoute: LocaleContactUsRoute,
-  LocaleFaqRoute: LocaleFaqRoute,
-  LocalePrivacyPolicyRoute: LocalePrivacyPolicyRoute,
-  LocaleTermsAndConditionsRoute: LocaleTermsAndConditionsRoute,
-  LocaleIndexRoute: LocaleIndexRoute,
-  LocaleAuthForgetPasswordRoute: LocaleAuthForgetPasswordRoute,
-  LocaleAuthLoginRoute: LocaleAuthLoginRoute,
-  LocaleAuthRegisterRoute: LocaleAuthRegisterRoute,
-  LocaleAuthResetPasswordRoute: LocaleAuthResetPasswordRoute,
-  LocaleCartCartRoute: LocaleCartCartRoute,
-  LocaleCartCheckoutRoute: LocaleCartCheckoutRoute,
-  LocaleCatalogShopRoute: LocaleCatalogShopRoute,
-  LocaleProductsSlugRoute: LocaleProductsSlugRoute,
-  LocaleCatalogBrandsSlugRoute: LocaleCatalogBrandsSlugRoute,
-  LocaleCatalogCategoriesSlugRoute: LocaleCatalogCategoriesSlugRoute,
-  LocaleCatalogTagsSlugRoute: LocaleCatalogTagsSlugRoute,
-  LocaleCatalogBrandsIndexRoute: LocaleCatalogBrandsIndexRoute,
-  LocaleCatalogCategoriesIndexRoute: LocaleCatalogCategoriesIndexRoute,
+  LocaleRoute: LocaleRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -690,6 +751,16 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/$locale"
+      ]
+    },
+    "/": {
+      "filePath": "index.tsx"
+    },
+    "/$locale": {
+      "filePath": "$locale/_auth",
+      "children": [
+        "/$locale/_auth",
         "/$locale/profile",
         "/$locale/compare-list",
         "/$locale/contact-us",
@@ -697,10 +768,6 @@ export const routeTree = rootRoute
         "/$locale/privacy-policy",
         "/$locale/terms-and-conditions",
         "/$locale/",
-        "/$locale/_auth/forget-password",
-        "/$locale/_auth/login",
-        "/$locale/_auth/register",
-        "/$locale/_auth/reset-password",
         "/$locale/_cart/cart",
         "/$locale/_cart/checkout",
         "/$locale/_catalog/shop",
@@ -712,11 +779,19 @@ export const routeTree = rootRoute
         "/$locale/_catalog/categories/"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/$locale/_auth": {
+      "filePath": "$locale/_auth/route.tsx",
+      "parent": "/$locale",
+      "children": [
+        "/$locale/_auth/forget-password",
+        "/$locale/_auth/login",
+        "/$locale/_auth/register",
+        "/$locale/_auth/reset-password"
+      ]
     },
     "/$locale/profile": {
       "filePath": "$locale/profile/route.tsx",
+      "parent": "/$locale",
       "children": [
         "/$locale/profile/addresses",
         "/$locale/profile/change-password",
@@ -728,46 +803,60 @@ export const routeTree = rootRoute
       ]
     },
     "/$locale/compare-list": {
-      "filePath": "$locale/compare-list.ts"
+      "filePath": "$locale/compare-list.ts",
+      "parent": "/$locale"
     },
     "/$locale/contact-us": {
-      "filePath": "$locale/contact-us.tsx"
+      "filePath": "$locale/contact-us.tsx",
+      "parent": "/$locale"
     },
     "/$locale/faq": {
-      "filePath": "$locale/faq.tsx"
+      "filePath": "$locale/faq.tsx",
+      "parent": "/$locale"
     },
     "/$locale/privacy-policy": {
-      "filePath": "$locale/privacy-policy.tsx"
+      "filePath": "$locale/privacy-policy.tsx",
+      "parent": "/$locale"
     },
     "/$locale/terms-and-conditions": {
-      "filePath": "$locale/terms-and-conditions.tsx"
+      "filePath": "$locale/terms-and-conditions.tsx",
+      "parent": "/$locale"
     },
     "/$locale/": {
-      "filePath": "$locale/index.tsx"
+      "filePath": "$locale/index.tsx",
+      "parent": "/$locale"
     },
     "/$locale/_auth/forget-password": {
-      "filePath": "$locale/_auth/forget-password.tsx"
+      "filePath": "$locale/_auth/forget-password.tsx",
+      "parent": "/$locale/_auth"
     },
     "/$locale/_auth/login": {
-      "filePath": "$locale/_auth/login.tsx"
+      "filePath": "$locale/_auth/login.tsx",
+      "parent": "/$locale/_auth"
     },
     "/$locale/_auth/register": {
-      "filePath": "$locale/_auth/register.tsx"
+      "filePath": "$locale/_auth/register.tsx",
+      "parent": "/$locale/_auth"
     },
     "/$locale/_auth/reset-password": {
-      "filePath": "$locale/_auth/reset-password.tsx"
+      "filePath": "$locale/_auth/reset-password.tsx",
+      "parent": "/$locale/_auth"
     },
     "/$locale/_cart/cart": {
-      "filePath": "$locale/_cart/cart.tsx"
+      "filePath": "$locale/_cart/cart.tsx",
+      "parent": "/$locale"
     },
     "/$locale/_cart/checkout": {
-      "filePath": "$locale/_cart/checkout.tsx"
+      "filePath": "$locale/_cart/checkout.tsx",
+      "parent": "/$locale"
     },
     "/$locale/_catalog/shop": {
-      "filePath": "$locale/_catalog/shop.tsx"
+      "filePath": "$locale/_catalog/shop.tsx",
+      "parent": "/$locale"
     },
     "/$locale/products/$slug": {
-      "filePath": "$locale/products/$slug.tsx"
+      "filePath": "$locale/products/$slug.tsx",
+      "parent": "/$locale"
     },
     "/$locale/profile/addresses": {
       "filePath": "$locale/profile/addresses.tsx",
@@ -786,19 +875,24 @@ export const routeTree = rootRoute
       "parent": "/$locale/profile"
     },
     "/$locale/_catalog/brands/$slug": {
-      "filePath": "$locale/_catalog/brands/$slug.tsx"
+      "filePath": "$locale/_catalog/brands/$slug.tsx",
+      "parent": "/$locale"
     },
     "/$locale/_catalog/categories/$slug": {
-      "filePath": "$locale/_catalog/categories/$slug.tsx"
+      "filePath": "$locale/_catalog/categories/$slug.tsx",
+      "parent": "/$locale"
     },
     "/$locale/_catalog/tags/$slug": {
-      "filePath": "$locale/_catalog/tags/$slug.tsx"
+      "filePath": "$locale/_catalog/tags/$slug.tsx",
+      "parent": "/$locale"
     },
     "/$locale/_catalog/brands/": {
-      "filePath": "$locale/_catalog/brands/index.tsx"
+      "filePath": "$locale/_catalog/brands/index.tsx",
+      "parent": "/$locale"
     },
     "/$locale/_catalog/categories/": {
-      "filePath": "$locale/_catalog/categories/index.tsx"
+      "filePath": "$locale/_catalog/categories/index.tsx",
+      "parent": "/$locale"
     },
     "/$locale/profile/orders/": {
       "filePath": "$locale/profile/orders/index.tsx",

@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
 import {
     Form,
     FormControl,
@@ -15,6 +14,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { userStore } from '@/modules/core/stores/userStore';
 import { parseError } from '@/modules/core/utils/parseError';
+import { urls } from '@/modules/core/utils/urls';
+import { loginRoute } from '@/routes/$locale/_auth/login';
 import { Trans, useLingui } from '@lingui/react/macro';
 import { Link, useRouter } from '@tanstack/react-router';
 import { AxiosResponse } from 'axios';
@@ -26,6 +27,7 @@ import PasswordInput from './PasswordInput';
 
 export default function LoginForm() {
     const { t } = useLingui();
+    const search = loginRoute.useSearch() as { redirect?: string };
     const { history } = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
@@ -63,7 +65,11 @@ export default function LoginForm() {
             role: 'customer',
         });
 
-        history.go(-1);
+        if (search.redirect) {
+            history.push(search.redirect);
+        } else {
+            history.go(-1);
+        }
 
         toast.success(t`Logged in successfully`);
     }
@@ -108,7 +114,7 @@ export default function LoginForm() {
                     )}
                 />
                 <div className='flex items-center justify-between'>
-                    <FormField
+                    {/* <FormField
                         control={form.control}
                         name='rememberMe'
                         render={({ field }) => (
@@ -124,9 +130,9 @@ export default function LoginForm() {
                                 </FormLabel>
                             </FormItem>
                         )}
-                    />
+                    /> */}
                     <Link
-                        to='/forget-password'
+                        to={urls.auth.forgetPassword}
                         className='text-sm font-medium text-primary hover:underline'
                     >
                         <Trans>Forgot password?</Trans>

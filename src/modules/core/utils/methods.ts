@@ -122,8 +122,6 @@ export function getPageMetaData(pageUrl: string) {
 
     const record = pageMetas?.find((meta) => meta.page_url === pageUrl);
 
-    console.log(record);
-
     if (!record) return {};
 
     let meta: any[] = [];

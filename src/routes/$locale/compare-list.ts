@@ -2,6 +2,7 @@ import CompareListPage from '@/modules/compare-list/pages/CompareListPage';
 import CompareListSkeletonPage from '@/modules/compare-list/pages/CompareListSkeletonPage';
 import { compareApi } from '@/modules/compare-list/utils/compare-api';
 import { getPageMetaData } from '@/modules/core/utils/methods';
+import { requireCustomer } from '@/modules/core/utils/middlewares';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/$locale/compare-list')({
@@ -14,4 +15,6 @@ export const Route = createFileRoute('/$locale/compare-list')({
     loader: compareApi.load,
 
     pendingComponent: CompareListSkeletonPage,
+
+    beforeLoad: async ({ location }) => requireCustomer(location),
 });

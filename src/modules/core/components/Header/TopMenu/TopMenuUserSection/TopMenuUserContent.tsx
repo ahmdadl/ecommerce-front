@@ -7,6 +7,7 @@ import Link from '../../../LocalizedLink';
 import TopMenuUserDropMenu from './TopMenuUserDropMenu';
 
 export default function TopMenuUserContent() {
+    const role = useUserStore.use.role();
     const isCustomer = useUserStore.use.isCustomer();
 
     return (
