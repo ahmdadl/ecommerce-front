@@ -17,12 +17,12 @@ export function requireCustomer(location: any) {
 }
 
 export function requireGuest(location: any) {
-    const { isGuest } = userStore.getState();
+    const { isCustomer } = userStore.getState();
 
-    // Check if user is not authenticated (e.g., isGuest)
-    if (!isGuest()) {
+    // Check if user is authenticated (e.g., isCustomer) not guest
+    if (isCustomer()) {
         throw redirect({
-            to: urls.auth.register,
+            to: urls.home,
             search: {
                 redirect: location.href,
             },
