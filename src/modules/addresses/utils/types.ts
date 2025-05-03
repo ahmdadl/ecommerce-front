@@ -19,6 +19,7 @@ export type AddressEntity = {
     last_name: string;
     title: string;
     address: string;
+    email: string;
     phone: string;
     government: GovernmentEntity;
     city: CityEntity;

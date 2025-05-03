@@ -15,14 +15,6 @@ export default function CheckoutPaymentMethods() {
         setSelectedPayment(useCartStore.getState().selectedPaymentMethod || '');
     }, []);
 
-    function selectPaymentMethod(code: string) {
-        if (selectedPayment === code) return;
-
-        useCartStore.setState({ selectedPaymentMethod: code });
-
-        setSelectedPayment(code);
-    }
-
     if (!paymentMethods) return null;
 
     return (

@@ -2,38 +2,37 @@ import { Button } from '@/components/ui/button';
 import { cartStore } from '@/modules/cart/stores/cart-store';
 import { cartApi } from '@/modules/cart/utils/cart-api';
 import { CartResponse } from '@/modules/cart/utils/types';
-import useLocaleStore from '@/modules/core/stores/localeStore';
 import loadingToast from '@/modules/core/utils/methods';
-import { urls } from '@/modules/core/utils/urls';
 import { Trans, useLingui } from '@lingui/react/macro';
-import { useNavigate } from '@tanstack/react-router';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { validateCartEntries } from '../utils/method';
+import { paymentStatusModalStore } from '../../stores/payment-status-modal-store';
+import { validateCartEntries } from '../../utils/method';
 
-export default function CheckoutPlaceOrderButton() {
+export default function GuestCheckoutPlaceOrderButton() {
     const { t } = useLingui();
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
-    async function createOrder() {
-        if (loading) return;
+    async function placeOrder() {
+        if (isLoading) return;
 
         const cartState = cartStore.getState();
         const { selectedAddress, selectedPaymentMethod, receipt } = cartState;
+
+        console.log(cartState);
 
         // validate cart entries
         const isValid = await validateCartEntries(cartState);
 
         if (!isValid) return;
 
-        setLoading(true);
+        setIsLoading(true);
 
         loadingToast(
             async () => {
-                const response = await cartApi.placeOrder({
-                    address: selectedAddress?.id,
+                const response = await cartApi.placeGuestOrder({
+                    address: selectedAddress,
                     payment_method: selectedPaymentMethod,
                     receipt,
                 });
@@ -49,17 +48,17 @@ export default function CheckoutPlaceOrderButton() {
                 if (response.record) {
                     toast.success(t`Order placed successfully`);
 
-                    navigate({
-                        to:
-                            `/${useLocaleStore.getState().locale}/` +
-                            urls.profile.orders.view(response.record),
-                    });
-
                     cartStore.setState({
                         cart: {} as CartResponse['cart'],
                         selectedAddress: null,
                         selectedPaymentMethod: null,
                         receipt: null,
+                    });
+
+                    paymentStatusModalStore.setState({
+                        isOpened: true,
+                        type: 'success',
+                        description: '',
                     });
                 }
 
@@ -67,21 +66,23 @@ export default function CheckoutPlaceOrderButton() {
             },
             {
                 onFinally: () => {
-                    setLoading(false);
+                    setIsLoading(false);
                 },
             }
         );
     }
 
     return (
-        <Button
-            className='w-full'
-            size='lg'
-            onClick={createOrder}
-            disabled={loading}
-        >
-            {loading && <Loader2 className='h-4 w-4 animate-spin' />}
-            <Trans>Place Order</Trans>
-        </Button>
+        <>
+            <Button
+                type='button'
+                disabled={isLoading}
+                className='w-full'
+                onClick={placeOrder}
+            >
+                {isLoading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+                <Trans>Place Order</Trans>
+            </Button>
+        </>
     );
 }

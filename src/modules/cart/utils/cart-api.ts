@@ -188,4 +188,16 @@ export const cartApi = {
 
         return response.data;
     },
+
+    placeGuestOrder: async (values: any) => {
+        const response = (await http
+            .post('/orders/guests', values)
+            .catch((err) =>
+                parseError(err, undefined, true)
+            )) as SuccessResponse<PlaceOrderResponse>;
+
+        if (typeof response !== 'object' || !response?.data) return;
+
+        return response.data;
+    },
 };

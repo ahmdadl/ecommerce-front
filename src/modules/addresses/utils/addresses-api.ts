@@ -37,4 +37,6 @@ export const addressApi = {
 
         citiesStore.getState().addCities(governmentId, response.data.records);
     },
+
+    validate: async (data: any) => http.post('/addresses/validate', data),
 };

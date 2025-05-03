@@ -9,11 +9,13 @@ import { Separator } from '@/components/ui/separator';
 import CartCouponSection from '@/modules/cart/components/CartCouponSection';
 import { useCartStore } from '@/modules/cart/stores/cart-store';
 import Image from '@/modules/core/components/Image';
+import { userStore } from '@/modules/core/stores/userStore';
 import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import CheckoutPlaceOrderButton from './CheckoutPlaceOrderButton';
 
 export default function CheckoutOrderSummary() {
+    const { isCustomer } = userStore.getState();
     const { items, totals } = useCartStore.use.cart();
 
     return (
@@ -64,26 +66,26 @@ export default function CheckoutOrderSummary() {
                             <p className='text-muted-foreground'>
                                 <Trans>Subtotal</Trans>
                             </p>
-                            <p>{parsePrice(totals.subtotal)}</p>
+                            <p>{parsePrice(totals?.subtotal)}</p>
                         </div>
-                        {totals.discount > 0 && (
+                        {totals?.discount > 0 && (
                             <div className='flex items-center justify-between text-sm'>
                                 <span className='text-muted-foreground'>
                                     <Trans>Discount</Trans>
                                 </span>
                                 <span className='text-green-600'>
-                                    -{parsePrice(totals.discount)}
+                                    -{parsePrice(totals?.discount)}
                                 </span>
                             </div>
                         )}
 
-                        {totals.coupon > 0 && (
+                        {totals?.coupon > 0 && (
                             <div className='flex items-center justify-between text-sm'>
                                 <span className='text-muted-foreground'>
                                     <Trans>Coupon</Trans>
                                 </span>
                                 <span className='text-green-600'>
-                                    -{parsePrice(totals.coupon)}
+                                    -{parsePrice(totals?.coupon)}
                                 </span>
                             </div>
                         )}
@@ -91,8 +93,8 @@ export default function CheckoutOrderSummary() {
                             <span className='text-muted-foreground'>
                                 <Trans>Shipping</Trans>
                             </span>
-                            {totals.shipping > 0 ? (
-                                <span>{parsePrice(totals.shipping)}</span>
+                            {totals?.shipping > 0 ? (
+                                <span>{parsePrice(totals?.shipping)}</span>
                             ) : (
                                 <span className='text-green-600'>
                                     <Trans>Free</Trans>
@@ -103,14 +105,14 @@ export default function CheckoutOrderSummary() {
                             <p className='text-muted-foreground'>
                                 <Trans>Tax</Trans>
                             </p>
-                            <p>{parsePrice(totals.taxes)}</p>
+                            <p>{parsePrice(totals?.taxes)}</p>
                         </div>
                         <Separator />
                         <div className='flex justify-between font-medium text-lg'>
                             <p>
                                 <Trans>Total</Trans>
                             </p>
-                            <p>{parsePrice(totals.total)}</p>
+                            <p>{parsePrice(totals?.total)}</p>
                         </div>
                     </div>
 
@@ -119,7 +121,7 @@ export default function CheckoutOrderSummary() {
                     </div>
                 </CardContent>
                 <CardFooter>
-                    <CheckoutPlaceOrderButton />
+                    {isCustomer() && <CheckoutPlaceOrderButton />}
                 </CardFooter>
             </Card>
         </div>
