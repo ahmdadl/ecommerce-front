@@ -18,7 +18,11 @@ interface ErrorResponse {
  * @param form Form instance to set errors on
  * @returns Error message string
  */
-export function parseError(error: unknown, form?: UseFormReturn<any>): string {
+export function parseError(
+    error: unknown,
+    form?: UseFormReturn<any>,
+    toastFormErrors: boolean = false
+): string {
     if (!axios.isAxiosError(error)) {
         const message = i18n._('An unexpected error occurred');
         toast.error(message, {
@@ -50,6 +54,14 @@ export function parseError(error: unknown, form?: UseFormReturn<any>): string {
                     message: messages[0],
                 });
             });
+        }
+
+        if (toastFormErrors) {
+            let message = '';
+            Object.entries(data.errors).forEach(([field, messages]) => {
+                message += `${field}: ${messages[0]}\n`;
+            });
+            toast.error(message);
         }
         return data.message || i18n._('Validation failed');
     }

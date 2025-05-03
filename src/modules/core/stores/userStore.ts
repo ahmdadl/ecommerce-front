@@ -1,3 +1,4 @@
+import { UserTotalsEntity } from '@/modules/cart/utils/types';
 import { UserGender } from '@/modules/profile/utils/types';
 import { create } from 'zustand';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
@@ -12,13 +13,7 @@ interface UserStoreState {
     role: string;
     access_token: string;
     gender?: UserGender;
-    totals: {
-        cartItems: number;
-        compareItems: number;
-        orders: number;
-        totalPurchased: number;
-        wishlistItems: number;
-    };
+    totals: UserTotalsEntity;
     isLoaded: boolean;
 
     isGuest: () => boolean;

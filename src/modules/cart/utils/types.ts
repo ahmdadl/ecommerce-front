@@ -1,4 +1,5 @@
 import { OrderEntity } from '@/modules/orders/utils/types';
+import { UserGender } from '@/modules/profile/utils/types';
 import { AddressEntity } from '../../addresses/utils/types';
 import { ProductEntity } from '../../shop/utils/types';
 
@@ -24,6 +25,12 @@ export type UserTotalsEntity = {
 
 export type UserEntity = {
     id: string;
+    name: string;
+    email: string;
+    phone: string;
+    role: string;
+    access_token: string;
+    gender?: UserGender;
     totals: UserTotalsEntity;
 };
 
