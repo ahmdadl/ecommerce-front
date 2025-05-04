@@ -7,7 +7,7 @@ import TopMenuWishlistButton from './TopMenuWishlistButton';
 
 export default function TopMenuActions() {
     return (
-        <div className='hidden md:flex items-center space-x-4 rtl:space-x-reverse'>
+        <div className='hidden md:flex items-center space-x-4'>
             {/* Search Icon - Mobile */}
             <Button
                 variant='outline'

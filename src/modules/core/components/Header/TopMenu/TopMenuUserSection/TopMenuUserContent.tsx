@@ -15,7 +15,7 @@ export default function TopMenuUserContent() {
             {isCustomer() ? (
                 <TopMenuUserDropMenu />
             ) : (
-                <div className='flex items-center space-x-2 rtl:space-x-reverse'>
+                <div className='flex items-center space-x-2'>
                     <Button variant='outline' size='sm' asChild>
                         <Link to={urls.auth.login}>
                             <Trans>Login</Trans>

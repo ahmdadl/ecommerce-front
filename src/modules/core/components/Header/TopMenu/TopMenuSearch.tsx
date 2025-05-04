@@ -1,8 +1,11 @@
 import { Input } from '@/components/ui/input';
 import useNavbarStore from '@/modules/core/stores/navbar-store';
+import { useLingui } from '@lingui/react/macro';
 import { Search } from 'lucide-react';
 
 export default function TopMenuSearch() {
+    const { t } = useLingui();
+
     return (
         <div
             className='hidden xl:flex flex-1 max-w-md mx-4 cursor-pointer'
@@ -11,7 +14,7 @@ export default function TopMenuSearch() {
             <div className='relative w-full'>
                 <Input
                     type='search'
-                    placeholder='Search...'
+                    placeholder={t`Search ...`}
                     className='w-full'
                     readOnly
                 />

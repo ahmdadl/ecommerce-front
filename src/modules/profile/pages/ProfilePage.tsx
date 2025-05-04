@@ -113,6 +113,7 @@ export default function ProfilePage() {
                                     <FormControl>
                                         <Input
                                             placeholder={`email@example.com`}
+                                            dir='ltr'
                                             {...field}
                                             disabled={isLoading}
                                         />
@@ -138,6 +139,7 @@ export default function ProfilePage() {
                                             }
                                             {...field}
                                             disabled={isLoading}
+                                            dir='ltr'
                                         />
                                     </FormControl>
                                     <FormMessage />

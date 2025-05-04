@@ -594,7 +594,7 @@ msgstr "راسلنا على:"
 
 #: src/modules/core/components/Header/TopMenu/TopMenuLangSwitch.tsx:35
 msgid "enLocale"
-msgstr "الإنجليزية"
+msgstr "English"
 
 #: src/modules/auth/pages/ResetPasswordPage.tsx:22
 msgid "Enter the otp you received and your new password"
@@ -800,7 +800,7 @@ msgstr "كمية محدودة - بقي {0} فقط"
 
 #: src/modules/core/components/Footer/Footer.tsx:290
 msgid "Made with <0>❤️</0> by <1>Ahmed Adel</1>"
-msgstr "مصنوع بـ <0>❤️</0> بواسطة <1>أحمد عادل</1>"
+msgstr "Made with <0>❤️</0> by <1>Ahmed Adel</1>"
 
 #: src/modules/profile/pages/ProfilePage.tsx:168
 msgid "Male"
@@ -1490,7 +1490,7 @@ msgstr "مكان تسليم طلبك"
 #: src/modules/profile/utils/flags.tsx:71
 #: src/modules/core/components/Header/TopMenu/TopMenuActions/TopMenuWishlistButton.tsx:27
 msgid "Wishlist"
-msgstr "قائمة الرغبات"
+msgstr "قائمة المفضل"
 
 #: src/modules/compare-list/components/CompareListRenderAttribute.tsx:78
 msgid "Yes"
@@ -1519,12 +1519,12 @@ msgstr "طلبك في الطريق إليك"
 
 #: src/modules/core/components/LayoutShared/WishlistSideMenu/WishlistSideMenu.tsx:38
 msgid "Your Wishlist"
-msgstr "قائمة رغباتك"
+msgstr "قائمة مفضلاتك"
 
 #: src/modules/wishlist/components/WishlistItemGrid.tsx:14
 #: src/modules/core/components/LayoutShared/WishlistSideMenu/WishlistSideMenuContent.tsx:20
 msgid "Your wishlist is empty"
-msgstr "قائمة رغباتك فارغة"
+msgstr "قائمة مفضلاتك فارغة"
 
 #: src/modules/core/components/Footer/Footer.tsx:111
 msgid "YouTube"

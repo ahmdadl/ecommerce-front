@@ -4,7 +4,7 @@ import { Trans } from '@lingui/react/macro';
 
 export default function TopMenuLinks() {
     return (
-        <nav className='hidden md:flex space-x-4 rtl:space-x-reverse'>
+        <nav className='hidden md:flex space-x-4'>
             <Link to={urls.shop} className='px-3 py-2 hover:text-primary'>
                 <Trans>Shop</Trans>
             </Link>

@@ -78,12 +78,12 @@ export default function CartItemQuantity({
     }
 
     return (
-        <div className='flex items-center'>
+        <div className='flex items-center' dir='ltr'>
             {quantity > min ? (
                 <Button
                     variant='outline'
                     size='icon'
-                    className='h-8 w-8 rounded-r-none'
+                    className='h-8 w-8 rounded-e-none'
                     onClick={decrement}
                     disabled={disabled}
                     aria-label='Decrease quantity'
@@ -98,7 +98,7 @@ export default function CartItemQuantity({
                 <Button
                     variant='outline'
                     size='icon'
-                    className='h-8 w-8 rounded-r-none'
+                    className='h-8 w-8 rounded-e-none'
                     onClick={handleRemove}
                     disabled={disabled}
                     aria-label='Remove item'
@@ -124,7 +124,7 @@ export default function CartItemQuantity({
             <Button
                 variant='outline'
                 size='icon'
-                className='h-8 w-8 rounded-l-none'
+                className='h-8 w-8 rounded-s-none'
                 onClick={increment}
                 disabled={disabled || quantity >= max}
                 aria-label='Increase quantity'

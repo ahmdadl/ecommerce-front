@@ -146,6 +146,7 @@ export default function RegisterForm() {
                             <FormControl>
                                 <Input
                                     placeholder={`email@example.com`}
+                                    dir='ltr'
                                     {...field}
                                     disabled={isLoading}
                                 />
@@ -167,6 +168,7 @@ export default function RegisterForm() {
                                     placeholder={'(010-011-012)000000000'}
                                     {...field}
                                     disabled={isLoading}
+                                    dir='ltr'
                                 />
                             </FormControl>
                             <FormMessage />
@@ -185,6 +187,7 @@ export default function RegisterForm() {
                                 <PasswordInput
                                     {...field}
                                     disabled={isLoading}
+                                    dir='ltr'
                                 />
                             </FormControl>
                             <FormMessage />
@@ -203,6 +206,7 @@ export default function RegisterForm() {
                                 <PasswordInput
                                     {...field}
                                     disabled={isLoading}
+                                    dir='ltr'
                                 />
                             </FormControl>
                             <FormMessage />

@@ -33,7 +33,7 @@ export default function OrderDetailsPage() {
             <div className='mb-6 flex flex-col items-start sm:flex-row sm:items-center gap-4'>
                 <Link to={urls.profile.orders.index}>
                     <Button variant='outline' size='icon'>
-                        <ArrowLeft className='h-4 w-4' />
+                        <ArrowLeft className='h-4 w-4 rtl:rotate-180' />
                         <span className='sr-only'>
                             <Trans>Back to orders</Trans>
                         </span>
@@ -44,7 +44,9 @@ export default function OrderDetailsPage() {
                         <Trans>Order #{order.id}</Trans>
                     </h1>
                     <p className='text-sm sm:text-base text-muted-foreground'>
-                        <Trans>Placed on {formattedDate}</Trans>
+                        <Trans>
+                            Placed on <span dir='ltr'>{formattedDate}</span>
+                        </Trans>
                     </p>
                 </div>
             </div>
@@ -76,7 +78,7 @@ export default function OrderDetailsPage() {
                                     </p>
                                     <div className='flex items-center gap-2'>
                                         <Calendar className='h-4 w-4 text-muted-foreground' />
-                                        <span className='text-sm'>
+                                        <span className='text-sm' dir='ltr'>
                                             {formattedDate}
                                         </span>
                                     </div>

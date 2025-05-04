@@ -18,7 +18,7 @@ export default function TopMenuCartButton() {
             <div className='relative'>
                 <ShoppingCart className='h-5 w-5' />
                 {cartCount > 0 && (
-                    <span className='absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs rounded-full h-4 w-4 flex items-center justify-center'>
+                    <span className='absolute -top-2 ltr:-right-2 rtl:-left-2 bg-primary text-primary-foreground text-xs rounded-full h-4 w-4 flex items-center justify-center'>
                         {cartCount}
                     </span>
                 )}

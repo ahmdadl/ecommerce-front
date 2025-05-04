@@ -42,7 +42,7 @@ export default function CartPage() {
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
                     <div className='lg:col-span-2'>
                         <div className='flex items-center justify-end'>
-                            <div className='mb-4'>
+                            <div className='mb-4 mt-1 me-2'>
                                 <ClearCartButton />
                             </div>
                         </div>

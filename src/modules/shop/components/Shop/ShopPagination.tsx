@@ -68,7 +68,7 @@ export function ProductPagination() {
                         {isLoading ? (
                             <Loader2 className='animate-spin' />
                         ) : (
-                            <ChevronsLeftIcon />
+                            <ChevronsLeftIcon className='rtl:rotate-180' />
                         )}
                         <span className='hidden sm:block'>
                             <Trans>Previous</Trans>
@@ -139,8 +139,10 @@ export function ProductPagination() {
                     </PaginationItem> */}
 
                     <span className='px-4 text-sm'>
-                        Page {paginationInfo.current_page} of{' '}
-                        {paginationInfo.last_page}
+                        <Trans>
+                            Page {paginationInfo.current_page} of{' '}
+                            {paginationInfo.last_page}
+                        </Trans>
                     </span>
 
                     {/* <PaginationItem>
@@ -199,7 +201,7 @@ export function ProductPagination() {
                         {isLoading ? (
                             <Loader2 className='animate-spin' />
                         ) : (
-                            <ChevronsRightIcon />
+                            <ChevronsRightIcon className='rtl:rotate-180' />
                         )}
                     </PaginationLink>
                 </PaginationItem>

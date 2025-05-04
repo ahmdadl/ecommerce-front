@@ -49,9 +49,9 @@ export default function TopMenuUserDropMenu() {
                             <DropdownMenuItem asChild key={link.url}>
                                 <Link
                                     to={link.url}
-                                    className='flex items-center gap-2 cursor-pointer w-full'
+                                    className='flex items-center gap-2 cursor-pointer w-full rtl:flex-row-reverse'
                                 >
-                                    <User className='h-4 w-4' />
+                                    {link.icon}
                                     {link.label}
                                 </Link>
                             </DropdownMenuItem>

@@ -59,7 +59,7 @@ export default function ShopSortMenu() {
                     <Button
                         variant='outline'
                         size='sm'
-                        className='ml-auto flex'
+                        className='mx-auto flex'
                         disabled={isLoading}
                     >
                         {isLoading ? (
@@ -72,7 +72,7 @@ export default function ShopSortMenu() {
                         </Trans>
                     </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align='end'>
+                <DropdownMenuContent align='start'>
                     {sortOptions.map((o) => (
                         <DropdownMenuItem
                             key={o.value}

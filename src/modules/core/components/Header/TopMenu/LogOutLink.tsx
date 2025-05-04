@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { authApi } from '@/modules/auth/utils/auth-api';
 import loadingToast, { localizeUrl } from '@/modules/core/utils/methods';
 import { urls } from '@/modules/core/utils/urls';
@@ -16,7 +17,11 @@ export default function LogOutLink({ className }: { className?: string }) {
     }
 
     return (
-        <Link to={urls.auth.logout} className={className} onClick={logout}>
+        <Link
+            to={urls.auth.logout}
+            className={cn(className, 'rtl:flex-row-reverse')}
+            onClick={logout}
+        >
             <LogOut className='h-4 w-4' />
             <Trans>Logout</Trans>
         </Link>

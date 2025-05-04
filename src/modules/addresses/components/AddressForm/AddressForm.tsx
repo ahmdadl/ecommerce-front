@@ -140,7 +140,7 @@ export default function AddressForm({
                                     <Trans>Email Address</Trans>
                                 </FormLabel>
                                 <FormControl>
-                                    <Input {...field} required />
+                                    <Input {...field} required dir='ltr' />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -156,7 +156,7 @@ export default function AddressForm({
                                     <Trans>Phone Number</Trans>
                                 </FormLabel>
                                 <FormControl>
-                                    <Input {...field} required />
+                                    <Input {...field} required dir='ltr' />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

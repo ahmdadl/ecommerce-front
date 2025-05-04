@@ -86,6 +86,7 @@ export default function ChangePasswordPage() {
                                     <PasswordInput
                                         {...field}
                                         disabled={isLoading}
+                                        dir='ltr'
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -105,6 +106,7 @@ export default function ChangePasswordPage() {
                                     <PasswordInput
                                         {...field}
                                         disabled={isLoading}
+                                        dir='ltr'
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -123,6 +125,7 @@ export default function ChangePasswordPage() {
                                     <PasswordInput
                                         {...field}
                                         disabled={isLoading}
+                                        dir='ltr'
                                     />
                                 </FormControl>
                                 <FormMessage />

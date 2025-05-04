@@ -50,7 +50,7 @@ export default function WishlistSideMenu() {
                                 asChild
                             >
                                 <Link to={urls.profile.wishlist}>
-                                    View Wishlist
+                                    <Trans>View Wishlist</Trans>
                                 </Link>
                             </Button>
                         </SheetClose>

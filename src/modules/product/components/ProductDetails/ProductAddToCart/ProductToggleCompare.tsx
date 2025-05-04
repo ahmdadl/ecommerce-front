@@ -10,20 +10,28 @@ import {
 } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 import { compareApi } from '@/modules/compare-list/utils/compare-api';
+import { userStore } from '@/modules/core/stores/userStore';
 import loadingToast from '@/modules/core/utils/methods';
 import { productStore } from '@/modules/product/stores/product-store';
 import { ProductEntity } from '@/modules/shop/utils/types';
-import { Trans } from '@lingui/react/macro';
+import { Trans, useLingui } from '@lingui/react/macro';
+import { toast } from 'sonner';
 
 export default function ProductToggleCompare({
     product,
 }: {
     product: ProductEntity;
 }) {
+    const { t } = useLingui();
     const [isLoading, setIsLoading] = useState(false);
 
     function addToCompare() {
         if (isLoading) return;
+
+        if (userStore.getState().isGuest()) {
+            toast.error(t`You must be logged in to compare products`);
+            return;
+        }
 
         setIsLoading(true);
 

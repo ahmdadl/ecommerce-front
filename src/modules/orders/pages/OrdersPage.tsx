@@ -50,7 +50,9 @@ export default function OrdersPage() {
                                         <TableHead className='hidden md:table-cell'>
                                             <Trans>Date</Trans>
                                         </TableHead>
-                                        <TableHead>Status</TableHead>
+                                        <TableHead>
+                                            <Trans>Status</Trans>
+                                        </TableHead>
                                         <TableHead className='hidden md:table-cell'>
                                             <Trans>Payment Status</Trans>
                                         </TableHead>

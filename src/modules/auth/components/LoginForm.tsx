@@ -88,6 +88,7 @@ export default function LoginForm() {
                             <FormControl>
                                 <Input
                                     placeholder={t`name@example.com`}
+                                    dir='ltr'
                                     {...field}
                                 />
                             </FormControl>
@@ -106,6 +107,7 @@ export default function LoginForm() {
                             <FormControl>
                                 <PasswordInput
                                     placeholder={t`Enter your password`}
+                                    dir='ltr'
                                     {...field}
                                 />
                             </FormControl>
