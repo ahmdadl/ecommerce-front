@@ -158,3 +158,7 @@ export function getPageMetaData(pageUrl: string) {
         links,
     };
 }
+
+export function localizeUrl(url: string) {
+    return '/' + getCurrentLocaleKey() + url;
+}

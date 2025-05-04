@@ -1,5 +1,5 @@
 import { authApi } from '@/modules/auth/utils/auth-api';
-import loadingToast from '@/modules/core/utils/methods';
+import loadingToast, { localizeUrl } from '@/modules/core/utils/methods';
 import { urls } from '@/modules/core/utils/urls';
 import { Trans } from '@lingui/react/macro';
 import { useNavigate } from '@tanstack/react-router';
@@ -11,7 +11,7 @@ export default function LogOutLink({ className }: { className?: string }) {
 
     async function logout() {
         loadingToast(authApi.guest.login(), {}).finally(() =>
-            navigate({ to: urls.home })
+            navigate({ to: localizeUrl(urls.home) })
         );
     }
 

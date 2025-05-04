@@ -8,6 +8,7 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { localizeUrl } from '@/modules/core/utils/methods';
 import { parseError } from '@/modules/core/utils/parseError';
 import { urls } from '@/modules/core/utils/urls';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -59,7 +60,7 @@ export default function ForgetPasswordForm() {
 
             useForgetPasswordStore.setState({ email: values.email });
 
-            navigate({ to: urls.auth.resetPassword });
+            navigate({ to: localizeUrl(urls.auth.resetPassword) });
         }
     }
 

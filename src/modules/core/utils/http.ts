@@ -1,5 +1,6 @@
 import { cartStore } from '@/modules/cart/stores/cart-store';
 import { wishlistStore } from '@/modules/wishlist/stores/wishlist-store';
+import { notFound } from '@tanstack/react-router';
 import axios, {
     AxiosError,
     AxiosResponse,
@@ -81,6 +82,8 @@ http.interceptors.response.use(
             userStore.getState().logout();
             window.location.href =
                 '/' + useLocaleStore.getState().locale + '/login';
+        } else if (error.response?.status === 404) {
+            throw notFound();
         }
 
         return Promise.reject(error);

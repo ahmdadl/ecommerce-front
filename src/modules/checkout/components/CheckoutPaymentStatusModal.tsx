@@ -1,5 +1,5 @@
 import { PaymentStatusModal } from '@/components/ui/payment-status-modal';
-import { getCurrentLocaleKey } from '@/modules/core/utils/methods';
+import { localizeUrl } from '@/modules/core/utils/methods';
 import { urls } from '@/modules/core/utils/urls';
 import { useLingui } from '@lingui/react/macro';
 import { useNavigate } from '@tanstack/react-router';
@@ -41,7 +41,7 @@ export default function CheckoutPaymentStatusModal() {
 
         if (type === 'success') {
             navigate({
-                to: '/' + getCurrentLocaleKey() + urls.shop,
+                to: localizeUrl(urls.shop),
             });
         }
     }

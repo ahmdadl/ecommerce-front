@@ -14,6 +14,7 @@ import {
     InputOTPSlot,
 } from '@/components/ui/input-otp';
 import useUserStore from '@/modules/core/stores/userStore';
+import { localizeUrl } from '@/modules/core/utils/methods';
 import { parseError } from '@/modules/core/utils/parseError';
 import { urls } from '@/modules/core/utils/urls';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -86,7 +87,7 @@ export default function ResetPasswordForm() {
             role: 'customer',
         });
 
-        navigate({ to: urls.home });
+        navigate({ to: localizeUrl(urls.home) });
     }
 
     return (

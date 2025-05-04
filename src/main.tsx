@@ -10,7 +10,10 @@ import ReactDOM from 'react-dom/client';
 import { messages as arMessages } from './locales/ar/messages.po';
 import { messages as enMessages } from './locales/en/messages.po';
 import './main.css';
+import BaseLoadingPage from './modules/core/components/BaseLoadingPage';
 import useLocaleStore from './modules/core/stores/localeStore';
+import Error404Page from './modules/errors/pages/Error404Page';
+import ErrorGenericPage from './modules/errors/pages/ErrorGenericPage';
 import { routeTree } from './routeTree.gen';
 
 const withoutLocaleToLocalizedMask = createRouteMask({
@@ -27,6 +30,10 @@ const router = createRouter({
     scrollRestoration: true,
     routeMasks: [withoutLocaleToLocalizedMask],
     defaultHashScrollIntoView: true,
+    defaultErrorComponent: ErrorGenericPage,
+    defaultNotFoundComponent: Error404Page,
+    notFoundMode: 'root',
+    defaultPendingComponent: BaseLoadingPage,
 });
 declare module '@tanstack/react-router' {
     interface Register {

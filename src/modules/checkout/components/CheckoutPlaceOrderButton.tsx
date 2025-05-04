@@ -2,8 +2,7 @@ import { Button } from '@/components/ui/button';
 import { cartStore } from '@/modules/cart/stores/cart-store';
 import { cartApi } from '@/modules/cart/utils/cart-api';
 import { CartResponse } from '@/modules/cart/utils/types';
-import useLocaleStore from '@/modules/core/stores/localeStore';
-import loadingToast from '@/modules/core/utils/methods';
+import loadingToast, { localizeUrl } from '@/modules/core/utils/methods';
 import { urls } from '@/modules/core/utils/urls';
 import { Trans, useLingui } from '@lingui/react/macro';
 import { useNavigate } from '@tanstack/react-router';
@@ -50,9 +49,9 @@ export default function CheckoutPlaceOrderButton() {
                     toast.success(t`Order placed successfully`);
 
                     navigate({
-                        to:
-                            `/${useLocaleStore.getState().locale}/` +
-                            urls.profile.orders.view(response.record),
+                        to: localizeUrl(
+                            urls.profile.orders.view(response.record)
+                        ),
                     });
 
                     cartStore.setState({
