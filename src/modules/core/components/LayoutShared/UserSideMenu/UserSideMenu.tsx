@@ -19,7 +19,7 @@ import UserSideMenuContent from './UserSideMenuContent';
 export default function UserSideMenu() {
     const isOpened = useNavbarStore.use.isUserMenuOpened();
     const isRtl = useLocaleStore.getState().isRtl;
-    const role = useUserStore.use.role();
+    useUserStore.use.role();
     const isCustomer = useUserStore.use.isCustomer();
 
     return (

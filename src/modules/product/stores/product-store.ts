@@ -6,7 +6,7 @@ type ProductStoreState = {
     record: ProductEntity;
 };
 
-export const productStore = create<ProductStoreState>((set, get) => ({
+export const productStore = create<ProductStoreState>(() => ({
     record: {} as ProductEntity,
 }));
 

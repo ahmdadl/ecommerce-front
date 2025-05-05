@@ -8,7 +8,7 @@ type HomeState = {
     bestSellers: ProductEntity[];
 };
 
-export const homeStore = create<HomeState>((set, get) => ({
+export const homeStore = create<HomeState>(() => ({
     banners: [] as BannerEntity[],
     bestSellers: [] as ProductEntity[],
 }));

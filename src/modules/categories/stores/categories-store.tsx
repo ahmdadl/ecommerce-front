@@ -6,7 +6,7 @@ type CategoriesStoreState = {
     records: CategoryEntity[];
 };
 
-export const categoriesStore = create<CategoriesStoreState>((set) => ({
+export const categoriesStore = create<CategoriesStoreState>(() => ({
     records: [],
 }));
 

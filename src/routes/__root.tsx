@@ -1,11 +1,11 @@
-import { BottomMenu } from '@/modules/core/components/BottomMenu/BottomMenu';
-import { Footer } from '@/modules/core/components/Footer/Footer';
-import { Header } from '@/modules/core/components/Header/Header';
+import BottomMenu from '@/modules/core/components/BottomMenu/BottomMenu';
+import Footer from '@/modules/core/components/Footer/Footer';
+import Header from '@/modules/core/components/Header/Header';
 import LayoutShared from '@/modules/core/components/LayoutShared/LayoutShared';
 import { createRootRoute, HeadContent, Outlet } from '@tanstack/react-router';
 
 export const Route = createRootRoute({
-    head(ctx) {
+    head() {
         return {
             meta: [
                 {
@@ -16,13 +16,13 @@ export const Route = createRootRoute({
                     content: 'width=device-width, initial-scale=1',
                 },
                 {
-                    title: 'TanStack Start Starter',
+                    title: 'Supps Store',
                 },
             ],
             links: [
                 {
                     rel: 'icon',
-                    href: '/vite.svg',
+                    href: '/meta/favicon-96x96.png',
                 },
                 {
                     rel: 'canonical',

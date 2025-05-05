@@ -5,25 +5,9 @@ import { parseError } from '@/modules/core/utils/parseError';
 import { wishlistStore } from '@/modules/wishlist/stores/wishlist-store';
 import { AxiosResponse } from 'axios';
 
-interface User {
-    id: string;
-    email: string;
-    name: string;
-}
-
 interface LoginCredentials {
     email: string;
     password: string;
-}
-
-interface RegisterData {
-    email: string;
-    phone: string;
-    password: string;
-    password_confirmation: string;
-    terms: boolean;
-    firstName: string;
-    lastName: string;
 }
 
 // API endpoints
@@ -45,7 +29,7 @@ export const authApi = {
             return response.data;
         },
 
-        register: (userData: RegisterData) => http.post('/register', userData),
+        register: (userData: any) => http.post('/register', userData),
 
         forgetPassword: (email: string) =>
             http.post('/forget-password', { email }),

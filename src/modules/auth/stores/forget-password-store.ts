@@ -5,7 +5,7 @@ interface ForgetPasswordState {
     email: string;
 }
 
-const forgetPasswordStore = create<ForgetPasswordState>((set, get) => ({
+const forgetPasswordStore = create<ForgetPasswordState>(() => ({
     email: '',
 }));
 

@@ -6,7 +6,7 @@ type privacyPolicyState = {
     records: PrivacyPolicyEntity[];
 };
 
-export const privacyPolicyStore = create<privacyPolicyState>((set, get) => ({
+export const privacyPolicyStore = create<privacyPolicyState>(() => ({
     records: [],
 }));
 

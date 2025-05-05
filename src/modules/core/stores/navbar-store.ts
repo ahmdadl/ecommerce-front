@@ -9,7 +9,7 @@ interface NavbarState {
     isCategoriesOpened: boolean;
 }
 
-const NavbarStore = create<NavbarState>((set, get) => ({
+const NavbarStore = create<NavbarState>(() => ({
     isSearchOpened: false,
     isCartOpened: false,
     isWishlistOpened: false,

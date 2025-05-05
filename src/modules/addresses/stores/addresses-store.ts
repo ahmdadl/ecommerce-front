@@ -20,7 +20,7 @@ type AddressesState = {
     closeDeleteModal: () => void;
 };
 
-export const addressesStore = create<AddressesState>((set, get) => ({
+export const addressesStore = create<AddressesState>((set) => ({
     list: [],
     currentAddress: undefined,
     createModalIsOpen: false,

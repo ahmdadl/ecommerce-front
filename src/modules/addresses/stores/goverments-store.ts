@@ -10,7 +10,8 @@ type GovernmentsState = {
 export const governmentsStore = create<GovernmentsState>()(
     devtools(
         persist(
-            (set, get) => ({
+            // @ts-ignore
+            (set) => ({
                 records: [],
             }),
             {

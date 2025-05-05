@@ -6,7 +6,7 @@ type FaqsState = {
     faqCategories: FaqCategoryEntity[];
 };
 
-export const faqsStore = create<FaqsState>((set, get) => ({
+export const faqsStore = create<FaqsState>(() => ({
     faqCategories: [],
 }));
 

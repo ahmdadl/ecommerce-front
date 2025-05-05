@@ -13,6 +13,7 @@ export function ActiveFilters({ route }: any) {
         selectedCategories,
         selectedBrands,
         currentPriceRange,
+        // @ts-ignore
         currentPage,
         toggleCategory,
         toggleBrand,
@@ -22,7 +23,6 @@ export function ActiveFilters({ route }: any) {
         toggleTag,
     } = filtersStore();
 
-    const isMounted = useRef(false);
     const prevParams = useRef(searchParams); // Track previous searchParams
 
     // Sync store with URL params on mount or when searchParams change

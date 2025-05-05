@@ -114,7 +114,7 @@ export function BaseErrorPage({
     const config = errorConfig[type] as (typeof errorConfig)['generic'];
     const title = customTitle || config.title;
     const description = customDescription || config.description;
-    const Icon = config.icon;
+    // const Icon = config.icon;
 
     return (
         <div className=' flex flex-col items-center justify-center px-6 pt-6 pb-16 mx-auto sm:pt-8 sm:pb-24 2xl:max-w-4xl'>

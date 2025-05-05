@@ -15,7 +15,8 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import { useAddressesStore } from '../stores/addresses-store';
 import { addressApi } from '../utils/addresses-api';
-import AddressForm, { AddressFormData } from './AddressForm';
+import AddressForm from './AddressForm';
+import { AddressFormData } from './AddressForm/AddressForm';
 
 export default function EditAddressModal() {
     const { t } = useLingui();

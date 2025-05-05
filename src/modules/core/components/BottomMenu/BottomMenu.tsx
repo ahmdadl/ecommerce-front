@@ -5,7 +5,7 @@ import { Home, LayoutGrid, Search, ShoppingCart, User } from 'lucide-react';
 import useNavbarStore from '../../stores/navbar-store';
 import { urls } from '../../utils/urls';
 
-export function BottomMenu() {
+export default function BottomMenu() {
     const isLoggedIn = true;
 
     return (

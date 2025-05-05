@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/sheet';
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import useNavbarStore from '@/modules/core/stores/navbar-store';
-import { cachedData } from '@/modules/core/utils/cached-data';
 import { Trans } from '@lingui/react/macro';
 import { X } from 'lucide-react';
 import CategoriesSideMenuContent from './CategoriesSideMenuContent';
@@ -19,7 +18,6 @@ import CategoriesSideMenuContent from './CategoriesSideMenuContent';
 export default function CategoriesSideMenu() {
     const isOpened = useNavbarStore.use.isCategoriesOpened();
     const isRtl = useLocaleStore.getState().isRtl;
-    const categories = cachedData.categories;
 
     return (
         <Sheet

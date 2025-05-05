@@ -14,7 +14,7 @@ interface LocaleStoreState {
 export const localeStore = create<LocaleStoreState>()(
     devtools(
         persist(
-            (set, get) => ({
+            (_, get) => ({
                 locale: 'en',
                 localeKey: () => get().locale as LocalizedEntityIndex,
 

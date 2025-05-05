@@ -1,1 +1,1 @@
-export { default } from "./Shared";
+export { default } from './LayoutShared';

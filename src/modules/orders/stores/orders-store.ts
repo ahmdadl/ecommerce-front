@@ -9,7 +9,7 @@ type OrdersState = {
     paginationInfo: PaginationInfoEntity;
 };
 
-export const ordersStore = create<OrdersState>((set, get) => ({
+export const ordersStore = create<OrdersState>(() => ({
     list: [],
     currentOrder: null,
     paginationInfo: {} as PaginationInfoEntity,

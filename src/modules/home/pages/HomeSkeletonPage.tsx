@@ -18,7 +18,7 @@ export default function HomeSkeletonPage() {
                         <Trans>Shop by Category</Trans>
                     </h2>
                     <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4'>
-                        {Array.from({ length: 5 }).map((c, cInd) => (
+                        {Array.from({ length: 5 }).map((_, cInd) => (
                             <Card
                                 className='overflow-hidden h-full transition-all hover:shadow-md block hover:scale-110 duration-300 shadow-lg'
                                 key={cInd}
@@ -68,7 +68,7 @@ export default function HomeSkeletonPage() {
                             msOverflowStyle: 'none',
                         }}
                     >
-                        {Array.from({ length: 7 }).map((b, bInd) => (
+                        {Array.from({ length: 7 }).map((_, bInd) => (
                             <Card
                                 key={bInd}
                                 className='min-w-1/5 snap-start hover:shadow-md shadow-lg hover:scale-110 duration-300 transition-all'

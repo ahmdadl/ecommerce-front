@@ -5,8 +5,8 @@ import HeaderCategoriesBar from './HeaderCategoriesBar';
 import { TopHeader } from './TopHeader';
 import TopMenu from './TopMenu';
 
-export function Header() {
-    const [scrollDirection, setScrollDirection] = useState('up');
+export default function Header() {
+    // const [scrollDirection, setScrollDirection] = useState('up');
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isAtTop, setIsAtTop] = useState(true);
     const isMobile = useIsMobile();
@@ -28,7 +28,7 @@ export function Header() {
                 // Determine if we're at the top of the page
                 if (currentScrollY <= 0) {
                     setIsAtTop(true);
-                    setScrollDirection('up');
+                    // setScrollDirection('up');
                     timeoutId = null;
                     return;
                 } else {
@@ -37,9 +37,9 @@ export function Header() {
 
                 // Determine scroll direction
                 if (currentScrollY > lastScrollY && currentScrollY > 0) {
-                    setScrollDirection('down');
+                    // setScrollDirection('down');
                 } else if (currentScrollY < lastScrollY) {
-                    setScrollDirection('up');
+                    // setScrollDirection('up');
                 }
 
                 setLastScrollY(currentScrollY);

@@ -6,11 +6,9 @@ export type TermsAndConditionStore = {
     records: TermsAndConditionEntity[];
 };
 
-export const termsConditionsStore = create<TermsAndConditionStore>(
-    (set, get) => ({
-        records: [],
-    })
-);
+export const termsConditionsStore = create<TermsAndConditionStore>(() => ({
+    records: [],
+}));
 
 export const useTermsConditionsStore =
     createZustandSelectors(termsConditionsStore);

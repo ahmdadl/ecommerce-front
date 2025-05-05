@@ -2,7 +2,7 @@ import createZustandSelectors from '@/modules/core/utils/zustand/create-zustand-
 import { create } from 'zustand';
 import { CartEntity, CartResponse } from '../utils/types';
 
-export const cartStore = create<CartResponse>((set, get) => ({
+export const cartStore = create<CartResponse>(() => ({
     cart: {} as CartEntity,
     addresses: null,
     paymentMethods: null,

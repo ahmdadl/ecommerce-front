@@ -1,11 +1,5 @@
 import { Loader2 } from 'lucide-react';
 
-interface LoadingPageProps {
-    message?: string;
-    fullScreen?: boolean;
-    overlay?: boolean;
-}
-
 export default function BaseLoadingPage({
     message = 'Loading...',
     fullScreen = true,
@@ -61,6 +55,8 @@ export default function BaseLoadingPage({
                     style={{ animationDelay: '300ms' }}
                 ></div>
             </div>
+
+            <p className='sr-only'>{message}</p>
         </div>
     );
 }

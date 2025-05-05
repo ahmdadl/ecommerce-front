@@ -25,7 +25,7 @@ export type FilterState = {
     filters: Filters | null;
     selectedCategories: string[];
     selectedBrands: string[];
-    currentPriceRange: number[];
+    currentPriceRange: [number, number];
     isLoading: boolean;
     error: string | null;
     currentPage: number;

@@ -8,7 +8,7 @@ type PaymentStatusModalStoreState = {
 };
 
 export const paymentStatusModalStore = create<PaymentStatusModalStoreState>(
-    (set) => ({
+    () => ({
         isOpened: false,
         type: 'success',
         description: '',

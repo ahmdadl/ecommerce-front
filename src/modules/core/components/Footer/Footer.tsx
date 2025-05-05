@@ -6,7 +6,7 @@ import { localeStore } from '../../stores/localeStore';
 import { cachedData } from '../../utils/cached-data';
 import { urls } from '../../utils/urls';
 
-export function Footer() {
+export default function Footer() {
     const { general, contact, social } = cachedData.settings;
 
     return (

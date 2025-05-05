@@ -7,7 +7,7 @@ type SearchResultStoreState = {
     clear: () => void;
 };
 
-export const searchResultStore = create<SearchResultStoreState>((set, get) => ({
+export const searchResultStore = create<SearchResultStoreState>((set) => ({
     records: [],
 
     clear: () => set({ records: [] }),

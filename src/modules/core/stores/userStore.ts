@@ -39,7 +39,7 @@ export const userStore = create<UserStoreState>()(
                     cartItems: 0,
                     compareItems: 0,
                     orders: 0,
-                    totalPurchased: 0,
+                    purchased: 0,
                     wishlistItems: 0,
                 },
                 isLoaded: false,

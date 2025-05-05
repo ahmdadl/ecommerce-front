@@ -6,9 +6,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
-import AddressForm, {
-    AddressFormData,
-} from '@/modules/addresses/components/AddressForm';
+import AddressForm from '@/modules/addresses/components/AddressForm';
+import { AddressFormData } from '@/modules/addresses/components/AddressForm/AddressForm';
 import { cartApi } from '@/modules/cart/utils/cart-api';
 import { Trans, useLingui } from '@lingui/react/macro';
 import { DialogDescription } from '@radix-ui/react-dialog';

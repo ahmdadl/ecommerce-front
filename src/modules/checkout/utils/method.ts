@@ -3,7 +3,7 @@ import { i18n } from '@lingui/core';
 import { toast } from 'sonner';
 
 export async function validateCartEntries(state: CartResponse) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         const { selectedAddress, selectedPaymentMethod, paymentMethods } =
             state;
 

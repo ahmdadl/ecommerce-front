@@ -22,7 +22,7 @@ export default function AddressFormCityInput({
     governmentId,
     isLoadingCities,
 }: any) {
-    const records = useCitiesStore.use.records();
+    useCitiesStore.use.records();
     const cities = useCitiesStore.use.currentGovernmentCities();
 
     return (

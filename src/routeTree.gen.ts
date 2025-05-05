@@ -41,7 +41,6 @@ import { Route as LocaleCatalogTagsSlugImport } from './routes/$locale/_catalog/
 import { Route as LocaleCatalogCategoriesSlugImport } from './routes/$locale/_catalog/categories/$slug'
 import { Route as LocaleCatalogBrandsSlugImport } from './routes/$locale/_catalog/brands/$slug'
 import { Route as LocaleProfileOrdersIdIndexImport } from './routes/$locale/profile/orders/$id/index'
-import { Route as LocaleProfileOrdersIdTrackImport } from './routes/$locale/profile/orders/$id/track'
 
 // Create Virtual Routes
 
@@ -223,14 +222,6 @@ const LocaleProfileOrdersIdIndexRoute = LocaleProfileOrdersIdIndexImport.update(
   {
     id: '/orders/$id/',
     path: '/orders/$id/',
-    getParentRoute: () => LocaleProfileRouteRoute,
-  } as any,
-)
-
-const LocaleProfileOrdersIdTrackRoute = LocaleProfileOrdersIdTrackImport.update(
-  {
-    id: '/orders/$id/track',
-    path: '/orders/$id/track',
     getParentRoute: () => LocaleProfileRouteRoute,
   } as any,
 )
@@ -435,13 +426,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleProfileOrdersIndexImport
       parentRoute: typeof LocaleProfileRouteImport
     }
-    '/$locale/profile/orders/$id/track': {
-      id: '/$locale/profile/orders/$id/track'
-      path: '/orders/$id/track'
-      fullPath: '/$locale/profile/orders/$id/track'
-      preLoaderRoute: typeof LocaleProfileOrdersIdTrackImport
-      parentRoute: typeof LocaleProfileRouteImport
-    }
     '/$locale/profile/orders/$id/': {
       id: '/$locale/profile/orders/$id/'
       path: '/orders/$id'
@@ -478,7 +462,6 @@ interface LocaleProfileRouteRouteChildren {
   LocaleProfileWishlistRoute: typeof LocaleProfileWishlistRoute
   LocaleProfileIndexRoute: typeof LocaleProfileIndexRoute
   LocaleProfileOrdersIndexRoute: typeof LocaleProfileOrdersIndexRoute
-  LocaleProfileOrdersIdTrackRoute: typeof LocaleProfileOrdersIdTrackRoute
   LocaleProfileOrdersIdIndexRoute: typeof LocaleProfileOrdersIdIndexRoute
 }
 
@@ -488,7 +471,6 @@ const LocaleProfileRouteRouteChildren: LocaleProfileRouteRouteChildren = {
   LocaleProfileWishlistRoute: LocaleProfileWishlistRoute,
   LocaleProfileIndexRoute: LocaleProfileIndexRoute,
   LocaleProfileOrdersIndexRoute: LocaleProfileOrdersIndexRoute,
-  LocaleProfileOrdersIdTrackRoute: LocaleProfileOrdersIdTrackRoute,
   LocaleProfileOrdersIdIndexRoute: LocaleProfileOrdersIdIndexRoute,
 }
 
@@ -566,7 +548,6 @@ export interface FileRoutesByFullPath {
   '/$locale/brands': typeof LocaleCatalogBrandsIndexRoute
   '/$locale/categories': typeof LocaleCatalogCategoriesIndexRoute
   '/$locale/profile/orders': typeof LocaleProfileOrdersIndexRoute
-  '/$locale/profile/orders/$id/track': typeof LocaleProfileOrdersIdTrackRoute
   '/$locale/profile/orders/$id': typeof LocaleProfileOrdersIdIndexRoute
 }
 
@@ -596,7 +577,6 @@ export interface FileRoutesByTo {
   '/$locale/brands': typeof LocaleCatalogBrandsIndexRoute
   '/$locale/categories': typeof LocaleCatalogCategoriesIndexRoute
   '/$locale/profile/orders': typeof LocaleProfileOrdersIndexRoute
-  '/$locale/profile/orders/$id/track': typeof LocaleProfileOrdersIdTrackRoute
   '/$locale/profile/orders/$id': typeof LocaleProfileOrdersIdIndexRoute
 }
 
@@ -630,7 +610,6 @@ export interface FileRoutesById {
   '/$locale/_catalog/brands/': typeof LocaleCatalogBrandsIndexRoute
   '/$locale/_catalog/categories/': typeof LocaleCatalogCategoriesIndexRoute
   '/$locale/profile/orders/': typeof LocaleProfileOrdersIndexRoute
-  '/$locale/profile/orders/$id/track': typeof LocaleProfileOrdersIdTrackRoute
   '/$locale/profile/orders/$id/': typeof LocaleProfileOrdersIdIndexRoute
 }
 
@@ -664,7 +643,6 @@ export interface FileRouteTypes {
     | '/$locale/brands'
     | '/$locale/categories'
     | '/$locale/profile/orders'
-    | '/$locale/profile/orders/$id/track'
     | '/$locale/profile/orders/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -693,7 +671,6 @@ export interface FileRouteTypes {
     | '/$locale/brands'
     | '/$locale/categories'
     | '/$locale/profile/orders'
-    | '/$locale/profile/orders/$id/track'
     | '/$locale/profile/orders/$id'
   id:
     | '__root__'
@@ -725,7 +702,6 @@ export interface FileRouteTypes {
     | '/$locale/_catalog/brands/'
     | '/$locale/_catalog/categories/'
     | '/$locale/profile/orders/'
-    | '/$locale/profile/orders/$id/track'
     | '/$locale/profile/orders/$id/'
   fileRoutesById: FileRoutesById
 }
@@ -798,7 +774,6 @@ export const routeTree = rootRoute
         "/$locale/profile/wishlist",
         "/$locale/profile/",
         "/$locale/profile/orders/",
-        "/$locale/profile/orders/$id/track",
         "/$locale/profile/orders/$id/"
       ]
     },
@@ -896,10 +871,6 @@ export const routeTree = rootRoute
     },
     "/$locale/profile/orders/": {
       "filePath": "$locale/profile/orders/index.tsx",
-      "parent": "/$locale/profile"
-    },
-    "/$locale/profile/orders/$id/track": {
-      "filePath": "$locale/profile/orders/$id/track.tsx",
       "parent": "/$locale/profile"
     },
     "/$locale/profile/orders/$id/": {

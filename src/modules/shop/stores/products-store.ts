@@ -18,7 +18,7 @@ type ProductsState = {
     cartDecrement: (productId: string) => void;
 };
 
-export const productsStore = create<ProductsState>((set, get) => ({
+export const productsStore = create<ProductsState>((set) => ({
     records: [],
     paginationInfo: {} as PaginationInfoEntity,
     category: null,
