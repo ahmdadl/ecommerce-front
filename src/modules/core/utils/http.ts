@@ -26,7 +26,7 @@ const http = axios.create({
         'Content-Type': 'application/json',
         Accept: 'application/json',
         'x-app-key': env.apiKey,
-        'x-application-type': 'wui',
+        'x-application-type': 'webOs',
         'x-public-token': env.apiPublicToken,
     },
 });
