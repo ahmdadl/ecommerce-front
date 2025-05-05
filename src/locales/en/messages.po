@@ -14,26 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/modules/checkout/utils/method.ts:11
-msgid "Please select shipping address"
-msgstr "Please select shipping address"
-
-#. js-lingui-explicit-id
-#: src/modules/checkout/utils/method.ts:16
-msgid "Please select payment method"
-msgstr "Please select payment method"
-
-#. js-lingui-explicit-id
-#: src/modules/checkout/utils/method.ts:25
-msgid "Please upload receipt"
-msgstr "Please upload receipt"
-
-#. js-lingui-explicit-id
-#: src/modules/addresses/components/AddressForm/AddressForm.tsx:26
-msgid "Please enter a valid email"
-msgstr "Please enter a valid email"
-
-#. js-lingui-explicit-id
 #: src/modules/profile/pages/ProfilePage.tsx:33
 msgid "Name must be at least 2 characters."
 msgstr "Name must be at least 2 characters."
@@ -97,6 +77,21 @@ msgid "Something went wrong"
 msgstr "Something went wrong"
 
 #. js-lingui-explicit-id
+#: src/modules/checkout/utils/method.ts:11
+msgid "Please select shipping address"
+msgstr "Please select shipping address"
+
+#. js-lingui-explicit-id
+#: src/modules/checkout/utils/method.ts:16
+msgid "Please select payment method"
+msgstr "Please select payment method"
+
+#. js-lingui-explicit-id
+#: src/modules/checkout/utils/method.ts:25
+msgid "Please upload receipt"
+msgstr "Please upload receipt"
+
+#. js-lingui-explicit-id
 #: src/modules/cart/components/CartCouponSection.tsx:25
 msgid "Coupon code is required"
 msgstr "Coupon code is required"
@@ -155,6 +150,11 @@ msgstr "Detailed address is required"
 #: src/modules/addresses/components/AddressForm/AddressForm.tsx:25
 msgid "Phone number is required"
 msgstr "Phone number is required"
+
+#. js-lingui-explicit-id
+#: src/modules/addresses/components/AddressForm/AddressForm.tsx:26
+msgid "Please enter a valid email"
+msgstr "Please enter a valid email"
 
 #. js-lingui-explicit-id
 #: src/modules/addresses/components/AddressForm/AddressForm.tsx:29

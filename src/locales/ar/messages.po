@@ -12,26 +12,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/modules/checkout/utils/method.ts:11
-msgid "Please select shipping address"
-msgstr "الرجاء اختيار عنوان الشحن"
-
-#. js-lingui-explicit-id
-#: src/modules/checkout/utils/method.ts:16
-msgid "Please select payment method"
-msgstr "الرجاء اختيار طريقة الدفع"
-
-#. js-lingui-explicit-id
-#: src/modules/checkout/utils/method.ts:25
-msgid "Please upload receipt"
-msgstr "الرجاء رفع الإيصال"
-
-#. js-lingui-explicit-id
-#: src/modules/addresses/components/AddressForm/AddressForm.tsx:26
-msgid "Please enter a valid email"
-msgstr "الرجاء إدخال بريد إلكتروني صحيح"
-
-#. js-lingui-explicit-id
 #: src/modules/profile/pages/ProfilePage.tsx:33
 msgid "Name must be at least 2 characters."
 msgstr "يجب أن يكون الاسم حرفين على الأقل."
@@ -95,6 +75,21 @@ msgid "Something went wrong"
 msgstr "حدث خطأ ما"
 
 #. js-lingui-explicit-id
+#: src/modules/checkout/utils/method.ts:11
+msgid "Please select shipping address"
+msgstr "الرجاء اختيار عنوان الشحن"
+
+#. js-lingui-explicit-id
+#: src/modules/checkout/utils/method.ts:16
+msgid "Please select payment method"
+msgstr "الرجاء اختيار طريقة الدفع"
+
+#. js-lingui-explicit-id
+#: src/modules/checkout/utils/method.ts:25
+msgid "Please upload receipt"
+msgstr "الرجاء رفع الإيصال"
+
+#. js-lingui-explicit-id
 #: src/modules/cart/components/CartCouponSection.tsx:25
 msgid "Coupon code is required"
 msgstr "كود الخصم مطلوب"
@@ -153,6 +148,11 @@ msgstr "العنوان التفصيلي مطلوب"
 #: src/modules/addresses/components/AddressForm/AddressForm.tsx:25
 msgid "Phone number is required"
 msgstr "رقم الهاتف مطلوب"
+
+#. js-lingui-explicit-id
+#: src/modules/addresses/components/AddressForm/AddressForm.tsx:26
+msgid "Please enter a valid email"
+msgstr "الرجاء إدخال بريد إلكتروني صحيح"
 
 #. js-lingui-explicit-id
 #: src/modules/addresses/components/AddressForm/AddressForm.tsx:29
@@ -856,7 +856,7 @@ msgstr "يبدو أنك لم تقم بإضافة أي عناصر إلى سلة �
 
 #: src/modules/checkout/pages/EmptyCheckoutPage.tsx:22
 msgid "Looks like you haven't added anything to your cart yet. Continue shopping to find something you'll love."
-msgstr ""
+msgstr "يبدو أنك لم تقم بإضافة أي منتجات إلى سلة التسوق الخاصة بك بعد. تابع التسوق للعثور على ما يعجبك."
 
 #. placeholder {0}: product.stock
 #: src/modules/product/components/ProductDetails/ProductDetails.tsx:66
@@ -1135,7 +1135,7 @@ msgstr "تم الطلب في <0>{formattedDate}</0>"
 
 #: src/modules/errors/components/BaseErrorPage.tsx:75
 msgid "Please check your internet connection and try again."
-msgstr ""
+msgstr "الرجاء التأكد من اتصال الإنترنت ثم إعادة المحاولة."
 
 #: src/modules/contact-us/components/ContactForm.tsx:230
 msgid "Please describe your inquiry in detail..."
