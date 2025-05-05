@@ -35,6 +35,12 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
                             -{product.discounted_percentage}%
                         </Badge>
                     )}
+
+                    {product.stock < 7 && (
+                        <Badge className='bg-primary text-primary-foreground'>
+                            <Trans>Limited Stock</Trans>
+                        </Badge>
+                    )}
                 </div>
 
                 <ProductWishlistToggleButton product={product} />
