@@ -7,8 +7,8 @@ import {
 } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import { messages as arMessages } from './locales/ar/messages.po';
-import { messages as enMessages } from './locales/en/messages.po';
+import { messages as arMessages } from './locales/ar/messages';
+import { messages as enMessages } from './locales/en/messages';
 import './main.css';
 import BaseLoadingPage from './modules/core/components/BaseLoadingPage';
 import useLocaleStore from './modules/core/stores/localeStore';
