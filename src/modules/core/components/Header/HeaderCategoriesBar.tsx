@@ -7,7 +7,7 @@ import Link from '../LocalizedLink';
 export default function HeaderCategoriesBar() {
     return (
         <div className='flex h-10 items-center justify-center border-b bg-background px-4'>
-            <nav className='flex items-center gap-6 overflow-x-auto'>
+            <nav className='flex items-center gap-6 overflow-x-auto overflow-y-hidden'>
                 <Link
                     to={urls.categories.index}
                     className='whitespace-nowrap text-sm font-medium transition-colors hover:text-primary'

@@ -37,8 +37,8 @@
     --sidebar-accent-foreground: oklch(0.37 0.03 259.73);
     --sidebar-border: oklch(0.87 0.01 258.34);
     --sidebar-ring: oklch(0.59 0.2 277.12);
-    --font-sans: Inter, sans-serif;
-    --font-serif: Merriweather, serif;
+    --font-sans: Cairo, sans-serif;
+    --font-serif: Cairo, serif;
     --font-mono: JetBrains Mono, monospace;
     --radius: 0.5rem;
     --shadow-2xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
