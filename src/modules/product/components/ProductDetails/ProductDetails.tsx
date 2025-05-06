@@ -110,7 +110,11 @@ export default function ProductDetails() {
                                 <Trans>Category</Trans>
                             </h3>
                             <p className='text-sm text-muted-foreground'>
-                                {product.category?.title}
+                                <Link
+                                    to={urls.categories.view(product.category)}
+                                >
+                                    {product.category?.title}
+                                </Link>
                             </p>
                         </div>
                         <div>
@@ -118,7 +122,9 @@ export default function ProductDetails() {
                                 <Trans>Brand</Trans>
                             </h3>
                             <p className='text-sm text-muted-foreground'>
-                                {product.brand?.title}
+                                <Link to={urls.brands.view(product.brand)}>
+                                    {product.brand?.title}
+                                </Link>
                             </p>
                         </div>
                         <div>
