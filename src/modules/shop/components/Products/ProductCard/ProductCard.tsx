@@ -12,15 +12,17 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
     return (
         <Card className='overflow-hidden h-full flex flex-col gap-2 pb-6 pt-0'>
             <div className='relative'>
-                <div className='h-48 overflow-hidden'>
-                    <img
-                        src={product.images[0] || ''}
-                        alt={product.title}
-                        width={250}
-                        height={150}
-                        className='object-cover w-full h-full transition-transform hover:scale-120 duration-500'
-                    />
-                </div>
+                <Link to={urls.products.view(product)}>
+                    <div className='h-48 overflow-hidden'>
+                        <img
+                            src={product.images[0] || ''}
+                            alt={product.title}
+                            width={250}
+                            height={150}
+                            className='object-cover w-full h-full transition-transform hover:scale-120 duration-500'
+                        />
+                    </div>
+                </Link>
 
                 {/* Badges container */}
                 <div className='absolute top-2 left-2 flex flex-col gap-1'>
@@ -48,9 +50,17 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
 
             <CardContent className='flex-grow'>
                 <p className='text-sm text-muted-foreground'>
-                    {product.brand
-                        ? product.brand.title
-                        : product.category?.title}
+                    {product.brand && (
+                        <Link to={urls.brands.view(product.brand)}>
+                            {product.brand.title}
+                        </Link>
+                    )}
+
+                    {product.category && (
+                        <Link to={urls.categories.view(product.category)}>
+                            {product.category.title}
+                        </Link>
+                    )}
                 </p>
 
                 <h3 className='font-medium mt-1 line-clamp-2 min-h-[2.5rem]'>
