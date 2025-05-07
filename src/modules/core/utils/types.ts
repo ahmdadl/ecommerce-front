@@ -166,3 +166,10 @@ export type SettingsCachedEntity = SettingsEntity & {
         body: LocalizedEntity;
     };
 };
+
+export enum ViewableType {
+    PRODUCT = 'product',
+    CATEGORY = 'category',
+    BRAND = 'brand',
+    TAG = 'tag',
+}

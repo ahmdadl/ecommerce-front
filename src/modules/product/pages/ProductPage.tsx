@@ -1,6 +1,7 @@
 import ProductDetails from '../components/ProductDetails';
 import ProductHero from '../components/ProductHero';
 import ProductImages from '../components/ProductImages';
+import ProductPageView from '../components/ProductPageView';
 import RelatedProducts from '../components/RelatedProducts';
 
 export default function ProductPage() {
@@ -17,6 +18,8 @@ export default function ProductPage() {
 
                 <RelatedProducts />
             </div>
+
+            <ProductPageView />
         </>
     );
 }

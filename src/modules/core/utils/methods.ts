@@ -63,11 +63,13 @@ export function getCurrentLocaleKey() {
 }
 
 export function valueOr(value: any, defaultValue: any) {
-    if (typeof value === 'undefined') return valueOr(defaultValue, '');
+    if (typeof value === 'undefined') return defaultValue ?? '';
 
-    if (value === null) return valueOr(defaultValue, '');
+    if (value === null) return defaultValue ?? '';
 
-    if (value === '') return valueOr(defaultValue, '');
+    if (value === '') {
+        return defaultValue === '' ? '' : defaultValue;
+    }
 
     return String(value);
 }

@@ -1,6 +1,7 @@
 import ProductsSidebarGrid from '@/modules/shop/components/Products/ProductsSidebarGrid';
 import { useAllowedSidebarFilters } from '@/modules/shop/stores/allowed-sidebar-filters';
 import { categoryRoute } from '@/routes/$locale/_catalog/categories/$slug';
+import CategoryPageView from '../components/CategoryPageView';
 import CategoryProductsHero from '../components/CategoryProductsHero';
 
 export default function CategoryProductsPage() {
@@ -13,6 +14,8 @@ export default function CategoryProductsPage() {
             <div className='category-products-page'>
                 <ProductsSidebarGrid route={categoryRoute} />
             </div>
+
+            <CategoryPageView />
         </>
     );
 }
