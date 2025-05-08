@@ -182,7 +182,9 @@ export const cartApi = {
     placeOrder: async (values: any) => {
         const response = (await http
             .post('/orders', values)
-            .catch(parseError)) as SuccessResponse<PlaceOrderResponse>;
+            .catch((err) =>
+                parseError(err, undefined, true)
+            )) as SuccessResponse<PlaceOrderResponse>;
 
         if (!response?.data) return;
 
