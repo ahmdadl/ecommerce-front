@@ -29,6 +29,7 @@ export const urls = {
         },
         wishlist: '/profile/wishlist',
         addresses: '/profile/addresses',
+        myWallet: '/profile/my-wallet',
     },
     cart: '/cart',
     checkout: '/checkout',

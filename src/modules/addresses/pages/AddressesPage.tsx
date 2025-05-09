@@ -12,7 +12,7 @@ export default function AddressesPage() {
 
     return (
         <>
-            <div className='container mx-auto py-6 px-4 md:px-6'>
+            <div className='2xl:max-w-5xl mx-auto py-6 px-4 md:px-6'>
                 <div className='flex justify-between items-center mb-6'>
                     <h1 className='text-2xl font-bold'>
                         <Trans>My Addresses</Trans>

@@ -1,6 +1,14 @@
 import { urls } from '@/modules/core/utils/urls';
 import { Trans } from '@lingui/react/macro';
-import { Heart, List, Lock, MapPin, ShoppingBag, User } from 'lucide-react';
+import {
+    Heart,
+    List,
+    Lock,
+    MapPin,
+    ShoppingBag,
+    User,
+    Wallet2,
+} from 'lucide-react';
 import { UserGender } from './types';
 
 export const profileNavLinks = [
@@ -33,6 +41,12 @@ export const profileNavLinks = [
         path: urls.profile.orders.index,
         icon: <ShoppingBag className='size-4' />,
         route: '/$locale/profile/orders/',
+    },
+    {
+        name: <Trans>My Wallet</Trans>,
+        path: urls.profile.myWallet,
+        icon: <Wallet2 className='size-4' />,
+        route: '/$locale/profile/my-wallet',
     },
     {
         name: <Trans>Orders</Trans>,
@@ -75,5 +89,10 @@ export const userMenuLinks = [
         url: urls.compareList,
         label: <Trans>Compare</Trans>,
         icon: <List className='size-4 me-2' />,
+    },
+    {
+        url: urls.profile.myWallet,
+        label: <Trans>My Wallet</Trans>,
+        icon: <Wallet2 className='size-4 me-2' />,
     },
 ];

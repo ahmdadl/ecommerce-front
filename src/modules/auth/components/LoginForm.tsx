@@ -36,7 +36,7 @@ export default function LoginForm() {
         password: z
             .string()
             .min(8, { message: t`Password must be at least 8 characters` }),
-        rememberMe: z.boolean().default(false),
+        // rememberMe: z.boolean().default(false),
     });
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -44,7 +44,7 @@ export default function LoginForm() {
         defaultValues: {
             email: '',
             password: '',
-            rememberMe: false,
+            // rememberMe: false,
         },
     });
 

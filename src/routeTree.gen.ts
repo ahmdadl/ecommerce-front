@@ -24,6 +24,7 @@ import { Route as LocaleProfileRouteImport } from './routes/$locale/profile/rout
 import { Route as LocaleAuthRouteImport } from './routes/$locale/_auth/route'
 import { Route as LocaleProfileIndexImport } from './routes/$locale/profile/index'
 import { Route as LocaleProfileWishlistImport } from './routes/$locale/profile/wishlist'
+import { Route as LocaleProfileMyWalletImport } from './routes/$locale/profile/my-wallet'
 import { Route as LocaleProfileChangePasswordImport } from './routes/$locale/profile/change-password'
 import { Route as LocaleProfileAddressesImport } from './routes/$locale/profile/addresses'
 import { Route as LocaleProductsSlugImport } from './routes/$locale/products/$slug'
@@ -116,6 +117,12 @@ const LocaleProfileIndexRoute = LocaleProfileIndexImport.update({
 const LocaleProfileWishlistRoute = LocaleProfileWishlistImport.update({
   id: '/wishlist',
   path: '/wishlist',
+  getParentRoute: () => LocaleProfileRouteRoute,
+} as any)
+
+const LocaleProfileMyWalletRoute = LocaleProfileMyWalletImport.update({
+  id: '/my-wallet',
+  path: '/my-wallet',
   getParentRoute: () => LocaleProfileRouteRoute,
 } as any)
 
@@ -370,6 +377,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleProfileChangePasswordImport
       parentRoute: typeof LocaleProfileRouteImport
     }
+    '/$locale/profile/my-wallet': {
+      id: '/$locale/profile/my-wallet'
+      path: '/my-wallet'
+      fullPath: '/$locale/profile/my-wallet'
+      preLoaderRoute: typeof LocaleProfileMyWalletImport
+      parentRoute: typeof LocaleProfileRouteImport
+    }
     '/$locale/profile/wishlist': {
       id: '/$locale/profile/wishlist'
       path: '/wishlist'
@@ -459,6 +473,7 @@ const LocaleAuthRouteRouteWithChildren = LocaleAuthRouteRoute._addFileChildren(
 interface LocaleProfileRouteRouteChildren {
   LocaleProfileAddressesRoute: typeof LocaleProfileAddressesRoute
   LocaleProfileChangePasswordRoute: typeof LocaleProfileChangePasswordRoute
+  LocaleProfileMyWalletRoute: typeof LocaleProfileMyWalletRoute
   LocaleProfileWishlistRoute: typeof LocaleProfileWishlistRoute
   LocaleProfileIndexRoute: typeof LocaleProfileIndexRoute
   LocaleProfileOrdersIndexRoute: typeof LocaleProfileOrdersIndexRoute
@@ -468,6 +483,7 @@ interface LocaleProfileRouteRouteChildren {
 const LocaleProfileRouteRouteChildren: LocaleProfileRouteRouteChildren = {
   LocaleProfileAddressesRoute: LocaleProfileAddressesRoute,
   LocaleProfileChangePasswordRoute: LocaleProfileChangePasswordRoute,
+  LocaleProfileMyWalletRoute: LocaleProfileMyWalletRoute,
   LocaleProfileWishlistRoute: LocaleProfileWishlistRoute,
   LocaleProfileIndexRoute: LocaleProfileIndexRoute,
   LocaleProfileOrdersIndexRoute: LocaleProfileOrdersIndexRoute,
@@ -540,6 +556,7 @@ export interface FileRoutesByFullPath {
   '/$locale/products/$slug': typeof LocaleProductsSlugRoute
   '/$locale/profile/addresses': typeof LocaleProfileAddressesRoute
   '/$locale/profile/change-password': typeof LocaleProfileChangePasswordRoute
+  '/$locale/profile/my-wallet': typeof LocaleProfileMyWalletRoute
   '/$locale/profile/wishlist': typeof LocaleProfileWishlistRoute
   '/$locale/profile/': typeof LocaleProfileIndexRoute
   '/$locale/brands/$slug': typeof LocaleCatalogBrandsSlugRoute
@@ -569,6 +586,7 @@ export interface FileRoutesByTo {
   '/$locale/products/$slug': typeof LocaleProductsSlugRoute
   '/$locale/profile/addresses': typeof LocaleProfileAddressesRoute
   '/$locale/profile/change-password': typeof LocaleProfileChangePasswordRoute
+  '/$locale/profile/my-wallet': typeof LocaleProfileMyWalletRoute
   '/$locale/profile/wishlist': typeof LocaleProfileWishlistRoute
   '/$locale/profile': typeof LocaleProfileIndexRoute
   '/$locale/brands/$slug': typeof LocaleCatalogBrandsSlugRoute
@@ -602,6 +620,7 @@ export interface FileRoutesById {
   '/$locale/products/$slug': typeof LocaleProductsSlugRoute
   '/$locale/profile/addresses': typeof LocaleProfileAddressesRoute
   '/$locale/profile/change-password': typeof LocaleProfileChangePasswordRoute
+  '/$locale/profile/my-wallet': typeof LocaleProfileMyWalletRoute
   '/$locale/profile/wishlist': typeof LocaleProfileWishlistRoute
   '/$locale/profile/': typeof LocaleProfileIndexRoute
   '/$locale/_catalog/brands/$slug': typeof LocaleCatalogBrandsSlugRoute
@@ -635,6 +654,7 @@ export interface FileRouteTypes {
     | '/$locale/products/$slug'
     | '/$locale/profile/addresses'
     | '/$locale/profile/change-password'
+    | '/$locale/profile/my-wallet'
     | '/$locale/profile/wishlist'
     | '/$locale/profile/'
     | '/$locale/brands/$slug'
@@ -663,6 +683,7 @@ export interface FileRouteTypes {
     | '/$locale/products/$slug'
     | '/$locale/profile/addresses'
     | '/$locale/profile/change-password'
+    | '/$locale/profile/my-wallet'
     | '/$locale/profile/wishlist'
     | '/$locale/profile'
     | '/$locale/brands/$slug'
@@ -694,6 +715,7 @@ export interface FileRouteTypes {
     | '/$locale/products/$slug'
     | '/$locale/profile/addresses'
     | '/$locale/profile/change-password'
+    | '/$locale/profile/my-wallet'
     | '/$locale/profile/wishlist'
     | '/$locale/profile/'
     | '/$locale/_catalog/brands/$slug'
@@ -771,6 +793,7 @@ export const routeTree = rootRoute
       "children": [
         "/$locale/profile/addresses",
         "/$locale/profile/change-password",
+        "/$locale/profile/my-wallet",
         "/$locale/profile/wishlist",
         "/$locale/profile/",
         "/$locale/profile/orders/",
@@ -839,6 +862,10 @@ export const routeTree = rootRoute
     },
     "/$locale/profile/change-password": {
       "filePath": "$locale/profile/change-password.tsx",
+      "parent": "/$locale/profile"
+    },
+    "/$locale/profile/my-wallet": {
+      "filePath": "$locale/profile/my-wallet.tsx",
       "parent": "/$locale/profile"
     },
     "/$locale/profile/wishlist": {

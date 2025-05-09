@@ -67,7 +67,12 @@ const FileUploadInput: React.FC<FileUploadInputProps> = ({
     );
 
     return (
-        <Card className={cn('w-full max-w-md', className)}>
+        <Card
+            className={cn(
+                'w-full max-w-md bg-transparent shadow-none',
+                className
+            )}
+        >
             <CardContent className='px-0 border-0'>
                 <div className='flex flex-col items-start gap-3'>
                     <input
