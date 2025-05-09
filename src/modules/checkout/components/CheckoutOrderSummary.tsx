@@ -13,6 +13,7 @@ import { userStore } from '@/modules/core/stores/userStore';
 import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
 import CheckoutPlaceOrderButton from './CheckoutPlaceOrderButton';
+import CheckoutWalletSection from './CheckoutWalletSection';
 
 export default function CheckoutOrderSummary() {
     const { isCustomer } = userStore.getState();
@@ -89,6 +90,16 @@ export default function CheckoutOrderSummary() {
                                 </span>
                             </div>
                         )}
+                        {totals?.wallet > 0 && (
+                            <div className='flex items-center justify-between text-sm'>
+                                <span className='text-muted-foreground'>
+                                    <Trans>Wallet</Trans>
+                                </span>
+                                <span className='text-green-600'>
+                                    -{parsePrice(totals?.wallet)}
+                                </span>
+                            </div>
+                        )}
                         <div className='flex items-center justify-between text-sm'>
                             <span className='text-muted-foreground'>
                                 <Trans>Shipping</Trans>
@@ -118,6 +129,8 @@ export default function CheckoutOrderSummary() {
 
                     <div className='py-4'>
                         <CartCouponSection />
+
+                        <CheckoutWalletSection />
                     </div>
                 </CardContent>
                 <CardFooter>

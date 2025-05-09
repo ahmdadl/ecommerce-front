@@ -17,6 +17,7 @@ export const cartApi = {
             addresses: response.data.addresses,
             paymentMethods: response.data.paymentMethods,
             selectedAddress: response.data.cart.shipping_address,
+            wallet: response.data.wallet,
         });
 
         return response.data;
@@ -197,6 +198,32 @@ export const cartApi = {
             .catch((err) =>
                 parseError(err, undefined, true)
             )) as SuccessResponse<PlaceOrderResponse>;
+
+        if (typeof response !== 'object' || !response?.data) return;
+
+        return response.data;
+    },
+
+    applyWallet: async (amount: number) => {
+        const response = (await http
+            .patch('/cart/wallet', {
+                amount: amount,
+            })
+            .catch((err) =>
+                parseError(err, undefined, true)
+            )) as SuccessResponse<any>;
+
+        if (typeof response !== 'object' || !response?.data) return;
+
+        return response.data;
+    },
+
+    removeWallet: async () => {
+        const response = (await http
+            .delete('/cart/wallet')
+            .catch((err) =>
+                parseError(err, undefined, true)
+            )) as SuccessResponse<any>;
 
         if (typeof response !== 'object' || !response?.data) return;
 

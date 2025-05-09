@@ -1,3 +1,4 @@
+import { WalletEntity } from '@/modules/my-wallet/utils/types';
 import { OrderEntity } from '@/modules/orders/utils/types';
 import { UserGender } from '@/modules/profile/utils/types';
 import { AddressEntity } from '../../addresses/utils/types';
@@ -12,6 +13,7 @@ export type CartTotalsEntity = {
     subtotal: number;
     coupon: number;
     shipping: number;
+    wallet: number;
     total: number;
 };
 
@@ -62,6 +64,7 @@ export type CartEntity = {
     shipping_address?: AddressEntity;
     coupon?: CouponEntity;
     items: CartItemEntity[];
+    wallet_amount: number;
 };
 
 export type PaymentMethodEntity = {
@@ -75,6 +78,7 @@ export type CartResponse = {
     cart: CartEntity;
     addresses: AddressEntity[] | null;
     paymentMethods: PaymentMethodEntity[] | null;
+    wallet: WalletEntity | null;
 
     selectedAddress: AddressEntity | null;
     selectedPaymentMethod: string | null;

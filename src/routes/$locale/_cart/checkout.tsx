@@ -13,7 +13,7 @@ export const Route = createFileRoute('/$locale/_cart/checkout')({
 
     loader: async () =>
         cartApi.load({
-            with: ['addresses', 'paymentMethods'],
+            with: ['addresses', 'paymentMethods', 'wallet'],
         }),
 
     pendingComponent: CheckoutSkeletonPage,

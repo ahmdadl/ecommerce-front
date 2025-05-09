@@ -6,6 +6,7 @@ export const cartStore = create<CartResponse>(() => ({
     cart: {} as CartEntity,
     addresses: null,
     paymentMethods: null,
+    wallet: null,
 
     selectedAddress: null,
     selectedPaymentMethod: null,

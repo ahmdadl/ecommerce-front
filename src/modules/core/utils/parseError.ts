@@ -59,7 +59,7 @@ export function parseError(
         if (toastFormErrors) {
             let message = '';
             Object.entries(data.errors).forEach(([field, messages]) => {
-                message += `${field}: ${messages[0]}\n`;
+                message += `${field} ${messages[0]}\n`;
             });
             toast.error(message);
         }
