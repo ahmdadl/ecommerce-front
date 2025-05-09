@@ -81,7 +81,7 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
                         </>
                     ) : (
                         <span className='font-bold'>
-                            {parsePrice(product.price)}
+                            {parsePrice(product.sale_price)}
                         </span>
                     )}
                 </div>
