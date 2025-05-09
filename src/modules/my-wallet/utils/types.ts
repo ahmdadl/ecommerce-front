@@ -15,9 +15,10 @@ export type WalletTransactionEntity = {
     id: string;
     type: WalletTransactionType;
     amount: number;
-    date: string;
-    description: string;
+    formatted_date: string;
+    notes: string;
     status: WalletTransactionStatus;
+    created_at: string;
 };
 
 export enum WalletTransactionType {
@@ -28,5 +29,5 @@ export enum WalletTransactionType {
 export enum WalletTransactionStatus {
     COMPLETED = 'completed',
     PENDING = 'pending',
-    FAILED = 'failed',
+    CANCELED = 'canceled',
 }

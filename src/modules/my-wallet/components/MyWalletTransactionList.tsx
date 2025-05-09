@@ -1,84 +1,28 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { parsePrice } from '@/modules/orders/utils/methods';
 import { Trans } from '@lingui/react/macro';
-import { ArrowDown, ArrowUp, CreditCard } from 'lucide-react';
-
-export interface Transaction {
-    id: string;
-    type: 'purchase' | 'refund' | 'deposit' | 'withdrawal';
-    amount: number;
-    currency: string;
-    date: string;
-    description: string;
-    status: 'completed' | 'pending' | 'failed';
-}
-
-const transactions: Transaction[] = [
-    {
-        id: '1',
-        type: 'purchase',
-        amount: 49.99,
-        currency: '$',
-        date: '2025-05-06',
-        description: 'Premium Headphones',
-        status: 'completed',
-    },
-    {
-        id: '2',
-        type: 'deposit',
-        amount: 100.0,
-        currency: '$',
-        date: '2025-05-04',
-        description: 'Deposit from Credit Card',
-        status: 'completed',
-    },
-    {
-        id: '3',
-        type: 'refund',
-        amount: 25.5,
-        currency: '$',
-        date: '2025-05-02',
-        description: 'Refund: Smart Watch',
-        status: 'completed',
-    },
-    {
-        id: '4',
-        type: 'purchase',
-        amount: 129.99,
-        currency: '$',
-        date: '2025-04-28',
-        description: 'Wireless Earbuds',
-        status: 'completed',
-    },
-    {
-        id: '5',
-        type: 'purchase',
-        amount: 89.99,
-        currency: '$',
-        date: '2025-04-25',
-        description: 'Smart Watch',
-        status: 'pending',
-    },
-];
+import { CreditCard, MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
+import { useWalletStore } from '../stores/wallet-store';
+import { WalletTransactionEntity } from '../utils/types';
 
 export default function MyWalletTransactionList() {
-    const renderTransactionIcon = (type: Transaction['type']) => {
+    const wallet = useWalletStore.use.record();
+    const transactions = wallet.transactions;
+
+    const renderTransactionIcon = (type: WalletTransactionEntity['type']) => {
         switch (type) {
-            case 'purchase':
-                return <ArrowUp className='text-destructive w-4 h-4' />;
-            case 'refund':
-                return <ArrowDown className='text-green-600 w-4 h-4' />;
-            case 'deposit':
-                return <ArrowDown className='text-green-600 w-4 h-4' />;
-            case 'withdrawal':
-                return <ArrowUp className='text-destructive w-4 h-4' />;
+            case 'credit':
+                return <PlusCircleIcon className='text-green-600 w-4 h-4' />;
+            case 'debit':
+                return <MinusCircleIcon className='text-destructive w-4 h-4' />;
             default:
                 return <CreditCard className='w-4 h-4' />;
         }
     };
 
-    const renderStatusBadge = (status: Transaction['status']) => {
+    const renderStatusBadge = (status: WalletTransactionEntity['status']) => {
         switch (status) {
             case 'completed':
                 return (
@@ -93,24 +37,28 @@ export default function MyWalletTransactionList() {
                 return (
                     <Badge
                         variant='outline'
-                        className='text-orange-600 border-orange-600'
+                        className='text-yellow-700 border-yellow-700'
                     >
                         <Trans>Pending</Trans>
                     </Badge>
                 );
-            case 'failed':
+            case 'canceled':
                 return (
                     <Badge
                         variant='outline'
                         className='text-destructive border-destructive'
                     >
-                        <Trans>Failed</Trans>
+                        <Trans>Canceled</Trans>
                     </Badge>
                 );
             default:
                 return null;
         }
     };
+
+    if (!transactions?.length) {
+        return null;
+    }
 
     return (
         <Card id='transactions'>
@@ -146,24 +94,23 @@ export default function MyWalletTransactionList() {
                                         )}
                                     </div>
                                     <div>
-                                        <p className='font-medium'>
-                                            {transaction.description}
+                                        <p
+                                            className={`font-medium ${transaction.type === 'debit' ? 'text-wallet-danger' : 'text-wallet-success'}`}
+                                        >
+                                            {transaction.type === 'debit'
+                                                ? '-'
+                                                : '+'}
+                                            {parsePrice(transaction.amount)}
                                         </p>
+
                                         <p className='text-xs text-gray-500'>
-                                            {transaction.date}
+                                            {transaction.formatted_date}
                                         </p>
                                     </div>
                                 </div>
                                 <div className='flex flex-col items-end'>
-                                    <p
-                                        className={`font-medium ${transaction.type === 'purchase' || transaction.type === 'withdrawal' ? 'text-wallet-danger' : 'text-wallet-success'}`}
-                                    >
-                                        {transaction.type === 'purchase' ||
-                                        transaction.type === 'withdrawal'
-                                            ? '-'
-                                            : '+'}
-                                        {transaction.currency}
-                                        {transaction.amount.toFixed(2)}
+                                    <p className='font-medium'>
+                                        {transaction.notes}
                                     </p>
                                     {renderStatusBadge(transaction.status)}
                                 </div>
@@ -173,7 +120,7 @@ export default function MyWalletTransactionList() {
 
                     <TabsContent value='purchases' className='space-y-4'>
                         {transactions
-                            .filter((t) => t.type === 'purchase')
+                            .filter((t) => t.type === 'debit')
                             .map((transaction) => (
                                 <div
                                     key={transaction.id}
@@ -186,18 +133,18 @@ export default function MyWalletTransactionList() {
                                             )}
                                         </div>
                                         <div>
-                                            <p className='font-medium'>
-                                                {transaction.description}
+                                            <p className='font-medium text-wallet-danger'>
+                                                -{' '}
+                                                {parsePrice(transaction.amount)}
                                             </p>
                                             <p className='text-xs text-gray-500'>
-                                                {transaction.date}
+                                                {transaction.formatted_date}
                                             </p>
                                         </div>
                                     </div>
                                     <div className='flex flex-col items-end'>
-                                        <p className='font-medium text-wallet-danger'>
-                                            -{transaction.currency}
-                                            {transaction.amount.toFixed(2)}
+                                        <p className='font-medium'>
+                                            {transaction.notes}
                                         </p>
                                         {renderStatusBadge(transaction.status)}
                                     </div>
@@ -207,10 +154,7 @@ export default function MyWalletTransactionList() {
 
                     <TabsContent value='deposits' className='space-y-4'>
                         {transactions
-                            .filter(
-                                (t) =>
-                                    t.type === 'deposit' || t.type === 'refund'
-                            )
+                            .filter((t) => t.type === 'credit')
                             .map((transaction) => (
                                 <div
                                     key={transaction.id}
@@ -223,18 +167,19 @@ export default function MyWalletTransactionList() {
                                             )}
                                         </div>
                                         <div>
-                                            <p className='font-medium'>
-                                                {transaction.description}
+                                            <p className='font-medium text-wallet-success'>
+                                                +
+                                                {parsePrice(transaction.amount)}
                                             </p>
+
                                             <p className='text-xs text-gray-500'>
-                                                {transaction.date}
+                                                {transaction.formatted_date}
                                             </p>
                                         </div>
                                     </div>
                                     <div className='flex flex-col items-end'>
-                                        <p className='font-medium text-wallet-success'>
-                                            +{transaction.currency}
-                                            {transaction.amount.toFixed(2)}
+                                        <p className='font-medium'>
+                                            {transaction.notes}
                                         </p>
                                         {renderStatusBadge(transaction.status)}
                                     </div>
