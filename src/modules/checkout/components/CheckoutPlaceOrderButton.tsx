@@ -54,12 +54,16 @@ export default function CheckoutPlaceOrderButton() {
                         ),
                     });
 
-                    cartStore.setState({
-                        cart: {} as CartResponse['cart'],
-                        selectedAddress: null,
-                        selectedPaymentMethod: null,
-                        receipt: null,
-                    });
+                    setTimeout(
+                        () =>
+                            cartStore.setState({
+                                cart: {} as CartResponse['cart'],
+                                selectedAddress: null,
+                                selectedPaymentMethod: null,
+                                receipt: null,
+                            }),
+                        700
+                    );
                 }
 
                 return response;
