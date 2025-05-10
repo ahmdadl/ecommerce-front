@@ -279,14 +279,14 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='border-t mt-8 pt-8 pb-8 flex flex-col lg:flex-row gap-4 items-center justify-between text-muted-foreground'>
-                    <p>
+                    <p className='w-full text-center'>
                         <Trans>
                             &copy; {new Date().getFullYear()}{' '}
                             {general.name[localeStore.getState().localeKey()]}.
                             All rights reserved.
                         </Trans>
                     </p>
-                    <p>
+                    <p className='hidden'>
                         <Trans>
                             Made with <span className='text-primary'>❤️</span>{' '}
                             by <a href='#'>Ahmed Adel</a>
