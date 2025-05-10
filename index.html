@@ -18,7 +18,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-  <script id="spa-cached-data"></script>
+  <script id="spa-cached-data">
+    const CACHED_DATA = {
+      categories: [],
+      brands: [],
+      settings: {},
+      pageMetas: [],
+    }; window.CACHED_DATA = CACHED_DATA;
+  </script>
 </head>
 
 <body>

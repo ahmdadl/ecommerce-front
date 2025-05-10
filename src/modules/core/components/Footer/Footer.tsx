@@ -282,8 +282,10 @@ export default function Footer() {
                     <p className='w-full text-center'>
                         <Trans>
                             &copy; {new Date().getFullYear()}{' '}
-                            {general.name[localeStore.getState().localeKey()]}.
-                            All rights reserved.
+                            {general?.name[
+                                localeStore.getState().localeKey()
+                            ] ?? ''}
+                            . All rights reserved.
                         </Trans>
                     </p>
                     <p className='hidden'>
