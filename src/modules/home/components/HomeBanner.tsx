@@ -80,10 +80,17 @@ export default function HomeBanners() {
 
     return (
         <section className='relative w-full h-[600px] overflow-hidden'>
-            <div
+            <div className='absolute inset-0 '>
+                <img
+                    src={banner.media}
+                    alt={banner.title}
+                    className='w-full object-cover'
+                />
+            </div>
+            {/* <div
                 className='absolute inset-0 bg-cover bg-center transition-opacity duration-500'
                 style={{ backgroundImage: `url(${banner.media})` }}
-            />
+            /> */}
             <div className='absolute inset-0 bg-black/40' />
             <div className='absolute inset-0 flex items-center justify-center'>
                 <div className='text-center text-white px-4 max-w-4xl'>
