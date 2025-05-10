@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { Trans } from '@lingui/react/macro';
 import { useEffect, useState } from 'react';
 import { localeStore } from '../../stores/localeStore';
 import { cachedData } from '../../utils/cached-data';
@@ -46,22 +47,30 @@ const Countdown = ({ targetDate }: CountdownProps) => {
         <div className='flex items-center space-x-2 text-sm font-medium'>
             <div className='flex flex-col items-center'>
                 <span className='text-md font-bold'>{timeLeft.days}</span>
-                <span className='text-xs'>Days</span>
+                <span className='text-xs'>
+                    <Trans>Days</Trans>
+                </span>
             </div>
             <span>:</span>
             <div className='flex flex-col items-center'>
                 <span className='text-md font-bold'>{timeLeft.hours}</span>
-                <span className='text-xs'>Hours</span>
+                <span className='text-xs'>
+                    <Trans>Hours</Trans>
+                </span>
             </div>
             <span>:</span>
             <div className='flex flex-col items-center'>
                 <span className='text-md font-bold'>{timeLeft.minutes}</span>
-                <span className='text-xs'>Mins</span>
+                <span className='text-xs'>
+                    <Trans>Minutes</Trans>
+                </span>
             </div>
             <span>:</span>
             <div className='flex flex-col items-center'>
                 <span className='text-md font-bold'>{timeLeft.seconds}</span>
-                <span className='text-xs'>Secs</span>
+                <span className='text-xs'>
+                    <Trans>Seconds</Trans>
+                </span>
             </div>
         </div>
     );

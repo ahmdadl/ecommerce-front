@@ -201,7 +201,7 @@ msgstr "خصم {0}%"
 #~ msgstr "{currentStatus}"
 
 #. placeholder {0}: new Date().getFullYear()
-#. placeholder {1}: general.name[localeStore.getState().localeKey()]
+#. placeholder {1}: general?.name[ localeStore.getState().localeKey() ] ?? ''
 #: src/modules/core/components/Footer/Footer.tsx:283
 msgid "© {0} {1}. All rights reserved."
 msgstr "© {0} {1}. جميع الحقوق محفوظة."
@@ -231,7 +231,7 @@ msgstr "إضافة كود خصم"
 msgid "Add Funds"
 msgstr "إضافة أموال"
 
-#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundPopup.tsx:61
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundPopup.tsx:24
 msgid "Add Funds to Your Wallet"
 msgstr "إضافة أموال إلى محفظتك"
 
@@ -602,6 +602,10 @@ msgstr "الدعم الفني"
 msgid "Date"
 msgstr "التاريخ"
 
+#: src/modules/core/components/Header/TopHeader.tsx:51
+msgid "Days"
+msgstr "يوم"
+
 #: src/modules/shop/components/Products/ProductCard/ProductCartUpdateButton.tsx:79
 msgid "Decrease quantity"
 msgstr "تقليل الكمية"
@@ -825,6 +829,10 @@ msgstr "إخفاء كلمة المرور"
 msgid "Home"
 msgstr "الرئيسية"
 
+#: src/modules/core/components/Header/TopHeader.tsx:58
+msgid "Hours"
+msgstr "ساعة"
+
 #: src/modules/auth/components/RegisterForm.tsx:230
 msgid "I agree to the terms and conditions"
 msgstr "أوافق على الشروط والأحكام"
@@ -926,7 +934,7 @@ msgstr "يبدو أنك لم تقم بإضافة أي منتجات إلى سلة
 msgid "Low Stock - Only {0} left"
 msgstr "كمية محدودة - بقي {0} فقط"
 
-#: src/modules/core/components/Footer/Footer.tsx:290
+#: src/modules/core/components/Footer/Footer.tsx:292
 msgid "Made with <0>❤️</0> by <1>Ahmed Adel</1>"
 msgstr "Made with <0>❤️</0> by <1>Ahmed Adel</1>"
 
@@ -945,6 +953,10 @@ msgstr "الرسالة"
 #: src/modules/contact-us/components/ContactForm.tsx:84
 msgid "Message sent, We'll get back to you as soon as possible."
 msgstr "تم إرسال الرسالة، سنتواصل معك في أقرب وقت ممكن."
+
+#: src/modules/core/components/Header/TopHeader.tsx:65
+msgid "Minutes"
+msgstr "دقيقة"
 
 #: src/modules/addresses/pages/AddressesSkeletonPage.tsx:18
 #: src/modules/addresses/pages/AddressesPage.tsx:18
@@ -1208,7 +1220,7 @@ msgstr "الهاتف"
 msgid "Phone Number"
 msgstr "رقم الهاتف"
 
-#: src/modules/checkout/components/CheckoutPlaceOrderButton.tsx:83
+#: src/modules/checkout/components/CheckoutPlaceOrderButton.tsx:87
 #: src/modules/checkout/components/GuestCheckout/GuestCheckoutPlaceOrderButton.tsx:84
 msgid "Place Order"
 msgstr "تقديم الطلب"
@@ -1444,6 +1456,10 @@ msgstr "بحث"
 #: src/modules/core/components/Header/TopMenu/TopMenuSearch.tsx:17
 msgid "Search ..."
 msgstr "بحث ..."
+
+#: src/modules/core/components/Header/TopHeader.tsx:72
+msgid "Seconds"
+msgstr "ثانية"
 
 #: src/modules/profile/pages/ProfilePage.tsx:164
 msgid "select"

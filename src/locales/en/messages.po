@@ -215,7 +215,7 @@ msgstr "{0}% OFF"
 #~ msgstr "{key}"
 
 #. placeholder {0}: new Date().getFullYear()
-#. placeholder {1}: general.name[localeStore.getState().localeKey()]
+#. placeholder {1}: general?.name[ localeStore.getState().localeKey() ] ?? ''
 #: src/modules/core/components/Footer/Footer.tsx:283
 msgid "© {0} {1}. All rights reserved."
 msgstr "© {0} {1}. All rights reserved."
@@ -245,7 +245,7 @@ msgstr "Add Coupon Code"
 msgid "Add Funds"
 msgstr "Add Funds"
 
-#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundPopup.tsx:61
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundPopup.tsx:24
 msgid "Add Funds to Your Wallet"
 msgstr "Add Funds to Your Wallet"
 
@@ -628,6 +628,10 @@ msgstr "Customer Support"
 msgid "Date"
 msgstr "Date"
 
+#: src/modules/core/components/Header/TopHeader.tsx:51
+msgid "Days"
+msgstr "Days"
+
 #: src/modules/shop/components/Products/ProductCard/ProductCartUpdateButton.tsx:79
 msgid "Decrease quantity"
 msgstr "Decrease quantity"
@@ -859,6 +863,10 @@ msgstr "Home"
 #~ msgid "HomeBanner"
 #~ msgstr "HomeBanner"
 
+#: src/modules/core/components/Header/TopHeader.tsx:58
+msgid "Hours"
+msgstr "Hours"
+
 #: src/modules/auth/components/RegisterForm.tsx:230
 msgid "I agree to the terms and conditions"
 msgstr "I agree to the terms and conditions"
@@ -964,7 +972,7 @@ msgstr "Looks like you haven't added anything to your cart yet. Continue shoppin
 msgid "Low Stock - Only {0} left"
 msgstr "Low Stock - Only {0} left"
 
-#: src/modules/core/components/Footer/Footer.tsx:290
+#: src/modules/core/components/Footer/Footer.tsx:292
 msgid "Made with <0>❤️</0> by <1>Ahmed Adel</1>"
 msgstr "Made with <0>❤️</0> by <1>Ahmed Adel</1>"
 
@@ -983,6 +991,10 @@ msgstr "Message"
 #: src/modules/contact-us/components/ContactForm.tsx:84
 msgid "Message sent, We'll get back to you as soon as possible."
 msgstr "Message sent, We'll get back to you as soon as possible."
+
+#: src/modules/core/components/Header/TopHeader.tsx:65
+msgid "Minutes"
+msgstr "Minutes"
 
 #: src/modules/addresses/pages/AddressesSkeletonPage.tsx:18
 #: src/modules/addresses/pages/AddressesPage.tsx:18
@@ -1246,7 +1258,7 @@ msgstr "Phone"
 msgid "Phone Number"
 msgstr "Phone Number"
 
-#: src/modules/checkout/components/CheckoutPlaceOrderButton.tsx:83
+#: src/modules/checkout/components/CheckoutPlaceOrderButton.tsx:87
 #: src/modules/checkout/components/GuestCheckout/GuestCheckoutPlaceOrderButton.tsx:84
 msgid "Place Order"
 msgstr "Place Order"
@@ -1486,6 +1498,10 @@ msgstr "search"
 #: src/modules/core/components/Header/TopMenu/TopMenuSearch.tsx:17
 msgid "Search ..."
 msgstr "Search ..."
+
+#: src/modules/core/components/Header/TopHeader.tsx:72
+msgid "Seconds"
+msgstr "Seconds"
 
 #: src/modules/profile/pages/ProfilePage.tsx:164
 msgid "select"
