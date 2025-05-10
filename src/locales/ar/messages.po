@@ -172,15 +172,14 @@ msgstr "سيؤدي هذا إلى إزالة جميع العناصر من قائ�
 msgid "'No orders found"
 msgstr "لم يتم العثور على طلبات"
 
-#. placeholder {0}: event.status
 #. placeholder {0}: category.title
 #. placeholder {0}: faq.question
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:242
+#. placeholder {0}: faq.answer
 #: src/modules/faq/pages/FaqPage.tsx:86
 #: src/modules/faq/pages/FaqPage.tsx:100
 #: src/modules/faq/pages/FaqPage.tsx:106
 #: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenuContent.tsx:41
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:44
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:45
 #: src/modules/checkout/components/CheckoutPaymentMethods/CheckoutPaymentMethodRecord.tsx:50
 msgid "{0}"
 msgstr "{0}"
@@ -198,8 +197,8 @@ msgid "{0}% OFF"
 msgstr "خصم {0}%"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:205
-msgid "{currentStatus}"
-msgstr "{currentStatus}"
+#~ msgid "{currentStatus}"
+#~ msgstr "{currentStatus}"
 
 #. placeholder {0}: new Date().getFullYear()
 #. placeholder {1}: general.name[localeStore.getState().localeKey()]
@@ -227,6 +226,15 @@ msgstr "أضف عنوانًا جديدًا للبدء"
 msgid "Add Coupon Code"
 msgstr "إضافة كود خصم"
 
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:65
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:236
+msgid "Add Funds"
+msgstr "إضافة أموال"
+
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundPopup.tsx:61
+msgid "Add Funds to Your Wallet"
+msgstr "إضافة أموال إلى محفظتك"
+
 #: src/modules/core/components/LayoutShared/CartSideMenu/CartMenuContent.tsx:28
 msgid "Add items to your cart to see them here."
 msgstr "أضف عناصر إلى سلة التسوق الخاصة بك لرؤيتها هنا."
@@ -236,10 +244,10 @@ msgstr "أضف عناصر إلى سلة التسوق الخاصة بك لرؤي�
 msgid "Add items to your wishlist to see them here."
 msgstr "أضف عناصر إلى قائمة أمنياتك لرؤيتها هنا."
 
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:54
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:64
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:53
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:63
 #: src/modules/addresses/pages/AddressesPage.tsx:26
-#: src/modules/addresses/components/CreateAddressModal.tsx:61
+#: src/modules/addresses/components/CreateAddressModal.tsx:62
 msgid "Add New Address"
 msgstr "إضافة عنوان جديد"
 
@@ -273,8 +281,8 @@ msgstr "تمت الإضافة إلى السلة"
 msgid "Address"
 msgstr "العنوان"
 
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:39
-#: src/modules/addresses/components/CreateAddressModal.tsx:48
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:38
+#: src/modules/addresses/components/CreateAddressModal.tsx:49
 msgid "Address created successfully"
 msgstr "تم إنشاء العنوان بنجاح"
 
@@ -282,8 +290,8 @@ msgstr "تم إنشاء العنوان بنجاح"
 msgid "Address deleted successfully"
 msgstr "تم حذف العنوان بنجاح"
 
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:72
-#: src/modules/addresses/components/CreateAddressModal.tsx:69
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:71
+#: src/modules/addresses/components/CreateAddressModal.tsx:70
 msgid "Address Form"
 msgstr "نموذج العنوان"
 
@@ -291,14 +299,18 @@ msgstr "نموذج العنوان"
 msgid "Address Title"
 msgstr "عنوان العنوان"
 
-#: src/modules/addresses/components/EditAddressModal.tsx:59
+#: src/modules/addresses/components/EditAddressModal.tsx:60
 msgid "Address updated successfully"
 msgstr "تم تحديث العنوان بنجاح"
 
-#: src/modules/profile/utils/flags.tsx:20
-#: src/modules/profile/utils/flags.tsx:66
+#: src/modules/profile/utils/flags.tsx:28
+#: src/modules/profile/utils/flags.tsx:80
 msgid "Addresses"
 msgstr "عناوين"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:74
+msgid "All"
+msgstr "الكل"
 
 #: src/modules/core/components/Header/HeaderCategoriesBar.tsx:15
 msgid "All Categories"
@@ -308,10 +320,31 @@ msgstr "جميع الفئات"
 msgid "Already have an account?"
 msgstr "هل لديك حساب بالفعل؟"
 
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:117
+msgid "Amount"
+msgstr "المبلغ"
+
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:44
+msgid "Amount cannot exceed 10,000 EGP"
+msgstr "لا يمكن أن يتجاوز المبلغ 10,000 جنيه"
+
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:42
+msgid "Amount must be a number"
+msgstr "يجب أن يكون المبلغ رقمًا"
+
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:43
+msgid "Amount must be at least 10 EGP"
+msgstr "يجب أن يكون المبلغ 10 جنيه على الأقل"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletAmountSlider.tsx:44
+msgid "Amount to use"
+msgstr "المبلغ المستخدم"
+
 #: src/modules/errors/components/BaseErrorPage.tsx:100
 msgid "An unexpected error occurred. Please try again later."
 msgstr "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقًا."
 
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:107
 #: src/modules/cart/components/CartCouponSection.tsx:126
 msgid "Apply"
 msgstr "تطبيق"
@@ -327,6 +360,14 @@ msgstr "العربية"
 #: src/modules/compare-list/utils/methods.tsx:6
 msgid "Availability"
 msgstr "التوفر"
+
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:30
+msgid "Available Balance"
+msgstr "الرصيد المتاح"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:81
+msgid "Available for use in this purchase"
+msgstr "متاح للاستخدام في هذه العملية"
 
 #: src/modules/auth/pages/ForgetPasswordPage.tsx:34
 msgid "Back to"
@@ -351,7 +392,7 @@ msgid "Best Sellers"
 msgstr "الأكثر مبيعًا"
 
 #: src/modules/shop/components/Shop/ShopFilters.tsx:49
-#: src/modules/product/components/ProductDetails/ProductDetails.tsx:118
+#: src/modules/product/components/ProductDetails/ProductDetails.tsx:122
 #: src/modules/compare-list/utils/methods.tsx:9
 msgid "Brand"
 msgstr "العلامة التجارية"
@@ -368,7 +409,7 @@ msgstr "العلامة التجارية:"
 msgid "Brands"
 msgstr "العلامات التجارية"
 
-#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:40
+#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:38
 msgid "Browse all product categories"
 msgstr "تصفح جميع فئات المنتجات"
 
@@ -385,17 +426,22 @@ msgid "Call us at:"
 msgstr "اتصل بنا على:"
 
 #: src/modules/wishlist/pages/WishlistPage.tsx:74
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:81
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:224
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:80
 #: src/modules/cart/components/ClearCartButton.tsx:63
-#: src/modules/addresses/components/EditAddressModal.tsx:85
-#: src/modules/addresses/components/CreateAddressModal.tsx:74
+#: src/modules/addresses/components/EditAddressModal.tsx:86
+#: src/modules/addresses/components/CreateAddressModal.tsx:75
 #: src/modules/addresses/components/AddressDeleteAlert.tsx:72
 msgid "Cancel"
 msgstr "إلغاء"
 
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:51
+msgid "Canceled"
+msgstr "تم الإلغاء"
+
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:267
-msgid "Carrier"
-msgstr "شركة الشحن"
+#~ msgid "Carrier"
+#~ msgstr "شركة الشحن"
 
 #: src/modules/core/components/Header/TopMenu/TopMenuActions/TopMenuCartButton.tsx:27
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:64
@@ -404,7 +450,7 @@ msgstr "شركة الشحن"
 msgid "Cart"
 msgstr "سلة التسوق"
 
-#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:37
+#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:35
 #: src/modules/core/components/Footer/Footer.tsx:167
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:38
 #: src/modules/categories/components/CategoryProductsHero.tsx:16
@@ -423,8 +469,8 @@ msgstr "الفئة"
 msgid "Category:"
 msgstr "الفئة:"
 
-#: src/modules/profile/utils/flags.tsx:14
-#: src/modules/profile/utils/flags.tsx:56
+#: src/modules/profile/utils/flags.tsx:22
+#: src/modules/profile/utils/flags.tsx:70
 #: src/modules/profile/pages/ChangePasswordPage.tsx:140
 msgid "Change Password"
 msgstr "تغيير كلمة المرور"
@@ -440,6 +486,7 @@ msgid "City"
 msgstr "المدينة"
 
 #: src/modules/orders/components/OrdersFilters.tsx:42
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:120
 msgid "Clear"
 msgstr "مسح"
 
@@ -461,12 +508,12 @@ msgid "Clear your wishlist?"
 msgstr "هل تريد تفريغ قائمة الأمنيات؟"
 
 #: src/modules/core/components/LayoutShared/UserSideMenu/UserSideMenu.tsx:62
-#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:53
+#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:51
 #: src/components/ui/sheet.tsx:78
 msgid "Close"
 msgstr "إغلاق"
 
-#: src/modules/profile/utils/flags.tsx:76
+#: src/modules/profile/utils/flags.tsx:90
 #: src/modules/core/components/Header/TopMenu/TopMenuActions/TopMenuCompareButton.tsx:29
 msgid "Compare"
 msgstr "مقارنة"
@@ -475,6 +522,10 @@ msgstr "مقارنة"
 #: src/modules/compare-list/components/CompareListHero.tsx:11
 msgid "Compare List"
 msgstr "قائمة المقارنة"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:33
+msgid "Completed"
+msgstr "مكتمل"
 
 #: src/modules/profile/pages/ChangePasswordPage.tsx:122
 #: src/modules/auth/components/ResetPasswordForm.tsx:171
@@ -486,7 +537,6 @@ msgstr "تأكيد كلمة المرور"
 msgid "Connect With Us"
 msgstr "تواصل معنا"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:317
 #: src/modules/core/components/Footer/Footer.tsx:229
 #: src/modules/contact-us/components/ContactInfo.tsx:12
 msgid "Contact Information"
@@ -521,13 +571,13 @@ msgstr "تم النسخ"
 msgid "Copy URL"
 msgstr "نسخ الرابط"
 
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:85
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:86
 #: src/modules/cart/components/CartTotals.tsx:64
 msgid "Coupon"
 msgstr "كوبون"
 
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:87
-#: src/modules/addresses/components/CreateAddressModal.tsx:78
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:86
+#: src/modules/addresses/components/CreateAddressModal.tsx:79
 msgid "Create"
 msgstr "إنشاء"
 
@@ -571,8 +621,12 @@ msgid "Delete {0} address?"
 msgstr "حذف عنوان {0}؟"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:280
-msgid "Delivery Information"
-msgstr "معلومات التوصيل"
+#~ msgid "Delivery Information"
+#~ msgstr "معلومات التوصيل"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:80
+msgid "Deposits"
+msgstr "الإيداعات"
 
 #: src/modules/product/components/ProductDetails/ProductDetails.tsx:89
 msgid "Description"
@@ -588,7 +642,7 @@ msgstr "لم تستلم البريد؟ تحقق من مجلد الرسائل غ�
 
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:146
 #: src/modules/compare-list/utils/methods.tsx:5
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:74
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:75
 #: src/modules/cart/components/CartTotals.tsx:53
 msgid "Discount"
 msgstr "خصم"
@@ -596,6 +650,10 @@ msgstr "خصم"
 #: src/modules/auth/pages/LoginPage.tsx:32
 msgid "Don't have an account?"
 msgstr "ليس لديك حساب؟"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:74
+msgid "E-Wallet Balance"
+msgstr "رصيد المحفظة الإلكترونية"
 
 #: src/modules/addresses/components/AddressForm/AddressForm.tsx:124
 msgid "e.g. Home, Work"
@@ -611,11 +669,11 @@ msgstr "مثال: ORD-12345"
 msgid "Edit"
 msgstr "تعديل"
 
-#: src/modules/addresses/components/EditAddressModal.tsx:72
+#: src/modules/addresses/components/EditAddressModal.tsx:73
 msgid "Edit Address"
 msgstr "تعديل العنوان"
 
-#: src/modules/addresses/components/EditAddressModal.tsx:80
+#: src/modules/addresses/components/EditAddressModal.tsx:81
 msgid "Edit Address Form"
 msgstr "نموذج تعديل العنوان"
 
@@ -662,8 +720,8 @@ msgid "Enter your password"
 msgstr "أدخل كلمة المرور"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:285
-msgid "Estimated Delivery"
-msgstr "موعد التوصيل المتوقع"
+#~ msgid "Estimated Delivery"
+#~ msgstr "موعد التوصيل المتوقع"
 
 #: src/modules/core/components/Footer/Footer.tsx:45
 msgid "Facebook"
@@ -711,7 +769,7 @@ msgstr "نسيت كلمة المرور"
 msgid "Forgot password?"
 msgstr "نسيت كلمة المرور؟"
 
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:100
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:111
 #: src/modules/cart/components/CartTotals.tsx:80
 msgid "Free"
 msgstr "مجاني"
@@ -720,6 +778,10 @@ msgstr "مجاني"
 #: src/modules/faq/components/FaqHero.tsx:12
 msgid "Frequently Asked Questions"
 msgstr "الأسئلة المتكررة"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletAmountSlider.tsx:67
+msgid "From wallet"
+msgstr "من المحفظة"
 
 #: src/modules/profile/pages/ProfilePage.tsx:155
 msgid "Gender"
@@ -749,6 +811,7 @@ msgstr "إخفاء كلمة المرور"
 #: src/modules/shop/components/Shop/ShopHero.tsx:10
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:16
 #: src/modules/product/components/ProductHero.tsx:24
+#: src/modules/my-wallet/components/MyWalletHero.tsx:10
 #: src/modules/faq/components/FaqHero.tsx:10
 #: src/modules/core/components/Footer/Footer.tsx:151
 #: src/modules/contact-us/pages/ContactUsPage.tsx:13
@@ -822,7 +885,7 @@ msgstr "الاسم الأخير"
 msgid "Last updated: {0}"
 msgstr "آخر تحديث: {0}"
 
-#: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:41
+#: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:43
 msgid "Limited Stock"
 msgstr "كمية محدودة"
 
@@ -888,6 +951,14 @@ msgstr "تم إرسال الرسالة، سنتواصل معك في أقرب و�
 msgid "My Addresses"
 msgstr "عناويني"
 
+#: src/modules/profile/utils/flags.tsx:46
+#: src/modules/profile/utils/flags.tsx:95
+#: src/modules/my-wallet/components/MyWalletHero.tsx:8
+#: src/modules/my-wallet/components/MyWalletHero.tsx:12
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:19
+msgid "My Wallet"
+msgstr "محفظتي"
+
 #: src/modules/profile/pages/ProfilePage.tsx:92
 #: src/modules/profile/pages/ProfilePage.tsx:96
 #: src/modules/contact-us/components/ContactForm.tsx:115
@@ -898,7 +969,6 @@ msgstr "الاسم"
 msgid "name@example.com"
 msgstr "example@example.com"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:432
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:212
 msgid "Need Help?"
 msgstr "بحاجة إلى مساعدة؟"
@@ -907,7 +977,7 @@ msgstr "بحاجة إلى مساعدة؟"
 msgid "Need help? Contact our support team"
 msgstr "بحاجة إلى مساعدة؟ تواصل مع فريق الدعم"
 
-#: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:29
+#: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:31
 #: src/modules/product/components/ProductDetails/ProductDetails.tsx:79
 #: src/modules/compare-list/components/CompareListProduct.tsx:93
 msgid "New"
@@ -945,6 +1015,10 @@ msgstr "لا توجد أسئلة مطابقة لبحثك. يرجى تجربة ك
 msgid "No orders found."
 msgstr "لم يتم العثور على طلبات."
 
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:178
+msgid "No payment methods available"
+msgstr "لا توجد وسائل دفع متاحة"
+
 #: src/modules/compare-list/pages/CompareListPage.tsx:25
 msgid "No products to compare"
 msgstr "لا توجد منتجات للمقارنة"
@@ -962,8 +1036,8 @@ msgid "Only images and PDFs are allowed"
 msgstr "يُسمح فقط بالصور وملفات PDF"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:181
-msgid "Order"
-msgstr "الطلب"
+#~ msgid "Order"
+#~ msgstr "الطلب"
 
 #. placeholder {0}: order.id
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:44
@@ -1000,9 +1074,8 @@ msgstr "تم تقديم الطلب بنجاح"
 msgid "Order Status"
 msgstr "حالة الطلب"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:335
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:61
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:26
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:27
 #: src/modules/cart/components/CartTotals.tsx:35
 msgid "Order Summary"
 msgstr "ملخص الطلب"
@@ -1011,9 +1084,9 @@ msgstr "ملخص الطلب"
 msgid "Order Total"
 msgstr "إجمالي الطلب"
 
-#: src/modules/profile/utils/flags.tsx:32
-#: src/modules/profile/utils/flags.tsx:38
-#: src/modules/profile/utils/flags.tsx:61
+#: src/modules/profile/utils/flags.tsx:40
+#: src/modules/profile/utils/flags.tsx:52
+#: src/modules/profile/utils/flags.tsx:75
 msgid "Orders"
 msgstr "الطلبات"
 
@@ -1055,6 +1128,14 @@ msgstr "الصفحة {0} من {1}"
 msgid "Page not found"
 msgstr "الصفحة غير موجودة"
 
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletSection.tsx:20
+msgid "Partial Pay with E-Wallet"
+msgstr "دفع جزئي بالمحفظة الإلكترونية"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:59
+msgid "Partial Payment"
+msgstr "دفع جزئي"
+
 #: src/modules/profile/pages/ChangePasswordPage.tsx:103
 #: src/modules/auth/components/ResetPasswordForm.tsx:153
 #: src/modules/auth/components/RegisterForm.tsx:184
@@ -1074,6 +1155,11 @@ msgstr "يجب أن تتكون كلمة المرور من 8 أحرف على ال
 msgid "Password reset successfully"
 msgstr "تم إعادة تعيين كلمة المرور بنجاح"
 
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:57
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:67
+msgid "Pay with E-Wallet"
+msgstr "الدفع باستخدام المحفظة الإلكترونية"
+
 #: src/modules/checkout/components/GuestCheckout/CheckoutProgress.tsx:20
 msgid "Payment"
 msgstr "الدفع"
@@ -1084,6 +1170,7 @@ msgstr "فشل الدفع!"
 
 #: src/modules/orders/pages/OrdersPage.tsx:60
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:88
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:150
 #: src/modules/checkout/components/GuestCheckout/GuestCheckoutReview.tsx:87
 #: src/modules/checkout/components/CheckoutPaymentMethods/CheckoutPaymentMethods.tsx:25
 msgid "Payment Method"
@@ -1102,9 +1189,14 @@ msgstr "الدفع ناجح!"
 msgid "Payment Warning!"
 msgstr "تحذير الدفع!"
 
-#: src/modules/core/components/FormFileUploadInput/FileUploadInput.tsx:104
+#: src/modules/core/components/FormFileUploadInput/FileUploadInput.tsx:109
 msgid "PDF File"
 msgstr "ملف PDF"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:42
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:39
+msgid "Pending"
+msgstr "قيد المعالجة"
 
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:200
 msgid "Phone"
@@ -1122,8 +1214,8 @@ msgid "Place Order"
 msgstr "تقديم الطلب"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:181
-msgid "Placed on"
-msgstr "تم الطلب في"
+#~ msgid "Placed on"
+#~ msgstr "تم الطلب في"
 
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:47
 #~ msgid "Placed on {formattedDate}"
@@ -1149,6 +1241,10 @@ msgstr "يرجى إدخال بريد إلكتروني صحيح"
 msgid "Please enter your shipping address to continue."
 msgstr "يرجى إدخال عنوان الشحن الخاص بك للمتابعة."
 
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:45
+msgid "Please select a payment method"
+msgstr "الرجاء اختيار وسيلة دفع"
+
 #: src/modules/checkout/components/CheckoutPlaceOrderButton.tsx:86
 #~ msgid "Please select payment method"
 #~ msgstr "يرجى اختيار طريقة الدفع"
@@ -1157,9 +1253,9 @@ msgstr "يرجى إدخال عنوان الشحن الخاص بك للمتابع
 #~ msgid "Please select shipping address"
 #~ msgstr "يرجى اختيار عنوان الشحن"
 
-#: src/modules/checkout/components/CheckoutPlaceOrderButton.tsx:95
-#~ msgid "Please upload receipt"
-#~ msgstr "يرجى رفع إيصال الدفع"
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:69
+msgid "Please upload receipt"
+msgstr "يرجى رفع إيصال الدفع"
 
 #: src/routes/index.tsx:21
 msgid "Please wait a few seconds"
@@ -1177,8 +1273,8 @@ msgid "Price"
 msgstr "السعر"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:383
-msgid "Price Details"
-msgstr "تفاصيل السعر"
+#~ msgid "Price Details"
+#~ msgstr "تفاصيل السعر"
 
 #: src/modules/shop/components/Shop/ShopSortMenu.tsx:27
 msgid "Price: High to Low"
@@ -1230,11 +1326,12 @@ msgstr "استفسار عن منتج"
 msgid "products"
 msgstr "منتجات"
 
-#: src/modules/profile/utils/flags.tsx:8
-#: src/modules/profile/utils/flags.tsx:51
+#: src/modules/profile/utils/flags.tsx:16
+#: src/modules/profile/utils/flags.tsx:65
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:17
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:22
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:29
+#: src/modules/my-wallet/components/MyWalletHero.tsx:11
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:78
 msgid "Profile"
 msgstr "الملف الشخصي"
@@ -1242,6 +1339,10 @@ msgstr "الملف الشخصي"
 #: src/modules/profile/pages/ProfilePage.tsx:73
 msgid "Profile updated successfully"
 msgstr "تم تحديث الملف الشخصي بنجاح"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:77
+msgid "Purchases"
+msgstr "المشتريات"
 
 #: src/modules/orders/components/OrderItemsTable.tsx:74
 #: src/modules/orders/components/OrderItemsTable.tsx:105
@@ -1253,13 +1354,17 @@ msgid "Quantity"
 msgstr "الكمية"
 
 #. placeholder {0}: item.quantity
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:47
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:48
 msgid "Quantity: {0}"
 msgstr "الكمية: {0}"
 
 #: src/modules/core/components/Footer/Footer.tsx:143
 msgid "Quick Links"
 msgstr "روابط سريعة"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:67
+msgid "Recent Transactions"
+msgstr "المعاملات الأخيرة"
 
 #: src/modules/core/components/LayoutShared/UserSideMenu/UserSideMenuContent.tsx:54
 #: src/modules/core/components/Header/TopMenu/TopMenuUserSection/TopMenuUserContent.tsx:26
@@ -1270,6 +1375,10 @@ msgstr "تسجيل"
 #: src/modules/auth/components/RegisterForm.tsx:90
 msgid "Registered successfully"
 msgstr "تم التسجيل بنجاح"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletAmountSlider.tsx:75
+msgid "Remaining to pay"
+msgstr "المتبقي للدفع"
 
 #: src/modules/auth/components/LoginForm.tsx:123
 #~ msgid "Remember me"
@@ -1365,12 +1474,11 @@ msgid "Share this product"
 msgstr "مشاركة هذا المنتج"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:197
-msgid "Shipment Status"
-msgstr "حالة الشحنة"
+#~ msgid "Shipment Status"
+#~ msgstr "حالة الشحنة"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:404
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:156
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:94
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:105
 #: src/modules/checkout/components/GuestCheckout/CheckoutProgress.tsx:19
 #: src/modules/cart/components/CartTotals.tsx:74
 msgid "Shipping"
@@ -1380,7 +1488,6 @@ msgstr "الشحن"
 msgid "Shipping & Delivery"
 msgstr "الشحن والتوصيل"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:296
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:181
 #: src/modules/checkout/components/GuestCheckout/GuestCheckoutReview.tsx:44
 #: src/modules/checkout/components/GuestCheckout/GuestCheckoutAddress.tsx:58
@@ -1484,10 +1591,9 @@ msgstr "هل لا زلت تملك أسئلة؟"
 msgid "Subject"
 msgstr "الموضوع"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:396
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:129
 #: src/modules/core/components/LayoutShared/CartSideMenu/CartMenuContent.tsx:99
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:67
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:68
 msgid "Subtotal"
 msgstr "الإجمالي الفرعي"
 
@@ -1510,15 +1616,14 @@ msgid "Tag:"
 msgstr "الوسم:"
 
 #: src/modules/tags/components/TagProductsHero.tsx:20
-#: src/modules/product/components/ProductDetails/ProductDetails.tsx:126
+#: src/modules/product/components/ProductDetails/ProductDetails.tsx:132
 msgid "Tags"
 msgstr "الوسوم"
 
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:106
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:117
 msgid "Tax"
 msgstr "الضريبة"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:412
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:137
 #: src/modules/cart/components/CartTotals.tsx:87
 msgid "Taxes"
@@ -1541,22 +1646,29 @@ msgid "This will remove all items from your cart. This action cannot be undone."
 msgstr "سيؤدي هذا إلى إزالة جميع العناصر من سلة التسوق الخاصة بك. لا يمكن التراجع عن هذا الإجراء."
 
 #: src/modules/orders/pages/OrdersPage.tsx:66
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:425
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:166
 #: src/modules/orders/components/OrderItemsTable.tsx:80
 #: src/modules/orders/components/OrderItemsTable.tsx:108
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:113
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:124
 #: src/modules/cart/components/CartTotals.tsx:97
 msgid "Total"
 msgstr "الإجمالي"
 
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:48
+msgid "Total Balance"
+msgstr "إجمالي الرصيد"
+
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:178
-msgid "Track Your Order"
-msgstr "تتبع طلبك"
+#~ msgid "Track Your Order"
+#~ msgstr "تتبع طلبك"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:200
-msgid "Tracking Number"
-msgstr "رقم التتبع"
+#~ msgid "Tracking Number"
+#~ msgstr "رقم التتبع"
+
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:76
+msgid "Transactions"
+msgstr "المعاملات"
 
 #: src/modules/errors/components/BaseErrorPage.tsx:62
 #: src/modules/errors/components/BaseErrorPage.tsx:77
@@ -1573,10 +1685,11 @@ msgstr "حاول مرة أخرى"
 msgid "Twitter"
 msgstr "تويتر"
 
-#: src/modules/addresses/components/EditAddressModal.tsx:89
+#: src/modules/addresses/components/EditAddressModal.tsx:90
 msgid "Update"
 msgstr "تحديث"
 
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:204
 #: src/modules/checkout/components/CheckoutPaymentMethods/CheckoutPaymentMethodRecord.tsx:80
 msgid "Upload proof of payment"
 msgstr "تحميل إثبات الدفع"
@@ -1595,8 +1708,8 @@ msgid "View Brand"
 msgstr "عرض العلامة التجارية"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:270
-msgid "View Carrier Details"
-msgstr "عرض تفاصيل شركة الشحن"
+#~ msgid "View Carrier Details"
+#~ msgstr "عرض تفاصيل شركة الشحن"
 
 #: src/modules/core/components/LayoutShared/CartSideMenu/CartMenuContent.tsx:110
 msgid "View Cart"
@@ -1627,6 +1740,10 @@ msgstr "عرض المنتجات ({0})"
 msgid "View Wishlist"
 msgstr "عرض قائمة الرغبات"
 
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:96
+msgid "Wallet"
+msgstr "المحفظة"
+
 #: src/modules/contact-us/pages/ContactUsPage.tsx:25
 msgid "We're here to help! Fill out the form below or use our contact information."
 msgstr "نحن هنا لمساعدتك! يرجى تعبئة النموذج أدناه أو استخدام معلومات الاتصال الخاصة بنا."
@@ -1635,8 +1752,8 @@ msgstr "نحن هنا لمساعدتك! يرجى تعبئة النموذج أد�
 msgid "Where your order will be delivered"
 msgstr "مكان تسليم طلبك"
 
-#: src/modules/profile/utils/flags.tsx:26
-#: src/modules/profile/utils/flags.tsx:71
+#: src/modules/profile/utils/flags.tsx:34
+#: src/modules/profile/utils/flags.tsx:85
 #: src/modules/core/components/Header/TopMenu/TopMenuActions/TopMenuWishlistButton.tsx:27
 msgid "Wishlist"
 msgstr "قائمة المفضل"
@@ -1672,8 +1789,8 @@ msgid "Your name"
 msgstr "اسمك"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:253
-msgid "Your package is on its way to you"
-msgstr "طلبك في الطريق إليك"
+#~ msgid "Your package is on its way to you"
+#~ msgstr "طلبك في الطريق إليك"
 
 #: src/modules/checkout/components/CheckoutPaymentStatusModal.tsx:24
 msgid "Your payment has been processed successfully. A receipt has been sent to your email."

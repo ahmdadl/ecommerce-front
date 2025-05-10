@@ -178,15 +178,14 @@ msgstr " This will remove all items from your wishlist. This action cannot be un
 msgid "'No orders found"
 msgstr "'No orders found"
 
-#. placeholder {0}: event.status
 #. placeholder {0}: category.title
 #. placeholder {0}: faq.question
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:242
+#. placeholder {0}: faq.answer
 #: src/modules/faq/pages/FaqPage.tsx:86
 #: src/modules/faq/pages/FaqPage.tsx:100
 #: src/modules/faq/pages/FaqPage.tsx:106
 #: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenuContent.tsx:41
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:44
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:45
 #: src/modules/checkout/components/CheckoutPaymentMethods/CheckoutPaymentMethodRecord.tsx:50
 msgid "{0}"
 msgstr "{0}"
@@ -208,8 +207,8 @@ msgstr "{0}% OFF"
 #~ msgstr "{0}Locale"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:205
-msgid "{currentStatus}"
-msgstr "{currentStatus}"
+#~ msgid "{currentStatus}"
+#~ msgstr "{currentStatus}"
 
 #: src/modules/home/pages/Home.tsx:5
 #~ msgid "{key}"
@@ -241,6 +240,15 @@ msgstr "Add a new address to get started"
 msgid "Add Coupon Code"
 msgstr "Add Coupon Code"
 
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:65
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:236
+msgid "Add Funds"
+msgstr "Add Funds"
+
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundPopup.tsx:61
+msgid "Add Funds to Your Wallet"
+msgstr "Add Funds to Your Wallet"
+
 #: src/modules/core/components/LayoutShared/CartSideMenu/CartMenuContent.tsx:28
 msgid "Add items to your cart to see them here."
 msgstr "Add items to your cart to see them here."
@@ -250,10 +258,10 @@ msgstr "Add items to your cart to see them here."
 msgid "Add items to your wishlist to see them here."
 msgstr "Add items to your wishlist to see them here."
 
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:54
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:64
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:53
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:63
 #: src/modules/addresses/pages/AddressesPage.tsx:26
-#: src/modules/addresses/components/CreateAddressModal.tsx:61
+#: src/modules/addresses/components/CreateAddressModal.tsx:62
 msgid "Add New Address"
 msgstr "Add New Address"
 
@@ -287,8 +295,8 @@ msgstr "Added to Cart"
 msgid "Address"
 msgstr "Address"
 
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:39
-#: src/modules/addresses/components/CreateAddressModal.tsx:48
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:38
+#: src/modules/addresses/components/CreateAddressModal.tsx:49
 msgid "Address created successfully"
 msgstr "Address created successfully"
 
@@ -296,8 +304,8 @@ msgstr "Address created successfully"
 msgid "Address deleted successfully"
 msgstr "Address deleted successfully"
 
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:72
-#: src/modules/addresses/components/CreateAddressModal.tsx:69
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:71
+#: src/modules/addresses/components/CreateAddressModal.tsx:70
 msgid "Address Form"
 msgstr "Address Form"
 
@@ -305,18 +313,22 @@ msgstr "Address Form"
 msgid "Address Title"
 msgstr "Address Title"
 
-#: src/modules/addresses/components/EditAddressModal.tsx:59
+#: src/modules/addresses/components/EditAddressModal.tsx:60
 msgid "Address updated successfully"
 msgstr "Address updated successfully"
 
-#: src/modules/profile/utils/flags.tsx:20
-#: src/modules/profile/utils/flags.tsx:66
+#: src/modules/profile/utils/flags.tsx:28
+#: src/modules/profile/utils/flags.tsx:80
 msgid "Addresses"
 msgstr "Addresses"
 
 #: src/modules/profile/components/AddressPage/AddessModal.tsx:154
 #~ msgid "Ahmed Adel"
 #~ msgstr "Ahmed Adel"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:74
+msgid "All"
+msgstr "All"
 
 #: src/modules/core/components/Header/HeaderCategoriesBar.tsx:15
 msgid "All Categories"
@@ -326,10 +338,31 @@ msgstr "All Categories"
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:117
+msgid "Amount"
+msgstr "Amount"
+
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:44
+msgid "Amount cannot exceed 10,000 EGP"
+msgstr "Amount cannot exceed 10,000 EGP"
+
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:42
+msgid "Amount must be a number"
+msgstr "Amount must be a number"
+
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:43
+msgid "Amount must be at least 10 EGP"
+msgstr "Amount must be at least 10 EGP"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletAmountSlider.tsx:44
+msgid "Amount to use"
+msgstr "Amount to use"
+
 #: src/modules/errors/components/BaseErrorPage.tsx:100
 msgid "An unexpected error occurred. Please try again later."
 msgstr "An unexpected error occurred. Please try again later."
 
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:107
 #: src/modules/cart/components/CartCouponSection.tsx:126
 msgid "Apply"
 msgstr "Apply"
@@ -345,6 +378,14 @@ msgstr "العربية"
 #: src/modules/compare-list/utils/methods.tsx:6
 msgid "Availability"
 msgstr "Availability"
+
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:30
+msgid "Available Balance"
+msgstr "Available Balance"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:81
+msgid "Available for use in this purchase"
+msgstr "Available for use in this purchase"
 
 #: src/modules/auth/pages/ForgetPasswordPage.tsx:34
 msgid "Back to"
@@ -369,7 +410,7 @@ msgid "Best Sellers"
 msgstr "Best Sellers"
 
 #: src/modules/shop/components/Shop/ShopFilters.tsx:49
-#: src/modules/product/components/ProductDetails/ProductDetails.tsx:118
+#: src/modules/product/components/ProductDetails/ProductDetails.tsx:122
 #: src/modules/compare-list/utils/methods.tsx:9
 msgid "Brand"
 msgstr "Brand"
@@ -386,7 +427,7 @@ msgstr "Brand:"
 msgid "Brands"
 msgstr "Brands"
 
-#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:40
+#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:38
 msgid "Browse all product categories"
 msgstr "Browse all product categories"
 
@@ -403,17 +444,22 @@ msgid "Call us at:"
 msgstr "Call us at:"
 
 #: src/modules/wishlist/pages/WishlistPage.tsx:74
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:81
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:224
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:80
 #: src/modules/cart/components/ClearCartButton.tsx:63
-#: src/modules/addresses/components/EditAddressModal.tsx:85
-#: src/modules/addresses/components/CreateAddressModal.tsx:74
+#: src/modules/addresses/components/EditAddressModal.tsx:86
+#: src/modules/addresses/components/CreateAddressModal.tsx:75
 #: src/modules/addresses/components/AddressDeleteAlert.tsx:72
 msgid "Cancel"
 msgstr "Cancel"
 
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:51
+msgid "Canceled"
+msgstr "Canceled"
+
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:267
-msgid "Carrier"
-msgstr "Carrier"
+#~ msgid "Carrier"
+#~ msgstr "Carrier"
 
 #: src/modules/core/components/Header/TopMenu/TopMenuActions/TopMenuCartButton.tsx:27
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:64
@@ -422,7 +468,7 @@ msgstr "Carrier"
 msgid "Cart"
 msgstr "Cart"
 
-#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:37
+#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:35
 #: src/modules/core/components/Footer/Footer.tsx:167
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:38
 #: src/modules/categories/components/CategoryProductsHero.tsx:16
@@ -441,8 +487,8 @@ msgstr "Category"
 msgid "Category:"
 msgstr "Category:"
 
-#: src/modules/profile/utils/flags.tsx:14
-#: src/modules/profile/utils/flags.tsx:56
+#: src/modules/profile/utils/flags.tsx:22
+#: src/modules/profile/utils/flags.tsx:70
 #: src/modules/profile/pages/ChangePasswordPage.tsx:140
 msgid "Change Password"
 msgstr "Change Password"
@@ -462,6 +508,7 @@ msgid "City"
 msgstr "City"
 
 #: src/modules/orders/components/OrdersFilters.tsx:42
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:120
 msgid "Clear"
 msgstr "Clear"
 
@@ -483,12 +530,12 @@ msgid "Clear your wishlist?"
 msgstr "Clear your wishlist?"
 
 #: src/modules/core/components/LayoutShared/UserSideMenu/UserSideMenu.tsx:62
-#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:53
+#: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:51
 #: src/components/ui/sheet.tsx:78
 msgid "Close"
 msgstr "Close"
 
-#: src/modules/profile/utils/flags.tsx:76
+#: src/modules/profile/utils/flags.tsx:90
 #: src/modules/core/components/Header/TopMenu/TopMenuActions/TopMenuCompareButton.tsx:29
 msgid "Compare"
 msgstr "Compare"
@@ -497,6 +544,10 @@ msgstr "Compare"
 #: src/modules/compare-list/components/CompareListHero.tsx:11
 msgid "Compare List"
 msgstr "Compare List"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:33
+msgid "Completed"
+msgstr "Completed"
 
 #: src/modules/profile/pages/ChangePasswordPage.tsx:122
 #: src/modules/auth/components/ResetPasswordForm.tsx:171
@@ -512,7 +563,6 @@ msgstr "Connect With Us"
 #~ msgid "Contact"
 #~ msgstr "Contact"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:317
 #: src/modules/core/components/Footer/Footer.tsx:229
 #: src/modules/contact-us/components/ContactInfo.tsx:12
 msgid "Contact Information"
@@ -547,13 +597,13 @@ msgstr "Copied"
 msgid "Copy URL"
 msgstr "Copy URL"
 
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:85
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:86
 #: src/modules/cart/components/CartTotals.tsx:64
 msgid "Coupon"
 msgstr "Coupon"
 
-#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:87
-#: src/modules/addresses/components/CreateAddressModal.tsx:78
+#: src/modules/checkout/components/CheckoutAddresses/CheckoutAddAddress.tsx:86
+#: src/modules/addresses/components/CreateAddressModal.tsx:79
 msgid "Create"
 msgstr "Create"
 
@@ -597,8 +647,12 @@ msgid "Delete {0} address?"
 msgstr "Delete {0} address?"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:280
-msgid "Delivery Information"
-msgstr "Delivery Information"
+#~ msgid "Delivery Information"
+#~ msgstr "Delivery Information"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:80
+msgid "Deposits"
+msgstr "Deposits"
 
 #: src/modules/product/components/ProductDetails/ProductDetails.tsx:89
 msgid "Description"
@@ -614,7 +668,7 @@ msgstr "Didn't receive an email? Check your spam folder or try again."
 
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:146
 #: src/modules/compare-list/utils/methods.tsx:5
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:74
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:75
 #: src/modules/cart/components/CartTotals.tsx:53
 msgid "Discount"
 msgstr "Discount"
@@ -622,6 +676,10 @@ msgstr "Discount"
 #: src/modules/auth/pages/LoginPage.tsx:32
 msgid "Don't have an account?"
 msgstr "Don't have an account?"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:74
+msgid "E-Wallet Balance"
+msgstr "E-Wallet Balance"
 
 #: src/modules/addresses/components/AddressForm/AddressForm.tsx:124
 msgid "e.g. Home, Work"
@@ -637,11 +695,11 @@ msgstr "e.g. ORD-12345"
 msgid "Edit"
 msgstr "Edit"
 
-#: src/modules/addresses/components/EditAddressModal.tsx:72
+#: src/modules/addresses/components/EditAddressModal.tsx:73
 msgid "Edit Address"
 msgstr "Edit Address"
 
-#: src/modules/addresses/components/EditAddressModal.tsx:80
+#: src/modules/addresses/components/EditAddressModal.tsx:81
 msgid "Edit Address Form"
 msgstr "Edit Address Form"
 
@@ -688,8 +746,8 @@ msgid "Enter your password"
 msgstr "Enter your password"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:285
-msgid "Estimated Delivery"
-msgstr "Estimated Delivery"
+#~ msgid "Estimated Delivery"
+#~ msgstr "Estimated Delivery"
 
 #: src/modules/core/components/Footer/Footer.tsx:45
 msgid "Facebook"
@@ -741,7 +799,7 @@ msgstr "Forget Password"
 msgid "Forgot password?"
 msgstr "Forgot password?"
 
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:100
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:111
 #: src/modules/cart/components/CartTotals.tsx:80
 msgid "Free"
 msgstr "Free"
@@ -750,6 +808,10 @@ msgstr "Free"
 #: src/modules/faq/components/FaqHero.tsx:12
 msgid "Frequently Asked Questions"
 msgstr "Frequently Asked Questions"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletAmountSlider.tsx:67
+msgid "From wallet"
+msgstr "From wallet"
 
 #: src/modules/profile/pages/ProfilePage.tsx:155
 msgid "Gender"
@@ -779,6 +841,7 @@ msgstr "Hide password"
 #: src/modules/shop/components/Shop/ShopHero.tsx:10
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:16
 #: src/modules/product/components/ProductHero.tsx:24
+#: src/modules/my-wallet/components/MyWalletHero.tsx:10
 #: src/modules/faq/components/FaqHero.tsx:10
 #: src/modules/core/components/Footer/Footer.tsx:151
 #: src/modules/contact-us/pages/ContactUsPage.tsx:13
@@ -856,7 +919,7 @@ msgstr "Last Name"
 msgid "Last updated: {0}"
 msgstr "Last updated: {0}"
 
-#: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:41
+#: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:43
 msgid "Limited Stock"
 msgstr "Limited Stock"
 
@@ -926,6 +989,14 @@ msgstr "Message sent, We'll get back to you as soon as possible."
 msgid "My Addresses"
 msgstr "My Addresses"
 
+#: src/modules/profile/utils/flags.tsx:46
+#: src/modules/profile/utils/flags.tsx:95
+#: src/modules/my-wallet/components/MyWalletHero.tsx:8
+#: src/modules/my-wallet/components/MyWalletHero.tsx:12
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:19
+msgid "My Wallet"
+msgstr "My Wallet"
+
 #: src/modules/profile/pages/ProfilePage.tsx:92
 #: src/modules/profile/pages/ProfilePage.tsx:96
 #: src/modules/contact-us/components/ContactForm.tsx:115
@@ -936,7 +1007,6 @@ msgstr "Name"
 msgid "name@example.com"
 msgstr "name@example.com"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:432
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:212
 msgid "Need Help?"
 msgstr "Need Help?"
@@ -945,7 +1015,7 @@ msgstr "Need Help?"
 msgid "Need help? Contact our support team"
 msgstr "Need help? Contact our support team"
 
-#: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:29
+#: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:31
 #: src/modules/product/components/ProductDetails/ProductDetails.tsx:79
 #: src/modules/compare-list/components/CompareListProduct.tsx:93
 msgid "New"
@@ -983,6 +1053,10 @@ msgstr "No FAQs found matching your search. Please try different keywords."
 msgid "No orders found."
 msgstr "No orders found."
 
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:178
+msgid "No payment methods available"
+msgstr "No payment methods available"
+
 #: src/modules/compare-list/pages/CompareListPage.tsx:25
 msgid "No products to compare"
 msgstr "No products to compare"
@@ -1000,8 +1074,8 @@ msgid "Only images and PDFs are allowed"
 msgstr "Only images and PDFs are allowed"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:181
-msgid "Order"
-msgstr "Order"
+#~ msgid "Order"
+#~ msgstr "Order"
 
 #. placeholder {0}: order.id
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:44
@@ -1038,9 +1112,8 @@ msgstr "Order placed successfully"
 msgid "Order Status"
 msgstr "Order Status"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:335
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:61
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:26
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:27
 #: src/modules/cart/components/CartTotals.tsx:35
 msgid "Order Summary"
 msgstr "Order Summary"
@@ -1049,9 +1122,9 @@ msgstr "Order Summary"
 msgid "Order Total"
 msgstr "Order Total"
 
-#: src/modules/profile/utils/flags.tsx:32
-#: src/modules/profile/utils/flags.tsx:38
-#: src/modules/profile/utils/flags.tsx:61
+#: src/modules/profile/utils/flags.tsx:40
+#: src/modules/profile/utils/flags.tsx:52
+#: src/modules/profile/utils/flags.tsx:75
 msgid "Orders"
 msgstr "Orders"
 
@@ -1093,6 +1166,14 @@ msgstr "Page {0} of {1}"
 msgid "Page not found"
 msgstr "Page not found"
 
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletSection.tsx:20
+msgid "Partial Pay with E-Wallet"
+msgstr "Partial Pay with E-Wallet"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:59
+msgid "Partial Payment"
+msgstr "Partial Payment"
+
 #: src/modules/profile/pages/ChangePasswordPage.tsx:103
 #: src/modules/auth/components/ResetPasswordForm.tsx:153
 #: src/modules/auth/components/RegisterForm.tsx:184
@@ -1112,6 +1193,11 @@ msgstr "Password must be at least 8 characters"
 msgid "Password reset successfully"
 msgstr "Password reset successfully"
 
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:57
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:67
+msgid "Pay with E-Wallet"
+msgstr "Pay with E-Wallet"
+
 #: src/modules/checkout/components/GuestCheckout/CheckoutProgress.tsx:20
 msgid "Payment"
 msgstr "Payment"
@@ -1122,6 +1208,7 @@ msgstr "Payment Failed!"
 
 #: src/modules/orders/pages/OrdersPage.tsx:60
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:88
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:150
 #: src/modules/checkout/components/GuestCheckout/GuestCheckoutReview.tsx:87
 #: src/modules/checkout/components/CheckoutPaymentMethods/CheckoutPaymentMethods.tsx:25
 msgid "Payment Method"
@@ -1140,9 +1227,14 @@ msgstr "Payment Successful!"
 msgid "Payment Warning!"
 msgstr "Payment Warning!"
 
-#: src/modules/core/components/FormFileUploadInput/FileUploadInput.tsx:104
+#: src/modules/core/components/FormFileUploadInput/FileUploadInput.tsx:109
 msgid "PDF File"
 msgstr "PDF File"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:42
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:39
+msgid "Pending"
+msgstr "Pending"
 
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:200
 msgid "Phone"
@@ -1160,8 +1252,8 @@ msgid "Place Order"
 msgstr "Place Order"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:181
-msgid "Placed on"
-msgstr "Placed on"
+#~ msgid "Placed on"
+#~ msgstr "Placed on"
 
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:47
 #~ msgid "Placed on {formattedDate}"
@@ -1187,6 +1279,10 @@ msgstr "Please enter a valid email"
 msgid "Please enter your shipping address to continue."
 msgstr "Please enter your shipping address to continue."
 
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:45
+msgid "Please select a payment method"
+msgstr "Please select a payment method"
+
 #: src/modules/checkout/components/CheckoutPlaceOrderButton.tsx:86
 #~ msgid "Please select payment method"
 #~ msgstr "Please select payment method"
@@ -1195,9 +1291,9 @@ msgstr "Please enter your shipping address to continue."
 #~ msgid "Please select shipping address"
 #~ msgstr "Please select shipping address"
 
-#: src/modules/checkout/components/CheckoutPlaceOrderButton.tsx:95
-#~ msgid "Please upload receipt"
-#~ msgstr "Please upload receipt"
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:69
+msgid "Please upload receipt"
+msgstr "Please upload receipt"
 
 #: src/routes/index.tsx:21
 msgid "Please wait a few seconds"
@@ -1215,8 +1311,8 @@ msgid "Price"
 msgstr "Price"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:383
-msgid "Price Details"
-msgstr "Price Details"
+#~ msgid "Price Details"
+#~ msgstr "Price Details"
 
 #: src/modules/shop/components/Shop/ShopSortMenu.tsx:27
 msgid "Price: High to Low"
@@ -1268,11 +1364,12 @@ msgstr "Product Inquiry"
 msgid "products"
 msgstr "products"
 
-#: src/modules/profile/utils/flags.tsx:8
-#: src/modules/profile/utils/flags.tsx:51
+#: src/modules/profile/utils/flags.tsx:16
+#: src/modules/profile/utils/flags.tsx:65
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:17
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:22
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:29
+#: src/modules/my-wallet/components/MyWalletHero.tsx:11
 #: src/modules/core/components/BottomMenu/BottomMenu.tsx:78
 msgid "Profile"
 msgstr "Profile"
@@ -1280,6 +1377,10 @@ msgstr "Profile"
 #: src/modules/profile/pages/ProfilePage.tsx:73
 msgid "Profile updated successfully"
 msgstr "Profile updated successfully"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:77
+msgid "Purchases"
+msgstr "Purchases"
 
 #: src/modules/orders/components/OrderItemsTable.tsx:74
 #: src/modules/orders/components/OrderItemsTable.tsx:105
@@ -1291,13 +1392,17 @@ msgid "Quantity"
 msgstr "Quantity"
 
 #. placeholder {0}: item.quantity
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:47
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:48
 msgid "Quantity: {0}"
 msgstr "Quantity: {0}"
 
 #: src/modules/core/components/Footer/Footer.tsx:143
 msgid "Quick Links"
 msgstr "Quick Links"
+
+#: src/modules/my-wallet/components/MyWalletTransactionList.tsx:67
+msgid "Recent Transactions"
+msgstr "Recent Transactions"
 
 #: src/modules/core/components/LayoutShared/UserSideMenu/UserSideMenuContent.tsx:54
 #: src/modules/core/components/Header/TopMenu/TopMenuUserSection/TopMenuUserContent.tsx:26
@@ -1308,6 +1413,10 @@ msgstr "Register"
 #: src/modules/auth/components/RegisterForm.tsx:90
 msgid "Registered successfully"
 msgstr "Registered successfully"
+
+#: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletAmountSlider.tsx:75
+msgid "Remaining to pay"
+msgstr "Remaining to pay"
 
 #: src/modules/auth/components/LoginForm.tsx:123
 #~ msgid "Remember me"
@@ -1407,12 +1516,11 @@ msgid "Share this product"
 msgstr "Share this product"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:197
-msgid "Shipment Status"
-msgstr "Shipment Status"
+#~ msgid "Shipment Status"
+#~ msgstr "Shipment Status"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:404
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:156
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:94
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:105
 #: src/modules/checkout/components/GuestCheckout/CheckoutProgress.tsx:19
 #: src/modules/cart/components/CartTotals.tsx:74
 msgid "Shipping"
@@ -1422,7 +1530,6 @@ msgstr "Shipping"
 msgid "Shipping & Delivery"
 msgstr "Shipping & Delivery"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:296
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:181
 #: src/modules/checkout/components/GuestCheckout/GuestCheckoutReview.tsx:44
 #: src/modules/checkout/components/GuestCheckout/GuestCheckoutAddress.tsx:58
@@ -1526,10 +1633,9 @@ msgstr "Still have questions?"
 msgid "Subject"
 msgstr "Subject"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:396
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:129
 #: src/modules/core/components/LayoutShared/CartSideMenu/CartMenuContent.tsx:99
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:67
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:68
 msgid "Subtotal"
 msgstr "Subtotal"
 
@@ -1552,15 +1658,14 @@ msgid "Tag:"
 msgstr "Tag:"
 
 #: src/modules/tags/components/TagProductsHero.tsx:20
-#: src/modules/product/components/ProductDetails/ProductDetails.tsx:126
+#: src/modules/product/components/ProductDetails/ProductDetails.tsx:132
 msgid "Tags"
 msgstr "Tags"
 
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:106
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:117
 msgid "Tax"
 msgstr "Tax"
 
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:412
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:137
 #: src/modules/cart/components/CartTotals.tsx:87
 msgid "Taxes"
@@ -1583,22 +1688,29 @@ msgid "This will remove all items from your cart. This action cannot be undone."
 msgstr "This will remove all items from your cart. This action cannot be undone."
 
 #: src/modules/orders/pages/OrdersPage.tsx:66
-#: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:425
 #: src/modules/orders/pages/OrderDetailsPage/OrderDetailsPage.tsx:166
 #: src/modules/orders/components/OrderItemsTable.tsx:80
 #: src/modules/orders/components/OrderItemsTable.tsx:108
-#: src/modules/checkout/components/CheckoutOrderSummary.tsx:113
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:124
 #: src/modules/cart/components/CartTotals.tsx:97
 msgid "Total"
 msgstr "Total"
 
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:48
+msgid "Total Balance"
+msgstr "Total Balance"
+
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:178
-msgid "Track Your Order"
-msgstr "Track Your Order"
+#~ msgid "Track Your Order"
+#~ msgstr "Track Your Order"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:200
-msgid "Tracking Number"
-msgstr "Tracking Number"
+#~ msgid "Tracking Number"
+#~ msgstr "Tracking Number"
+
+#: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:76
+msgid "Transactions"
+msgstr "Transactions"
 
 #: src/modules/errors/components/BaseErrorPage.tsx:62
 #: src/modules/errors/components/BaseErrorPage.tsx:77
@@ -1615,10 +1727,11 @@ msgstr "Try Again"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: src/modules/addresses/components/EditAddressModal.tsx:89
+#: src/modules/addresses/components/EditAddressModal.tsx:90
 msgid "Update"
 msgstr "Update"
 
+#: src/modules/my-wallet/components/MyWalletAddFundPopup/MyWalletAddFundForm.tsx:204
 #: src/modules/checkout/components/CheckoutPaymentMethods/CheckoutPaymentMethodRecord.tsx:80
 msgid "Upload proof of payment"
 msgstr "Upload proof of payment"
@@ -1637,8 +1750,8 @@ msgid "View Brand"
 msgstr "View Brand"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:270
-msgid "View Carrier Details"
-msgstr "View Carrier Details"
+#~ msgid "View Carrier Details"
+#~ msgstr "View Carrier Details"
 
 #: src/modules/core/components/LayoutShared/CartSideMenu/CartMenuContent.tsx:110
 msgid "View Cart"
@@ -1669,6 +1782,10 @@ msgstr "View Products ({0})"
 msgid "View Wishlist"
 msgstr "View Wishlist"
 
+#: src/modules/checkout/components/CheckoutOrderSummary.tsx:96
+msgid "Wallet"
+msgstr "Wallet"
+
 #: src/modules/contact-us/pages/ContactUsPage.tsx:25
 msgid "We're here to help! Fill out the form below or use our contact information."
 msgstr "We're here to help! Fill out the form below or use our contact information."
@@ -1677,8 +1794,8 @@ msgstr "We're here to help! Fill out the form below or use our contact informati
 msgid "Where your order will be delivered"
 msgstr "Where your order will be delivered"
 
-#: src/modules/profile/utils/flags.tsx:26
-#: src/modules/profile/utils/flags.tsx:71
+#: src/modules/profile/utils/flags.tsx:34
+#: src/modules/profile/utils/flags.tsx:85
 #: src/modules/core/components/Header/TopMenu/TopMenuActions/TopMenuWishlistButton.tsx:27
 msgid "Wishlist"
 msgstr "Wishlist"
@@ -1714,8 +1831,8 @@ msgid "Your name"
 msgstr "Your name"
 
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:253
-msgid "Your package is on its way to you"
-msgstr "Your package is on its way to you"
+#~ msgid "Your package is on its way to you"
+#~ msgstr "Your package is on its way to you"
 
 #: src/modules/checkout/components/CheckoutPaymentStatusModal.tsx:24
 msgid "Your payment has been processed successfully. A receipt has been sent to your email."
