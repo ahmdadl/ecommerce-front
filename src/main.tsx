@@ -34,6 +34,7 @@ const router = createRouter({
     defaultNotFoundComponent: Error404Page,
     notFoundMode: 'root',
     defaultPendingComponent: BaseLoadingPage,
+    basepath: '/store',
 });
 declare module '@tanstack/react-router' {
     interface Register {
