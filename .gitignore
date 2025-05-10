@@ -30,3 +30,5 @@ dist-ssr
 vite-profile-*.*
 
 src/locales/*.ts
+
+public/*.php
