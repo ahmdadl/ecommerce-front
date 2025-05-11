@@ -1,9 +1,9 @@
 import useLocaleStore from '@/modules/core/stores/localeStore';
 import { env } from '@/modules/core/utils/env';
 import { getPageMetaData } from '@/modules/core/utils/methods';
-import HomeBrands from '@/modules/home/components/Home_Brands';
 import HomeBanners from '@/modules/home/components/HomeBanner';
 import HomeBestSellers from '@/modules/home/components/HomeBestSellers';
+import HomeBrands from '@/modules/home/components/HomeBrands';
 import HomeCategories from '@/modules/home/components/HomeCategories';
 import HomeSkeletonPage from '@/modules/home/pages/HomeSkeletonPage';
 import { homeApi } from '@/modules/home/utils/home-api';

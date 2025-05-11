@@ -58,12 +58,12 @@ export default function RegisterForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            first_name: '',
-            last_name: '',
-            email: '',
-            phone: '',
-            password: '',
-            password_confirmation: '',
+            first_name: 'Some',
+            last_name: 'User' + Math.random(),
+            email: 'asd' + Math.random() * 9999999 + '@gmail.com',
+            phone: '011345' + Math.floor(Math.random() * 999999),
+            password: '123123123',
+            password_confirmation: '123123123',
             terms: false,
         },
     });
@@ -85,7 +85,7 @@ export default function RegisterForm() {
             role: 'customer',
         });
 
-        history.go(-1);
+        setTimeout(() => history.go(-1), 500);
 
         toast.success(t`Registered successfully`, {
             className: '!bg-green-500 !text-white',
