@@ -79,7 +79,7 @@ export default function HomeBanners() {
     if (!banner) return null;
 
     return (
-        <section className='relative w-full h-[600px] overflow-hidden'>
+        <section className='relative w-[90%] mx-auto h-[350px] rounded-xl overflow-hidden my-4'>
             <div className='absolute inset-0 '>
                 <img
                     src={banner.media}
@@ -94,12 +94,10 @@ export default function HomeBanners() {
             <div className='absolute inset-0 bg-black/40' />
             <div className='absolute inset-0 flex items-center justify-center'>
                 <div className='text-center text-white px-4 max-w-4xl'>
-                    <h1 className='text-4xl md:text-6xl font-bold mb-4'>
+                    <h1 className='text-2xl md:text-4xl font-bold mb-4'>
                         {banner.title}
                     </h1>
-                    <p className='text-xl md:text-2xl mb-8'>
-                        {banner.subtitle}
-                    </p>
+                    <p className='text-lg md:text-xl mb-8'>{banner.subtitle}</p>
                     {bannerAction(banner)}
                 </div>
             </div>
