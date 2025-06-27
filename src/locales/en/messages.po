@@ -222,6 +222,10 @@ msgstr "© {0} {1}. All rights reserved."
 msgid "1-800-123-4567"
 msgstr "1-800-123-4567"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:65
+msgid "2 years protection for peace of mind"
+msgstr "2 years protection for peace of mind"
+
 #: src/modules/errors/components/BaseErrorPage.tsx:84
 msgid "Access denied"
 msgstr "Access denied"
@@ -683,6 +687,10 @@ msgstr "Discover our wide range of tech products across different categories. Fi
 msgid "Don't have an account?"
 msgstr "Don't have an account?"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:18
+msgid "Don't miss out on these amazing deals!"
+msgstr "Don't miss out on these amazing deals!"
+
 #: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:74
 msgid "E-Wallet Balance"
 msgstr "E-Wallet Balance"
@@ -755,6 +763,10 @@ msgstr "Enter your password"
 #~ msgid "Estimated Delivery"
 #~ msgstr "Estimated Delivery"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:62
+msgid "Extended Warranty"
+msgstr "Extended Warranty"
+
 #: src/modules/core/components/Footer/Footer.tsx:45
 msgid "Facebook"
 msgstr "Facebook"
@@ -810,6 +822,10 @@ msgstr "Forgot password?"
 msgid "Free"
 msgstr "Free"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:27
+msgid "Free Shipping"
+msgstr "Free Shipping"
+
 #: src/modules/faq/components/FaqHero.tsx:8
 #: src/modules/faq/components/FaqHero.tsx:12
 msgid "Frequently Asked Questions"
@@ -822,6 +838,11 @@ msgstr "From wallet"
 #: src/modules/profile/pages/ProfilePage.tsx:155
 msgid "Gender"
 msgstr "Gender"
+
+#. placeholder {0}: parsePrice(5000)
+#: src/modules/home/components/HomeSpecialOffers.tsx:47
+msgid "Get up to {0} EGP off your new device"
+msgstr "Get up to {0} EGP off your new device"
 
 #: src/modules/errors/components/BaseErrorPage.tsx:52
 #: src/modules/errors/components/BaseErrorPage.tsx:92
@@ -929,9 +950,17 @@ msgstr "Last Name"
 msgid "Last updated: {0}"
 msgstr "Last updated: {0}"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:54
+msgid "Learn More"
+msgstr "Learn More"
+
 #: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:43
 msgid "Limited Stock"
 msgstr "Limited Stock"
+
+#: src/modules/home/components/HomeSpecialOffers.tsx:15
+msgid "Limited Time Offers"
+msgstr "Limited Time Offers"
 
 #: src/modules/core/components/Footer/Footer.tsx:134
 msgid "LinkedIn"
@@ -1082,6 +1111,11 @@ msgstr "No results found."
 #: src/modules/shop/components/Shop/ShopSortMenu.tsx:35
 msgid "Oldest First"
 msgstr "Oldest First"
+
+#. placeholder {0}: parsePrice(50000)
+#: src/modules/home/components/HomeSpecialOffers.tsx:30
+msgid "On orders over {0}"
+msgstr "On orders over {0}"
 
 #: src/modules/core/components/FormFileUploadInput/FileUploadInput.tsx:41
 msgid "Only images and PDFs are allowed"
@@ -1575,6 +1609,8 @@ msgstr "Shop"
 msgid "Shop by Category"
 msgstr "Shop by Category"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:36
+#: src/modules/home/components/HomeSpecialOffers.tsx:71
 #: src/modules/home/components/HomeCategories.tsx:70
 #: src/modules/home/components/HomeBanner.tsx:43
 msgid "Shop Now"
@@ -1726,6 +1762,10 @@ msgstr "Total Balance"
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:200
 #~ msgid "Tracking Number"
 #~ msgstr "Tracking Number"
+
+#: src/modules/home/components/HomeSpecialOffers.tsx:44
+msgid "Trade-In Program"
+msgstr "Trade-In Program"
 
 #: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:76
 msgid "Transactions"

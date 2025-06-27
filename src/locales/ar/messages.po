@@ -208,6 +208,10 @@ msgstr "© {0} {1}. جميع الحقوق محفوظة."
 msgid "1-800-123-4567"
 msgstr "18001234567"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:65
+msgid "2 years protection for peace of mind"
+msgstr "حماية لمدة عامين لراحة بالك"
+
 #: src/modules/errors/components/BaseErrorPage.tsx:84
 msgid "Access denied"
 msgstr "تم رفض الوصول"
@@ -657,6 +661,10 @@ msgstr "اكتشف مجموعتنا الواسعة من المنتجات الت�
 msgid "Don't have an account?"
 msgstr "ليس لديك حساب؟"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:18
+msgid "Don't miss out on these amazing deals!"
+msgstr "لا تفوت هذه العروض المذهلة!"
+
 #: src/modules/checkout/components/CheckoutWalletSection/CheckoutWalletCard.tsx:74
 msgid "E-Wallet Balance"
 msgstr "رصيد المحفظة الإلكترونية"
@@ -729,6 +737,10 @@ msgstr "أدخل كلمة المرور"
 #~ msgid "Estimated Delivery"
 #~ msgstr "موعد التوصيل المتوقع"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:62
+msgid "Extended Warranty"
+msgstr "ضمان ممتد"
+
 #: src/modules/core/components/Footer/Footer.tsx:45
 msgid "Facebook"
 msgstr "فيسبوك"
@@ -780,6 +792,10 @@ msgstr "نسيت كلمة المرور؟"
 msgid "Free"
 msgstr "مجاني"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:27
+msgid "Free Shipping"
+msgstr "شحن مجاني"
+
 #: src/modules/faq/components/FaqHero.tsx:8
 #: src/modules/faq/components/FaqHero.tsx:12
 msgid "Frequently Asked Questions"
@@ -792,6 +808,11 @@ msgstr "من المحفظة"
 #: src/modules/profile/pages/ProfilePage.tsx:155
 msgid "Gender"
 msgstr "الجنس"
+
+#. placeholder {0}: parsePrice(5000)
+#: src/modules/home/components/HomeSpecialOffers.tsx:47
+msgid "Get up to {0} EGP off your new device"
+msgstr "احصل على خصم يصل إلى {0} جنيه مصري على جهازك الجديد"
 
 #: src/modules/errors/components/BaseErrorPage.tsx:52
 #: src/modules/errors/components/BaseErrorPage.tsx:92
@@ -895,9 +916,17 @@ msgstr "الاسم الأخير"
 msgid "Last updated: {0}"
 msgstr "آخر تحديث: {0}"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:54
+msgid "Learn More"
+msgstr "اعرف المزيد"
+
 #: src/modules/shop/components/Products/ProductCard/ProductCard.tsx:43
 msgid "Limited Stock"
 msgstr "كمية محدودة"
+
+#: src/modules/home/components/HomeSpecialOffers.tsx:15
+msgid "Limited Time Offers"
+msgstr "عروض لفترة محدودة"
 
 #: src/modules/core/components/Footer/Footer.tsx:134
 msgid "LinkedIn"
@@ -1044,6 +1073,11 @@ msgstr "لا توجد نتائج."
 #: src/modules/shop/components/Shop/ShopSortMenu.tsx:35
 msgid "Oldest First"
 msgstr "الأقدم أولاً"
+
+#. placeholder {0}: parsePrice(50000)
+#: src/modules/home/components/HomeSpecialOffers.tsx:30
+msgid "On orders over {0}"
+msgstr "على الطلبات التي تتجاوز {0}"
 
 #: src/modules/core/components/FormFileUploadInput/FileUploadInput.tsx:41
 msgid "Only images and PDFs are allowed"
@@ -1533,6 +1567,8 @@ msgstr "تسوق"
 msgid "Shop by Category"
 msgstr "تسوق حسب الفئة"
 
+#: src/modules/home/components/HomeSpecialOffers.tsx:36
+#: src/modules/home/components/HomeSpecialOffers.tsx:71
 #: src/modules/home/components/HomeCategories.tsx:70
 #: src/modules/home/components/HomeBanner.tsx:43
 msgid "Shop Now"
@@ -1684,6 +1720,10 @@ msgstr "إجمالي الرصيد"
 #: src/modules/orders/pages/TrackOrderPage/TrackOrderPage.tsx:200
 #~ msgid "Tracking Number"
 #~ msgstr "رقم التتبع"
+
+#: src/modules/home/components/HomeSpecialOffers.tsx:44
+msgid "Trade-In Program"
+msgstr "برنامج الاستبدال"
 
 #: src/modules/my-wallet/components/MyWalletBalanceCard.tsx:76
 msgid "Transactions"
