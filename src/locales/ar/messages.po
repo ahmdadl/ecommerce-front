@@ -185,9 +185,7 @@ msgid "{0}"
 msgstr "{0}"
 
 #. placeholder {0}: brand.products_count
-#. placeholder {0}: category.products_count
-#: src/modules/home/components/Home_Brands.tsx:93
-#: src/modules/home/components/HomeCategories.tsx:43
+#: src/modules/home/components/HomeBrands.tsx:93
 msgid "{0} products"
 msgstr "{0} منتجات"
 
@@ -444,7 +442,7 @@ msgstr "تم الإلغاء"
 #~ msgstr "شركة الشحن"
 
 #: src/modules/core/components/Header/TopMenu/TopMenuActions/TopMenuCartButton.tsx:27
-#: src/modules/core/components/BottomMenu/BottomMenu.tsx:64
+#: src/modules/core/components/BottomMenu/BMenuCart.tsx:27
 #: src/modules/checkout/components/CheckoutHero.tsx:11
 #: src/modules/cart/components/CartHero.tsx:12
 msgid "Cart"
@@ -452,7 +450,7 @@ msgstr "سلة التسوق"
 
 #: src/modules/core/components/LayoutShared/CategoriesSideMenu/CategoriesSideMenu.tsx:35
 #: src/modules/core/components/Footer/Footer.tsx:167
-#: src/modules/core/components/BottomMenu/BottomMenu.tsx:38
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:39
 #: src/modules/categories/components/CategoryProductsHero.tsx:16
 #: src/modules/categories/components/CategoriesHeader.tsx:9
 #: src/modules/categories/components/CategoriesHeader.tsx:16
@@ -651,6 +649,10 @@ msgstr "لم تستلم البريد؟ تحقق من مجلد الرسائل غ�
 msgid "Discount"
 msgstr "خصم"
 
+#: src/modules/home/components/HomeCategories.tsx:22
+msgid "Discover our wide range of tech products across different categories. Find exactly what you're looking for with our curated collections."
+msgstr "اكتشف مجموعتنا الواسعة من المنتجات التقنية عبر مختلف الفئات. اعثر على ما تبحث عنه بالضبط من خلال مجموعاتنا المختارة بعناية."
+
 #: src/modules/auth/pages/LoginPage.tsx:32
 msgid "Don't have an account?"
 msgstr "ليس لديك حساب؟"
@@ -736,7 +738,7 @@ msgid "FAQs"
 msgstr "الأسئلة الشائعة"
 
 #: src/modules/home/pages/HomeSkeletonPage.tsx:47
-#: src/modules/home/components/Home_Brands.tsx:39
+#: src/modules/home/components/HomeBrands.tsx:39
 msgid "Featured Brands"
 msgstr "العلامات التجارية المميزة"
 
@@ -912,7 +914,7 @@ msgstr "تم تسجيل الدخول بنجاح"
 
 #: src/modules/core/components/LayoutShared/UserSideMenu/UserSideMenuContent.tsx:42
 #: src/modules/core/components/Header/TopMenu/TopMenuUserSection/TopMenuUserContent.tsx:21
-#: src/modules/core/components/BottomMenu/BottomMenu.tsx:80
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:70
 #: src/modules/auth/pages/LoginPage.tsx:19
 msgid "Login"
 msgstr "تسجيل الدخول"
@@ -1344,7 +1346,7 @@ msgstr "منتجات"
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:22
 #: src/modules/profile/components/ProfileLayout/ProfileHeroSection.tsx:29
 #: src/modules/my-wallet/components/MyWalletHero.tsx:11
-#: src/modules/core/components/BottomMenu/BottomMenu.tsx:78
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:68
 msgid "Profile"
 msgstr "الملف الشخصي"
 
@@ -1439,16 +1441,16 @@ msgid "Save"
 msgstr "حفظ"
 
 #: src/modules/home/pages/HomeSkeletonPage.tsx:53
-#: src/modules/home/components/Home_Brands.tsx:49
+#: src/modules/home/components/HomeBrands.tsx:49
 msgid "Scroll left"
 msgstr "التمرير لليسار"
 
 #: src/modules/home/pages/HomeSkeletonPage.tsx:59
-#: src/modules/home/components/Home_Brands.tsx:59
+#: src/modules/home/components/HomeBrands.tsx:59
 msgid "Scroll right"
 msgstr "التمرير لليمين"
 
-#: src/modules/core/components/BottomMenu/BottomMenu.tsx:51
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:52
 msgid "search"
 msgstr "بحث"
 
@@ -1522,15 +1524,16 @@ msgstr "يتم حساب الشحن عند الدفع."
 #: src/modules/core/components/Header/TopMenu/TopMenuLinks.tsx:9
 #: src/modules/core/components/Footer/Footer.tsx:159
 #: src/modules/core/components/Footer/Footer.tsx:183
-#: src/modules/core/components/BottomMenu/BottomMenu.tsx:22
+#: src/modules/core/components/BottomMenu/BottomMenu.tsx:23
 msgid "Shop"
 msgstr "تسوق"
 
 #: src/modules/home/pages/HomeSkeletonPage.tsx:18
-#: src/modules/home/components/HomeCategories.tsx:15
+#: src/modules/home/components/HomeCategories.tsx:19
 msgid "Shop by Category"
 msgstr "تسوق حسب الفئة"
 
+#: src/modules/home/components/HomeCategories.tsx:70
 #: src/modules/home/components/HomeBanner.tsx:43
 msgid "Shop Now"
 msgstr "تسوق الآن"
@@ -1718,6 +1721,10 @@ msgstr "حساب المستخدم"
 #: src/modules/home/components/HomeBestSellers.tsx:25
 msgid "View all"
 msgstr "عرض الكل"
+
+#: src/modules/home/components/HomeCategories.tsx:89
+msgid "View All Categories"
+msgstr "عرض جميع الفئات"
 
 #: src/modules/home/components/HomeBanner.tsx:60
 msgid "View Brand"
