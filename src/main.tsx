@@ -21,7 +21,7 @@ const withoutLocaleToLocalizedMask = createRouteMask({
     from: '/',
     // @ts-ignore
     to: '/en',
-    params: true,
+    // params: true,
 });
 
 const router = createRouter({
