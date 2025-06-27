@@ -13,12 +13,12 @@ export default function ProductCard({ product }: { product: ProductEntity }) {
         <Card className='overflow-hidden h-full flex flex-col gap-2 pb-6 pt-0'>
             <div className='relative'>
                 <Link to={urls.products.view(product)}>
-                    <div className='h-48 overflow-hidden'>
+                    <div className='h-64 overflow-hidden'>
                         <img
                             src={product.images[0] || ''}
                             alt={product.title}
                             width={250}
-                            height={150}
+                            height={350}
                             className='object-cover w-full h-full transition-transform hover:scale-120 duration-500'
                         />
                     </div>
