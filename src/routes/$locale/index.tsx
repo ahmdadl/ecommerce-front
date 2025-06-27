@@ -5,6 +5,7 @@ import HomeBanners from '@/modules/home/components/HomeBanner';
 import HomeBestSellers from '@/modules/home/components/HomeBestSellers';
 import HomeBrands from '@/modules/home/components/HomeBrands';
 import HomeCategories from '@/modules/home/components/HomeCategories';
+import HomeSpecialOffers from '@/modules/home/components/HomeSpecialOffers';
 import HomeSkeletonPage from '@/modules/home/pages/HomeSkeletonPage';
 import { homeApi } from '@/modules/home/utils/home-api';
 import { createFileRoute, redirect } from '@tanstack/react-router';
@@ -38,9 +39,11 @@ function Index() {
 
             <HomeCategories />
 
-            <HomeBrands />
-
             <HomeBestSellers />
+
+            <HomeSpecialOffers />
+
+            <HomeBrands />
         </div>
     );
 }
