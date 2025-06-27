@@ -1,13 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { urls } from '@/modules/core/utils/urls';
 import ProductCard from '@/modules/shop/components/Products/ProductCard';
+import { useProductsStore } from '@/modules/shop/stores/products-store';
 import Link from '@core/components/LocalizedLink';
 import { Trans } from '@lingui/react/macro';
 import { List } from 'lucide-react';
-import { useHomeStore } from '../stores/home-store';
 
 export default function HomeBestSellers() {
-    const products = useHomeStore.use.bestSellers();
+    const products = useProductsStore.use.records();
 
     return (
         <section className='py-12 px-4 md:px-6 lg:px-8'>

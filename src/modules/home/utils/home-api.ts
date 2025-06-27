@@ -1,5 +1,6 @@
 import http from '@/modules/core/utils/http';
 import { parseError } from '@/modules/core/utils/parseError';
+import { productsStore } from '@/modules/shop/stores/products-store';
 import { homeStore } from '../stores/home-store';
 
 export const homeApi = {
@@ -10,7 +11,11 @@ export const homeApi = {
 
         homeStore.setState({
             banners: response.data.banners,
-            bestSellers: response.data.bestSellers,
+            // bestSellers: response.data.bestSellers,
+        });
+
+        productsStore.setState({
+            records: response.data.bestSellers,
         });
 
         return response.data;
