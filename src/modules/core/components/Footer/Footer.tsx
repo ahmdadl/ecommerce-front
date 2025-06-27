@@ -279,7 +279,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='border-t mt-8 pt-8 pb-8 flex flex-col lg:flex-row gap-4 items-center justify-between text-muted-foreground'>
-                    <p className='w-full text-center'>
+                    <p className='w-1/2 text-center'>
                         <Trans>
                             &copy; {new Date().getFullYear()}{' '}
                             {general?.name[
@@ -288,10 +288,17 @@ export default function Footer() {
                             . All rights reserved.
                         </Trans>
                     </p>
-                    <p className='hidden'>
+                    <p className=''>
                         <Trans>
                             Made with <span className='text-primary'>❤️</span>{' '}
-                            by <a href='#'>Ahmed Adel</a>
+                            by{' '}
+                            <a
+                                href='https://ahmdadl.github.io'
+                                target='_blank'
+                                className='text-primary hover:underline'
+                            >
+                                Ahmed Adel
+                            </a>
                         </Trans>
                     </p>
                 </div>
