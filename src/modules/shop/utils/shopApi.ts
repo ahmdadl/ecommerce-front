@@ -63,6 +63,10 @@ export const shopApi = {
 
         filtersStore.setState({
             filters: response.data.filters,
+            currentPriceRange: [
+                Number.parseFloat(response.data.filters.price_range.min),
+                Number.parseFloat(response.data.filters.price_range.max),
+            ],
         });
 
         return {

@@ -14,6 +14,7 @@ const getSearchParams = (state: FilterState): Record<string, string> => {
     }
     const minPrice = Number.parseFloat(state.filters.price_range.min);
     const maxPrice = Number.parseFloat(state.filters.price_range.max);
+    console.log(state.currentPriceRange, minPrice, maxPrice);
     if (
         state.currentPriceRange[0] > minPrice ||
         state.currentPriceRange[1] < maxPrice

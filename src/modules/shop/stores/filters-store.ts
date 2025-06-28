@@ -6,7 +6,7 @@ export const filtersStore = create<FilterState>((set, get) => ({
     filters: null,
     selectedCategories: [],
     selectedBrands: [],
-    currentPriceRange: [0, 1000],
+    currentPriceRange: [-1, -1],
     isLoading: false,
     error: null,
     currentPage: 1,
@@ -23,7 +23,7 @@ export const filtersStore = create<FilterState>((set, get) => ({
                 ...state,
                 filters,
                 currentPriceRange: state.currentPriceRange.every(
-                    (v) => v === 0 || v === 1000
+                    (v) => v === -1
                 )
                     ? [
                           Number.parseFloat(filters.price_range.min),

@@ -8,7 +8,6 @@ import { ActiveFilters } from '../Filters/ActiveFilters';
 import { AppendFiltersToUrl } from '../Filters/AppendFiltersToUrl';
 import { FiltersSidebar } from '../Shop/FiltersSidebar';
 import { ProductPagination } from '../Shop/ShopPagination';
-import ShopSortMenu from '../Shop/ShopSortMenu';
 import { ProductGrid } from './ProductGrid';
 
 export default function ProductsSidebarGrid({ route }: any) {
@@ -29,7 +28,7 @@ export default function ProductsSidebarGrid({ route }: any) {
                                 <AppendFiltersToUrl />
                             </div>
                             <div className='w-fit'>
-                                <ShopSortMenu />
+                                {/* <ShopSortMenu /> */}
                             </div>
                         </div>
                     </div>

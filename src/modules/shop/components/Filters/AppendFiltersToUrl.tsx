@@ -29,6 +29,16 @@ export function AppendFiltersToUrl() {
             }
         }
 
+        if (new URLSearchParams(searchParams).size < 1) {
+            return;
+        }
+
+        // console.log(
+        //     params,
+        //     `${window.location.pathname}?${new URLSearchParams(searchParams)}`
+        // );
+        // return;
+
         window.history.pushState(
             null,
             '',
