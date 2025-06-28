@@ -46,7 +46,7 @@ export default function AddressForm({
     const { t } = useLingui();
     const user = userStore.getState();
 
-    const [firstName, lastName] = user.name.split(' ');
+    const [firstName, lastName] = user?.name ? user?.name.split(' ') : ['', ''];
 
     const defaultAddressValues: AddressFormData = {
         title: address?.title || '',
