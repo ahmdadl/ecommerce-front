@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, List } from 'lucide-react';
 export default function HomeSkeletonPage() {
     return (
         <div className='flex flex-col gap-6'>
-            <section className='relative w-full h-[600px] overflow-hidden bg-gray-500'>
+            <section className='relative w-[90%] mx-auto h-[350px] rounded-xl overflow-hidden my-4'>
                 <Skeleton className='w-full h-full' />
             </section>
 
