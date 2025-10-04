@@ -1,3 +1,8 @@
-# Supps Store
+# Ecommerce Frontend
 
-cd /home/crafted/public_html/ahmdadl/supps/store-repo && ./prod
+## Installation
+
+```bash
+yarn install
+yarn dev
+```
